@@ -37,6 +37,38 @@
             box-shadow: 0 6px 20px rgba(183, 148, 45, 0.7);
             outline: none;
         }
+
+/* Partner Logos */
+        .partner-logo {
+            height: 120px;
+            width: auto;
+            object-fit: contain;
+            user-select: none;
+            pointer-events: none;
+            transition: transform 0.5s ease;
+            filter: brightness(1) contrast(1.1);
+            opacity: 0.95;
+        }
+        .partner-logo:hover {
+            transform: scale(1.15);
+            filter: brightness(1.1) contrast(1.2);
+            opacity: 1;
+        }
+        .partners-scroll-wrapper {
+            overflow: hidden;
+            width: 100%;
+        }
+        .partners-scroll {
+            display: flex;
+            align-items: center;
+            white-space: nowrap;
+            gap: 4rem;
+            animation: scroll-horizontal 30s linear infinite;
+        }
+        @keyframes scroll-horizontal {
+            0% { transform: translateX(0%);}
+            100% { transform: translateX(-50%);}
+        }
             /* Navigation Buttons Styling */
         .nav-arrow-button {
             position: fixed;
