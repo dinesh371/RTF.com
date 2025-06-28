@@ -1,0 +1,929 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Rajasthan Travel Fair 2025 - Jodhpur</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap"
+        rel="stylesheet" />
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        /* Responsive improvements for nav */
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            background: rgba(255, 215, 0, 0.98);
+        }
+        .nav-link {
+            transition: color 0.2s;
+        }
+        .btn-gold {
+            background: linear-gradient(90deg, #D4AF37 0%, #F0D878 100%);
+            color: #1B2A57;
+            font-weight: 600;
+            padding: 0.75rem 2.5rem;
+            border-radius: 9999px;
+            box-shadow: 0 4px 14px rgba(212, 175, 55, 0.5);
+            transition: all 0.3s ease;
+        }
+        .btn-gold:hover,
+        .btn-gold:focus {
+            background: linear-gradient(90deg, #b7942d 0%, #d9be52 100%);
+            box-shadow: 0 6px 20px rgba(183, 148, 45, 0.7);
+            outline: none;
+        }
+        /* Partner Logos */
+        .partner-logo {
+            height: 120px;
+            width: auto;
+            object-fit: contain;
+            user-select: none;
+            pointer-events: none;
+            transition: transform 0.5s ease;
+            filter: brightness(1) contrast(1.1);
+            opacity: 0.95;
+        }
+        .partner-logo:hover {
+            transform: scale(1.15);
+            filter: brightness(1.1) contrast(1.2);
+            opacity: 1;
+        }
+        .partners-scroll-wrapper {
+            overflow: hidden;
+            width: 100%;
+        }
+        .partners-scroll {
+            display: flex;
+            align-items: center;
+            white-space: nowrap;
+            gap: 4rem;
+            animation: scroll-horizontal 30s linear infinite;
+        }
+        @keyframes scroll-horizontal {
+            0% { transform: translateX(0%);}
+            100% { transform: translateX(-50%);}
+        }
+        /* Navigation Buttons Styling */
+        .nav-arrow-button {
+            position: fixed;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgb(241, 199, 11);
+            color: #1B2A57;
+            border: none;
+            padding: 1rem;
+            cursor: pointer;
+            z-index: 40;
+            border-radius: 9999px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            font-size: 2rem;
+            font-weight: bold;
+        }
+        .nav-arrow-button:hover {
+            background-color: #F0D878;
+            color: #1B2A57;
+            transform: translateY(-50%) scale(1.1);
+        }
+        .nav-arrow-button.left { left: 1rem; }
+        .nav-arrow-button.right { right: 1rem; }
+        /* Modal improvements */
+        #modal .rounded-3xl {
+            max-width: 95vw;
+        }
+        /* Responsive tweaks */
+        @media (max-width: 1280px) {
+            .max-w-7xl, .container { max-width: 100vw !important; }
+        }
+        @media (max-width: 1024px) {
+            .partner-logo { height: 80px; }
+            .partners-scroll { gap: 2rem; }
+            .max-w-7xl, .container { max-width: 100vw !important; }
+        }
+        @media (max-width: 768px) {
+            .partner-logo { height: 60px; }
+            .partners-scroll { gap: 1.5rem; }
+            nav .container { flex-direction: column; align-items: flex-start; }
+            .max-w-7xl, .container { max-width: 100vw !important; }
+        }
+        @media (max-width: 640px) {
+            .partner-logo { height: 40px; }
+            .partners-scroll { gap: 1rem; }
+            nav .container { flex-direction: column; align-items: flex-start; }
+            nav .text-3xl { font-size: 1.3rem; }
+            nav .bg-yellow-400 { font-size: 0.9rem; padding: 0.2rem 0.7rem; }
+            .btn-gold { padding: 0.5rem 1.2rem; font-size: 0.95rem; }
+            .max-w-7xl, .container { max-width: 100vw !important; }
+            .page-section { padding-left: 0.5rem !important; padding-right: 0.5rem !important; }
+        }
+        @media (max-width: 480px) {
+            .partner-logo { height: 28px; }
+            .btn-gold { padding: 0.4rem 0.8rem; font-size: 0.85rem; }
+            .max-w-7xl, .container { max-width: 100vw !important; }
+        }
+        /* Ensure horizontal scroll for tables on mobile */
+        .itinerary-table, .b2c-table {
+            width: 100%;
+            min-width: 600px;
+        }
+        @media (max-width: 640px) {
+            .itinerary-table, .b2c-table {
+                min-width: 400px;
+            }
+        }
+        /* Make images and videos responsive */
+        img, video {
+            max-width: 100%;
+            height: auto;
+        }
+        /* Section padding for mobile */
+        @media (max-width: 640px) {
+            .page-section {
+                padding-top: 1.5rem !important;
+                padding-bottom: 1.5rem !important;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 m-0 p-0 relative">
+    <!-- Modal -->
+    <div id="modal"
+        class="fixed inset-0 hidden z-50 flex items-center justify-center bg-[rgba(0,0,50,0.6)] backdrop-blur-sm px-2">
+        <div
+            class="bg-[#fff9f0] dark:bg-gray-900 rounded-3xl shadow-2xl max-w-3xl w-full p-6 max-h-[90vh] overflow-auto">
+            <div class="flex justify-between items-center border-b border-gray-300 dark:border-gray-700 pb-4">
+                <h2 class="text-2xl md:text-3xl font-extrabold text-[#1B2A57] dark:text-white tracking-wide">
+                    Register for Rajasthan Travel Fair 2025
+                </h2>
+                <button onclick="toggleModal()" aria-label="Close modal"
+                    class="text-gray-400 hover:text-red-600 transition duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-red-500 rounded">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+            </div>
+            <div class="mt-6 space-y-6 text-center">
+                <h3 class="text-xl md:text-2xl font-semibold text-[#1B2A57] dark:text-gray-200">Choose Registration Type</h3>
+                <p class="text-gray-700 dark:text-gray-400 max-w-xl mx-auto">Select the category below in order to proceed.</p>
+                <div class="flex flex-col md:flex-row justify-center items-center gap-4 mt-6">
+                    <button
+                        onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLSeH6urpqQlcXGCuUMk6iw_4iRMi9W_s5ZSNqGxX981mxZhsZA/viewform', '_blank')"
+                        class="bg-gradient-to-r from-[#2C3E91] to-[#4A6CF7] hover:from-[#24347a] hover:to-[#3f5fe3] text-white font-semibold px-6 py-2 rounded-2xl shadow-lg transform hover:scale-105 transition-transform duration-300 text-sm md:text-base">
+                        Exhibitor/Buyer Registration 
+                    </button>
+                    <button
+                        onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLSdSDGriMErGWUUgVItCZR4q6L7ncu6vYY8F-1-CssUe7TXI-w/viewform', '_blank')"
+                        class="bg-gradient-to-r from-[#D4AF37] to-[#F0D878] hover:from-[#b7942d] hover:to-[#d9be52] text-[#1B2A57] font-semibold px-6 py-2 rounded-2xl shadow-lg transform hover:scale-105 transition-transform duration-300 text-sm md:text-base">
+                        Contest & Competition Registration
+                    </button>
+                </div>
+                <button onclick="toggleModal()"
+                    class="mt-4 text-sm text-gray-600 dark:text-gray-400 hover:text-red-600 dark:hover:text-red-500 underline transition duration-300">
+                    Cancel
+                </button>
+            </div>
+        </div>
+    </div>
+    <!-- Navigation Bar -->
+    <nav class="bg-[#FFD700] text-black p-3 md:p-4 shadow-md sticky top-0 z-50">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="flex items-center gap-2">
+                <span class="text-2xl md:text-3xl font-extrabold tracking-wide">RTF-2025</span>
+                <span class="bg-yellow-400 text-blue-900 px-2 md:px-3 py-1 rounded-full font-semibold text-xs md:text-sm select-none">JODHPUR</span>
+            </div>
+            <div class="hidden md:flex space-x-4 lg:space-x-8 text-base md:text-lg font-medium tracking-wide">
+                <a href="#" class="nav-link hover:text-yellow-300 transition" data-target="home">Home</a>
+                <a href="#" class="nav-link hover:text-yellow-300 transition" data-target="about">About</a>
+                <a href="#" class="nav-link hover:text-yellow-300 transition" data-target="attractions">Jodhpur</a>
+                <a href="#" class="nav-link hover:text-yellow-300 transition" data-target="itinerary">Itinerary</a>
+                <a href="#" class="nav-link hover:text-yellow-300 transition" data-target="committee">Committee</a>
+                <a href="#" class="nav-link hover:text-yellow-300 transition" data-target="partners">Partners</a>
+                <a href="#" class="nav-link hover:text-yellow-300 transition" data-target="Exhibition-layout">Exhibition-layout</a>
+                <button onclick="toggleModal()"
+                    class="hover:text-yellow-300 transition cursor-pointer bg-yellow-400 text-blue-900 px-3 py-1 rounded-full font-semibold ml-2 shadow-md hover:shadow-lg transition-shadow duration-300 btn-gold text-sm md:text-base">
+                    Register
+                </button>
+            </div>
+            <div class="md:hidden">
+                <button id="menu-toggle" class="focus:outline-none">
+                    <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu"
+            class="md:hidden hidden flex-col w-full bg-gradient-to-b from-blue-900 to-blue-800 px-4 py-6 rounded-b-xl shadow-xl space-y-3 text-base font-medium tracking-wide text-white transition-all duration-300 ease-in-out z-40">
+            <a href="#" class="nav-link block px-4 py-2 rounded-lg bg-blue-700 hover:bg-yellow-300 hover:text-blue-900 transition duration-300 break-words whitespace-normal" data-target="home" title="Home">🏠 Home</a>
+            <a href="#" class="nav-link block px-4 py-2 rounded-lg bg-blue-700 hover:bg-yellow-300 hover:text-blue-900 transition duration-300 break-words whitespace-normal" data-target="about" title="About the Event and Details">ℹ️ About</a>
+            <a href="#" class="nav-link block px-4 py-2 rounded-lg bg-blue-700 hover:bg-yellow-300 hover:text-blue-900 transition duration-300 break-words whitespace-normal" data-target="attractions" title="Explore Attractions in Jodhpur">📍 Jodhpur</a>
+            <a href="#" class="nav-link block px-4 py-2 rounded-lg bg-blue-700 hover:bg-yellow-300 hover:text-blue-900 transition duration-300 break-words whitespace-normal" data-target="itinerary" title="Full Itinerary">🗓️ Itinerary</a>
+            <a href="#" class="nav-link block px-4 py-2 rounded-lg bg-blue-700 hover:bg-yellow-300 hover:text-blue-900 transition duration-300 break-words whitespace-normal" data-target="committee" title="Organizing Committee Members">👥 Committee</a>
+            <a href="#" class="nav-link block px-4 py-2 rounded-lg bg-blue-700 hover:bg-yellow-300 hover:text-blue-900 transition duration-300 break-words whitespace-normal" data-target="partners" title="Event Partners & Sponsors">🤝 Partners</a>
+            <a href="#" class="nav-link block px-4 py-2 rounded-lg bg-blue-700 hover:bg-yellow-300 hover:text-blue-900 transition duration-300 break-words whitespace-normal" data-target="Exhibition-layout" title="Exhibition Layout">🗺️ Exhibition-layout</a>
+            <button onclick="toggleModal()"
+                class="block w-full text-center bg-yellow-400 text-blue-900 px-4 py-3 rounded-xl font-semibold shadow-md hover:bg-yellow-300 hover:shadow-lg transition duration-300 mt-2">
+                🚀 Register Now
+            </button>
+        </div>
+    </nav>
+
+   <!-- Background Video -->
+<div id="page-container" class="relative">
+
+  <!-- Home Section -->
+  <section id="home"
+    class="page-section active min-h-screen flex flex-col justify-center items-center relative z-10 text-center text-white select-none font-poppins pt-24 pb-12 px-4 sm:px-6 md:px-12">
+    <video autoplay muted loop playsinline class="absolute inset-0 w-full h-full object-cover -z-10">
+      <source src="vedios/jot.mp4" type="video/mp4" />
+    </video>
+    <div class="absolute inset-0 bg-gradient-to-b from-[#c15d3a99] via-[#1b2a57cc] to-[#1b2a57ee] -z-10"></div>
+
+    <!-- Logo -->
+    <div class="max-w-3xl mx-auto mb-4">
+      <img src="images/logo.jpg" alt="RTF Logo"
+        class="w-40 sm:w-56 md:w-64 h-auto mx-auto rounded-xl shadow-2xl transition-transform duration-700 ease-in-out hover:scale-110 hover:rotate-3"
+        style="filter: drop-shadow(0 6px 15px rgba(223, 139, 14, 0.9)); image-rendering: -webkit-optimize-contrast;" />
+    </div>
+
+    <!-- Dates -->
+    <p class="text-2xl sm:text-3xl md:text-4xl font-semibold mb-6 tracking-wide drop-shadow-lg">
+      September 25–29, 2025
+    </p>
+
+    <!-- Countdown -->
+    <div class="flex flex-wrap justify-center gap-4 sm:gap-6 mb-10 text-yellow-300">
+      <div class="countdown-item text-center w-20">
+        <div class="text-3xl sm:text-4xl md:text-5xl font-bold" id="days">365</div>
+        <div class="text-xs uppercase tracking-wider font-semibold">Days</div>
+      </div>
+      <div class="countdown-item text-center w-20">
+        <div class="text-3xl sm:text-4xl md:text-5xl font-bold" id="hours">24</div>
+        <div class="text-xs uppercase tracking-wider font-semibold">Hours</div>
+      </div>
+      <div class="countdown-item text-center w-20">
+        <div class="text-3xl sm:text-4xl md:text-5xl font-bold" id="minutes">60</div>
+        <div class="text-xs uppercase tracking-wider font-semibold">Minutes</div>
+      </div>
+      <div class="countdown-item text-center w-20">
+        <div class="text-3xl sm:text-4xl md:text-5xl font-bold" id="seconds">60</div>
+        <div class="text-xs uppercase tracking-wider font-semibold">Seconds</div>
+      </div>
+    </div>
+
+    <!-- Register Button -->
+    <div class="mt-4">
+      <button onclick="toggleModal()"
+        class="btn-gold px-6 py-2 rounded-full text-sm sm:text-base md:text-lg font-semibold shadow-lg hover:shadow-xl transition">
+        Register Now
+      </button>
+    </div>
+  </section>
+<!-- About Section -->
+<section id="about"
+    class="page-section relative w-full min-h-screen flex items-center justify-center overflow-hidden text-white pt-12 pb-12 bg-gray-900 bg-cover bg-center"
+    style="background-image: url('images/ChatGPT Image Jun 8, 2025, 11_23_22 PM.png');">
+    <video autoplay muted loop playsinline class="absolute inset-0 w-full h-full object-cover -z-10">
+        <source src="vedios/about.mp4" type="video/mp4" />
+    </video>
+    <div class="absolute inset-0 bg-black/60 -z-10"></div>
+
+    <div class="z-10 w-full max-w-7xl mx-auto flex flex-col gap-8">
+        <!-- Heading -->
+        <div class="text-center mb-4 px-2">
+            <h1 class="text-4xl md:text-5xl font-bold">Welcome to Jodhpur</h1>
+            <p class="mt-3 text-lg md:text-xl">Explore the rich heritage and stunning architecture</p>
+        </div>
+
+        <!-- About Content & Slider -->
+        <div class="flex flex-col lg:flex-row gap-10 items-center justify-center px-2 sm:px-6 md:px-12">
+            <!-- About Content -->
+            <div class="w-full lg:w-1/2 text-left space-y-6 bg-white/20 p-10 rounded-3xl backdrop-blur-xl shadow-2xl border border-yellow-200">
+                <p class="text-xl text-gray-100 font-medium leading-relaxed">
+                    The event is planned, hosted and organised by <span class="font-bold text-yellow-300">India Outtabox Pvt Ltd</span> &amp; <span class="font-bold text-yellow-300">Tours Director</span>.<br>
+                    Two of the travel agencies based out of Jodhpur, that aim to promote the growth of Travel Agents and Tourism across the country.
+                </p>
+                <p>
+                    Having served the industry for years, this year, as a gesture of gratitude and commitment to our industry, we have chosen a meaningful way to give back on the most appropriate day for the industry - <span class="font-semibold text-yellow-200">World Tourism Day, September 27th, 2025</span>.
+                </p>
+            </div>
+            <!-- Image Slider -->
+            <div class="w-full lg:w-1/2 flex flex-row items-center justify-center gap-6">
+                <button onclick="changeSlide(-1)" aria-label="Previous Slide"
+                    class="text-3xl font-bold bg-yellow-200/80 text-yellow-900 p-3 rounded-full shadow-lg hover:bg-yellow-400 hover:text-white transition duration-200">
+                    ❮
+                </button>
+                <div class="w-full max-w-[520px] h-[360px] rounded-2xl overflow-hidden border-4 border-yellow-300/60 shadow-2xl relative bg-white/30">
+                    <img id="slideImage" src="images/Venue Photos/19.jpeg" alt="Slide"
+                        class="w-full h-full object-cover absolute inset-0 transition-opacity duration-700 ease-in-out opacity-100" />
+                </div>
+                <button onclick="changeSlide(1)" aria-label="Next Slide"
+                    class="text-3xl font-bold bg-yellow-200/80 text-yellow-900 p-3 rounded-full shadow-lg hover:bg-yellow-400 hover:text-white transition duration-200">
+                    ❯
+                </button>
+            </div>
+        </div>
+
+        <!-- Feature Cards -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 px-2 sm:px-6 md:px-12 py-10">
+            <div class="bg-white/90 p-8 rounded-2xl shadow-xl hover:scale-105 transition-transform duration-300 flex flex-col items-center border border-yellow-100">
+                <div class="text-yellow-600 mb-4 flex justify-center">
+                    <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                    </svg>
+                </div>
+                <h4 class="text-xl font-semibold text-center mb-2 text-yellow-900">Luxury Hotels</h4>
+                <p class="text-center text-gray-700 text-base">Connect with the finest luxury accommodations in Rajasthan.</p>
+            </div>
+            <div class="bg-white/90 p-8 rounded-2xl shadow-xl hover:scale-105 transition-transform duration-300 flex flex-col items-center border border-blue-100">
+                <div class="text-blue-700 mb-4 flex justify-center">
+                    <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
+                    </svg>
+                </div>
+                <h4 class="text-xl font-semibold text-center mb-2 text-blue-900">Global Network</h4>
+                <p class="text-center text-gray-700 text-base">Network with top travel agencies from around the world.</p>
+            </div>
+            <div class="bg-white/90 p-8 rounded-2xl shadow-xl hover:scale-105 transition-transform duration-300 flex flex-col items-center border border-orange-100">
+                <div class="text-orange-600 mb-4 flex justify-center">
+                    <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M12 11c0 3.517-1.009 6.799-2.753 9.571m-3.44-2.04l.054-.09A13.916 13.916 0 008 11a4 4 0 118 0c0 1.017-.07 2.019-.203 3m-2.118 6.844A21.88 21.88 0 0015.171 17m3.839 1.132c.645-2.266.99-4.659.99-7.132A8 8 0 008 4.07M3 15.364c.64-1.319 1-2.8 1-4.364 0-1.457.39-2.823 1.07-4" />
+                    </svg>
+                </div>
+                <h4 class="text-xl font-semibold text-center mb-2 text-orange-900">Cultural Heritage</h4>
+                <p class="text-center text-gray-700 text-base">Explore Rajasthan’s rich cultural traditions and art forms.</p>
+            </div>
+            <div class="bg-white/90 p-8 rounded-2xl shadow-xl hover:scale-105 transition-transform duration-300 flex flex-col items-center border border-pink-100">
+                <div class="text-pink-600 mb-4 flex justify-center">
+                    <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                </div>
+                <h4 class="text-xl font-semibold text-center mb-2 text-pink-900">Experiences</h4>
+                <p class="text-center text-gray-700 text-base">Discover unforgettable travel adventures across Rajasthan.</p>
+            </div>
+        </div>
+        <style>
+            /* Responsive tweaks for About section */
+            @media (max-width: 1023px) {
+                #about .flex.flex-col.lg\:flex-row {
+                    flex-direction: column !important;
+                }
+                #about .w-full.lg\:w-1\/2 {
+                    width: 100% !important;
+                }
+                #about .text-left {
+                    text-align: center !important;
+                }
+            }
+            @media (max-width: 640px) {
+                #about .w-full.max-w-\[90vw\] {
+                    width: 100vw !important;
+                    max-width: 100vw !important;
+                }
+                #about .h-\[180px\] {
+                    height: 120px !important;
+                }
+                #about .rounded-2xl {
+                    border-radius: 0.75rem !important;
+                }
+                #about .p-6.md\:p-10 {
+                    padding: 1rem !important;
+                }
+            }
+        </style>
+    </div>
+</section>
+
+<!-- attractions -->
+
+<section id="attractions" class="page-section relative py-10 md:py-20 text-gray-900 overflow-hidden bg-gray-100">
+    <video autoplay muted loop playsinline class="absolute inset-0 w-full h-full object-cover -z-10">
+        <source src="vedios/6941_India_Indian_1920x1080.mp4" type="video/mp4" />
+    </video>
+    <div class="absolute inset-0 bg-black/50 -z-10"></div>
+    <div class="container mx-auto px-3 sm:px-6 max-w-7xl flex flex-col md:flex-row items-center justify-center gap-6 md:gap-8 relative z-10">
+        <!-- Left image for desktop only -->
+        <div class="hidden md:block flex-shrink-0 w-40 h-40 md:w-48 md:h-48">
+            <img src="images/Best-Places-to-Visit-in-Jodhpur-Rajasthan.jpg" alt="Best Places to Visit in Jodhpur, Rajasthan" class="w-full h-full object-cover rounded-2xl shadow-lg" />
+        </div>
+        <div class="max-w-2xl w-full text-center text-white">
+            <h2 class="text-3xl md:text-4xl font-bold mb-2">Discover Jodhpur</h2>
+            <span class="block h-1 w-20 md:w-28 bg-yellow-400 rounded-full mt-3 mx-auto group-hover:w-36 transition-all duration-500"></span>
+            <p class="text-base md:text-lg leading-relaxed mt-4">
+                The magnificent Blue City of Rajasthan offers a perfect blend of history, culture, and adventure.
+            </p>
+        </div>
+        <div class="hidden md:block flex-shrink-0 w-48 h-48">
+            <img src="images/Mehrangarh_Fort_sanhita.jpg" alt="Mehrangarh Fort, Jodhpur" class="w-full h-full object-cover rounded-2xl shadow-lg" />
+        </div>
+    </div>
+    <div class="container mx-auto px-2 sm:px-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12 max-w-7xl mt-12 md:mt-20 relative z-10">
+        <article class="bg-white rounded-3xl shadow-xl p-5 md:p-7 hover:shadow-2xl transition-all transform hover:-translate-y-2 hover:scale-105 flex flex-col">
+            <img src="images/Mehrangarh_Fort_sanhita.jpg" alt="Mehrangarh Fort, Jodhpur"
+                class="rounded-xl mb-4 md:mb-5 w-full h-48 md:h-64 object-cover shadow-md" loading="lazy" />
+            <h3 class="text-2xl md:text-3xl font-semibold text-blue-900 mb-2 md:mb-3">Mehrangarh Fort</h3>
+            <p class="text-gray-700 mb-3 md:mb-4 leading-relaxed text-sm md:text-base">
+                One of the largest forts in India, standing 400 feet above the city with impressive views and architecture dating back to 1459.
+            </p>
+            <span class="inline-block px-4 py-2 bg-yellow-300 text-yellow-900 rounded-full font-semibold text-xs md:text-sm shadow self-start">
+                Open: 9:00 AM - 5:00 PM
+            </span>
+        </article>
+        <article class="bg-white rounded-3xl shadow-xl p-5 md:p-7 hover:shadow-2xl transition-all transform hover:-translate-y-2 hover:scale-105 flex flex-col">
+            <img src="images/Umaid Bhawan Palace.jpg" alt="Umaid Bhawan Palace, Jodhpur"
+                class="rounded-xl mb-4 md:mb-5 w-full h-48 md:h-64 object-cover shadow-md" loading="lazy" />
+            <h3 class="text-2xl md:text-3xl font-semibold text-blue-900 mb-2 md:mb-3">Umaid Bhawan Palace</h3>
+            <p class="text-gray-700 mb-3 md:mb-4 leading-relaxed text-sm md:text-base">
+                Part royal residence, part hotel, and part museum, this magnificent palace is one of the world's largest private residences.
+            </p>
+            <span class="inline-block px-4 py-2 bg-yellow-300 text-yellow-900 rounded-full font-semibold text-xs md:text-sm shadow self-start">
+                Open: 10:00 AM - 4:30 PM
+            </span>
+        </article>
+        <article class="bg-white rounded-3xl shadow-xl p-5 md:p-7 hover:shadow-2xl transition-all transform hover:-translate-y-2 hover:scale-105 flex flex-col">
+            <img src="images/Blue city.jpeg" alt="Blue City, Jodhpur"
+                class="rounded-xl mb-4 md:mb-5 w-full h-48 md:h-64 object-cover shadow-md" loading="lazy" />
+            <h3 class="text-2xl md:text-3xl font-semibold text-blue-900 mb-2 md:mb-3">Blue City</h3>
+            <p class="text-gray-700 mb-3 md:mb-4 leading-relaxed text-sm md:text-base">
+                Explore the old city with its iconic blue-painted houses that give Jodhpur its famous nickname "The Blue City".
+                <br>
+                <span class="font-semibold text-indigo-700">Best View:</span> Climb up to Mehrangarh Fort for a breathtaking panoramic view of the Blue City below.
+            </p>
+            <span class="inline-block px-4 py-2 bg-yellow-300 text-yellow-900 rounded-full font-semibold text-xs md:text-sm shadow self-start">
+                Best viewed from Mehrangarh Fort
+            </span>
+        </article>
+    </div>
+</section>
+
+<!-- ITINERARY SECTION -->
+<section id="itinerary" class="page-section py-24 bg-gradient-to-br from-blue-100 via-white to-blue-50 text-gray-900 relative font-poppins">
+    <video autoplay muted loop playsinline 
+        class="absolute inset-0 w-full h-full object-cover -z-20"
+        src="vedios/calend.mp4"
+        type="video/mp4"></video>
+    <div class="absolute inset-0 bg-black/40 -z-10"></div>
+    <div class="container mx-auto px-2 sm:px-4 max-w-7xl relative z-10">
+        <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-indigo-900 mb-8 sm:mb-12 text-center drop-shadow-lg font-playfair">
+            Event Itinerary
+        </h1>
+        <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-blue-700 mb-6 sm:mb-8 text-center font-poppins">B2B Schedule</h2>
+        <div class="overflow-x-auto rounded-2xl shadow-2xl border border-indigo-300 bg-white">
+            <table class="min-w-full table-auto itinerary-table text-gray-900 text-xs sm:text-sm md:text-base font-poppins">
+                <thead class="bg-gradient-to-r from-indigo-700 to-blue-700 text-white uppercase tracking-wider font-semibold"></thead>
+                    <tr>
+                        <th class="px-2 sm:px-4 md:px-6 py-2 sm:py-3 md:py-4 text-center">📆 Date</th>
+                        <th class="px-2 sm:px-4 md:px-6 py-2 sm:py-3 md:py-4 text-center">⏰ Time</th>
+                        <th class="px-2 sm:px-4 md:px-6 py-2 sm:py-3 md:py-4 text-center">📌 Activity</th>
+                    </tr>
+                </thead>
+                <tbody class="divide-y divide-indigo-100">
+                    <tr class="hover:bg-blue-50 transition duration-300 cursor-pointer"></tr>
+                        <td class="px-2 sm:px-4 md:px-12 py-2 sm:py-4 md:py-6 font-semibold text-indigo-800">Sept 25</td>
+                        <td class="px-2 sm:px-4 md:px-12 py-2 sm:py-4 md:py-6">By 4 PM</td>
+                        <td class="px-2 sm:px-4 md:px-12 py-2 sm:py-4 md:py-6">🏨 Arrival &amp; Hotel Check-in</td>
+                    </tr>
+                    <tr class="hover:bg-blue-50 transition duration-300 cursor-pointer"></tr>
+                        <td></td>
+                        <td class="px-2 sm:px-4 md:px-12 py-2 sm:py-4 md:py-6">7 PM – 10 PM</td>
+                        <td class="px-2 sm:px-4 md:px-12 py-2 sm:py-4 md:py-6">🍽️ Networking Dinner &amp; 📋 Event Briefing</td>
+                    </tr>
+                    <tr class="hover:bg-blue-50 transition duration-300 cursor-pointer"></tr>
+                        <td class="px-2 sm:px-4 md:px-12 py-2 sm:py-4 md:py-6 font-semibold text-indigo-800">Sept 26</td>
+                        <td class="px-2 sm:px-4 md:px-12 py-2 sm:py-4 md:py-6">11 AM</td>
+                        <td class="px-2 sm:px-4 md:px-12 py-2 sm:py-4 md:py-6">🎤 Opening Ceremony</td>
+                    </tr>
+                    <tr class="hover:bg-blue-50 transition duration-300 cursor-pointer"></tr>
+                        <td></td>
+                        <td class="px-2 sm:px-4 md:px-12 py-2 sm:py-4 md:py-6">12 PM – 5 PM</td>
+                        <td class="px-2 sm:px-4 md:px-12 py-2 sm:py-4 md:py-6">🏢 B2B Exhibition</td>
+                    </tr>
+                    <tr class="hover:bg-blue-50 transition duration-300 cursor-pointer"></tr>
+                        <td></td>
+                        <td class="px-2 sm:px-4 md:px-12 py-2 sm:py-4 md:py-6">5 PM – 7 PM</td>
+                        <td class="px-2 sm:px-4 md:px-12 py-2 sm:py-4 md:py-6">🗣️ Talk Show: India Unexplored</td>
+                    </tr>
+                    <tr class="hover:bg-blue-50 transition duration-300 cursor-pointer"></tr>
+                        <td></td>
+                        <td class="px-2 sm:px-4 md:px-12 py-2 sm:py-4 md:py-6">7 PM – 10 PM</td>
+                        <td class="px-2 sm:px-4 md:px-12 py-2 sm:py-4 md:py-6">🤝 Networking Dinner</td>
+                    </tr>
+                    <tr class="hover:bg-blue-50 transition duration-300 cursor-pointer"></tr>
+                        <td class="px-2 sm:px-4 md:px-12 py-2 sm:py-4 md:py-6 font-semibold text-indigo-800">Sept 27</td>
+                        <td class="px-2 sm:px-4 md:px-12 py-2 sm:py-4 md:py-6">11 AM – 5 PM</td>
+                        <td class="px-2 sm:px-4 md:px-12 py-2 sm:py-4 md:py-6">🧑‍🤝‍🧑 B2B Exhibition (Open to Local Visitors - B2C)</td>
+                    </tr>
+                    <tr class="hover:bg-blue-50 transition duration-300 cursor-pointer"></tr>
+                        <td></td>
+                        <td class="px-2 sm:px-4 md:px-12 py-2 sm:py-4 md:py-6">5 PM – 10 PM</td>
+                        <td class="px-2 sm:px-4 md:px-12 py-2 sm:py-4 md:py-6">🏆 World Tourism Day Celebration, 🎖️ Award Ceremony, 🎁 Complimentary Package Draw</td>
+                    </tr>
+                    <tr class="hover:bg-blue-50 transition duration-300 cursor-pointer"></tr>
+                        <td></td>
+                        <td class="px-2 sm:px-4 md:px-12 py-2 sm:py-4 md:py-6">9 PM onwards</td>
+                        <td class="px-2 sm:px-4 md:px-12 py-2 sm:py-4 md:py-6">🍛 B2B Participants Dinner</td>
+                    </tr>
+                    <tr class="hover:bg-blue-50 transition duration-300 cursor-pointer"></tr>
+                        <td class="px-2 sm:px-4 md:px-12 py-2 sm:py-4 md:py-6 font-semibold text-indigo-800">Sept 28</td>
+                        <td class="px-2 sm:px-4 md:px-12 py-2 sm:py-4 md:py-6">9 AM – 4 PM</td>
+                        <td class="px-2 sm:px-4 md:px-12 py-2 sm:py-4 md:py-6">🏞️ Property Visit, 🚌 Local Sightseeing &amp; 🧵 Cultural Know-how</td>
+                    </tr>
+                    <tr class="hover:bg-blue-50 transition duration-300 cursor-pointer"></tr>
+                        <td></td>
+                        <td class="px-2 sm:px-4 md:px-12 py-2 sm:py-4 md:py-6">7 PM – 10 PM</td>
+                        <td class="px-2 sm:px-4 md:px-12 py-2 sm:py-4 md:py-6">❓ Quiz Contest, 🎁 Souvenir Exchange, 🎭 Cultural Program, 🎉 Closing Ceremony, 💃 Dance &amp; Dinner</td>
+                    </tr>
+                    <tr class="hover:bg-blue-50 transition duration-300 cursor-pointer"></tr>
+                        <td class="px-2 sm:px-4 md:px-12 py-2 sm:py-4 md:py-6 font-semibold text-indigo-800">Sept 29</td>
+                        <td class="px-2 sm:px-4 md:px-12 py-2 sm:py-4 md:py-6">10 AM onwards</td>
+                        <td class="px-2 sm:px-4 md:px-12 py-2 sm:py-4 md:py-6">✈️ Departure Post Breakfast</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+
+<!-- B2C SCHEDULE SECTION -->
+<section id="b2c-schedule" class="page-section py-20 bg-gradient-to-b from-white to-gray-100 relative font-poppins">
+    <video autoplay muted loop playsinline 
+        class="absolute inset-0 w-full h-full object-cover -z-20"
+        src="vedios/calend.mp4"
+        type="video/mp4"></video>
+    <div class="absolute inset-0 bg-black/40 -z-10"></div>
+    <div class="container mx-auto px-2 sm:px-4 max-w-6xl relative z-10">
+            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-yellow-600 mb-6 sm:mb-8 text-center font-poppins">B2C Schedule</h2>
+
+        <div class="overflow-x-auto rounded-2xl shadow-2xl border border-indigo-300 bg-white">
+            <table class="min-w-full b2c-table text-gray-900 text-xs sm:text-sm md:text-base font-poppins">
+                <thead class="bg-gradient-to-r from-indigo-700 to-blue-700 text-white uppercase tracking-wider font-semibold">
+                    <tr>
+                        <th class="px-2 sm:px-4 md:px-6 py-2 sm:py-3 md:py-4 text-left">Date</th>
+                        <th class="px-2 sm:px-4 md:px-6 py-2 sm:py-3 md:py-4 text-left">Time</th>
+                        <th class="px-2 sm:px-4 md:px-6 py-2 sm:py-3 md:py-4 text-left">Event</th>
+                    </tr>
+                </thead>
+                <tbody class="text-gray-900 divide-y divide-indigo-100">
+                    <tr class="hover:bg-blue-50 transition duration-300 cursor-pointer bg-blue-50">
+                        <td class="px-2 sm:px-4 md:px-6 py-2 sm:py-3 md:py-4 font-medium">September 6, 2025</td>
+                        <td class="px-2 sm:px-4 md:px-6 py-2 sm:py-3 md:py-4">4 PM Onwards</td>
+                        <td class="px-2 sm:px-4 md:px-6 py-2 sm:py-3 md:py-4">♟️ Chess Competition – Prelims / Written</td>
+                    </tr>
+                    <tr class="hover:bg-green-50 transition duration-300 cursor-pointer bg-green-50">
+                        <td class="px-2 sm:px-4 md:px-6 py-2 sm:py-3 md:py-4 font-medium">September 7, 2025</td>
+                        <td class="px-2 sm:px-4 md:px-6 py-2 sm:py-3 md:py-4">4 PM Onwards</td>
+                        <td class="px-2 sm:px-4 md:px-6 py-2 sm:py-3 md:py-4">🧠 Quiz Contest - Written</td>
+                    </tr>
+                    <tr class="hover:bg-blue-50 transition duration-300 cursor-pointer bg-blue-50">
+                        <td class="px-2 sm:px-4 md:px-6 py-2 sm:py-3 md:py-4 font-medium">September 13, 2025</td>
+                        <td class="px-2 sm:px-4 md:px-6 py-2 sm:py-3 md:py-4">2 PM – 4 PM</td>
+                        <td class="px-2 sm:px-4 md:px-6 py-2 sm:py-3 md:py-4">♟️ Chess Competition</td>
+                    </tr>
+                    <tr class="hover:bg-green-50 transition duration-300 cursor-pointer bg-green-50">
+                        <td></td>
+                        <td class="px-2 sm:px-4 md:px-6 py-2 sm:py-3 md:py-4">6 PM – 8 PM</td>
+                        <td class="px-2 sm:px-4 md:px-6 py-2 sm:py-3 md:py-4">🧠 Inter School Quiz Contest - Written Exam</td>
+                    </tr>
+                    <tr class="hover:bg-green-50 transition duration-300 cursor-pointer bg-green-50">
+                        <td class="px-2 sm:px-4 md:px-6 py-2 sm:py-3 md:py-4 font-medium">September 14, 2025</td>
+                        <td class="px-2 sm:px-4 md:px-6 py-2 sm:py-3 md:py-4">2 PM Onwards</td>
+                        <td class="px-2 sm:px-4 md:px-6 py-2 sm:py-3 md:py-4">🧠 Quiz Quarter Finals</td>
+                    </tr>
+                    <tr class="hover:bg-blue-50 transition duration-300 cursor-pointer bg-blue-50">
+                        <td></td>
+                        <td class="px-2 sm:px-4 md:px-6 py-2 sm:py-3 md:py-4">4 PM Onwards</td>
+                        <td class="px-2 sm:px-4 md:px-6 py-2 sm:py-3 md:py-4">♟️ Chess Quarter Finals</td>
+                    </tr>
+                    <tr class="hover:bg-purple-50 transition duration-300 cursor-pointer bg-purple-50">
+                        <td class="px-2 sm:px-4 md:px-6 py-2 sm:py-3 md:py-4 font-medium">September 20, 2025</td>
+                        <td class="px-2 sm:px-4 md:px-6 py-2 sm:py-3 md:py-4">3 PM Onwards</td>
+                        <td class="px-2 sm:px-4 md:px-6 py-2 sm:py-3 md:py-4">🎤 Auditions – Singing Competition</td>
+                    </tr>
+                    <tr class="hover:bg-purple-50 transition duration-300 cursor-pointer bg-purple-50">
+                        <td></td>
+                        <td class="px-2 sm:px-4 md:px-6 py-2 sm:py-3 md:py-4">—</td>
+                        <td class="px-2 sm:px-4 md:px-6 py-2 sm:py-3 md:py-4">🎭 Auditions 1 – Stand-up Comedians</td>
+                    </tr>
+                    <tr class="hover:bg-purple-50 transition duration-300 cursor-pointer bg-purple-50">
+                        <td class="px-2 sm:px-4 md:px-6 py-2 sm:py-3 md:py-4 font-medium">September 21, 2025</td>
+                        <td class="px-2 sm:px-4 md:px-6 py-2 sm:py-3 md:py-4">1 PM Onwards</td>
+                        <td class="px-2 sm:px-4 md:px-6 py-2 sm:py-3 md:py-4">💃 Auditions – Dancing Competition</td>
+                    </tr>
+                    <tr class="hover:bg-purple-50 transition duration-300 cursor-pointer bg-purple-50">
+                        <td></td>
+                        <td class="px-2 sm:px-4 md:px-6 py-2 sm:py-3 md:py-4">—</td>
+                        <td class="px-2 sm:px-4 md:px-6 py-2 sm:py-3 md:py-4">🎭 Auditions 2 – Stand-up Comedians</td>
+                    </tr>
+                    <tr class="hover:bg-yellow-50 transition duration-300 cursor-pointer bg-yellow-50">
+                        <td class="px-2 sm:px-4 md:px-6 py-2 sm:py-3 md:py-4 font-medium">September 27, 2025</td>
+                        <td class="px-2 sm:px-4 md:px-6 py-2 sm:py-3 md:py-4">10 AM – 4 PM</td>
+                        <td class="px-2 sm:px-4 md:px-6 py-2 sm:py-3 md:py-4">🎨 Painting Exhibition</td>
+                    </tr>
+                    <tr class="hover:bg-blue-50 transition duration-300 cursor-pointer bg-blue-50">
+                        <td></td>
+                        <td class="px-2 sm:px-4 md:px-6 py-2 sm:py-3 md:py-4">11 AM – 12 Noon</td>
+                        <td class="px-2 sm:px-4 md:px-6 py-2 sm:py-3 md:py-4">♟️ Chess Final Round</td>
+                    </tr>
+                    <tr class="hover:bg-purple-50 transition duration-300 cursor-pointer bg-purple-50">
+                        <td></td>
+                        <td class="px-2 sm:px-4 md:px-6 py-2 sm:py-3 md:py-4">12:30 PM – 2:30 PM</td>
+                        <td class="px-2 sm:px-4 md:px-6 py-2 sm:py-3 md:py-4">💃 Dance Final Round</td>
+                    </tr>
+                    <tr class="hover:bg-purple-50 transition duration-300 cursor-pointer bg-purple-50">
+                        <td></td>
+                        <td class="px-2 sm:px-4 md:px-6 py-2 sm:py-3 md:py-4">3 PM – 5 PM</td>
+                        <td class="px-2 sm:px-4 md:px-6 py-2 sm:py-3 md:py-4">🎤 Singing & 🎭 Stand-up Comedy Finals</td>
+                    </tr>
+                    <tr class="hover:bg-green-50 transition duration-300 cursor-pointer bg-green-50">
+                        <td></td>
+                        <td class="px-2 sm:px-4 md:px-6 py-2 sm:py-3 md:py-4">6 PM – 8 PM</td>
+                        <td class="px-2 sm:px-4 md:px-6 py-2 sm:py-3 md:py-4">🧠 Quiz Final</td>
+                    </tr>
+                    <tr class="hover:bg-yellow-100 transition duration-300 cursor-pointer bg-yellow-100">
+                        <td></td>
+                        <td class="px-2 sm:px-4 md:px-6 py-2 sm:py-3 md:py-4">8 PM – 10 PM</td>
+                        <td class="px-2 sm:px-4 md:px-6 py-2 sm:py-3 md:py-4">🎓 Award Ceremony & Cultural Show</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+<style>
+    /* Font families for professional look */
+    #itinerary, #b2c-schedule {
+        font-family: 'Poppins', 'Segoe UI', Arial, sans-serif;
+    }
+    #itinerary h1, #b2c-schedule h2 {
+        font-family: 'Playfair Display', serif;
+        letter-spacing: 1px;
+    }
+    /* Table header for clarity */
+    .itinerary-table th, .b2c-table th {
+        font-size: 1rem;
+        font-weight: 700;
+        letter-spacing: 0.04em;
+        background: linear-gradient(90deg, #3b82f6 0%, #6366f1 100%);
+        color: #fff;
+        border-bottom: 2px solid #e0e7ff;
+    }
+    /* Table rows for readability */
+    .itinerary-table td, .b2c-table td {
+        font-size: 0.98rem;
+        color: #1e293b;
+        background: transparent;
+    }
+    /* Zebra striping for rows */
+    .itinerary-table tbody tr:nth-child(even),
+    .b2c-table tbody tr:nth-child(even) {
+        background-color: #f1f5f9;
+    }
+    .itinerary-table tbody tr:nth-child(odd),
+    .b2c-table tbody tr:nth-child(odd) {
+        background-color: #fff;
+    }
+    /* Responsive tweaks */
+    @media (max-width: 640px) {
+        #itinerary h1, #b2c-schedule h2 {
+            font-size: 1.5rem !important;
+        }
+        .itinerary-table th, .b2c-table th {
+            font-size: 0.95rem;
+            padding: 0.5rem 0.5rem;
+        }
+        .itinerary-table td, .b2c-table td {
+            font-size: 0.92rem;
+            padding: 0.5rem 0.5rem;
+        }
+        .itinerary-table, .b2c-table {
+            font-size: 0.92rem;
+        }
+    }
+    @media (max-width: 400px) {
+        #itinerary h1, #b2c-schedule h2 {
+            font-size: 1.1rem !important;
+        }
+        .itinerary-table th, .b2c-table th,
+        .itinerary-table td, .b2c-table td {
+            font-size: 0.85rem;
+            padding: 0.3rem 0.3rem;
+        }
+    }
+</style>
+<!-- Committee Section -->
+<section id="committee" class="page-section relative py-24 bg-cover bg-center" style="background-image: linear-gradient(135deg, rgba(27,42,87,0.92) 0%, rgba(193,93,58,0.85) 100%), url('images/bg/pattern-committee.jpg'); font-family: 'Poppins', 'Segoe UI', Arial, sans-serif;">
+    <video autoplay muted loop playsinline class="absolute inset-0 w-full h-full object-cover -z-10">
+        <source src="vedios/committee.mp4" type="video/mp4" />
+    </video>
+    <div class="absolute inset-0 bg-gradient-to-br from-[#1b2a57cc] via-[#c15d3a99] to-[#ffd70099] -z-10"></div>
+    <div class="relative z-10 max-w-6xl mx-auto text-center px-4">
+        <h2 class="text-4xl md:text-5xl font-bold text-[#FFD700] mb-10 tracking-wide" style="font-family: 'Playfair Display', serif;">Organizing Committee</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-8 md:gap-12 justify-center">
+            <div class="bg-white/90 rounded-2xl p-7 shadow-xl hover:scale-105 transition-transform duration-300 backdrop-blur-md flex flex-col items-center border border-[#FFD700]">
+                <img src="images/Members Pics/Mr. Vinny Williams.jpeg" alt="VINNY K WILLIAMS" class="rounded-xl shadow-lg w-40 h-40 object-cover mb-4 border-4 border-[#1B2A57]" />
+                <p class="text-xl md:text-2xl font-semibold text-[#1B2A57] mb-1">Mr. VINNY K WILLIAMS</p>
+                <p class="text-xs md:text-sm uppercase text-[#c15d3a] mb-1 tracking-wider font-bold">President</p>
+                <p class="text-base text-gray-700 font-medium">(M) 9660061777</p>
+            </div>
+            <div class="bg-white/90 rounded-2xl p-7 shadow-xl hover:scale-105 transition-transform duration-300 backdrop-blur-md flex flex-col items-center border border-[#FFD700]">
+                <img src="images/Members Pics/Mr. Narendra Singh.jpeg" alt="Mr. Narendra Singh" class="rounded-xl shadow-lg w-40 h-40 object-cover mb-4 border-4 border-[#1B2A57]" />
+                <p class="text-xl md:text-2xl font-semibold text-[#1B2A57] mb-1">Mr. NARENDRA SINGH</p>
+                <p class="text-xs md:text-sm uppercase text-[#c15d3a] mb-1 tracking-wider font-bold">Treasurer</p>
+                <p class="text-base text-gray-700 font-medium">(M) 9829742233</p>
+            </div>
+        </div>
+    </div>
+    <style>
+        #committee {
+            font-family: 'Poppins', 'Segoe UI', Arial, sans-serif;
+        }
+        #committee h2 {
+            font-family: 'Playfair Display', serif;
+            letter-spacing: 1px;
+        }
+        @media (max-width: 640px) {
+            #committee .grid {
+                gap: 1.5rem !important;
+            }
+            #committee img {
+                width: 90px !important;
+                height: 90px !important;
+            }
+            #committee .p-7 {
+                padding: 1.25rem !important;
+            }
+            #committee h2 {
+                font-size: 2rem !important;
+            }
+            #committee .text-xl {
+                font-size: 1.1rem !important;
+            }
+        }
+    </style>
+</section>
+
+<!-- Partners Section -->
+<section id="partners" class="page-section partners-section py-30 mt-30 rounded-lg shadow-xl relative" style="background: linear-gradient(135deg, #1B2A57 0%, #c15d3a 100%);">
+
+    <div class="absolute inset-0 bg-black/50 -z-10"></div>
+    <div class="relative z-10 max-w-5xl mx-auto text-center">
+        <!-- Add extra space above the heading -->
+        <div class="h-10"></div>
+        <h2 class="text-4xl font-bold mb-10 text-white tracking-wider">Our Partners</h2>
+        <!-- Add extra space below the heading -->
+        <div class="h-6"></div>
+        <div class="partners-scroll-wrapper py-8">
+            <div class="partners-scroll">
+                <img src="images/partner pic/partner.jpg" alt="Partner 1" class="partner-logo mx-8" />
+                <img src="images/partner pic/ADTOI Logo.jpeg" alt="Partner 2" class="partner-logo mx-8" />
+                <img src="images/partner pic/GTTAA Logo.jpeg" alt="Partner 3" class="partner-logo mx-8" />
+                <img src="images/partner pic/IATO Logo.jpeg" alt="Partner 4" class="partner-logo mx-8" />
+                <!-- Duplicate for seamless scroll -->
+                <img src="images/partner pic/partner.jpg" alt="Partner 1" class="partner-logo mx-8" />
+                <img src="images/partner pic/ADTOI Logo.jpeg" alt="Partner 2" class="partner-logo mx-8" />
+                <img src="images/partner pic/GTTAA Logo.jpeg" alt="Partner 3" class="partner-logo mx-8" />
+                <img src="images/partner pic/IATO Logo.jpeg" alt="Partner 4" class="partner-logo mx-8" />
+            </div>
+        </div>
+        <!-- Add extra space below the logos -->
+        <div class="h-10"></div>
+    </div>
+</section>
+<!-- Exhibition Layout Section -->
+<section id="Exhibition-layout" class="page-section py-30 mt-30 bg-gradient-to-br from-yellow-100 via-yellow-300 to-yellow-500 rounded-lg shadow-xl relative overflow-hidden">
+    <div class="absolute inset-0 bg-yellow-900/30 -z-10"></div>
+    <div class="relative z-10 max-w-4xl mx-auto text-center">
+        <h2 class="text-4xl font-bold mb-8 text-gray-900">Exhibition Layout</h2>
+        <img src="images/exhibition-layout.jpg" alt="Exhibition Layout" class="mx-auto rounded-xl shadow-lg border-4 border-yellow-300/40" />
+    </div>
+</section>
+
+</div>
+    <!-- Footer Section -->
+<footer class="bg-gray-900 text-gray-300 px-4 py-10 md:px-8 lg:px-16">
+  <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-10">
+
+    <!-- Left: About & Contact -->
+    <div class="lg:col-span-2 space-y-8">
+
+      <!-- About -->
+      <div>
+        <h3 class="text-2xl font-bold text-white mb-2">About Us</h3>
+        <p class="text-sm leading-relaxed text-gray-400">
+          We are a trusted technology partner delivering innovative solutions to empower your business and drive digital transformation.
+        </p>
+      </div>
+
+      <!-- Contact Info -->
+      <div>
+        <h3 class="text-2xl font-bold text-white mb-4">Contact Information</h3>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 text-sm">
+
+          <!-- Block 1 -->
+          <div>
+            <h4 class="text-base font-semibold text-white mb-1">India Outtabox Pvt Ltd</h4>
+            <p><b>Phone:</b> +91 9166222900 / 9660061777</p>
+            <p class="mt-1"><b>Email:</b></p>
+            <a href="mailto:info@indiaouttabox.com" class="block text-indigo-300 hover:text-indigo-400">info@indiaouttabox.com</a>
+            <a href="mailto:indiaouttabox@gmail.com" class="block text-indigo-300 hover:text-indigo-400">indiaouttabox@gmail.com</a>
+            <p class="mt-2"><b>Address:</b><br>D-1A, Sir Pratap Colony,<br>Near Paanch Batti, Jodhpur - 342011</p>
+          </div>
+
+          <!-- Block 2 -->
+          <div>
+            <h4 class="text-base font-semibold text-white mb-1">Rajasthan Travel Fair</h4>
+            <p><b>Phone:</b> +91 9166222900 / 9660061777</p>
+            <p class="mt-1"><b>Email:</b></p>
+            <a href="mailto:info@rajasthantravelfair.com" class="block text-indigo-300 hover:text-indigo-400">info@rajasthantravelfair.com</a>
+            <a href="mailto:rajasthantravelfair2025@gmail.com" class="block text-indigo-300 hover:text-indigo-400">rajasthantravelfair2025@gmail.com</a>
+            <p class="mt-2"><b>Address:</b><br>D-1A, Sir Pratap Colony,<br>Near Paanch Batti, Jodhpur - 342011</p>
+          </div>
+
+          <!-- Block 3 -->
+          <div>
+            <h4 class="text-base font-semibold text-white mb-1">Tours Director</h4>
+            <p><b>Phone:</b> +91 98297 42233</p>
+            <p class="mt-1"><b>Email:</b></p>
+            <a href="mailto:info@toursdirector.com" class="block text-indigo-300 hover:text-indigo-400">info@toursdirector.com</a>
+            <p class="mt-2"><b>Address:</b><br>38, Circuit House Rd,<br>Near DCB Bank, Maharaja Hanwant Nagar,<br>Jodhpur - 342006</p>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- Right: Links & Social -->
+    <div class="space-y-8">
+      <!-- Quick Links -->
+      <div>
+        <h3 class="text-2xl font-bold text-white mb-3">Quick Links</h3>
+        <ul class="space-y-2 text-sm">
+          <li><a href="#about" class="hover:text-indigo-400">About Us</a></li>
+          <li><a href="#" class="hover:text-indigo-400">Privacy Policy</a></li>
+          <li><a href="Documents/Rajasthan Travel Fair 2025.pdf" target="_blank" rel="noopener noreferrer" class="hover:text-indigo-400">Terms & Conditions</a></li>
+          <li><a href="#" class="hover:text-indigo-400">FAQ</a></li>
+        </ul>
+      </div>
+
+      <!-- Social Media -->
+      <div>
+        <h3 class="text-2xl font-bold text-white mb-3">Follow Us</h3>
+        <div class="flex gap-4">
+          <a href="#" class="hover:text-blue-400" aria-label="Facebook">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M22 12c0-5.5-4.5-10-10-10S2 6.5 2 12c0 5 3.7 9.2 8.4 9.9v-7h-2.5v-3h2.5V9.5c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.5h-1.3c-1.2 0-1.6.8-1.6 1.6V12h2.8l-.4 3h-2.4v7C18.3 21.2 22 17 22 12z"/></svg>
+          </a>
+          <a href="#" class="hover:text-sky-400" aria-label="Twitter">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M22.2 5.7a8.7 8.7 0 01-2.5.7 4.4 4.4 0 001.9-2.4 8.8 8.8 0 01-2.8 1.1 4.4 4.4 0 00-7.5 4 12.4 12.4 0 01-9.3-4.7 4.4 4.4 0 001.4 5.9 4.4 4.4 0 01-2-.5v.1a4.4 4.4 0 003.5 4.3 4.5 4.5 0 01-2 .1 4.4 4.4 0 004.1 3 8.8 8.8 0 01-5.4 1.9c-.4 0-.7 0-1-.1a12.4 12.4 0 006.7 2c8 0 12.5-6.7 12.5-12.5 0-.2 0-.4 0-.6a9 9 0 002.2-2.3z"/></svg>
+          </a>
+          <a href="#" class="hover:text-blue-500" aria-label="LinkedIn">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M5 3.5A2.5 2.5 0 107.5 6 2.5 2.5 0 005 3.5zM3 8.5h4v12H3zm7 0h3.7v1.6h.1c.5-1 1.8-2 3.6-2 3.9 0 4.6 2.6 4.6 5.9V21H17v-5.7c0-1.4 0-3.1-1.9-3.1s-2.2 1.5-2.2 3v5.8h-4z"/></svg>
+          </a>
+          <a href="#" class="hover:text-pink-400" aria-label="Instagram">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.4a4 4 0 11-8 0 4 4 0 018 0z"/><circle cx="17.5" cy="6.5" r="1"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom -->
+  <div class="mt-10 border-t border-gray-700 pt-4 text-center text-xs text-gray-500">
+    © 2025 Rajasthan Travel Fair. All rights reserved.
+  </div>
+</footer>
+
+
+
+<!-- Navigation Buttons -->
+<button id="prev-page-button" class="nav-arrow-button left hidden" aria-label="Previous Section">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3" stroke="currentColor" class="w-8 h-8">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+    </svg>
+</button>
+<button id="next-page-button" class="nav-arrow-button right" aria-label="Next Section">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3" stroke="currentColor" class="w-8 h-8">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+    </svg>
+</button>
+
+
+    <script src="script.js"></script>
+</body>
+</html>
