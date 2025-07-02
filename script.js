@@ -2,6 +2,13 @@
 function toggleModal() {
     const modal = document.getElementById('modal');
     modal.classList.toggle('hidden');
+
+    // Hide mobile menu if open
+    const mobileMenu = document.getElementById('mobile-menu');
+    if (mobileMenu && mobileMenu.classList.contains('flex')) {
+        mobileMenu.classList.remove('flex');
+        mobileMenu.classList.add('hidden');
+    }
 }
 
 // NAVIGATION LOGIC (Page Transitions)
@@ -11,8 +18,6 @@ const menuToggle = document.getElementById('menu-toggle');
 const mobileMenu = document.getElementById('mobile-menu');
 const prevPageButton = document.getElementById('prev-page-button');
 const nextPageButton = document.getElementById('next-page-button');
-
-let currentPageIndex = 0;
 
 // Video background containers
 const homeVideoContainer = document.getElementById('home-background-video');
@@ -24,23 +29,28 @@ const scheduleCarousel = document.getElementById('schedule-carousel');
 const b2bScheduleSection = document.getElementById('itinerary');
 const b2cScheduleSection = document.getElementById('b2c-schedule-section');
 
+let currentPageIndex = 0;
 let currentScheduleIndex = 0;
-const schedules = [b2bScheduleSection, b2cScheduleSection];
+const schedules = [b2bScheduleSection, b2cScheduleSection].filter(Boolean);
 let scheduleCarouselInterval;
 
 function showSchedule(index) {
     schedules.forEach((schedule, i) => {
-        schedule.classList.toggle('active', i === index);
+        if (schedule) {
+            schedule.classList.toggle('active', i === index);
+        }
     });
     currentScheduleIndex = index;
 }
 
 function startScheduleCarousel() {
     clearInterval(scheduleCarouselInterval);
-    scheduleCarouselInterval = setInterval(() => {
-        let nextIndex = (currentScheduleIndex + 1) % schedules.length;
-        showSchedule(nextIndex);
-    }, 180000);
+    if (schedules.length > 1) {
+        scheduleCarouselInterval = setInterval(() => {
+            let nextIndex = (currentScheduleIndex + 1) % schedules.length;
+            showSchedule(nextIndex);
+        }, 180000);
+    }
 }
 
 function stopScheduleCarousel() {
@@ -97,7 +107,9 @@ function updateNavButtons() {
 function updateActiveNavLink() {
     navLinks.forEach(link => {
         link.classList.remove('text-yellow-300');
-        if (pageSections[currentPageIndex] && (link.dataset.target === pageSections[currentPageIndex].id || (pageSections[currentPageIndex].id === 'schedule-carousel' && link.dataset.target === 'schedule-carousel'))) {
+        if (pageSections[currentPageIndex] &&
+            (link.dataset.target === pageSections[currentPageIndex].id ||
+                (pageSections[currentPageIndex].id === 'schedule-carousel' && link.dataset.target === 'schedule-carousel'))) {
             link.classList.add('text-yellow-300');
         }
     });
@@ -134,6 +146,7 @@ if (menuToggle && mobileMenu) {
     });
 }
 
+// Slider logic
 let slideIndex = 0;
 const slideImages = [
     "images/Venue Photos/19.jpeg",
@@ -157,10 +170,10 @@ function changeSlide(n) {
         slideImageElement.style.opacity = 1;
         updateDotNavigation();
     }, 300);
-    startAutoplaySlider();
 }
 
 function startAutoplaySlider() {
+    stopAutoplaySlider();
     slideAutoplayInterval = setInterval(() => {
         changeSlide(1);
     }, 5000);
@@ -177,8 +190,8 @@ function createDotNavigation() {
         const dot = document.createElement('button');
         dot.className = `w-3 h-3 rounded-full ${i === slideIndex ? 'bg-yellow-300' : 'bg-gray-400'} focus:outline-none`;
         dot.addEventListener('click', () => {
-            slideIndex = i - 1;
-            changeSlide(1);
+            slideIndex = i;
+            changeSlide(0);
         });
         dotNavContainer.appendChild(dot);
     });
@@ -191,6 +204,7 @@ function updateDotNavigation() {
     });
 }
 
+// Countdown logic
 function updateCountdown() {
     const targetDate = new Date('September 25, 2025 00:00:00').getTime();
     const now = new Date().getTime();
