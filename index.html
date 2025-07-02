@@ -236,22 +236,24 @@
       <a href="#" class="nav-link hover:text-yellow-300 transition" data-target="Exhibition-layout">Exhibition Layout</a>
     </div>
 
-    <!-- Register Button -->
-    <div class="flex items-center gap-3">
-      <button onclick="toggleModal()"
-        class="btn-gold whitespace-nowrap px-5 py-2 rounded-full font-semibold shadow-md hover:shadow-lg transition duration-300 text-sm md:text-base">
-        Register
-      </button>
+    
+   <!-- Register & Hamburger -->
+<div class="flex items-center gap-3 ml-auto">
+  <!-- Hamburger for Mobile (Top Right Corner) -->
+  <button id="menu-toggle" class="md:hidden focus:outline-none absolute top-4 right-4 z-50">
+    <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+        d="M4 6h16M4 12h16M4 18h16" />
+    </svg>
+  </button>
 
-      <!-- Hamburger for Mobile -->
-      <button id="menu-toggle" class="md:hidden focus:outline-none">
-        <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-            d="M4 6h16M4 12h16M4 18h16" />
-        </svg>
-      </button>
-    </div>
-  </div>
+  <!-- Register Button (Hide on small screens if needed) -->
+  <button onclick="toggleModal()"
+    class="btn-gold hidden md:inline-block whitespace-nowrap px-5 py-2 rounded-full font-semibold shadow-md hover:shadow-lg transition duration-300 text-sm md:text-base">
+    Register
+  </button>
+</div>
+
 
   <!-- Mobile Menu -->
   <div id="mobile-menu"
