@@ -215,58 +215,60 @@
     </div>
     <!-- Navigation Bar -->
 <nav class="bg-[#1B2A57]/90 backdrop-blur-md text-white p-3 md:p-4 shadow-md sticky top-0 z-50">
-
-    <div class="container mx-auto flex justify-between items-center">
-        <!-- Logo & Location -->
-      <div class="flex items-center gap-3">
-<img src="images/dfd.jpg" alt="RTF 2025 Logo"
-     class="h-14 md:h-14 w-19 md:w-19 object-cover rounded-full bg-white p-1 shadow-md" />
-
-  <span class="bg-yellow-400 text-[#1B2A57] px-2 md:px-3 py-1 rounded-full font-semibold text-xs md:text-sm select-none">JODHPUR</span>
-</div>
-
-        <!-- Desktop Navigation -->
-        <div class="hidden md:flex space-x-4 lg:space-x-8 text-base md:text-lg font-medium tracking-wide">
-  <a href="#" class="nav-link px-3 py-1 rounded-md hover:bg-white hover:text-[#1B2A57] transition" data-target="home">Home</a>
-  <a href="#" class="nav-link px-3 py-1 rounded-md hover:bg-white hover:text-[#1B2A57] transition" data-target="about">About</a>
-  <a href="#" class="nav-link px-3 py-1 rounded-md hover:bg-white hover:text-[#1B2A57] transition" data-target="attractions">Jodhpur</a>
-  <a href="#" class="nav-link px-3 py-1 rounded-md hover:bg-white hover:text-[#1B2A57] transition" data-target="itinerary">Itinerary</a>
-  <a href="#" class="nav-link px-3 py-1 rounded-md hover:bg-white hover:text-[#1B2A57] transition" data-target="partners">Partners</a>
-  <a href="#" class="nav-link px-3 py-1 rounded-md hover:bg-white hover:text-[#1B2A57] transition" data-target="Exhibition-layout">Exhibition-layout</a>
-</div>
-
-            <!-- Updated Professional Register Button -->
-            <button onclick="toggleModal()"
-                class="btn-gold cursor-pointer px-4 py-2 rounded-full font-semibold ml-2 shadow-md hover:shadow-lg transition duration-300 text-sm md:text-base">
-                Register
-            </button>
-        </div>
-
-        <!-- Hamburger for Mobile -->
-        <div class="md:hidden">
-            <button id="menu-toggle" class="focus:outline-none">
-                <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-                </svg>
-            </button>
-        </div>
+  <div class="container mx-auto flex items-center justify-between flex-wrap md:flex-nowrap gap-4">
+    
+    <!-- Logo & Location Badge -->
+    <div class="flex items-center gap-3 flex-shrink-0">
+      <img src="images/dfd.jpg" alt="RTF 2025 Logo"
+        class="h-14 w-14 object-cover rounded-full bg-white p-1 shadow-md" />
+      <span class="bg-yellow-400 text-[#1B2A57] px-3 py-1 rounded-full font-semibold text-sm whitespace-nowrap">
+        JODHPUR
+      </span>
     </div>
 
-    <!-- Mobile Menu -->
-    <div id="mobile-menu"
-        class="md:hidden hidden flex-col w-full bg-white px-4 py-6 rounded-b-xl shadow-xl space-y-3 text-base font-medium tracking-wide text-[#2C3E91] transition-all duration-300 ease-in-out z-40">
-        <a href="#" class="nav-link block px-4 py-2 rounded-lg hover:bg-gray-200 transition duration-300 break-words whitespace-normal" data-target="home">🏠 Home</a>
-        <a href="#" class="nav-link block px-4 py-2 rounded-lg hover:bg-gray-200 transition duration-300 break-words whitespace-normal" data-target="about">ℹ️ About</a>
-        <a href="#" class="nav-link block px-4 py-2 rounded-lg hover:bg-gray-200 transition duration-300 break-words whitespace-normal" data-target="attractions">📍 Jodhpur</a>
-        <a href="#" class="nav-link block px-4 py-2 rounded-lg hover:bg-gray-200 transition duration-300 break-words whitespace-normal" data-target="itinerary">🗓️ Itinerary</a>
-        <a href="#" class="nav-link block px-4 py-2 rounded-lg hover:bg-gray-200 transition duration-300 break-words whitespace-normal" data-target="partners">🤝 Partners</a>
-        <a href="#" class="nav-link block px-4 py-2 rounded-lg hover:bg-gray-200 transition duration-300 break-words whitespace-normal" data-target="Exhibition-layout">🗺️ Exhibition-layout</a>
-        <button onclick="toggleModal()"
-            class="block w-full text-center bg-[#2C3E91] hover:bg-[#1E2D6B] text-white px-4 py-3 rounded-xl font-semibold shadow-md hover:shadow-lg transition duration-300 mt-2">
-            🚀 Register Now
-        </button>
+    <!-- Desktop Navigation Links -->
+    <div class="hidden md:flex items-center gap-6 text-base font-medium tracking-wide flex-grow justify-center">
+      <a href="#" class="nav-link hover:text-yellow-300 transition" data-target="home">Home</a>
+      <a href="#" class="nav-link hover:text-yellow-300 transition" data-target="about">About</a>
+      <a href="#" class="nav-link hover:text-yellow-300 transition" data-target="attractions">Jodhpur</a>
+      <a href="#" class="nav-link hover:text-yellow-300 transition" data-target="itinerary">Itinerary</a>
+      <a href="#" class="nav-link hover:text-yellow-300 transition" data-target="partners">Partners</a>
+      <a href="#" class="nav-link hover:text-yellow-300 transition" data-target="Exhibition-layout">Exhibition Layout</a>
     </div>
-  </nav>
+
+    <!-- Register Button -->
+    <div class="flex items-center gap-3">
+      <button onclick="toggleModal()"
+        class="btn-gold whitespace-nowrap px-5 py-2 rounded-full font-semibold shadow-md hover:shadow-lg transition duration-300 text-sm md:text-base">
+        Register
+      </button>
+
+      <!-- Hamburger for Mobile -->
+      <button id="menu-toggle" class="md:hidden focus:outline-none">
+        <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div id="mobile-menu"
+    class="md:hidden hidden flex-col w-full bg-white px-4 py-6 rounded-b-xl shadow-xl space-y-3 text-base font-medium tracking-wide text-[#2C3E91] transition-all duration-300 ease-in-out z-40">
+    <a href="#" class="nav-link block px-4 py-2 rounded-lg hover:bg-gray-200 transition" data-target="home">🏠 Home</a>
+    <a href="#" class="nav-link block px-4 py-2 rounded-lg hover:bg-gray-200 transition" data-target="about">ℹ️ About</a>
+    <a href="#" class="nav-link block px-4 py-2 rounded-lg hover:bg-gray-200 transition" data-target="attractions">📍 Jodhpur</a>
+    <a href="#" class="nav-link block px-4 py-2 rounded-lg hover:bg-gray-200 transition" data-target="itinerary">🗓️ Itinerary</a>
+    <a href="#" class="nav-link block px-4 py-2 rounded-lg hover:bg-gray-200 transition" data-target="partners">🤝 Partners</a>
+    <a href="#" class="nav-link block px-4 py-2 rounded-lg hover:bg-gray-200 transition" data-target="Exhibition-layout">🗺️ Exhibition Layout</a>
+    <button onclick="toggleModal()"
+      class="block w-full text-center bg-[#2C3E91] hover:bg-[#1E2D6B] text-white px-4 py-3 rounded-xl font-semibold shadow-md hover:shadow-lg transition duration-300 mt-2">
+      🚀 Register Now
+    </button>
+  </div>
+</nav>
+
 
 
    <!-- Background Video -->
