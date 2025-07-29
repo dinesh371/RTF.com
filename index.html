@@ -920,15 +920,53 @@ RATANADA, JODHPUR, Jodhpur, Rajasthan, 342001</p>
     <!-- Right: Links & Social -->
     <div class="space-y-8">
       <!-- Quick Links -->
-      <div>
-        <h3 class="text-2xl font-bold text-white mb-3">Quick Links</h3>
-        <ul class="space-y-2 text-sm">
-          <li><a href="#about" class="hover:text-indigo-400">About Us</a></li>
-          <li><a href="#" class="hover:text-indigo-400">Privacy Policy</a></li>
-          <li><a href="Documents/Rajasthan Travel Fair 2025.pdf" target="_blank" rel="noopener noreferrer" class="hover:text-indigo-400">Terms & Conditions</a></li>
-          <li><a href="#" class="hover:text-indigo-400">FAQ</a></li>
-        </ul>
-      </div>
+  <!-- Quick Links -->
+<div>
+  <h3 class="text-2xl font-bold text-white mb-3">Quick Links</h3>
+  <ul class="space-y-2 text-sm">
+    <li><a href="#about" class="hover:text-indigo-400">About Us</a></li>
+    <li><a href="#" class="hover:text-indigo-400">Privacy Policy</a></li>
+    <li>
+      <a href="#" onclick="toggleTerms()" class="hover:text-indigo-400">Terms & Conditions</a>
+    </li>
+    <li><a href="#" class="hover:text-indigo-400">FAQ</a></li>
+  </ul>
+</div>
+
+<!-- Terms & Conditions Section (Initially Hidden) -->
+<div id="termsSection" class="hidden bg-white text-black p-6 mt-6 rounded-lg shadow-lg">
+  <h3 class="text-xl font-bold mb-4">Terms & Conditions – Rajasthan Travel Fair 2025</h3>
+  <p><strong>Applicable To:</strong> All visitors, participants, exhibitors, and collaborators of Rajasthan Travel Fair 2025. Organized By: Rajasthan Travel Fair Committee (“RTF” or “Organizers”).</p>
+  <br/>
+  <h4 class="font-semibold">1. Event Participation & Registration</h4>
+  <ul class="list-disc ml-6 mb-4">
+    <li><strong>Registration Requirement:</strong> Entry is contingent upon successful registration and confirmation by the Organizers.</li>
+    <li><strong>Accuracy of Information:</strong> Participants must provide accurate and complete information.</li>
+    <li><strong>Right to Refuse/Cancel:</strong> RTF reserves the right to refuse or cancel registrations without prior notice.</li>
+  </ul>
+  <h4 class="font-semibold">2. Exhibitor & Collaborator Terms</h4>
+  <ul class="list-disc ml-6 mb-4">
+    <li><strong>Compliance:</strong> All must adhere to branding, safety, and operational guidelines.</li>
+    <li><strong>Space Allocation:</strong> Allocated on a first-come basis or invitation.</li>
+    <li><strong>Breach of Decorum:</strong> May lead to expulsion without refund.</li>
+  </ul>
+  <h4 class="font-semibold">3. Event Code of Conduct</h4>
+  <ul class="list-disc ml-6 mb-4">
+    <li><strong>Respectful Behavior:</strong> Attendees must behave respectfully and professionally.</li>
+    <li><strong>Zero Tolerance:</strong> Harassment or disruptive behavior will lead to immediate removal.</li>
+    <li><strong>Compliance with Rules:</strong> All must follow venue and security rules.</li>
+  </ul>
+</div>
+
+<!-- JavaScript to Toggle -->
+<script>
+  function toggleTerms() {
+    const section = document.getElementById('termsSection');
+    section.classList.toggle('hidden');
+    section.scrollIntoView({ behavior: 'smooth' });
+  }
+</script>
+
 
       <!-- Social Media -->
       <div>
