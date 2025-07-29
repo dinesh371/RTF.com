@@ -919,53 +919,50 @@ RATANADA, JODHPUR, Jodhpur, Rajasthan, 342001</p>
 
     <!-- Right: Links & Social -->
     <div class="space-y-8">
-      <!-- Quick Links -->
-  <!-- Quick Links -->
+      <!-- QUICK LINKS -->
 <div>
   <h3 class="text-2xl font-bold text-white mb-3">Quick Links</h3>
   <ul class="space-y-2 text-sm">
     <li><a href="#about" class="hover:text-indigo-400">About Us</a></li>
     <li><a href="#" class="hover:text-indigo-400">Privacy Policy</a></li>
-    <li>
-      <a href="#" onclick="toggleTerms()" class="hover:text-indigo-400">Terms & Conditions</a>
-    </li>
+    <li><a href="#termsPage" class="hover:text-indigo-400">Terms & Conditions</a></li>
     <li><a href="#" class="hover:text-indigo-400">FAQ</a></li>
   </ul>
 </div>
 
-<!-- Terms & Conditions Section (Initially Hidden) -->
-<div id="termsSection" class="hidden bg-white text-black p-6 mt-6 rounded-lg shadow-lg">
-  <h3 class="text-xl font-bold mb-4">Terms & Conditions – Rajasthan Travel Fair 2025</h3>
-  <p><strong>Applicable To:</strong> All visitors, participants, exhibitors, and collaborators of Rajasthan Travel Fair 2025. Organized By: Rajasthan Travel Fair Committee (“RTF” or “Organizers”).</p>
-  <br/>
-  <h4 class="font-semibold">1. Event Participation & Registration</h4>
-  <ul class="list-disc ml-6 mb-4">
-    <li><strong>Registration Requirement:</strong> Entry is contingent upon successful registration and confirmation by the Organizers.</li>
-    <li><strong>Accuracy of Information:</strong> Participants must provide accurate and complete information.</li>
-    <li><strong>Right to Refuse/Cancel:</strong> RTF reserves the right to refuse or cancel registrations without prior notice.</li>
-  </ul>
-  <h4 class="font-semibold">2. Exhibitor & Collaborator Terms</h4>
-  <ul class="list-disc ml-6 mb-4">
-    <li><strong>Compliance:</strong> All must adhere to branding, safety, and operational guidelines.</li>
-    <li><strong>Space Allocation:</strong> Allocated on a first-come basis or invitation.</li>
-    <li><strong>Breach of Decorum:</strong> May lead to expulsion without refund.</li>
-  </ul>
-  <h4 class="font-semibold">3. Event Code of Conduct</h4>
-  <ul class="list-disc ml-6 mb-4">
-    <li><strong>Respectful Behavior:</strong> Attendees must behave respectfully and professionally.</li>
-    <li><strong>Zero Tolerance:</strong> Harassment or disruptive behavior will lead to immediate removal.</li>
-    <li><strong>Compliance with Rules:</strong> All must follow venue and security rules.</li>
-  </ul>
-</div>
+<!-- TERMS & CONDITIONS FULL PAGE SECTION -->
+<section id="termsPage" class="min-h-screen bg-white text-black px-6 py-12">
+  <div class="max-w-4xl mx-auto">
+    <h1 class="text-3xl font-bold mb-6 text-center">Terms & Conditions – Rajasthan Travel Fair 2025</h1>
+    
+    <p class="mb-6"><strong>Applicable To:</strong> All visitors, participants, exhibitors, and collaborators of Rajasthan Travel Fair 2025. Organized By: Rajasthan Travel Fair Committee (hereafter referred to as “RTF” or “Organizers”).</p>
+    
+    <h2 class="text-xl font-semibold mb-2">1. Event Participation & Registration</h2>
+    <ul class="list-disc ml-6 mb-6">
+      <li><strong>Registration Requirement:</strong> Entry to the Rajasthan Travel Fair (RTF 2025) is contingent upon successful registration and confirmation by the Organizers.</li>
+      <li><strong>Accuracy of Information:</strong> Participants are required to provide accurate and complete information during the registration process.</li>
+      <li><strong>Right to Refuse/Cancel:</strong> RTF reserves the right to refuse or cancel registrations without prior notice.</li>
+    </ul>
 
-<!-- JavaScript to Toggle -->
-<script>
-  function toggleTerms() {
-    const section = document.getElementById('termsSection');
-    section.classList.toggle('hidden');
-    section.scrollIntoView({ behavior: 'smooth' });
-  }
-</script>
+    <h2 class="text-xl font-semibold mb-2">2. Exhibitor & Collaborator Terms</h2>
+    <ul class="list-disc ml-6 mb-6">
+      <li><strong>Compliance with Guidelines:</strong> All exhibitors and collaborators must strictly adhere to RTF’s branding, booth design, safety, and operational guidelines.</li>
+      <li><strong>Space Allocation:</strong> Exhibitor space is subject to availability and allocated at the Organizers' discretion.</li>
+      <li><strong>Breach of Decorum:</strong> Any misrepresentation or inappropriate promotion may result in expulsion without refund.</li>
+    </ul>
+
+    <h2 class="text-xl font-semibold mb-2">3. Event Code of Conduct</h2>
+    <ul class="list-disc ml-6 mb-6">
+      <li><strong>Respectful Behavior:</strong> All attendees must conduct themselves respectfully and professionally.</li>
+      <li><strong>Zero Tolerance Policy:</strong> Harassment, discrimination, or disruptive behavior will not be tolerated.</li>
+      <li><strong>Compliance with Rules:</strong> Visitors must comply with all venue and safety protocols.</li>
+    </ul>
+
+    <div class="text-center mt-10">
+      <a href="#" onclick="window.scrollTo({ top: 0, behavior: 'smooth' })" class="inline-block bg-indigo-600 text-white px-6 py-2 rounded hover:bg-indigo-700">Back to Top</a>
+    </div>
+  </div>
+</section>
 
 
       <!-- Social Media -->
