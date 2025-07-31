@@ -1111,16 +1111,25 @@ RATANADA, JODHPUR, Jodhpur, Rajasthan, 342001</p>
   <script>
     function showTerms() {
       document.getElementById('mainContent').style.display = 'none';
+      document.getElementById('privacySection').style.display = 'none'; // Ensure privacy is hidden
       document.getElementById('termsSection').style.display = 'block';
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
+
+    function showPrivacy() {
+      document.getElementById('mainContent').style.display = 'none';
+      document.getElementById('termsSection').style.display = 'none'; // Ensure terms are hidden
+      document.getElementById('privacySection').style.display = 'block';
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
     function backToMain() {
       document.getElementById('termsSection').style.display = 'none';
+      document.getElementById('privacySection').style.display = 'none'; // Hide privacy section
       document.getElementById('mainContent').style.display = 'block';
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
   </script>
-
   <!-- Social Media -->
   <div>
     <h3 class="text-2xl font-bold text-white mb-3">Follow Us</h3>
