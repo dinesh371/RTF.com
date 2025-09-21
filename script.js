@@ -206,7 +206,7 @@ function updateDotNavigation() {
 
 // Countdown Logic
 function updateCountdown() {
-    const targetDate = new Date('Feb 22nd, 2026 00:00:00').getTime();
+    const targetDate = new Date('February 22nd, 2026 00:00:00').getTime();
     const now = new Date().getTime();
     const distance = targetDate - now;
 
