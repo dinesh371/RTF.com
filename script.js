@@ -206,50 +206,35 @@ function updateDotNavigation() {
 
 // Countdown Logic
 function updateCountdown() {
-  const startDate = new Date('February 20, 2026 00:00:00').getTime();
-  const endDate = new Date('February 22, 2026 23:59:59').getTime();
-  const now = new Date().getTime();
+    const targetDate = new Date('Feb 22nd, 2026 00:00:00').getTime();
+    const now = new Date().getTime();
+    const distance = targetDate - now;
 
-  const daysEl = document.getElementById('days');
-  const hoursEl = document.getElementById('hours');
-  const minutesEl = document.getElementById('minutes');
-  const secondsEl = document.getElementById('seconds');
-  const countdownContainer = document.querySelector('.countdown-container');
-  const eventStatus = document.getElementById('event-status');
+    const daysEl = document.getElementById('days');
+    const hoursEl = document.getElementById('hours');
+    const minutesEl = document.getElementById('minutes');
+    const secondsEl = document.getElementById('seconds');
+    const countdownContainer = document.querySelector('.countdown-container');
 
-  if (now < startDate) {
-    // Show countdown
-    countdownContainer.style.display = 'flex';
-    eventStatus.innerHTML = '';
+    if (distance > 0) {
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-    const distance = startDate - now;
-    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-    daysEl.innerText = days;
-    hoursEl.innerText = hours;
-    minutesEl.innerText = minutes;
-    secondsEl.innerText = seconds;
-
-  } else if (now >= startDate && now <= endDate) {
-    // Event live
-    countdownContainer.style.display = 'none';
-    eventStatus.innerHTML = `<span class="text-yellow-300">EVENT IS LIVE!</span>`;
-
-  } else {
-    // Event ended
-    countdownContainer.style.display = 'none';
-    eventStatus.innerHTML = `<span class="text-red-500">EVENT ENDED</span>`;
-  }
+        daysEl && (daysEl.innerText = days);
+        hoursEl && (hoursEl.innerText = hours);
+        minutesEl && (minutesEl.innerText = minutes);
+        secondsEl && (secondsEl.innerText = seconds);
+    } else {
+        clearInterval(countdownInterval);
+        daysEl && (daysEl.innerText = '0');
+        hoursEl && (hoursEl.innerText = '0');
+        minutesEl && (minutesEl.innerText = '0');
+        secondsEl && (secondsEl.innerText = '0');
+        if (countdownContainer) countdownContainer.innerHTML = `<div class='text-xl font-bold text-yellow-300'>EVENT IS LIVE!</div>`;
+    }
 }
-
-let countdownInterval;
-document.addEventListener('DOMContentLoaded', () => {
-  updateCountdown();
-  countdownInterval = setInterval(updateCountdown, 1000);
-});
 
 // On DOM Ready
 let countdownInterval;
@@ -270,4 +255,3 @@ document.addEventListener('DOMContentLoaded', () => {
     startAutoplaySlider();
     createDotNavigation();
 });
-</script>
