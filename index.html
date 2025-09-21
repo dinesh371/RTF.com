@@ -294,79 +294,31 @@
 /> 
 
     
- <!-- Countdown -->
-<div class="countdown-container flex flex-wrap justify-center gap-4 sm:gap-6 mb-10 text-yellow-300">
-  <div class="countdown-item text-center w-20">
-    <div class="text-3xl sm:text-4xl md:text-5xl font-bold" id="days">0</div>
-    <div class="text-xs uppercase tracking-wider font-semibold">Days</div>
-  </div>
-  <div class="countdown-item text-center w-20">
-    <div class="text-3xl sm:text-4xl md:text-5xl font-bold" id="hours">0</div>
-    <div class="text-xs uppercase tracking-wider font-semibold">Hours</div>
-  </div>
-  <div class="countdown-item text-center w-20">
-    <div class="text-3xl sm:text-4xl md:text-5xl font-bold" id="minutes">0</div>
-    <div class="text-xs uppercase tracking-wider font-semibold">Minutes</div>
-  </div>
-  <div class="countdown-item text-center w-20">
-    <div class="text-3xl sm:text-4xl md:text-5xl font-bold" id="seconds">0</div>
-    <div class="text-xs uppercase tracking-wider font-semibold">Seconds</div>
-  </div>
-</div>
+  <!-- Dates (pushed down further from logo) -->
+  <p class="text-2xl sm:text-3xl md:text-4xl font-semibold mt-20 mb-6 tracking-wide drop-shadow-lg">
+    February 20–22nd, 2026
+  </p>
 
-<script>
-// Countdown Logic
-function updateCountdown() {
-  const eventStart = new Date('February 20, 2026 00:00:00').getTime();
-  const eventEnd   = new Date('February 22, 2026 23:59:59').getTime();
-  const now = new Date().getTime();
 
-  const daysEl = document.getElementById('days');
-  const hoursEl = document.getElementById('hours');
-  const minutesEl = document.getElementById('minutes');
-  const secondsEl = document.getElementById('seconds');
-  const countdownContainer = document.querySelector('.countdown-container');
-
-  if (now < eventStart) {
-    // Before event → show countdown
-    const distance = eventStart - now;
-
-    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-    if (daysEl) daysEl.innerText = days;
-    if (hoursEl) hoursEl.innerText = hours;
-    if (minutesEl) minutesEl.innerText = minutes;
-    if (secondsEl) secondsEl.innerText = seconds;
-
-  } else if (now >= eventStart && now <= eventEnd) {
-    // During event → show LIVE
-    clearInterval(countdownInterval);
-    if (countdownContainer) {
-      countdownContainer.innerHTML = `
-        <div class='w-full text-center text-2xl sm:text-3xl font-bold text-yellow-300 animate-pulse'>
-          🎉 EVENT IS LIVE! 🎉
-        </div>`;
-    }
-  } else {
-    // After event → show Ended
-    clearInterval(countdownInterval);
-    if (countdownContainer) {
-      countdownContainer.innerHTML = `
-        <div class='w-full text-center text-2xl sm:text-3xl font-bold text-gray-400'>
-          Event Ended
-        </div>`;
-    }
-  }
-}
-
-// Start countdown
-let countdownInterval = setInterval(updateCountdown, 1000);
-updateCountdown();
-</script>
-
+    <!-- Countdown -->
+    <div class="flex flex-wrap justify-center gap-4 sm:gap-6 mb-10 text-yellow-300">
+      <div class="countdown-item text-center w-20">
+        <div class="text-3xl sm:text-4xl md:text-5xl font-bold" id="days">365</div>
+        <div class="text-xs uppercase tracking-wider font-semibold">Days</div>
+      </div>
+      <div class="countdown-item text-center w-20">
+        <div class="text-3xl sm:text-4xl md:text-5xl font-bold" id="hours">24</div>
+        <div class="text-xs uppercase tracking-wider font-semibold">Hours</div>
+      </div>
+      <div class="countdown-item text-center w-20">
+        <div class="text-3xl sm:text-4xl md:text-5xl font-bold" id="minutes">60</div>
+        <div class="text-xs uppercase tracking-wider font-semibold">Minutes</div>
+      </div>
+      <div class="countdown-item text-center w-20">
+        <div class="text-3xl sm:text-4xl md:text-5xl font-bold" id="seconds">60</div>
+        <div class="text-xs uppercase tracking-wider font-semibold">Seconds</div>
+      </div>
+    </div>
 
     <!-- Register Button -->
     <div class="mt-4">
