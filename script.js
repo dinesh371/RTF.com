@@ -206,9 +206,9 @@ function updateDotNavigation() {
 
 // Countdown Logic
 function updateCountdown() {
-    const targetDate = new Date('February 20, 2025 00:00:00').getTime();
+    const startDate = new Date('February 20, 2026 00:00:00').getTime();
+    const endDate = new Date('February 22, 2026 23:59:59').getTime();
     const now = new Date().getTime();
-    const distance = targetDate - now;
 
     const daysEl = document.getElementById('days');
     const hoursEl = document.getElementById('hours');
@@ -216,7 +216,8 @@ function updateCountdown() {
     const secondsEl = document.getElementById('seconds');
     const countdownContainer = document.querySelector('.countdown-container');
 
-    if (distance > 0) {
+    if (now < startDate) {
+        const distance = startDate - now;
         const days = Math.floor(distance / (1000 * 60 * 60 * 24));
         const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
         const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
@@ -226,13 +227,16 @@ function updateCountdown() {
         hoursEl && (hoursEl.innerText = hours);
         minutesEl && (minutesEl.innerText = minutes);
         secondsEl && (secondsEl.innerText = seconds);
+    } else if (now >= startDate && now <= endDate) {
+        clearInterval(countdownInterval);
+        if (countdownContainer) {
+            countdownContainer.innerHTML = `<div class='text-xl font-bold text-yellow-300'>EVENT IS LIVE!</div>`;
+        }
     } else {
         clearInterval(countdownInterval);
-        daysEl && (daysEl.innerText = '0');
-        hoursEl && (hoursEl.innerText = '0');
-        minutesEl && (minutesEl.innerText = '0');
-        secondsEl && (secondsEl.innerText = '0');
-        if (countdownContainer) countdownContainer.innerHTML = `<div class='text-xl font-bold text-yellow-300'>EVENT IS LIVE!</div>`;
+        if (countdownContainer) {
+            countdownContainer.innerHTML = `<div class='text-xl font-bold text-red-500'>EVENT ENDED</div>`;
+        }
     }
 }
 
@@ -255,3 +259,4 @@ document.addEventListener('DOMContentLoaded', () => {
     startAutoplaySlider();
     createDotNavigation();
 });
+</script>
