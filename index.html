@@ -294,31 +294,39 @@
 /> 
 
     
-  <!-- Dates (pushed down further from logo) -->
-  <p class="text-2xl sm:text-3xl md:text-4xl font-semibold mt-20 mb-6 tracking-wide drop-shadow-lg">
-    February 20–22nd, 2026
-  </p>
+  <script>
+  // Target date (start of event: Feb 20, 2026, 00:00:00)
+  const targetDate = new Date("February 20, 2026 00:00:00").getTime();
 
+  function updateCountdown() {
+    const now = new Date().getTime();
+    const distance = targetDate - now;
 
-    <!-- Countdown -->
-    <div class="flex flex-wrap justify-center gap-4 sm:gap-6 mb-10 text-yellow-300">
-      <div class="countdown-item text-center w-20">
-        <div class="text-3xl sm:text-4xl md:text-5xl font-bold" id="days">365</div>
-        <div class="text-xs uppercase tracking-wider font-semibold">Days</div>
-      </div>
-      <div class="countdown-item text-center w-20">
-        <div class="text-3xl sm:text-4xl md:text-5xl font-bold" id="hours">24</div>
-        <div class="text-xs uppercase tracking-wider font-semibold">Hours</div>
-      </div>
-      <div class="countdown-item text-center w-20">
-        <div class="text-3xl sm:text-4xl md:text-5xl font-bold" id="minutes">60</div>
-        <div class="text-xs uppercase tracking-wider font-semibold">Minutes</div>
-      </div>
-      <div class="countdown-item text-center w-20">
-        <div class="text-3xl sm:text-4xl md:text-5xl font-bold" id="seconds">60</div>
-        <div class="text-xs uppercase tracking-wider font-semibold">Seconds</div>
-      </div>
-    </div>
+    if (distance <= 0) {
+      document.getElementById("days").innerHTML = "0";
+      document.getElementById("hours").innerHTML = "0";
+      document.getElementById("minutes").innerHTML = "0";
+      document.getElementById("seconds").innerHTML = "0";
+      clearInterval(timer); // Stop countdown after event starts
+      return;
+    }
+
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    document.getElementById("days").innerHTML = days;
+    document.getElementById("hours").innerHTML = hours;
+    document.getElementById("minutes").innerHTML = minutes;
+    document.getElementById("seconds").innerHTML = seconds;
+  }
+
+  // Update every second
+  const timer = setInterval(updateCountdown, 1000);
+  updateCountdown(); // Initial call so it doesn’t wait 1s
+</script>
+
 
     <!-- Register Button -->
     <div class="mt-4">
