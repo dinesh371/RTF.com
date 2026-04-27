@@ -728,7 +728,10 @@ As shared earlier, that RTF has been postponed until further notice, so as a con
 <!-- External Resources -->
 <script src="script.js"></script>
 <link rel="stylesheet" href="styles.css">
+
 <script>
+document.addEventListener("DOMContentLoaded", function () {
+
   const sections = ["home", "about", "attractions", "partners"];
   let currentIndex = 0;
   let isScrolling = false;
@@ -741,10 +744,12 @@ As shared earlier, that RTF has been postponed until further notice, so as a con
 
     const target = document.getElementById(sections[currentIndex]);
 
-    target.scrollIntoView({
-      behavior: "smooth",
-      block: "start"
-    });
+    if (target) {
+      target.scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+      });
+    }
 
     setTimeout(() => {
       isScrolling = false;
@@ -766,4 +771,6 @@ As shared earlier, that RTF has been postponed until further notice, so as a con
       if (index !== -1) showSection(index);
     });
   });
+
+});
 </script>
