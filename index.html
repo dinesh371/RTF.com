@@ -728,3 +728,42 @@ As shared earlier, that RTF has been postponed until further notice, so as a con
 <!-- External Resources -->
 <script src="script.js"></script>
 <link rel="stylesheet" href="styles.css">
+<script>
+  const sections = ["home", "about", "attractions", "partners"];
+  let currentIndex = 0;
+  let isScrolling = false;
+
+  function showSection(index) {
+    if (isScrolling) return;
+
+    isScrolling = true;
+    currentIndex = index;
+
+    const target = document.getElementById(sections[currentIndex]);
+
+    target.scrollIntoView({
+      behavior: "smooth",
+      block: "start"
+    });
+
+    setTimeout(() => {
+      isScrolling = false;
+    }, 900);
+  }
+
+  // Auto scroll every 8 sec
+  setInterval(() => {
+    let nextIndex = (currentIndex + 1) % sections.length;
+    showSection(nextIndex);
+  }, 8000);
+
+  // Nav click smooth scroll
+  document.querySelectorAll(".nav-link").forEach(link => {
+    link.addEventListener("click", function (e) {
+      e.preventDefault();
+      const targetId = this.getAttribute("data-target");
+      const index = sections.indexOf(targetId);
+      if (index !== -1) showSection(index);
+    });
+  });
+</script>
