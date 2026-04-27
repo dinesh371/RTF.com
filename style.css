@@ -513,3 +513,19 @@ a {
 a:hover {
     text-decoration: none;
 }
+
+
+
+
+
+
+
+/* Animation */
+@keyframes scroll-horizontal {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
