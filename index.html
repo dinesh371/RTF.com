@@ -37,43 +37,7 @@
       background: linear-gradient(90deg, #b7942d 0%, #d9be52 100%);
       box-shadow: 0 6px 20px rgba(183, 148, 45, 0.7);
       outline: none;
-    }
-
-    /* Partner Logos */
-    .partner-logo {
-      height: 120px;
-      width: auto;
-      object-fit: contain;
-      user-select: none;
-      pointer-events: none;
-      transition: transform 0.5s ease;
-      filter: brightness(1) contrast(1.1);
-      opacity: 0.95;
-    }
-
-    .partner-logo:hover {
-      transform: scale(1.15);
-      filter: brightness(1.1) contrast(1.2);
-      opacity: 1;
-    }
-
-    .partners-scroll-wrapper {
-      overflow: hidden;
-      width: 100%;
-    }
-
-    .partners-scroll {
-      display: flex;
-      align-items: center;
-      white-space: nowrap;
-      gap: 4rem;
-      animation: scroll-horizontal 30s linear infinite;
-    }
-
-    @keyframes scroll-horizontal {
-      0% { transform: translateX(0%);}
-      100% { transform: translateX(-50%);}
-    }
+  
 
     /* Navigation Buttons Styling */
     .nav-arrow-button {
@@ -116,36 +80,7 @@
       .max-w-7xl, .container { max-width: 100vw !important; }
     }
 
-    @media (max-width: 1024px) {
-      .partner-logo { height: 80px; }
-      .partners-scroll { gap: 2rem; }
-      .max-w-7xl, .container { max-width: 100vw !important; }
-    }
-
-    @media (max-width: 768px) {
-      .partner-logo { height: 60px; }
-      .partners-scroll { gap: 1.5rem; }
-      nav .container { flex-direction: column; align-items: flex-start; }
-      .max-w-7xl, .container { max-width: 100vw !important; }
-    }
-
-    @media (max-width: 640px) {
-      .partner-logo { height: 40px; }
-      .partners-scroll { gap: 1rem; }
-      nav .container { flex-direction: column; align-items: flex-start; }
-      nav .text-3xl { font-size: 1.3rem; }
-      nav .bg-white-400 { font-size: 0.9rem; padding: 0.2rem 0.7rem; }
-      .btn-gold { padding: 0.5rem 1.2rem; font-size: 0.95rem; }
-      .max-w-7xl, .container { max-width: 100vw !important; }
-      .page-section { padding-left: 0.5rem !important; padding-right: 0.5rem !important; }
-    }
-
-    @media (max-width: 480px) {
-      .partner-logo { height: 28px; }
-      .btn-gold { padding: 0.4rem 0.8rem; font-size: 0.85rem; }
-      .max-w-7xl, .container { max-width: 100vw !important; }
-    }
-
+    
 
 
     /* Make images and videos responsive */
@@ -635,27 +570,28 @@ As shared earlier, that RTF has been postponed until further notice, so as a con
     </div>
 </section>
 <!-- Partners Section -->
-<section id="partners" class="page-section partners-section py-30 mt-30 rounded-lg shadow-xl relative" style="background: linear-gradient(135deg, #1B2A57 0%, #c15d3a 100%);">
+<section id="partners"
+  class="page-section partners-section py-20 mt-20 rounded-lg shadow-xl relative overflow-hidden"
+  style="background: linear-gradient(135deg, #1B2A57 0%, #c15d3a 100%);">
 
-    <div class="absolute inset-0 bg-black/50 -z-10"></div>
-    <div class="relative z-10 max-w-5xl mx-auto text-center">
-        <!-- Add extra space above the heading -->
-        <div class="h-10"></div>
-        <h2 class="text-4xl font-bold mb-10 text-white tracking-wider">Our RTS FAM Partners</h2>
-        <!-- Add extra space below the heading -->
-        <div class="h-10"></div>
-        <div class="partners-scroll-wrapper py-8">
-            <div class="partners-scroll">
-                <img src="images/partner pic/Partners.jpeg" alt="Partner 1" class="partner-logo mx-8" />
-             
-                <!-- Duplicate for seamless scroll -->
-                <img src="images/partner pic/Partners.jpeg" alt="Partner 1" class="partner-logo mx-8" />
-                
-            </div>
-        </div>
-        <!-- Add extra space below the logos -->
-        <div class="h-30"></div>
+  <div class="absolute inset-0 bg-black/40"></div>
+
+  <div class="relative z-10 max-w-6xl mx-auto text-center px-4">
+    
+    <h2 class="text-4xl font-bold mb-12 text-white tracking-wider">
+      Our RTS FAM Partners
+    </h2>
+
+    <!-- Partner Image -->
+    <div class="flex justify-center items-center bg-white/10 rounded-2xl p-6 shadow-lg">
+      <img
+        src="images/partner pic/Partners.png"
+        alt="RTS FAM Partners"
+        class="w-full max-w-5xl max-h-[75vh] object-contain rounded-xl"
+      />
     </div>
+
+  </div>
 </section>
 
 </div>
