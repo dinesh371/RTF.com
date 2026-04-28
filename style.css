@@ -98,3 +98,138 @@ nav + .page-section {
 .nav-arrow-button:hover {
     transform: translateY(-50%) scale(1.1);
 }
+/* ===== PARTNERS PREMIUM UI ===== */
+.partners-section {
+  margin: 0 !important;
+  padding: 80px 20px !important;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #111936 0%, #2c2638 55%, #4a2630 100%) !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.partners-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.partners-title-box {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.partners-title-box h2 {
+  color: #ffffff;
+  font-size: 42px;
+  font-weight: 800;
+  margin-bottom: 8px;
+}
+
+.partners-title-box p {
+  color: #f7d54a;
+  font-size: 17px;
+  font-weight: 500;
+}
+
+.partners-card {
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255,255,255,0.18);
+  border-radius: 24px;
+  padding: 24px;
+  box-shadow: 0 25px 60px rgba(0,0,0,0.35);
+  backdrop-filter: blur(10px);
+}
+
+.partners-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 18px;
+}
+
+.partners-top h3 {
+  color: #fff;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+#partnerSearch {
+  width: 360px;
+  max-width: 100%;
+  padding: 13px 16px;
+  border-radius: 14px;
+  border: none;
+  outline: none;
+  font-size: 14px;
+}
+
+.partners-table-wrap {
+  max-height: 560px;
+  overflow: auto;
+  border-radius: 18px;
+  background: #fff;
+}
+
+#partnersTable {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  font-size: 14px;
+}
+
+#partnersTable thead {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  background: #1B2A57;
+  color: #fff;
+}
+
+#partnersTable th,
+#partnersTable td {
+  padding: 13px 14px;
+  border-bottom: 1px solid #e5e7eb;
+  text-align: left;
+  white-space: nowrap;
+}
+
+#partnersTable th:first-child,
+#partnersTable td:first-child {
+  text-align: center;
+  width: 70px;
+}
+
+#partnersTable tbody tr:hover {
+  background: #fff4c2;
+}
+
+#partnersTable td:nth-child(6) {
+  font-weight: 600;
+  color: #1B2A57;
+}
+
+@media (max-width: 768px) {
+  .partners-section {
+    padding: 60px 12px !important;
+  }
+
+  .partners-title-box h2 {
+    font-size: 30px;
+  }
+
+  .partners-top {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  #partnerSearch {
+    width: 100%;
+  }
+
+  #partnersTable {
+    font-size: 12px;
+  }
+}
