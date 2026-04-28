@@ -578,23 +578,31 @@ As shared earlier, that RTF has been postponed until further notice, so as a con
     </div>
 </section>
 <!-- Partners Section -->
-<!-- Partners Section -->
+<!-- ================= PARTNERS SECTION (FINAL CLEAN) ================= -->
 <section id="partners" class="page-section partners-section">
+
+  <!-- Background Overlay -->
+  <div class="absolute inset-0 bg-black/40"></div>
 
   <div class="partners-container">
 
+    <!-- Title -->
     <div class="partners-title-box">
       <h2>Our RTF FAM Partners</h2>
       <p>List of Confirmed Participants for RTF FAM Tour</p>
     </div>
 
+    <!-- Card -->
     <div class="partners-card">
 
+      <!-- Top (Title + Search) -->
       <div class="partners-top">
         <h3>Confirmed Participants</h3>
-        <input type="text" id="partnerSearch" placeholder="Search name, city, title, organization..." />
+        <input type="text" id="partnerSearch"
+          placeholder="Search name, city, organization..." />
       </div>
 
+      <!-- Table -->
       <div class="partners-table-wrap">
         <table id="partnersTable">
           <thead>
@@ -609,6 +617,7 @@ As shared earlier, that RTF has been postponed until further notice, so as a con
           </thead>
 
           <tbody>
+
             <tr><td>1</td><td>Mr. Guneet Singh</td><td>Faridabad</td><td>Founder</td><td>Your Nice Trip</td><td>9999449575</td></tr>
             <tr><td>2</td><td>Mr. Anil Dhingra</td><td>Delhi</td><td>ED</td><td>Unique Air Services</td><td>9868279700</td></tr>
             <tr><td>3</td><td>Mr. Narender Sharma</td><td>Delhi</td><td>Director</td><td>Perfection Consulting (India) Pvt Ltd</td><td>9650359359</td></tr>
@@ -641,15 +650,33 @@ As shared earlier, that RTF has been postponed until further notice, so as a con
             <tr><td>30</td><td>Mr. Aman Saini</td><td>Delhi</td><td>Owner</td><td>Colors of India</td><td>9899131881</td></tr>
             <tr><td>31</td><td>Mr. Narendra Khichi</td><td>Jodhpur</td><td>Director</td><td>Tours Director</td><td>9829742233</td></tr>
             <tr><td>32</td><td>Mr. Vinny K Williams</td><td>Jodhpur</td><td>CEO & Founder</td><td>India Outtabox Pvt Ltd</td><td>9660061777</td></tr>
+
           </tbody>
         </table>
       </div>
 
     </div>
   </div>
+
 </section>
 
-</div>
+<!-- ================= SEARCH SCRIPT ================= -->
+<script>
+const partnerSearch = document.getElementById("partnerSearch");
+
+if (partnerSearch) {
+  partnerSearch.addEventListener("keyup", function () {
+    const value = this.value.toLowerCase();
+    const rows = document.querySelectorAll("#partnersTable tbody tr");
+
+    rows.forEach(row => {
+      row.style.display = row.innerText.toLowerCase().includes(value)
+        ? ""
+        : "none";
+    });
+  });
+}
+</script>
     <!-- Footer Section -->
 <footer class="relative bg-[#0f172a] text-gray-300 px-4 py-14 md:px-8 lg:px-16 overflow-hidden">
   <div class="absolute inset-0 bg-gradient-to-br from-indigo-900/40 via-slate-900 to-black"></div>
