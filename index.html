@@ -577,33 +577,176 @@ As shared earlier, that RTF has been postponed until further notice, so as a con
         </article>
     </div>
 </section>
-<!-- Partners Section -->
-<!-- ================= PARTNERS SECTION (FINAL CLEAN) ================= -->
-<section id="partners" class="page-section partners-section">
+<!-- Partners Section --><!-- ================= PARTNERS SECTION FINAL PREMIUM ================= -->
+<style>
+  #partners {
+    margin: 0 !important;
+    padding: 90px 20px !important;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #111936 0%, #2c2638 55%, #4a2630 100%) !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 
-  <!-- Background Overlay -->
-  <div class="absolute inset-0 bg-black/40"></div>
+  .rtf-partners-wrap {
+    width: 100%;
+    max-width: 1180px;
+    margin: auto;
+  }
 
-  <div class="partners-container">
+  .rtf-partners-heading {
+    text-align: center;
+    margin-bottom: 26px;
+  }
 
-    <!-- Title -->
-    <div class="partners-title-box">
+  .rtf-partners-heading h2 {
+    color: #ffffff;
+    font-size: 42px;
+    font-weight: 800;
+    margin: 0;
+    letter-spacing: 1px;
+  }
+
+  .rtf-partners-heading p {
+    color: #f7d54a;
+    font-size: 16px;
+    margin-top: 8px;
+  }
+
+  .rtf-partners-card {
+    background: rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255,255,255,0.18);
+    border-radius: 24px;
+    padding: 24px;
+    box-shadow: 0 25px 55px rgba(0,0,0,0.35);
+    backdrop-filter: blur(10px);
+  }
+
+  .rtf-partners-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 18px;
+  }
+
+  .rtf-partners-top h3 {
+    color: #fff;
+    font-size: 24px;
+    font-weight: 700;
+    margin: 0;
+  }
+
+  #partnerSearch {
+    width: 360px;
+    max-width: 100%;
+    padding: 13px 16px;
+    border-radius: 14px;
+    border: none;
+    outline: none;
+    font-size: 14px;
+    background: #fff;
+    color: #111827;
+  }
+
+  .rtf-table-box {
+    max-height: 560px;
+    overflow: auto;
+    border-radius: 18px;
+    background: #ffffff;
+  }
+
+  #partnersTable {
+    width: 100%;
+    border-collapse: collapse;
+    background: #ffffff;
+    font-size: 14px;
+  }
+
+  #partnersTable thead {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: #1B2A57;
+    color: #ffffff;
+  }
+
+  #partnersTable th,
+  #partnersTable td {
+    padding: 13px 14px;
+    border-bottom: 1px solid #e5e7eb;
+    text-align: left;
+    white-space: nowrap;
+    color: #111827;
+  }
+
+  #partnersTable th {
+    color: #ffffff;
+    font-weight: 700;
+  }
+
+  #partnersTable td:first-child,
+  #partnersTable th:first-child {
+    text-align: center;
+    width: 70px;
+  }
+
+  #partnersTable tbody tr:nth-child(even) {
+    background: #f8fafc;
+  }
+
+  #partnersTable tbody tr:hover {
+    background: #fff4c2;
+  }
+
+  #partnersTable td:nth-child(6) {
+    font-weight: 700;
+    color: #1B2A57;
+  }
+
+  @media (max-width: 768px) {
+    #partners {
+      padding: 70px 12px !important;
+      align-items: flex-start;
+    }
+
+    .rtf-partners-heading h2 {
+      font-size: 30px;
+    }
+
+    .rtf-partners-top {
+      flex-direction: column;
+      align-items: stretch;
+    }
+
+    #partnerSearch {
+      width: 100%;
+    }
+
+    #partnersTable {
+      font-size: 12px;
+    }
+  }
+</style>
+
+<section id="partners" class="page-section">
+
+  <div class="rtf-partners-wrap">
+
+    <div class="rtf-partners-heading">
       <h2>Our RTF FAM Partners</h2>
       <p>List of Confirmed Participants for RTF FAM Tour</p>
     </div>
 
-    <!-- Card -->
-    <div class="partners-card">
+    <div class="rtf-partners-card">
 
-      <!-- Top (Title + Search) -->
-      <div class="partners-top">
+      <div class="rtf-partners-top">
         <h3>Confirmed Participants</h3>
-        <input type="text" id="partnerSearch"
-          placeholder="Search name, city, organization..." />
+        <input type="text" id="partnerSearch" placeholder="Search name, city, title, organization..." />
       </div>
 
-      <!-- Table -->
-      <div class="partners-table-wrap">
+      <div class="rtf-table-box">
         <table id="partnersTable">
           <thead>
             <tr>
@@ -617,7 +760,6 @@ As shared earlier, that RTF has been postponed until further notice, so as a con
           </thead>
 
           <tbody>
-
             <tr><td>1</td><td>Mr. Guneet Singh</td><td>Faridabad</td><td>Founder</td><td>Your Nice Trip</td><td>9999449575</td></tr>
             <tr><td>2</td><td>Mr. Anil Dhingra</td><td>Delhi</td><td>ED</td><td>Unique Air Services</td><td>9868279700</td></tr>
             <tr><td>3</td><td>Mr. Narender Sharma</td><td>Delhi</td><td>Director</td><td>Perfection Consulting (India) Pvt Ltd</td><td>9650359359</td></tr>
@@ -650,16 +792,28 @@ As shared earlier, that RTF has been postponed until further notice, so as a con
             <tr><td>30</td><td>Mr. Aman Saini</td><td>Delhi</td><td>Owner</td><td>Colors of India</td><td>9899131881</td></tr>
             <tr><td>31</td><td>Mr. Narendra Khichi</td><td>Jodhpur</td><td>Director</td><td>Tours Director</td><td>9829742233</td></tr>
             <tr><td>32</td><td>Mr. Vinny K Williams</td><td>Jodhpur</td><td>CEO & Founder</td><td>India Outtabox Pvt Ltd</td><td>9660061777</td></tr>
-
           </tbody>
         </table>
       </div>
 
     </div>
   </div>
-
 </section>
 
+<script>
+  const partnerSearch = document.getElementById("partnerSearch");
+
+  if (partnerSearch) {
+    partnerSearch.addEventListener("keyup", function () {
+      const value = this.value.toLowerCase();
+      const rows = document.querySelectorAll("#partnersTable tbody tr");
+
+      rows.forEach(row => {
+        row.style.display = row.innerText.toLowerCase().includes(value) ? "" : "none";
+      });
+    });
+  }
+</script>
 <!-- ================= SEARCH SCRIPT ================= -->
 <script>
 const partnerSearch = document.getElementById("partnerSearch");
