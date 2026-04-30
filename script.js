@@ -12,6 +12,7 @@ function toggleModal() {
 
 // ===== MAIN SCRIPT =====
 document.addEventListener("DOMContentLoaded", function () {
+
   const sectionOrder = [
     "home",
     "about",
@@ -21,60 +22,57 @@ document.addEventListener("DOMContentLoaded", function () {
     "rtfglobal"
   ];
 
-  const pageSections = sectionOrder
+  const sections = sectionOrder
     .map(id => document.getElementById(id))
     .filter(Boolean);
 
   const navLinks = document.querySelectorAll(".nav-link");
   const menuToggle = document.getElementById("menu-toggle");
   const mobileMenu = document.getElementById("mobile-menu");
-  const prevPageButton = document.getElementById("prev-page-button");
-  const nextPageButton = document.getElementById("next-page-button");
+  const prevBtn = document.getElementById("prev-page-button");
+  const nextBtn = document.getElementById("next-page-button");
 
-  let currentPageIndex = 0;
+  let currentIndex = 0;
 
-  function showPage(index) {
-    if (index < 0 || index >= pageSections.length) return;
+  // ===== SHOW PAGE =====
+  function showPage(index, updateURL = true) {
+    if (index < 0 || index >= sections.length) return;
 
-    pageSections.forEach(section => {
-      section.classList.remove("active");
-      section.style.display = "none";
-      section.style.opacity = "0";
-      section.style.visibility = "hidden";
+    sections.forEach(sec => {
+      sec.classList.remove("active");
+      sec.style.display = "none";
+      sec.style.opacity = "0";
+      sec.style.visibility = "hidden";
     });
 
-    currentPageIndex = index;
-    const activePage = pageSections[currentPageIndex];
+    currentIndex = index;
+    const active = sections[currentIndex];
 
-    activePage.style.display = "flex";
-    activePage.style.opacity = "1";
-    activePage.style.visibility = "visible";
-    activePage.classList.add("active");
+    active.style.display = "flex";
+    active.style.opacity = "1";
+    active.style.visibility = "visible";
+    active.classList.add("active");
 
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth"
-    });
+    // ✅ UPDATE URL (IMPORTANT FIX)
+    if (updateURL) {
+      history.pushState(null, "", "#" + active.id);
+    }
 
-    updateButtons();
+    window.scrollTo({ top: 0, behavior: "smooth" });
+
+    updateArrows();
     updateActiveMenu();
   }
 
-  function updateButtons() {
-    if (prevPageButton) {
-      prevPageButton.classList.toggle("hidden", currentPageIndex === 0);
-    }
-
-    if (nextPageButton) {
-      nextPageButton.classList.toggle(
-        "hidden",
-        currentPageIndex === pageSections.length - 1
-      );
-    }
+  // ===== ARROWS =====
+  function updateArrows() {
+    if (prevBtn) prevBtn.classList.toggle("hidden", currentIndex === 0);
+    if (nextBtn) nextBtn.classList.toggle("hidden", currentIndex === sections.length - 1);
   }
 
+  // ===== ACTIVE MENU =====
   function updateActiveMenu() {
-    const activeId = pageSections[currentPageIndex]?.id;
+    const activeId = sections[currentIndex]?.id;
 
     navLinks.forEach(link => {
       link.classList.remove("text-yellow-300");
@@ -85,17 +83,15 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // ===== NAV MENU CLICK =====
+  // ===== NAV CLICK =====
   navLinks.forEach(link => {
     link.addEventListener("click", function (e) {
       e.preventDefault();
 
       const targetId = this.getAttribute("data-target");
-      const index = pageSections.findIndex(section => section.id === targetId);
+      const index = sections.findIndex(sec => sec.id === targetId);
 
-      if (index !== -1) {
-        showPage(index);
-      }
+      if (index !== -1) showPage(index);
 
       if (mobileMenu) {
         mobileMenu.classList.add("hidden");
@@ -104,17 +100,13 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  // ===== ARROW BUTTONS =====
-  if (prevPageButton) {
-    prevPageButton.addEventListener("click", function () {
-      showPage(currentPageIndex - 1);
-    });
+  // ===== ARROW CLICK =====
+  if (prevBtn) {
+    prevBtn.addEventListener("click", () => showPage(currentIndex - 1));
   }
 
-  if (nextPageButton) {
-    nextPageButton.addEventListener("click", function () {
-      showPage(currentPageIndex + 1);
-    });
+  if (nextBtn) {
+    nextBtn.addEventListener("click", () => showPage(currentIndex + 1));
   }
 
   // ===== MOBILE MENU =====
@@ -127,16 +119,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // ===== PARTNER SEARCH =====
   const partnerSearch = document.getElementById("partnerSearch");
-
   if (partnerSearch) {
     partnerSearch.addEventListener("keyup", function () {
       const value = this.value.toLowerCase();
       const rows = document.querySelectorAll("#partnersTable tbody tr");
 
       rows.forEach(row => {
-        row.style.display = row.innerText.toLowerCase().includes(value)
-          ? ""
-          : "none";
+        row.style.display = row.innerText.toLowerCase().includes(value) ? "" : "none";
       });
     });
   }
@@ -151,27 +140,39 @@ document.addEventListener("DOMContentLoaded", function () {
     "images/Venue Photos/23.jpeg"
   ];
 
-  const slideImageElement = document.getElementById("slideImage");
+  const slideImage = document.getElementById("slideImage");
 
   window.changeSlide = function (n) {
-    if (!slideImageElement) return;
+    if (!slideImage) return;
 
     slideIndex = (slideIndex + n + slideImages.length) % slideImages.length;
-    slideImageElement.style.opacity = "0";
+
+    slideImage.style.opacity = "0";
 
     setTimeout(() => {
-      slideImageElement.src = slideImages[slideIndex];
-      slideImageElement.loading = "lazy";
-      slideImageElement.style.opacity = "1";
+      slideImage.src = slideImages[slideIndex];
+      slideImage.style.opacity = "1";
     }, 300);
   };
 
-  if (slideImageElement) {
-    setInterval(() => {
-      window.changeSlide(1);
-    }, 5000);
+  if (slideImage) {
+    setInterval(() => changeSlide(1), 5000);
   }
 
-  // Initial page
-  showPage(0);
+  // ===== HANDLE BACK BUTTON (IMPORTANT FIX) =====
+  window.addEventListener("popstate", function () {
+    const hash = window.location.hash.replace("#", "");
+    const index = sections.findIndex(sec => sec.id === hash);
+
+    if (index !== -1) {
+      showPage(index, false);
+    }
+  });
+
+  // ===== LOAD FROM URL =====
+  const initialHash = window.location.hash.replace("#", "");
+  const initialIndex = sections.findIndex(sec => sec.id === initialHash);
+
+  showPage(initialIndex !== -1 ? initialIndex : 0, false);
+
 });
