@@ -1,17 +1,30 @@
-// Toggle Modal and Close Mobile Menu
+// ===== MODAL =====
 function toggleModal() {
   const modal = document.getElementById("modal");
   if (modal) modal.classList.toggle("hidden");
 
   const mobileMenu = document.getElementById("mobile-menu");
-  if (mobileMenu?.classList.contains("flex")) {
-    mobileMenu.classList.remove("flex");
+  if (mobileMenu) {
     mobileMenu.classList.add("hidden");
+    mobileMenu.classList.remove("flex");
   }
 }
 
+// ===== MAIN SCRIPT =====
 document.addEventListener("DOMContentLoaded", function () {
-  const pageSections = Array.from(document.querySelectorAll(".page-section"));
+  const sectionOrder = [
+    "home",
+    "about",
+    "attractions",
+    "partners",
+    "rtffam",
+    "rtfglobal"
+  ];
+
+  const pageSections = sectionOrder
+    .map(id => document.getElementById(id))
+    .filter(Boolean);
+
   const navLinks = document.querySelectorAll(".nav-link");
   const menuToggle = document.getElementById("menu-toggle");
   const mobileMenu = document.getElementById("mobile-menu");
@@ -23,7 +36,7 @@ document.addEventListener("DOMContentLoaded", function () {
   function showPage(index) {
     if (index < 0 || index >= pageSections.length) return;
 
-    pageSections.forEach((section) => {
+    pageSections.forEach(section => {
       section.classList.remove("active");
       section.style.display = "none";
       section.style.opacity = "0";
@@ -34,8 +47,8 @@ document.addEventListener("DOMContentLoaded", function () {
     const activePage = pageSections[currentPageIndex];
 
     activePage.style.display = "flex";
-    activePage.style.visibility = "visible";
     activePage.style.opacity = "1";
+    activePage.style.visibility = "visible";
     activePage.classList.add("active");
 
     window.scrollTo({
@@ -43,11 +56,11 @@ document.addEventListener("DOMContentLoaded", function () {
       behavior: "smooth"
     });
 
-    updateNavButtons();
-    updateActiveNavLink();
+    updateButtons();
+    updateActiveMenu();
   }
 
-  function updateNavButtons() {
+  function updateButtons() {
     if (prevPageButton) {
       prevPageButton.classList.toggle("hidden", currentPageIndex === 0);
     }
@@ -60,37 +73,38 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
-  function updateActiveNavLink() {
-    navLinks.forEach((link) => {
+  function updateActiveMenu() {
+    const activeId = pageSections[currentPageIndex]?.id;
+
+    navLinks.forEach(link => {
       link.classList.remove("text-yellow-300");
 
-      const target = link.getAttribute("data-target");
-      const activeSectionId = pageSections[currentPageIndex]?.id;
-
-      if (target === activeSectionId) {
+      if (link.getAttribute("data-target") === activeId) {
         link.classList.add("text-yellow-300");
       }
     });
   }
 
-  navLinks.forEach((link) => {
+  // ===== NAV MENU CLICK =====
+  navLinks.forEach(link => {
     link.addEventListener("click", function (e) {
       e.preventDefault();
 
       const targetId = this.getAttribute("data-target");
-      const index = pageSections.findIndex((section) => section.id === targetId);
+      const index = pageSections.findIndex(section => section.id === targetId);
 
       if (index !== -1) {
         showPage(index);
       }
 
-      if (mobileMenu?.classList.contains("flex")) {
-        mobileMenu.classList.remove("flex");
+      if (mobileMenu) {
         mobileMenu.classList.add("hidden");
+        mobileMenu.classList.remove("flex");
       }
     });
   });
 
+  // ===== ARROW BUTTONS =====
   if (prevPageButton) {
     prevPageButton.addEventListener("click", function () {
       showPage(currentPageIndex - 1);
@@ -103,6 +117,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
+  // ===== MOBILE MENU =====
   if (menuToggle && mobileMenu) {
     menuToggle.addEventListener("click", function () {
       mobileMenu.classList.toggle("hidden");
@@ -110,6 +125,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
+  // ===== PARTNER SEARCH =====
   const partnerSearch = document.getElementById("partnerSearch");
 
   if (partnerSearch) {
@@ -117,7 +133,7 @@ document.addEventListener("DOMContentLoaded", function () {
       const value = this.value.toLowerCase();
       const rows = document.querySelectorAll("#partnersTable tbody tr");
 
-      rows.forEach((row) => {
+      rows.forEach(row => {
         row.style.display = row.innerText.toLowerCase().includes(value)
           ? ""
           : "none";
@@ -125,6 +141,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
+  // ===== IMAGE SLIDER =====
   let slideIndex = 0;
   const slideImages = [
     "images/Venue Photos/19.jpeg",
@@ -155,5 +172,6 @@ document.addEventListener("DOMContentLoaded", function () {
     }, 5000);
   }
 
+  // Initial page
   showPage(0);
 });
