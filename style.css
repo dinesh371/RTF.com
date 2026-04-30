@@ -3,92 +3,77 @@ html {
   scroll-behavior: smooth;
 }
 
-.page-section {
-  min-height: 100vh;
-  scroll-margin-top: 80px;
-}
 html, body {
-    margin: 0 !important;
-    padding: 0 !important;
-    overflow-x: hidden !important;
-    background: #0b1020 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow-x: hidden !important;
+  background: #0b1020 !important;
 }
 
-/* ===== FIX WHITE SPACE ISSUE ===== */
+/* ===== COMMON SECTION FIX ===== */
 .page-section {
-    position: relative !important;   /* FIX: remove absolute causing gaps */
-    margin-top: 0 !important;
-    padding-top: 90px !important;    /* adjust based on navbar height */
-    background: transparent !important;
-    min-height: 100vh !important;
-    display: block !important;
+  position: relative !important;
+  margin: 0 !important;
+  padding-top: 90px !important;
+  min-height: 100vh !important;
+  scroll-margin-top: 80px;
+  background: transparent;
 }
 
-/* ===== REMOVE GAP BELOW NAVBAR ===== */
-nav + .page-section {
-    margin-top: 0 !important;
-}
-
-/* ===== PARTNERS SECTION FULL BACKGROUND ===== */
-#partners.page-section {
-    padding: 100px 0 40px 0 !important;
-
-    background: linear-gradient(
-        135deg,
-        #111936 0%,
-        #2c2638 55%,
-        #4a2630 100%
-    ) !important;
-
-    min-height: 100vh !important;
-    border-radius: 0 !important;
-    overflow: hidden !important;
-}
-
-/* ===== FIX EXTRA WRAPPER GAP ===== */
-#partners .max-w-5xl,
-#partners .container,
-#partners .relative {
-    margin-top: 0 !important;
-    padding-top: 0 !important;
-}
-
-/* ===== NAVIGATION ARROWS (PERFECT CENTER) ===== */
+/* ===== NAVIGATION ARROWS CENTER FIX ===== */
 .nav-arrow-button {
-  position: fixed;
-  top: 50% !important;
+  position: fixed !important;
+  top: 50vh !important;
   transform: translateY(-50%) !important;
-  background-color: rgb(241, 199, 11);
-  color: #1B2A57;
-  border: none;
-  padding: 1rem;
+  z-index: 99999 !important;
+
+  width: 55px !important;
+  height: 55px !important;
+  border: none !important;
+  border-radius: 50% !important;
+
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+
   cursor: pointer;
-  z-index: 9999; /* increase priority */
-  border-radius: 9999px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-  width: 55px;
-  height: 55px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  color: #1B2A57;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.35);
 }
 
-/* LEFT */
 .nav-arrow-button.left {
-    left: 20px;
-    background: linear-gradient(135deg, #00C9FF, #92FE9D);
+  left: 20px !important;
+  background: linear-gradient(135deg, #00C9FF, #92FE9D);
 }
 
-/* RIGHT */
 .nav-arrow-button.right {
-    right: 20px;
-    background: linear-gradient(135deg, #FDC830, #F37335);
+  right: 20px !important;
+  background: linear-gradient(135deg, #FDC830, #F37335);
 }
 
-/* HOVER EFFECT */
 .nav-arrow-button:hover {
-    transform: translateY(-50%) scale(1.1);
+  transform: translateY(-50%) scale(1.1) !important;
 }
+
+/* ===== PARTNERS SECTION ===== */
+#partners.page-section {
+  padding: 100px 20px 40px 20px !important;
+  min-height: 100vh !important;
+  background: linear-gradient(135deg, #111936 0%, #2c2638 55%, #4a2630 100%) !important;
+  border-radius: 0 !important;
+  overflow: hidden !important;
+}
+
+/* ===== RTS COMING SOON SECTIONS ===== */
+#rtsfam.page-section,
+#rtsglobal.page-section {
+  padding: 100px 20px 60px 20px !important;
+  min-height: 100vh !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
 /* ===== PARTNERS PREMIUM UI ===== */
 .partners-section {
   margin: 0 !important;
@@ -202,9 +187,11 @@ nav + .page-section {
   color: #1B2A57;
 }
 
+/* ===== MOBILE FIX ===== */
 @media (max-width: 768px) {
-  .partners-section {
-    padding: 60px 12px !important;
+  .partners-section,
+  #partners.page-section {
+    padding: 70px 12px 40px 12px !important;
   }
 
   .partners-title-box h2 {
@@ -222,5 +209,18 @@ nav + .page-section {
 
   #partnersTable {
     font-size: 12px;
+  }
+
+  .nav-arrow-button {
+    width: 46px !important;
+    height: 46px !important;
+  }
+
+  .nav-arrow-button.left {
+    left: 8px !important;
+  }
+
+  .nav-arrow-button.right {
+    right: 8px !important;
   }
 }
