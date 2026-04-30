@@ -37,7 +37,7 @@
       background: linear-gradient(90deg, #b7942d 0%, #d9be52 100%);
       box-shadow: 0 6px 20px rgba(183, 148, 45, 0.7);
       outline: none;
-  
+    }
 
     /* Navigation Buttons Styling */
     .nav-arrow-button {
@@ -96,6 +96,75 @@
         padding-bottom: 1.5rem !important;
       }
     }
+
+
+    /* ===== FINAL NAV + SECTION + ARROW FIX ===== */
+    html { scroll-behavior: smooth; }
+    html, body { margin: 0 !important; padding: 0 !important; overflow-x: hidden !important; background: #0b1020 !important; }
+
+    .page-section {
+      position: relative !important;
+      margin: 0 !important;
+      min-height: calc(100vh - 80px) !important;
+      padding: 90px 20px 50px 20px !important;
+      display: none;
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    .page-section.active {
+      display: flex !important;
+      opacity: 1 !important;
+      visibility: visible !important;
+    }
+
+    nav .text-yellow-300 { color: #facc15 !important; }
+
+    #mobile-menu.flex {
+      display: flex !important;
+      flex-direction: column !important;
+    }
+
+    .nav-arrow-button {
+      position: fixed !important;
+      top: 50vh !important;
+      transform: translateY(-50%) !important;
+      z-index: 99999 !important;
+      width: 55px !important;
+      height: 55px !important;
+      border: none !important;
+      border-radius: 50% !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      cursor: pointer !important;
+      color: #1B2A57 !important;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.35) !important;
+    }
+
+    .nav-arrow-button.left {
+      left: 20px !important;
+      background: linear-gradient(135deg, #00C9FF, #92FE9D) !important;
+    }
+
+    .nav-arrow-button.right {
+      right: 20px !important;
+      background: linear-gradient(135deg, #FDC830, #F37335) !important;
+    }
+
+    .nav-arrow-button:hover {
+      transform: translateY(-50%) scale(1.1) !important;
+    }
+
+    @media (max-width: 768px) {
+      .nav-arrow-button {
+        width: 46px !important;
+        height: 46px !important;
+      }
+      .nav-arrow-button.left { left: 8px !important; }
+      .nav-arrow-button.right { right: 8px !important; }
+    }
+
   </style>
 </head>
 <body class="bg-gray-50 text-gray-800 m-0 p-0 relative">
@@ -133,58 +202,46 @@
         </div>
     </div>
     <!-- Navigation Bar -->
-<nav class="bg-[#1B2A57]/90 backdrop-blur-md text-white p-3 md:p-4 shadow-md sticky top-0 z-50">
-  <div class="container mx-auto flex items-center justify-between flex-wrap md:flex-nowrap gap-4">
-    
-    <!-- Logo & Location Badge -->
+<nav class="bg-[#1B2A57] text-white shadow-md sticky top-0 z-50">
+  <div class="max-w-7xl mx-auto px-4 flex items-center justify-between h-20">
+
+    <!-- Logo + Location -->
     <div class="flex items-center gap-3 flex-shrink-0">
-      <img src="images/Logo2026.jpeg" alt="RTF 2026 Logo"
-        class="h-14 w-14 object-cover rounded-full " />
-      <span class="bg-yellow-400 text-[#1B2A57] px-3 py-1 rounded-full font-semibold text-sm whitespace-nowrap">
+      <img src="images/Logo2026.jpeg" alt="RTF Logo" class="h-14 w-14 rounded-full object-cover" />
+      <span class="bg-yellow-400 text-[#1B2A57] px-4 py-1 rounded-full text-sm font-bold whitespace-nowrap">
         JODHPUR
       </span>
     </div>
 
-    <!-- Desktop Navigation Links -->
-<div class="hidden md:flex items-center gap-4 text-sm font-medium tracking-wide flex-grow justify-center whitespace-nowrap">
-  <a href="#" class="nav-link hover:text-yellow-300 transition" data-target="home">Home</a>
-  <a href="#" class="nav-link hover:text-yellow-300 transition" data-target="about">About</a>
-  <a href="#" class="nav-link hover:text-yellow-300 transition" data-target="attractions">Jodhpur</a>
-  <a href="#" class="nav-link hover:text-yellow-300 transition" data-target="partners">Partners</a>
-  <a href="#" class="nav-link hover:text-yellow-300 transition" data-target="RTFfam">RTF FAM 2026</a>
-  <a href="#" class="nav-link hover:text-yellow-300 transition" data-target="RTFglobal">RTF Global FAM</a>
-</div>
+    <!-- Desktop Menu -->
+    <div class="hidden lg:flex items-center gap-6 text-sm font-semibold tracking-wide whitespace-nowrap">
+      <a href="#home" class="nav-link hover:text-yellow-300 transition" data-target="home">Home</a>
+      <a href="#about" class="nav-link hover:text-yellow-300 transition" data-target="about">About</a>
+      <a href="#attractions" class="nav-link hover:text-yellow-300 transition" data-target="attractions">Jodhpur</a>
+      <a href="#partners" class="nav-link hover:text-yellow-300 transition" data-target="partners">Partners</a>
+      <a href="#rtffam" class="nav-link hover:text-yellow-300 transition" data-target="rtffam">RTF FAM 2026</a>
+      <a href="#rtfglobal" class="nav-link hover:text-yellow-300 transition" data-target="rtfglobal">RTF Global FAM</a>
+    </div>
 
-    
-   <!-- Register & Hamburger -->
-<div class="flex items-center gap-3 ml-auto">
-  <!-- Hamburger for Mobile (Top Right Corner) -->
-  <button id="menu-toggle" class="md:hidden focus:outline-none absolute top-4 right-4 z-50">
-    <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-        d="M4 6h16M4 12h16M4 18h16" />
-    </svg>
-  </button>
-
-  <!-- Register Button (Hide on small screens if needed) -->
-  <button onclick="toggleModal()"
-    class="btn-gold hidden md:inline-block whitespace-nowrap px-5 py-2 rounded-full font-semibold shadow-md hover:shadow-lg transition duration-300 text-sm md:text-base">
-    click here for Registration
-  </button>
-</div>
-
+    <!-- Right Side -->
+    <div class="flex items-center gap-3">
+      <button onclick="toggleModal()"
+        class="hidden lg:inline-block bg-yellow-400 hover:bg-yellow-300 text-[#1B2A57] px-7 py-3 rounded-full font-bold shadow-lg transition whitespace-nowrap">
+        click here for Registration
+      </button>
+      <button id="menu-toggle" class="lg:hidden text-white text-3xl font-bold focus:outline-none" aria-label="Open menu">☰</button>
+    </div>
+  </div>
 
   <!-- Mobile Menu -->
-  <div id="mobile-menu"
-    class="md:hidden hidden flex-col w-full bg-white px-4 py-6 rounded-b-xl shadow-xl space-y-3 text-base font-medium tracking-wide text-[#2C3E91] transition-all duration-300 ease-in-out z-40">
-    <a href="#" class="nav-link block px-4 py-2 rounded-lg hover:bg-gray-200 transition" data-target="home">🏠 Home</a>
-    <a href="#" class="nav-link block px-4 py-2 rounded-lg hover:bg-gray-200 transition" data-target="about">ℹ️ About</a>
-    <a href="#" class="nav-link block px-4 py-2 rounded-lg hover:bg-gray-200 transition" data-target="attractions">📍 Jodhpur</a>
-    <a href="#" class="nav-link block px-4 py-2 rounded-lg hover:bg-gray-200 transition" data-target="partners">🤝 Partners</a>
-    <a href="#" class="nav-link block px-4 py-2 rounded-lg hover:bg-gray-200 transition" data-target="RTFfam">🤝 RTF FAM 2026</a>
-<a href="#" class="nav-link block px-4 py-2 rounded-lg hover:bg-gray-200 transition" data-target="RTFglobal">🌍 RTF Global FAM</a>
-    <button onclick="toggleModal()"
-      class="block w-full text-center bg-[#2C3E91] hover:bg-[#1E2D6B] text-white px-4 py-3 rounded-xl font-semibold shadow-md hover:shadow-lg transition duration-300 mt-2">
+  <div id="mobile-menu" class="hidden lg:hidden bg-white text-[#1B2A57] px-5 py-5 space-y-3 shadow-xl">
+    <a href="#home" class="nav-link block px-4 py-3 rounded-lg hover:bg-gray-100 font-semibold" data-target="home">🏠 Home</a>
+    <a href="#about" class="nav-link block px-4 py-3 rounded-lg hover:bg-gray-100 font-semibold" data-target="about">ℹ️ About</a>
+    <a href="#attractions" class="nav-link block px-4 py-3 rounded-lg hover:bg-gray-100 font-semibold" data-target="attractions">📍 Jodhpur</a>
+    <a href="#partners" class="nav-link block px-4 py-3 rounded-lg hover:bg-gray-100 font-semibold" data-target="partners">🤝 Partners</a>
+    <a href="#rtffam" class="nav-link block px-4 py-3 rounded-lg hover:bg-gray-100 font-semibold" data-target="rtffam">🤝 RTF FAM 2026</a>
+    <a href="#rtfglobal" class="nav-link block px-4 py-3 rounded-lg hover:bg-gray-100 font-semibold" data-target="rtfglobal">🌍 RTF Global FAM</a>
+    <button onclick="toggleModal()" class="w-full bg-[#1B2A57] hover:bg-[#24386f] text-white px-4 py-3 rounded-xl font-bold shadow-md">
       🚀 Register Now
     </button>
   </div>
@@ -498,7 +555,76 @@ As shared earlier, that RTF has been postponed until further notice, so as a con
                     padding: 1rem !important;
                 }
             }
-        </style>
+      
+
+    /* ===== FINAL NAV + SECTION + ARROW FIX ===== */
+    html { scroll-behavior: smooth; }
+    html, body { margin: 0 !important; padding: 0 !important; overflow-x: hidden !important; background: #0b1020 !important; }
+
+    .page-section {
+      position: relative !important;
+      margin: 0 !important;
+      min-height: calc(100vh - 80px) !important;
+      padding: 90px 20px 50px 20px !important;
+      display: none;
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    .page-section.active {
+      display: flex !important;
+      opacity: 1 !important;
+      visibility: visible !important;
+    }
+
+    nav .text-yellow-300 { color: #facc15 !important; }
+
+    #mobile-menu.flex {
+      display: flex !important;
+      flex-direction: column !important;
+    }
+
+    .nav-arrow-button {
+      position: fixed !important;
+      top: 50vh !important;
+      transform: translateY(-50%) !important;
+      z-index: 99999 !important;
+      width: 55px !important;
+      height: 55px !important;
+      border: none !important;
+      border-radius: 50% !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      cursor: pointer !important;
+      color: #1B2A57 !important;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.35) !important;
+    }
+
+    .nav-arrow-button.left {
+      left: 20px !important;
+      background: linear-gradient(135deg, #00C9FF, #92FE9D) !important;
+    }
+
+    .nav-arrow-button.right {
+      right: 20px !important;
+      background: linear-gradient(135deg, #FDC830, #F37335) !important;
+    }
+
+    .nav-arrow-button:hover {
+      transform: translateY(-50%) scale(1.1) !important;
+    }
+
+    @media (max-width: 768px) {
+      .nav-arrow-button {
+        width: 46px !important;
+        height: 46px !important;
+      }
+      .nav-arrow-button.left { left: 8px !important; }
+      .nav-arrow-button.right { right: 8px !important; }
+    }
+
+  </style>
 
     </div>
 </section>
@@ -794,7 +920,22 @@ As shared earlier, that RTF has been postponed until further notice, so as a con
     </div>
   </div>
 
-<section id="rtsglobal" class="page-section relative min-h-screen flex items-center justify-center text-white">
+
+</section>
+
+<!-- ================= RTF FAM 2026 COMING SOON ================= -->
+<section id="rtffam" class="page-section relative min-h-screen flex items-center justify-center text-white">
+  <div class="absolute inset-0 bg-gradient-to-br from-[#1B2A57] via-[#2c2638] to-[#4a2630] -z-10"></div>
+  <div class="text-center px-6">
+    <h2 class="text-4xl md:text-5xl font-bold mb-4 text-yellow-300">RTF FAM 2026</h2>
+    <h3 class="text-2xl md:text-3xl font-bold mb-6 text-white">RTF FAM 2026 Coming Soon</h3>
+    <img src="images/RTF-fam-coming.png" alt="RTF FAM 2026 Coming Soon" class="mx-auto w-[300px] md:w-[450px] rounded-2xl shadow-2xl border-4 border-yellow-300 mb-6" />
+    <p class="text-xl md:text-2xl font-semibold tracking-wide">Content Coming Soon</p>
+  </div>
+</section>
+
+<!-- ================= RTF GLOBAL FAM COMING SOON ================= -->
+<section id="rtfglobal" class="page-section relative min-h-screen flex items-center justify-center text-white">
   <div class="absolute inset-0 bg-gradient-to-br from-[#0f172a] via-[#1e293b] to-[#020617] -z-10"></div>
 
   <div class="text-center px-6">
@@ -815,39 +956,8 @@ As shared earlier, that RTF has been postponed until further notice, so as a con
     </p>
   </div>
 </section>
-  
-<script>
-  const partnerSearch = document.getElementById("partnerSearch");
-
-  if (partnerSearch) {
-    partnerSearch.addEventListener("keyup", function () {
-      const value = this.value.toLowerCase();
-      const rows = document.querySelectorAll("#partnersTable tbody tr");
-
-      rows.forEach(row => {
-        row.style.display = row.innerText.toLowerCase().includes(value) ? "" : "none";
-      });
-    });
-  }
-</script>
 <!-- ================= SEARCH SCRIPT ================= -->
-<script>
-const partnerSearch = document.getElementById("partnerSearch");
-
-if (partnerSearch) {
-  partnerSearch.addEventListener("keyup", function () {
-    const value = this.value.toLowerCase();
-    const rows = document.querySelectorAll("#partnersTable tbody tr");
-
-    rows.forEach(row => {
-      row.style.display = row.innerText.toLowerCase().includes(value)
-        ? ""
-        : "none";
-    });
-  });
-}
-</script>
-    <!-- Footer Section -->
+<!-- Footer Section -->
 <footer class="relative bg-[#0f172a] text-gray-300 px-4 py-14 md:px-8 lg:px-16 overflow-hidden">
   <div class="absolute inset-0 bg-gradient-to-br from-indigo-900/40 via-slate-900 to-black"></div>
 
@@ -977,50 +1087,152 @@ if (partnerSearch) {
   </svg>
 </button>
 
-<!-- External Resources -->
-<script src="script.js"></script>
-<link rel="stylesheet" href="styles.css">
-
+<!-- Final Navigation Script -->
 <script>
+function toggleModal() {
+  const modal = document.getElementById("modal");
+  if (modal) modal.classList.toggle("hidden");
+
+  const mobileMenu = document.getElementById("mobile-menu");
+  if (mobileMenu) {
+    mobileMenu.classList.add("hidden");
+    mobileMenu.classList.remove("flex");
+  }
+}
+
 document.addEventListener("DOMContentLoaded", function () {
+  const sectionOrder = ["home", "about", "attractions", "partners", "rtffam", "rtfglobal"];
+  const sections = sectionOrder.map(id => document.getElementById(id)).filter(Boolean);
+
+  const navLinks = document.querySelectorAll(".nav-link");
+  const menuToggle = document.getElementById("menu-toggle");
+  const mobileMenu = document.getElementById("mobile-menu");
+  const prevBtn = document.getElementById("prev-page-button");
+  const nextBtn = document.getElementById("next-page-button");
+
   let currentIndex = 0;
-  let isScrolling = false;
 
-  function showSection(index) {
-    if (isScrolling) return;
+  function showPage(index, updateUrl = true) {
+    if (index < 0 || index >= sections.length) return;
 
-    isScrolling = true;
+    sections.forEach(sec => {
+      sec.classList.remove("active");
+      sec.style.display = "none";
+      sec.style.opacity = "0";
+      sec.style.visibility = "hidden";
+    });
+
     currentIndex = index;
+    const active = sections[currentIndex];
 
-    const target = document.getElementById(sections[currentIndex]);
+    active.style.display = "flex";
+    active.style.opacity = "1";
+    active.style.visibility = "visible";
+    active.classList.add("active");
 
-    if (target) {
-      target.scrollIntoView({
-        behavior: "smooth",
-        block: "start"
-      });
+    if (updateUrl) {
+      history.pushState(null, "", "#" + active.id);
     }
 
-    setTimeout(() => {
-      isScrolling = false;
-    }, 900);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+    updateArrows();
+    updateActiveNav();
   }
 
-  // Auto scroll every 8 sec
-  setInterval(() => {
-    let nextIndex = (currentIndex + 1) % sections.length;
-    showSection(nextIndex);
-  }, 8000);
+  function updateArrows() {
+    if (prevBtn) prevBtn.classList.toggle("hidden", currentIndex === 0);
+    if (nextBtn) nextBtn.classList.toggle("hidden", currentIndex === sections.length - 1);
+  }
 
-  // Nav click smooth scroll
-  document.querySelectorAll(".nav-link").forEach(link => {
+  function updateActiveNav() {
+    const activeId = sections[currentIndex]?.id;
+    navLinks.forEach(link => {
+      link.classList.remove("text-yellow-300");
+      if (link.getAttribute("data-target") === activeId) {
+        link.classList.add("text-yellow-300");
+      }
+    });
+  }
+
+  navLinks.forEach(link => {
     link.addEventListener("click", function (e) {
       e.preventDefault();
       const targetId = this.getAttribute("data-target");
-      const index = sections.indexOf(targetId);
-      if (index !== -1) showSection(index);
+      const index = sections.findIndex(sec => sec.id === targetId);
+      if (index !== -1) showPage(index);
+
+      if (mobileMenu) {
+        mobileMenu.classList.add("hidden");
+        mobileMenu.classList.remove("flex");
+      }
     });
   });
 
+  if (prevBtn) {
+    prevBtn.addEventListener("click", function () {
+      showPage(currentIndex - 1);
+    });
+  }
+
+  if (nextBtn) {
+    nextBtn.addEventListener("click", function () {
+      showPage(currentIndex + 1);
+    });
+  }
+
+  if (menuToggle && mobileMenu) {
+    menuToggle.addEventListener("click", function () {
+      mobileMenu.classList.toggle("hidden");
+      mobileMenu.classList.toggle("flex");
+    });
+  }
+
+  const partnerSearch = document.getElementById("partnerSearch");
+  if (partnerSearch) {
+    partnerSearch.addEventListener("keyup", function () {
+      const value = this.value.toLowerCase();
+      const rows = document.querySelectorAll("#partnersTable tbody tr");
+      rows.forEach(row => {
+        row.style.display = row.innerText.toLowerCase().includes(value) ? "" : "none";
+      });
+    });
+  }
+
+  let slideIndex = 0;
+  const slideImages = [
+    "images/Venue Photos/19.jpeg",
+    "images/Venue Photos/20.jpeg",
+    "images/Venue Photos/21.jpeg",
+    "images/Venue Photos/22.jpeg",
+    "images/Venue Photos/23.jpeg"
+  ];
+  const slideImageElement = document.getElementById("slideImage");
+
+  window.changeSlide = function (n) {
+    if (!slideImageElement) return;
+    slideIndex = (slideIndex + n + slideImages.length) % slideImages.length;
+    slideImageElement.style.opacity = "0";
+    setTimeout(() => {
+      slideImageElement.src = slideImages[slideIndex];
+      slideImageElement.loading = "lazy";
+      slideImageElement.style.opacity = "1";
+    }, 300);
+  };
+
+  if (slideImageElement) {
+    setInterval(() => window.changeSlide(1), 5000);
+  }
+
+  window.addEventListener("popstate", function () {
+    const hash = window.location.hash.replace("#", "");
+    const index = sections.findIndex(sec => sec.id === hash);
+    if (index !== -1) showPage(index, false);
+  });
+
+  const initialHash = window.location.hash.replace("#", "");
+  const initialIndex = sections.findIndex(sec => sec.id === initialHash);
+  showPage(initialIndex !== -1 ? initialIndex : 0, initialIndex === -1);
 });
 </script>
+</body>
+</html>
