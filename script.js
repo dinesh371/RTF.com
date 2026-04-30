@@ -11,7 +11,6 @@ function toggleModal() {
 }
 
 document.addEventListener("DOMContentLoaded", function () {
-  // Elements
   const pageSections = Array.from(document.querySelectorAll(".page-section"));
   const navLinks = document.querySelectorAll(".nav-link");
   const menuToggle = document.getElementById("menu-toggle");
@@ -21,7 +20,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
   let currentPageIndex = 0;
 
-  // Show Selected Page
   function showPage(index) {
     if (index < 0 || index >= pageSections.length) return;
 
@@ -35,7 +33,7 @@ document.addEventListener("DOMContentLoaded", function () {
     currentPageIndex = index;
     const activePage = pageSections[currentPageIndex];
 
-    activePage.style.display = "block";
+    activePage.style.display = "flex";
     activePage.style.visibility = "visible";
     activePage.style.opacity = "1";
     activePage.classList.add("active");
@@ -49,7 +47,6 @@ document.addEventListener("DOMContentLoaded", function () {
     updateActiveNavLink();
   }
 
-  // Update Arrow Buttons
   function updateNavButtons() {
     if (prevPageButton) {
       prevPageButton.classList.toggle("hidden", currentPageIndex === 0);
@@ -63,7 +60,6 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
-  // Active Navbar Link
   function updateActiveNavLink() {
     navLinks.forEach((link) => {
       link.classList.remove("text-yellow-300");
@@ -77,7 +73,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // Navbar Click
   navLinks.forEach((link) => {
     link.addEventListener("click", function (e) {
       e.preventDefault();
@@ -96,7 +91,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  // Arrow Navigation
   if (prevPageButton) {
     prevPageButton.addEventListener("click", function () {
       showPage(currentPageIndex - 1);
@@ -109,7 +103,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // Mobile Menu Toggle
   if (menuToggle && mobileMenu) {
     menuToggle.addEventListener("click", function () {
       mobileMenu.classList.toggle("hidden");
@@ -117,7 +110,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // Partners Search
   const partnerSearch = document.getElementById("partnerSearch");
 
   if (partnerSearch) {
@@ -133,7 +125,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // Image Slider
   let slideIndex = 0;
   const slideImages = [
     "images/Venue Photos/19.jpeg",
@@ -149,7 +140,6 @@ document.addEventListener("DOMContentLoaded", function () {
     if (!slideImageElement) return;
 
     slideIndex = (slideIndex + n + slideImages.length) % slideImages.length;
-
     slideImageElement.style.opacity = "0";
 
     setTimeout(() => {
@@ -159,10 +149,11 @@ document.addEventListener("DOMContentLoaded", function () {
     }, 300);
   };
 
-  setInterval(() => {
-    window.changeSlide(1);
-  }, 5000);
+  if (slideImageElement) {
+    setInterval(() => {
+      window.changeSlide(1);
+    }, 5000);
+  }
 
-  // Initial Load
   showPage(0);
 });
