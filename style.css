@@ -10,17 +10,37 @@ html, body {
   background: #0b1020 !important;
 }
 
-/* ===== COMMON SECTION FIX ===== */
+/* ===== SECTION BASE ===== */
 .page-section {
   position: relative !important;
   margin: 0 !important;
-  padding-top: 90px !important;
+  padding-top: 90px !important; /* navbar height */
   min-height: 100vh !important;
   scroll-margin-top: 80px;
   background: transparent;
 }
 
-/* ===== NAVIGATION ARROWS CENTER FIX ===== */
+/* ===== NAVBAR FIX ===== */
+nav .container {
+  max-width: 100% !important;
+}
+
+nav .nav-link {
+  font-size: 14px !important;
+  white-space: nowrap !important;
+}
+
+nav .hidden.md\:flex {
+  gap: 18px !important;
+  flex-wrap: nowrap !important;
+}
+
+.btn-gold {
+  padding: 10px 18px !important;
+  font-size: 14px !important;
+}
+
+/* ===== NAVIGATION ARROWS ===== */
 .nav-arrow-button {
   position: fixed !important;
   top: 50vh !important;
@@ -60,11 +80,9 @@ html, body {
   padding: 100px 20px 40px 20px !important;
   min-height: 100vh !important;
   background: linear-gradient(135deg, #111936 0%, #2c2638 55%, #4a2630 100%) !important;
-  border-radius: 0 !important;
-  overflow: hidden !important;
 }
 
-/* ===== RTSFCOMING SOON SECTIONS ===== */
+/* ===== RTS SECTIONS ===== */
 #rtsfam.page-section,
 #rtsglobal.page-section {
   padding: 100px 20px 60px 20px !important;
@@ -74,7 +92,7 @@ html, body {
   justify-content: center !important;
 }
 
-/* ===== PARTNERS PREMIUM UI ===== */
+/* ===== PARTNERS UI ===== */
 .partners-section {
   margin: 0 !important;
   padding: 80px 20px !important;
@@ -100,13 +118,11 @@ html, body {
   color: #ffffff;
   font-size: 42px;
   font-weight: 800;
-  margin-bottom: 8px;
 }
 
 .partners-title-box p {
   color: #f7d54a;
-  font-size: 17px;
-  font-weight: 500;
+  font-size: 16px;
 }
 
 .partners-card {
@@ -129,7 +145,6 @@ html, body {
 .partners-top h3 {
   color: #fff;
   font-size: 24px;
-  font-weight: 700;
 }
 
 #partnerSearch {
@@ -139,7 +154,6 @@ html, body {
   border-radius: 14px;
   border: none;
   outline: none;
-  font-size: 14px;
 }
 
 .partners-table-wrap {
@@ -152,7 +166,6 @@ html, body {
 #partnersTable {
   width: 100%;
   border-collapse: collapse;
-  background: #fff;
   font-size: 14px;
 }
 
@@ -166,49 +179,20 @@ html, body {
 
 #partnersTable th,
 #partnersTable td {
-  padding: 13px 14px;
+  padding: 12px;
   border-bottom: 1px solid #e5e7eb;
-  text-align: left;
   white-space: nowrap;
-}
-
-#partnersTable th:first-child,
-#partnersTable td:first-child {
-  text-align: center;
-  width: 70px;
 }
 
 #partnersTable tbody tr:hover {
   background: #fff4c2;
 }
 
-#partnersTable td:nth-child(6) {
-  font-weight: 600;
-  color: #1B2A57;
-}
-
 /* ===== MOBILE FIX ===== */
 @media (max-width: 768px) {
-  .partners-section,
-  #partners.page-section {
-    padding: 70px 12px 40px 12px !important;
-  }
 
-  .partners-title-box h2 {
-    font-size: 30px;
-  }
-
-  .partners-top {
-    flex-direction: column;
-    align-items: stretch;
-  }
-
-  #partnerSearch {
-    width: 100%;
-  }
-
-  #partnersTable {
-    font-size: 12px;
+  nav .hidden.md\:flex {
+    display: none !important;
   }
 
   .nav-arrow-button {
@@ -222,5 +206,13 @@ html, body {
 
   .nav-arrow-button.right {
     right: 8px !important;
+  }
+
+  #partnerSearch {
+    width: 100%;
+  }
+
+  #partnersTable {
+    font-size: 12px;
   }
 }
