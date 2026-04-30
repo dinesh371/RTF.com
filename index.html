@@ -83,20 +83,10 @@
     
 
 
-    /* Make images responsive only. Do not force background videos to auto height. */
-    img {
+    /* Make images and videos responsive */
+    img, video {
       max-width: 100%;
       height: auto;
-    }
-
-    .bg-video {
-      position: absolute !important;
-      inset: 0 !important;
-      width: 100% !important;
-      height: 100% !important;
-      max-width: none !important;
-      object-fit: cover !important;
-      z-index: 0 !important;
     }
 
     /* Section padding for mobile */
@@ -175,44 +165,7 @@
       .nav-arrow-button.right { right: 8px !important; }
     }
 
-  
-
-    /* ===== ABOUT SECTION BACKGROUND VIDEO FIX ===== */
-    .about-section {
-      position: relative !important;
-      min-height: calc(100vh - 80px) !important;
-      display: flex !important;
-      align-items: center !important;
-      justify-content: center !important;
-      overflow: hidden !important;
-      background: #000 !important;
-    }
-
-    .about-bg-video {
-      position: absolute !important;
-      inset: 0 !important;
-      width: 100% !important;
-      height: 100% !important;
-      max-width: none !important;
-      object-fit: cover !important;
-      z-index: 0 !important;
-    }
-
-    .about-overlay {
-      position: absolute !important;
-      inset: 0 !important;
-      background: rgba(0,0,0,0.65) !important;
-      z-index: 1 !important;
-    }
-
-    .about-content {
-      position: relative !important;
-      z-index: 2 !important;
-      width: 100% !important;
-      max-width: 1200px !important;
-      padding: 40px 20px !important;
-    }
-</style>
+  </style>
 </head>
 <body class="bg-gray-50 text-gray-800 m-0 p-0 relative">
     <!-- Modal -->
@@ -293,6 +246,10 @@
     </button>
   </div>
 </nav>
+
+
+ <!-- Background Video -->
+<div id="page-container" class="relative">
 <!-- Background Video -->
 <div id="page-container" class="relative">
 <!-- Background Video -->
@@ -370,114 +327,313 @@
 
 
 <!-- About Section -->
-<section id="about" class="page-section about-section">
+<section id="about"
+    class="page-section relative w-full min-h-screen flex items-center justify-center overflow-hidden text-white pt-12 pb-12 bg-gray-900 bg-cover bg-center"
+    style="background-image: url('images/ChatGPT Image Jun 8, 2026, 11_23_22 PM.png');">
+    
+    <!-- Background Video -->
+    <video autoplay muted loop playsinline class="absolute inset-0 w-full h-full object-cover -z-10">
+        <source src="vedios/about.mp4" type="video/mp4" />
+    </video>
+    <div class="absolute inset-0 bg-black/60 -z-10"></div>
 
-  <!-- Background Video -->
-  <video autoplay muted loop playsinline class="about-bg-video">
-    <source src="vedios/about.mp4" type="video/mp4" />
-  </video>
+    <div class="z-10 w-full max-w-7xl mx-auto flex flex-col gap-8">
+        
+        <!-- Heading -->
+     <!-- Heading with Logo -->
+<div class="text-center mb-6 px-4 flex flex-col items-center justify-center gap-6">
+  <div class="flex items-center justify-center gap-6 flex-wrap">
+    <!-- Logo -->
+    <img src="images/finallogo1.png"alt="Event Logo"
+         class="w-32 h-32 md:w-40 md:h-40 object-cover rounded-full shadow-xl border-4 border-yellow-300 bg-white p-1" />
+    
+    <!-- Heading Text -->
+    <div class="text-center">
+      <h1 class="text-4xl md:text-5xl font-bold text-white">Welcome to Jodhpur</h1>
+      <p class="mt-2 text-lg md:text-xl text-yellow-100">Explore the rich heritage and stunning architecture</p>
+    </div>
+  </div>
+</div>
 
-  <!-- Overlay -->
-  <div class="about-overlay"></div>
 
-  <!-- Content -->
-  <div class="about-content">
 
-    <!-- Heading -->
-    <div class="text-center mb-10">
-      <img src="images/finallogo1.png"
-           alt="Event Logo"
-           class="mx-auto w-32 h-32 md:w-40 md:h-40 rounded-full border-4 border-yellow-300 bg-white p-1 shadow-xl object-cover" />
+        <!-- About Content & Slider -->
+        <div class="flex flex-col lg:flex-row gap-10 items-center justify-center px-2 sm:px-6 md:px-12">
+            
+            <!-- About Content -->
+            <div class="w-full lg:w-1/2 text-left space-y-6 bg-white/20 p-10 rounded-3xl backdrop-blur-xl shadow-2xl border border-yellow-200">
+                <p class="text-xl text-gray-100 font-medium leading-relaxed">
+                    The event is planned, hosted and organised by 
+                    <span class="font-bold text-yellow-300">India Outtabox Pvt Ltd</span>
+                </p>
+                <p>
+As shared earlier, RTF has been postponed until further notice, so as a continuous engagement activity, we organized a FAM trip to Jodhpur-Jaisalmer-Jawai.
+"RTF FAM 2026 (20–24 March) was a grand success — stands as a true testament to the power of collaboration. This achievement belongs to our incredible team of travel agents and our 15+ hotel partners whose generous support and hospitality made it possible. With participation from 31+ travel agents, this journey was not just an event, but a milestone.”               
+                </p>
+            </div>
 
-      <h1 class="text-4xl md:text-5xl font-bold text-white mt-6">
-        Welcome to Jodhpur
-      </h1>
+            <!-- Image Slider -->
+            <div class="w-full lg:w-1/2 flex flex-row items-center justify-center gap-6">
+                <button onclick="changeSlide(-1)" aria-label="Previous Slide"
+                    class="text-3xl font-bold bg-yellow-200/80 text-yellow-900 p-3 rounded-full shadow-lg hover:bg-yellow-400 hover:text-white transition duration-200">
+                    ❮
+                </button>
+                <div class="w-full max-w-[520px] h-[360px] rounded-2xl overflow-hidden border-4 border-yellow-300/60 shadow-2xl relative bg-white/30">
+                    <img id="slideImage" src="images/Venue Photos/19.jpeg" alt="Slide"
+                        class="w-full h-full object-cover absolute inset-0 transition-opacity duration-700 ease-in-out opacity-100" />
+                </div>
+                <button onclick="changeSlide(1)" aria-label="Next Slide"
+                    class="text-3xl font-bold bg-yellow-200/80 text-yellow-900 p-3 rounded-full shadow-lg hover:bg-yellow-400 hover:text-white transition duration-200">
+                    ❯
+                </button>
+            </div>
+        </div>
 
-      <p class="text-lg md:text-xl text-yellow-200 mt-2">
-        Explore the rich heritage and stunning architecture
+        <!-- Feature Cards -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 px-2 sm:px-6 md:px-12 py-10">
+            <div class="bg-white/90 p-8 rounded-2xl shadow-xl hover:scale-105 transition-transform duration-300 flex flex-col items-center border border-yellow-100">
+                <div class="text-yellow-600 mb-4 flex justify-center">
+                    <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                    </svg>
+                </div>
+                <h4 class="text-xl font-semibold text-center mb-2 text-yellow-900">Luxury Hotels</h4>
+                <p class="text-center text-gray-700 text-base">Connect with the finest luxury accommodations in Rajasthan.</p>
+            </div>
+
+            <div class="bg-white/90 p-8 rounded-2xl shadow-xl hover:scale-105 transition-transform duration-300 flex flex-col items-center border border-blue-100">
+                <div class="text-blue-700 mb-4 flex justify-center">
+                    <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
+                    </svg>
+                </div>
+                <h4 class="text-xl font-semibold text-center mb-2 text-blue-900">Global Network</h4>
+                <p class="text-center text-gray-700 text-base">Network with top travel agencies from around the world.</p>
+            </div>
+
+            <div class="bg-white/90 p-8 rounded-2xl shadow-xl hover:scale-105 transition-transform duration-300 flex flex-col items-center border border-orange-100">
+                <div class="text-orange-600 mb-4 flex justify-center">
+                    <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M12 11c0 3.517-1.009 6.799-2.753 9.571m-3.44-2.04l.054-.09A13.916 13.916 0 008 11a4 4 0 118 0c0 1.017-.07 2.019-.203 3m-2.118 6.844A21.88 21.88 0 0015.171 17m3.839 1.132c.645-2.266.99-4.659.99-7.132A8 8 0 008 4.07M3 15.364c.64-1.319 1-2.8 1-4.364 0-1.457.39-2.823 1.07-4" />
+                    </svg>
+                </div>
+                <h4 class="text-xl font-semibold text-center mb-2 text-orange-900">Cultural Heritage</h4>
+                <p class="text-center text-gray-700 text-base">Explore Rajasthan’s rich cultural traditions and art forms.</p>
+            </div>
+
+            <div class="bg-white/90 p-8 rounded-2xl shadow-xl hover:scale-105 transition-transform duration-300 flex flex-col items-center border border-pink-100">
+                <div class="text-pink-600 mb-4 flex justify-center">
+                    <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                </div>
+                <h4 class="text-xl font-semibold text-center mb-2 text-pink-900">Experiences</h4>
+                <p class="text-center text-gray-700 text-base">Discover unforgettable travel adventures across Rajasthan.</p>
+            </div>
+        </div>
+<!-- Organizers Section -->
+<div class="w-full flex justify-center px-4 sm:px-8 md:px-16 py-14">
+  
+  <div class="w-full max-w-4xl bg-white/10 backdrop-blur-2xl border border-yellow-200/30 p-10 rounded-3xl shadow-2xl text-white">
+    
+    <!-- Title -->
+  
+<!-- Meet the Organizers Section -->
+<section id="organizers" class="py-16 px-4 bg-[#111827] rounded-3xl border border-yellow-300/30">
+
+ <h2 class="text-3xl font-bold text-center mb-10">
+  Meet the Organizers
+   
+  <div class="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+
+    <!-- Kanchan K Williams -->
+    <div class="bg-white/5 hover:bg-white/10 transition duration-300 rounded-2xl shadow-xl p-8 text-center flex flex-col items-center min-h-[345px]">
+
+      <img src="images/Members Pics/Mrs. Kanchan Kishore.jpeg"
+           alt="Kanchan K Williams"
+           class="w-32 h-32 object-cover object-top rounded-full border-2 border-yellow-300 shadow-md mb-6" />
+
+      <h3 class="text-xl font-bold text-yellow-200 leading-snug">
+        Kanchan K Williams
+      </h3>
+
+      <p class="text-sm text-gray-300 mt-2">
+        Co-Founder
+      </p>
+
+      <p class="text-sm text-gray-400 mt-1">
+        India Outtabox Pvt Ltd
+      </p>
+
+      <p class="text-sm text-yellow-100 mt-5">
+        📞 <a href="tel:+919660061201" class="hover:underline">
+          +91-96600-61201
+        </a>
       </p>
     </div>
 
-    <!-- About Content & Slider -->
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
-      <div class="bg-white/20 p-8 md:p-10 rounded-3xl backdrop-blur-xl shadow-2xl border border-yellow-200 text-white">
-        <p class="text-xl text-gray-100 font-medium leading-relaxed">
-          The event is planned, hosted and organised by
-          <span class="font-bold text-yellow-300">India Outtabox Pvt Ltd</span>
-        </p>
-        <p class="mt-4 leading-relaxed text-gray-100">
-          As shared earlier, RTF has been postponed until further notice. As a continuous engagement activity, we organized a FAM trip to Jodhpur-Jaisalmer-Jawai.
-        </p>
-        <p class="mt-4 leading-relaxed text-gray-100">
-          <strong>RTF FAM 2026 (20–24 March)</strong> was a grand success and stands as a true testament to the power of collaboration. This achievement belongs to our incredible team of travel agents and our 15+ hotel partners whose generous support and hospitality made it possible. With participation from 31+ travel agents, this journey was not just an event, but a milestone.
-        </p>
-      </div>
+    <!-- Vinny Williams -->
+    <div class="bg-white/5 hover:bg-white/10 transition duration-300 rounded-2xl shadow-xl p-8 text-center flex flex-col items-center min-h-[345px]">
 
-      <div class="flex flex-row items-center justify-center gap-4">
-        <button onclick="changeSlide(-1)" aria-label="Previous Slide"
-          class="text-3xl font-bold bg-yellow-200/90 text-yellow-900 p-3 rounded-full shadow-lg hover:bg-yellow-400 hover:text-white transition duration-200">
-          ❮
-        </button>
+      <img src="images/Members Pics/Mr. Vinny Williams.jpeg"
+           alt="Vinny Williams"
+           class="w-32 h-32 object-cover object-top rounded-full border-2 border-yellow-300 shadow-md mb-6" />
 
-        <div class="w-full max-w-[520px] h-[280px] md:h-[360px] rounded-2xl overflow-hidden border-4 border-yellow-300/60 shadow-2xl relative bg-white/30">
-          <img id="slideImage" src="images/Venue Photos/19.jpeg" alt="Slide"
-            class="w-full h-full object-cover absolute inset-0 transition-opacity duration-700 ease-in-out opacity-100" />
-        </div>
+      <h3 class="text-xl font-bold text-yellow-200 leading-snug">
+        Vinny Williams
+      </h3>
 
-        <button onclick="changeSlide(1)" aria-label="Next Slide"
-          class="text-3xl font-bold bg-yellow-200/90 text-yellow-900 p-3 rounded-full shadow-lg hover:bg-yellow-400 hover:text-white transition duration-200">
-          ❯
-        </button>
-      </div>
+      <p class="text-sm text-gray-300 mt-2">
+        CEO & Founder
+      </p>
+
+      <p class="text-sm text-gray-400 mt-1">
+        India Outtabox Pvt Ltd
+      </p>
+
+      <p class="text-sm text-yellow-100 mt-5">
+        📞 <a href="tel:+919660061777" class="hover:underline">
+          +91-96600-61777
+        </a>
+      </p>
     </div>
 
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 py-10">
-      <div class="bg-white/90 p-8 rounded-2xl shadow-xl hover:scale-105 transition-transform duration-300 flex flex-col items-center border border-yellow-100">
-        <h4 class="text-xl font-semibold text-center mb-2 text-yellow-900">Luxury Hotels</h4>
-        <p class="text-center text-gray-700 text-base">Connect with the finest luxury accommodations in Rajasthan.</p>
-      </div>
-      <div class="bg-white/90 p-8 rounded-2xl shadow-xl hover:scale-105 transition-transform duration-300 flex flex-col items-center border border-blue-100">
-        <h4 class="text-xl font-semibold text-center mb-2 text-blue-900">Global Network</h4>
-        <p class="text-center text-gray-700 text-base">Network with top travel agencies from around the world.</p>
-      </div>
-      <div class="bg-white/90 p-8 rounded-2xl shadow-xl hover:scale-105 transition-transform duration-300 flex flex-col items-center border border-orange-100">
-        <h4 class="text-xl font-semibold text-center mb-2 text-orange-900">Cultural Heritage</h4>
-        <p class="text-center text-gray-700 text-base">Explore Rajasthan’s rich cultural traditions and art forms.</p>
-      </div>
-      <div class="bg-white/90 p-8 rounded-2xl shadow-xl hover:scale-105 transition-transform duration-300 flex flex-col items-center border border-pink-100">
-        <h4 class="text-xl font-semibold text-center mb-2 text-pink-900">Experiences</h4>
-        <p class="text-center text-gray-700 text-base">Discover unforgettable travel adventures across Rajasthan.</p>
-      </div>
+    <!-- Pooja -->
+    <div class="bg-white/5 hover:bg-white/10 transition duration-300 rounded-2xl shadow-xl p-8 text-center flex flex-col items-center min-h-[345px]">
+
+      <img src="images/Members Pics/Pooja.jpeg"
+           alt="Pooja"
+           class="w-32 h-32 object-cover object-[center_30%] rounded-full border-2 border-yellow-300 shadow-md mb-6" />
+
+      <h3 class="text-xl font-bold text-yellow-200 leading-snug">
+        Pooja
+      </h3>
+
+      <p class="text-sm text-gray-300 mt-2">
+        Operations Manager
+      </p>
+
+      <p class="text-sm text-gray-400 mt-1">
+        India Outtabox Pvt Ltd
+      </p>
+
+      <p class="text-sm text-yellow-100 mt-5">
+        📞 <a href="tel:+919166222900" class="hover:underline">
+          +91-91662-22900
+        </a>
+      </p>
     </div>
 
-    <section id="organizers" class="py-12 px-4 bg-[#111827]/90 rounded-3xl border border-yellow-300/30">
-      <h2 class="text-3xl font-bold text-center mb-10 text-white">Meet the Organizers</h2>
-      <div class="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-        <div class="bg-white/5 hover:bg-white/10 transition duration-300 rounded-2xl shadow-xl p-8 text-center flex flex-col items-center min-h-[345px]">
-          <img src="images/Members Pics/Mrs. Kanchan Kishore.jpeg" alt="Kanchan K Williams" class="w-32 h-32 object-cover object-top rounded-full border-2 border-yellow-300 shadow-md mb-6" />
-          <h3 class="text-xl font-bold text-yellow-200 leading-snug">Kanchan K Williams</h3>
-          <p class="text-sm text-gray-300 mt-2">Co-Founder</p>
-          <p class="text-sm text-gray-400 mt-1">India Outtabox Pvt Ltd</p>
-          <p class="text-sm text-yellow-100 mt-5">📞 <a href="tel:+919660061201" class="hover:underline">+91-96600-61201</a></p>
-        </div>
-        <div class="bg-white/5 hover:bg-white/10 transition duration-300 rounded-2xl shadow-xl p-8 text-center flex flex-col items-center min-h-[345px]">
-          <img src="images/Members Pics/Mr. Vinny Williams.jpeg" alt="Vinny Williams" class="w-32 h-32 object-cover object-top rounded-full border-2 border-yellow-300 shadow-md mb-6" />
-          <h3 class="text-xl font-bold text-yellow-200 leading-snug">Vinny Williams</h3>
-          <p class="text-sm text-gray-300 mt-2">CEO & Founder</p>
-          <p class="text-sm text-gray-400 mt-1">India Outtabox Pvt Ltd</p>
-          <p class="text-sm text-yellow-100 mt-5">📞 <a href="tel:+919660061777" class="hover:underline">+91-96600-61777</a></p>
-        </div>
-        <div class="bg-white/5 hover:bg-white/10 transition duration-300 rounded-2xl shadow-xl p-8 text-center flex flex-col items-center min-h-[345px]">
-          <img src="images/Members Pics/Pooja.jpeg" alt="Pooja" class="w-32 h-32 object-cover object-[center_30%] rounded-full border-2 border-yellow-300 shadow-md mb-6" />
-          <h3 class="text-xl font-bold text-yellow-200 leading-snug">Pooja</h3>
-          <p class="text-sm text-gray-300 mt-2">Operations Manager</p>
-          <p class="text-sm text-gray-400 mt-1">India Outtabox Pvt Ltd</p>
-          <p class="text-sm text-yellow-100 mt-5">📞 <a href="tel:+919166222900" class="hover:underline">+91-91662-22900</a></p>
-        </div>
-      </div>
-    </section>
   </div>
 </section>
+
+        <!-- Responsive Tweaks -->
+        <style>
+            @media (max-width: 1023px) {
+                #about .flex.flex-col.lg\:flex-row {
+                    flex-direction: column !important;
+                }
+                #about .w-full.lg\:w-1\/2 {
+                    width: 100% !important;
+                }
+                #about .text-left {
+                    text-align: center !important;
+                }
+            }
+            @media (max-width: 640px) {
+                #about .w-full.max-w-\[90vw\] {
+                    width: 100vw !important;
+                    max-width: 100vw !important;
+                }
+                #about .h-\[180px\] {
+                    height: 120px !important;
+                }
+                #about .rounded-2xl {
+                    border-radius: 0.75rem !important;
+                }
+                #about .p-6.md\:p-10 {
+                    padding: 1rem !important;
+                }
+            }
+      
+
+    /* ===== FINAL NAV + SECTION + ARROW FIX ===== */
+    html { scroll-behavior: smooth; }
+    html, body { margin: 0 !important; padding: 0 !important; overflow-x: hidden !important; background: #0b1020 !important; }
+
+    .page-section {
+      position: relative !important;
+      margin: 0 !important;
+      min-height: calc(100vh - 80px) !important;
+      padding: 90px 20px 50px 20px !important;
+      display: none;
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    .page-section.active {
+      display: flex !important;
+      opacity: 1 !important;
+      visibility: visible !important;
+    }
+
+    nav .text-yellow-300 { color: #facc15 !important; }
+
+    #mobile-menu.flex {
+      display: flex !important;
+      flex-direction: column !important;
+    }
+
+    .nav-arrow-button {
+      position: fixed !important;
+      top: 50vh !important;
+      transform: translateY(-50%) !important;
+      z-index: 99999 !important;
+      width: 55px !important;
+      height: 55px !important;
+      border: none !important;
+      border-radius: 50% !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      cursor: pointer !important;
+      color: #1B2A57 !important;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.35) !important;
+    }
+
+    .nav-arrow-button.left {
+      left: 20px !important;
+      background: linear-gradient(135deg, #00C9FF, #92FE9D) !important;
+    }
+
+    .nav-arrow-button.right {
+      right: 20px !important;
+      background: linear-gradient(135deg, #FDC830, #F37335) !important;
+    }
+
+    .nav-arrow-button:hover {
+      transform: translateY(-50%) scale(1.1) !important;
+    }
+
+    @media (max-width: 768px) {
+      .nav-arrow-button {
+        width: 46px !important;
+        height: 46px !important;
+      }
+      .nav-arrow-button.left { left: 8px !important; }
+      .nav-arrow-button.right { right: 8px !important; }
+    }
+
+  </style>
+
+    </div>
+</section>
+   </div>
+     </section>
 
 <!-- attractions -->
 <section id="attractions" class="page-section relative min-h-screen py-20 text-white overflow-hidden">
@@ -824,35 +980,6 @@
   </div>
 </section>
 <!-- ================= SEARCH SCRIPT ================= -->
-
-<!-- Privacy Policy -->
-<section id="privacy" class="page-section flex items-center justify-center bg-[#0f172a] text-white px-6">
-  <div class="max-w-4xl bg-white/10 backdrop-blur-xl border border-white/10 rounded-3xl p-8 shadow-2xl">
-    <h2 class="text-4xl font-bold mb-6 text-yellow-300">Privacy Policy</h2>
-    <p class="text-gray-300 leading-7">Rajasthan Travel Fair respects your privacy. Personal information collected through this website is used only for event registration, communication, coordination, and service improvement. We do not sell personal data to third parties.</p>
-  </div>
-</section>
-
-<!-- Terms and Conditions -->
-<section id="terms" class="page-section flex items-center justify-center bg-[#111827] text-white px-6">
-  <div class="max-w-4xl bg-white/10 backdrop-blur-xl border border-white/10 rounded-3xl p-8 shadow-2xl">
-    <h2 class="text-4xl font-bold mb-6 text-yellow-300">Terms & Conditions</h2>
-    <p class="text-gray-300 leading-7">Participation in Rajasthan Travel Fair events is subject to approval and eligibility criteria. Event dates, venue, program, and arrangements may be changed due to operational or unavoidable circumstances. Participants are expected to provide accurate information and follow professional conduct during the event.</p>
-  </div>
-</section>
-
-<!-- FAQ -->
-<section id="faq" class="page-section flex items-center justify-center bg-[#020617] text-white px-6">
-  <div class="max-w-4xl bg-white/10 backdrop-blur-xl border border-white/10 rounded-3xl p-8 shadow-2xl">
-    <h2 class="text-4xl font-bold mb-6 text-yellow-300">FAQ</h2>
-    <div class="space-y-5 text-gray-300 leading-7">
-      <p><strong class="text-white">Who can register?</strong><br>Registration is open for eligible travel agents and invited partners.</p>
-      <p><strong class="text-white">Where is the event?</strong><br>The event is connected with Jodhpur, Rajasthan.</p>
-      <p><strong class="text-white">Who should I contact?</strong><br>Email: info@rajasthantravelfair.com</p>
-    </div>
-  </div>
-</section>
-
 <!-- Footer Section -->
 <footer class="relative bg-[#0f172a] text-gray-300 px-4 py-14 md:px-8 lg:px-16 overflow-hidden">
   <div class="absolute inset-0 bg-gradient-to-br from-indigo-900/40 via-slate-900 to-black"></div>
@@ -922,10 +1049,31 @@
         <h3 class="text-2xl font-bold text-white mb-5">Quick Links</h3>
 
         <ul class="space-y-3 text-sm">
-          <li><a href="#about" class="nav-link hover:text-indigo-300 transition" data-target="about">About Us</a></li>
-          <li><a href="#privacy" class="nav-link hover:text-indigo-300 transition" data-target="privacy">Privacy Policy</a></li>
-          <li><a href="#terms" class="nav-link hover:text-indigo-300 transition" data-target="terms">Terms & Conditions</a></li>
-          <li><a href="#faq" class="nav-link hover:text-indigo-300 transition" data-target="faq">FAQ</a></li>
+          <ul class="space-y-3 text-sm">
+  <li>
+    <a href="#about" class="nav-link hover:text-indigo-300 transition" data-target="about">
+      About Us
+    </a>
+  </li>
+
+  <li>
+    <a href="#privacy" class="nav-link hover:text-indigo-300 transition" data-target="privacy">
+      Privacy Policy
+    </a>
+  </li>
+
+  <li>
+    <a href="#terms" class="nav-link hover:text-indigo-300 transition" data-target="terms">
+      Terms & Conditions
+    </a>
+  </li>
+
+  <li>
+    <a href="#faq" class="nav-link hover:text-indigo-300 transition" data-target="faq">
+      FAQ
+    </a>
+  </li>
+</ul>
         </ul>
       </div>
 
@@ -943,6 +1091,30 @@
   © 2026 India Outtabox Pvt Ltd. All rights&nbsp reserved.
 </div>
 </footer>
+
+  <!-- Scripts -->
+  <script>
+    function showTerms() {
+      document.getElementById('mainContent').style.display = 'none';
+      document.getElementById('privacySection').style.display = 'none'; // Ensure privacy is hidden
+      document.getElementById('termsSection').style.display = 'block';
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function showPrivacy() {
+      document.getElementById('mainContent').style.display = 'none';
+      document.getElementById('termsSection').style.display = 'none'; // Ensure terms are hidden
+      document.getElementById('privacySection').style.display = 'block';
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function backToMain() {
+      document.getElementById('termsSection').style.display = 'none';
+      document.getElementById('privacySection').style.display = 'none'; // Hide privacy section
+      document.getElementById('mainContent').style.display = 'block';
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  </script>
 </div>
 
 
@@ -973,7 +1145,7 @@ function toggleModal() {
 }
 
 document.addEventListener("DOMContentLoaded", function () {
-  const sectionOrder = ["home", "about", "attractions", "partners", "rtffam", "rtfglobal", "privacy", "terms", "faq"];
+  const sectionOrder = ["home", "about", "attractions", "partners", "rtffam", "rtfglobal"];
   const sections = sectionOrder.map(id => document.getElementById(id)).filter(Boolean);
 
   const navLinks = document.querySelectorAll(".nav-link");
