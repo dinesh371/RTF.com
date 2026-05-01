@@ -331,16 +331,18 @@ Registration open only for International Travel Agents (UK, USA, Europe & Austra
 
 <!-- About Section -->
 <section id="about"
-    class="page-section relative w-full min-h-screen flex items-center justify-center overflow-hidden text-white pt-12 pb-12 bg-gray-900 bg-cover bg-center"
-    style="background-image: url('images/ChatGPT Image Jun 8, 2026, 11_23_22 PM.png');">
-    
-    <!-- Background Video -->
-    <video autoplay muted loop playsinline class="absolute inset-0 w-full h-full object-cover -z-10">
-        <source src="vedios/about.mp4" type="video/mp4" />
-    </video>
-    <div class="absolute inset-0 bg-black/60 -z-10"></div>
+  class="page-section relative w-full min-h-screen flex items-center justify-center overflow-hidden text-white">
 
-    <div class="z-10 w-full max-w-7xl mx-auto flex flex-col gap-8">
+  <!-- Background Video -->
+  <video autoplay muted loop playsinline preload="auto" class="about-bg-video">
+    <source src="vedios/about.mp4" type="video/mp4" />
+  </video>
+
+  <!-- Dark Overlay -->
+  <div class="about-video-overlay"></div>
+
+  <!-- Main About Content -->
+  <div class="about-content z-10 w-full max-w-7xl mx-auto flex flex-col gap-8">
         
         <!-- Heading -->
      <!-- Heading with Logo -->
