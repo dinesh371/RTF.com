@@ -320,317 +320,726 @@
 </div>
 
 
+/* =========================================================
+   FINAL PREMIUM RTF WEBSITE CSS
+========================================================= */
 
-<!-- About Section -->
-<section id="about"
-  class="page-section relative w-full min-h-screen flex items-center justify-center overflow-hidden text-white">
+:root {
+  --rtf-blue: #1b2a57;
+  --rtf-dark: #0b1020;
+  --rtf-gold: #facc15;
+  --rtf-gold-soft: #fde68a;
+  --rtf-orange: #f97316;
+}
 
-  <!-- Background Video -->
-  <video autoplay muted loop playsinline preload="auto" class="about-bg-video">
-    <source src="vedios/about.mp4" type="video/mp4" />
-  </video>
+/* ===== GLOBAL RESET ===== */
+* {
+  box-sizing: border-box;
+  transition: all 0.25s ease;
+}
 
-  <!-- Dark Overlay -->
-  <div class="about-video-overlay"></div>
+html {
+  scroll-behavior: smooth;
+}
 
-  <!-- Main About Content -->
-  <div class="about-content z-10 w-full max-w-7xl mx-auto flex flex-col gap-8">
-        
-        <!-- Heading -->
-     <!-- Heading with Logo -->
-<div class="text-center mb-6 px-4 flex flex-col items-center justify-center gap-6">
-  <div class="flex items-center justify-center gap-6 flex-wrap">
-    <!-- Logo -->
-    <img src="images/finallogo1.png"alt="Event Logo"
-         class="w-32 h-32 md:w-40 md:h-40 object-cover rounded-full shadow-xl border-4 border-yellow-300 bg-white p-1" />
-    
-    <!-- Heading Text -->
-    <div class="text-center">
-      <h1 class="text-4xl md:text-5xl font-bold text-white">Welcome to Jodhpur</h1>
-      <p class="mt-2 text-lg md:text-xl text-yellow-100">Explore the rich heritage and stunning architecture</p>
-    </div>
-  </div>
-</div>
+html,
+body {
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow-x: hidden !important;
+  background: radial-gradient(circle at top, #111936 0%, #0b1020 60%) !important;
+  font-family: "Poppins", sans-serif;
+}
 
+img,
+video {
+  max-width: 100%;
+}
 
+/* ===== NAVBAR ===== */
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 9999;
+  background: rgba(27, 42, 87, 0.78) !important;
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255,255,255,0.12);
+  box-shadow: 0 14px 35px rgba(0,0,0,0.35);
+}
 
-        <!-- About Content & Slider -->
-        <div class="flex flex-col lg:flex-row gap-10 items-center justify-center px-2 sm:px-6 md:px-12">
-            
-            <!-- About Content -->
-            <div class="w-full lg:w-1/2 text-left space-y-6 bg-white/20 p-10 rounded-3xl backdrop-blur-xl shadow-2xl border border-yellow-200">
-                <p class="text-xl text-gray-100 font-medium leading-relaxed">
-                    The event is planned, hosted and organised by 
-                    <span class="font-bold text-yellow-300">India Outtabox Pvt Ltd</span>
-                </p>
-                <p>
-As shared earlier, RTF has been postponed until further notice, so as a continuous engagement activity, we organized a FAM trip to Jodhpur-Jaisalmer-Jawai.
-"RTF FAM 2026 (20–24 March) was a grand success — stands as a true testament to the power of collaboration. This achievement belongs to our incredible team of travel agents and our 15+ hotel partners whose generous support and hospitality made it possible. With participation from 31+ travel agents, this journey was not just an event, but a milestone.”               
-                </p>
-            </div>
+nav .container,
+nav .max-w-7xl {
+  max-width: 100% !important;
+}
 
-            <!-- Image Slider -->
-            <div class="w-full lg:w-1/2 flex flex-row items-center justify-center gap-6">
-                <button onclick="changeSlide(-1)" aria-label="Previous Slide"
-                    class="text-3xl font-bold bg-yellow-200/80 text-yellow-900 p-3 rounded-full shadow-lg hover:bg-yellow-400 hover:text-white transition duration-200">
-                    ❮
-                </button>
-                <div class="w-full max-w-[520px] h-[360px] rounded-2xl overflow-hidden border-4 border-yellow-300/60 shadow-2xl relative bg-white/30">
-                    <img id="slideImage" src="images/Venue Photos/19.jpeg" alt="Slide"
-                        class="w-full h-full object-cover absolute inset-0 transition-opacity duration-700 ease-in-out opacity-100" />
-                </div>
-                <button onclick="changeSlide(1)" aria-label="Next Slide"
-                    class="text-3xl font-bold bg-yellow-200/80 text-yellow-900 p-3 rounded-full shadow-lg hover:bg-yellow-400 hover:text-white transition duration-200">
-                    ❯
-                </button>
-            </div>
-        </div>
+nav img {
+  box-shadow: 0 0 0 3px rgba(250,204,21,0.45), 0 10px 25px rgba(0,0,0,0.35);
+}
 
-        <!-- Feature Cards -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 px-2 sm:px-6 md:px-12 py-10">
-            <div class="bg-white/90 p-8 rounded-2xl shadow-xl hover:scale-105 transition-transform duration-300 flex flex-col items-center border border-yellow-100">
-                <div class="text-yellow-600 mb-4 flex justify-center">
-                    <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
-                    </svg>
-                </div>
-                <h4 class="text-xl font-semibold text-center mb-2 text-yellow-900">Luxury Hotels</h4>
-                <p class="text-center text-gray-700 text-base">Connect with the finest luxury accommodations in Rajasthan.</p>
-            </div>
+nav .nav-link {
+  font-size: 14px !important;
+  white-space: nowrap !important;
+  position: relative;
+  padding-bottom: 6px;
+}
 
-            <div class="bg-white/90 p-8 rounded-2xl shadow-xl hover:scale-105 transition-transform duration-300 flex flex-col items-center border border-blue-100">
-                <div class="text-blue-700 mb-4 flex justify-center">
-                    <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
-                    </svg>
-                </div>
-                <h4 class="text-xl font-semibold text-center mb-2 text-blue-900">Global Network</h4>
-                <p class="text-center text-gray-700 text-base">Network with top travel agencies from around the world.</p>
-            </div>
+nav .nav-link:hover {
+  color: var(--rtf-gold) !important;
+  text-shadow: 0 0 8px rgba(250,204,21,0.6);
+}
 
-            <div class="bg-white/90 p-8 rounded-2xl shadow-xl hover:scale-105 transition-transform duration-300 flex flex-col items-center border border-orange-100">
-                <div class="text-orange-600 mb-4 flex justify-center">
-                    <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M12 11c0 3.517-1.009 6.799-2.753 9.571m-3.44-2.04l.054-.09A13.916 13.916 0 008 11a4 4 0 118 0c0 1.017-.07 2.019-.203 3m-2.118 6.844A21.88 21.88 0 0015.171 17m3.839 1.132c.645-2.266.99-4.659.99-7.132A8 8 0 008 4.07M3 15.364c.64-1.319 1-2.8 1-4.364 0-1.457.39-2.823 1.07-4" />
-                    </svg>
-                </div>
-                <h4 class="text-xl font-semibold text-center mb-2 text-orange-900">Cultural Heritage</h4>
-                <p class="text-center text-gray-700 text-base">Explore Rajasthan’s rich cultural traditions and art forms.</p>
-            </div>
+nav .nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  background: var(--rtf-gold);
+}
 
-            <div class="bg-white/90 p-8 rounded-2xl shadow-xl hover:scale-105 transition-transform duration-300 flex flex-col items-center border border-pink-100">
-                <div class="text-pink-600 mb-4 flex justify-center">
-                    <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
-                </div>
-                <h4 class="text-xl font-semibold text-center mb-2 text-pink-900">Experiences</h4>
-                <p class="text-center text-gray-700 text-base">Discover unforgettable travel adventures across Rajasthan.</p>
-            </div>
-        </div>
-<!-- Organizers Section -->
-<div class="w-full flex justify-center px-4 sm:px-8 md:px-16 py-14">
-  
-  <div class="w-full max-w-4xl bg-white/10 backdrop-blur-2xl border border-yellow-200/30 p-10 rounded-3xl shadow-2xl text-white">
-    
-    <!-- Title -->
-  
-<!-- Meet the Organizers Section -->
-<section id="organizers" class="py-16 px-4 bg-[#111827] rounded-3xl border border-yellow-300/30">
+nav .nav-link:hover::after,
+nav .nav-link.text-yellow-300::after {
+  width: 100%;
+}
 
- <h2 class="text-3xl font-bold text-center mb-10">
-  Meet the Organizers
-   
-  <div class="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+nav .text-yellow-300 {
+  color: var(--rtf-gold) !important;
+}
 
-    <!-- Kanchan K Williams -->
-    <div class="bg-white/5 hover:bg-white/10 transition duration-300 rounded-2xl shadow-xl p-8 text-center flex flex-col items-center min-h-[345px]">
+#mobile-menu.flex {
+  display: flex !important;
+  flex-direction: column !important;
+}
 
-      <img src="images/Members Pics/Mrs. Kanchan Kishore.jpeg"
-           alt="Kanchan K Williams"
-           class="w-32 h-32 object-cover object-top rounded-full border-2 border-yellow-300 shadow-md mb-6" />
+/* ===== SECTION BASE ===== */
+.page-section {
+  position: relative !important;
+  margin: 0 !important;
+  min-height: calc(100vh - 80px) !important;
+  padding: 95px 22px 55px 22px !important;
+  display: none !important;
+  opacity: 0;
+  visibility: hidden;
+  overflow: hidden;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
 
-      <h3 class="text-xl font-bold text-yellow-200 leading-snug">
-        Kanchan K Williams
-      </h3>
+.page-section.active {
+  display: flex !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
 
-      <p class="text-sm text-gray-300 mt-2">
-        Co-Founder
-      </p>
+/* Soft glow background */
+.page-section::before {
+  content: "";
+  position: absolute;
+  inset: -20%;
+  background:
+    radial-gradient(circle at 20% 15%, rgba(250,204,21,0.14), transparent 28%),
+    radial-gradient(circle at 85% 25%, rgba(59,130,246,0.14), transparent 30%),
+    radial-gradient(circle at 50% 90%, rgba(249,115,22,0.12), transparent 35%);
+  animation: pageGlow 14s ease-in-out infinite alternate;
+  z-index: 0;
+  pointer-events: none;
+}
 
-      <p class="text-sm text-gray-400 mt-1">
-        India Outtabox Pvt Ltd
-      </p>
+@keyframes pageGlow {
+  from {
+    transform: scale(1) rotate(0deg);
+  }
+  to {
+    transform: scale(1.08) rotate(3deg);
+  }
+}
 
-      <p class="text-sm text-yellow-100 mt-5">
-        📞 <a href="tel:+919660061201" class="hover:underline">
-          +91-96600-61201
-        </a>
-      </p>
-    </div>
+.page-section > * {
+  position: relative;
+  z-index: 2;
+}
 
-    <!-- Vinny Williams -->
-    <div class="bg-white/5 hover:bg-white/10 transition duration-300 rounded-2xl shadow-xl p-8 text-center flex flex-col items-center min-h-[345px]">
+/* ===== BACKGROUND VIDEO ===== */
+.bg-video,
+.page-section > video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 
-      <img src="images/Members Pics/Mr. Vinny Williams.jpeg"
-           alt="Vinny Williams"
-           class="w-32 h-32 object-cover object-top rounded-full border-2 border-yellow-300 shadow-md mb-6" />
+/* ===== BUTTONS ===== */
+.btn-gold {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(90deg, #d4af37 0%, #f0d878 100%);
+  color: #1b2a57;
+  font-weight: 700;
+  padding: 10px 22px !important;
+  border-radius: 9999px;
+  box-shadow: 0 12px 28px rgba(250,204,21,0.25) !important;
+}
 
-      <h3 class="text-xl font-bold text-yellow-200 leading-snug">
-        Vinny Williams
-      </h3>
+.btn-gold:hover {
+  background: linear-gradient(90deg, #b7942d 0%, #d9be52 100%);
+}
 
-      <p class="text-sm text-gray-300 mt-2">
-        CEO & Founder
-      </p>
+.btn-gold::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.5), transparent);
+  transform: skewX(-20deg);
+  transition: 0.5s;
+}
 
-      <p class="text-sm text-gray-400 mt-1">
-        India Outtabox Pvt Ltd
-      </p>
+.btn-gold:hover::after {
+  left: 130%;
+}
 
-      <p class="text-sm text-yellow-100 mt-5">
-        📞 <a href="tel:+919660061777" class="hover:underline">
-          +91-96600-61777
-        </a>
-      </p>
-    </div>
+/* ===== NAVIGATION ARROWS ===== */
+.nav-arrow-button {
+  position: fixed !important;
+  top: 50vh !important;
+  transform: translateY(-50%) !important;
+  z-index: 99999 !important;
+  width: 55px !important;
+  height: 55px !important;
+  border: 2px solid rgba(255,255,255,0.45) !important;
+  border-radius: 50% !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  cursor: pointer !important;
+  color: #1b2a57 !important;
+  box-shadow: 0 8px 22px rgba(0,0,0,0.4) !important;
+}
 
-    <!-- Pooja -->
-    <div class="bg-white/5 hover:bg-white/10 transition duration-300 rounded-2xl shadow-xl p-8 text-center flex flex-col items-center min-h-[345px]">
+.nav-arrow-button.left {
+  left: 20px !important;
+  background: linear-gradient(135deg, #00c9ff, #92fe9d) !important;
+}
 
-      <img src="images/Members Pics/Pooja.jpeg"
-           alt="Pooja"
-           class="w-32 h-32 object-cover object-[center_30%] rounded-full border-2 border-yellow-300 shadow-md mb-6" />
+.nav-arrow-button.right {
+  right: 20px !important;
+  background: linear-gradient(135deg, #fdc830, #f37335) !important;
+}
 
-      <h3 class="text-xl font-bold text-yellow-200 leading-snug">
-        Pooja
-      </h3>
+.nav-arrow-button:hover {
+  transform: translateY(-50%) scale(1.1) !important;
+}
 
-      <p class="text-sm text-gray-300 mt-2">
-        Operations Manager
-      </p>
+.nav-arrow-button svg {
+  filter: drop-shadow(0 2px 2px rgba(255,255,255,0.35));
+}
 
-      <p class="text-sm text-gray-400 mt-1">
-        India Outtabox Pvt Ltd
-      </p>
+/* ===== HOME SECTION ===== */
+#home {
+  align-items: center !important;
+  justify-content: center !important;
+}
 
-      <p class="text-sm text-yellow-100 mt-5">
-        📞 <a href="tel:+919166222900" class="hover:underline">
-          +91-91662-22900
-        </a>
-      </p>
-    </div>
+#home::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(to bottom, rgba(11,16,32,0.25), rgba(11,16,32,0.88)),
+    radial-gradient(circle at center, transparent 20%, rgba(0,0,0,0.35));
+  z-index: 0;
+}
 
-  </div>
-</section>
+#home img[alt="Event Logo"] {
+  animation: logoFloat 4s ease-in-out infinite;
+  box-shadow:
+    0 0 0 5px rgba(250,204,21,0.45),
+    0 25px 60px rgba(0,0,0,0.55);
+}
 
-        <!-- Responsive Tweaks -->
-        <style>
-            @media (max-width: 1023px) {
-                #about .flex.flex-col.lg\:flex-row {
-                    flex-direction: column !important;
-                }
-                #about .w-full.lg\:w-1\/2 {
-                    width: 100% !important;
-                }
-                #about .text-left {
-                    text-align: center !important;
-                }
-            }
-            @media (max-width: 640px) {
-                #about .w-full.max-w-\[90vw\] {
-                    width: 100vw !important;
-                    max-width: 100vw !important;
-                }
-                #about .h-\[180px\] {
-                    height: 120px !important;
-                }
-                #about .rounded-2xl {
-                    border-radius: 0.75rem !important;
-                }
-                #about .p-6.md\:p-10 {
-                    padding: 1rem !important;
-                }
-            }
-      
+@keyframes logoFloat {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
 
-    /* ===== FINAL NAV + SECTION + ARROW FIX ===== */
-    html { scroll-behavior: smooth; }
-    html, body { margin: 0 !important; padding: 0 !important; overflow-x: hidden !important; background: #0b1020 !important; }
+#home .animate-pulse {
+  text-shadow: 0 0 22px rgba(250,204,21,0.7);
+}
 
-    .page-section {
-      position: relative !important;
-      margin: 0 !important;
-      min-height: calc(100vh - 80px) !important;
-      padding: 90px 20px 50px 20px !important;
-      display: none;
-      opacity: 0;
-      visibility: hidden;
-    }
+/* ===== ABOUT SECTION ===== */
+#about {
+  align-items: center !important;
+  justify-content: center !important;
+  background: linear-gradient(135deg, #0b1020 0%, #121a35 100%);
+}
 
-    .page-section.active {
-      display: flex !important;
-      opacity: 1 !important;
-      visibility: visible !important;
-    }
+#about h1,
+#attractions h2,
+#rtffam h2,
+#rtfglobal h2,
+.rtf-partners-heading h2,
+.partners-title-box h2 {
+  background: linear-gradient(90deg, #ffffff, #facc15, #ffffff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 14px 30px rgba(0,0,0,0.35);
+}
 
-    nav .text-yellow-300 { color: #facc15 !important; }
+#about .bg-white\/20,
+#about .bg-white\/10,
+.rtf-partners-card,
+.partners-card {
+  backdrop-filter: blur(16px) !important;
+  border: 1px solid rgba(255,255,255,0.22) !important;
+  box-shadow:
+    0 30px 70px rgba(0,0,0,0.42),
+    inset 0 1px 0 rgba(255,255,255,0.18) !important;
+}
 
-    #mobile-menu.flex {
-      display: flex !important;
-      flex-direction: column !important;
-    }
+#about .bg-white\/20:hover,
+#about .bg-white\/10:hover,
+#attractions .grid > div:hover {
+  transform: translateY(-8px) scale(1.01);
+  box-shadow: 0 40px 80px rgba(0,0,0,0.5) !important;
+}
 
-    .nav-arrow-button {
-      position: fixed !important;
-      top: 50vh !important;
-      transform: translateY(-50%) !important;
-      z-index: 99999 !important;
-      width: 55px !important;
-      height: 55px !important;
-      border: none !important;
-      border-radius: 50% !important;
-      display: flex !important;
-      align-items: center !important;
-      justify-content: center !important;
-      cursor: pointer !important;
-      color: #1B2A57 !important;
-      box-shadow: 0 6px 18px rgba(0,0,0,0.35) !important;
-    }
+#about img#slideImage:hover {
+  transform: scale(1.04);
+}
 
-    .nav-arrow-button.left {
-      left: 20px !important;
-      background: linear-gradient(135deg, #00C9FF, #92FE9D) !important;
-    }
+/* ===== ORGANIZERS ===== */
+#organizers {
+  background:
+    linear-gradient(135deg, rgba(17,24,39,0.95), rgba(27,42,87,0.92)) !important;
+  box-shadow: 0 28px 70px rgba(0,0,0,0.45);
+}
 
-    .nav-arrow-button.right {
-      right: 20px !important;
-      background: linear-gradient(135deg, #FDC830, #F37335) !important;
-    }
+#organizers img {
+  box-shadow:
+    0 0 0 4px rgba(250,204,21,0.35),
+    0 18px 38px rgba(0,0,0,0.38);
+}
 
-    .nav-arrow-button:hover {
-      transform: translateY(-50%) scale(1.1) !important;
-    }
+/* ===== ATTRACTIONS SECTION ===== */
+#attractions {
+  align-items: center !important;
+  justify-content: center !important;
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+}
 
-    @media (max-width: 768px) {
-      .nav-arrow-button {
-        width: 46px !important;
-        height: 46px !important;
-      }
-      .nav-arrow-button.left { left: 8px !important; }
-      .nav-arrow-button.right { right: 8px !important; }
-    }
+#attractions .grid > div {
+  border: 1px solid rgba(255,255,255,0.14);
+  transition: 0.3s ease;
+}
 
-  </style>
+#attractions .grid > div:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 30px 70px rgba(0,0,0,0.48);
+}
 
-    </div>
-</section>
-   </div>
-     </section>
+#attractions .grid img {
+  transition: 0.4s ease;
+}
+
+#attractions .grid > div:hover img {
+  transform: scale(1.08);
+}
+
+/* ===== PARTNERS SECTION ===== */
+#partners.page-section {
+  padding: 95px 20px 55px 20px !important;
+  background:
+    linear-gradient(135deg, #111936 0%, #2c2638 55%, #4a2630 100%) !important;
+  align-items: center;
+  justify-content: center;
+}
+
+#partners.page-section::before {
+  background:
+    radial-gradient(circle at 20% 20%, rgba(250,204,21,0.18), transparent 30%),
+    radial-gradient(circle at 80% 30%, rgba(56,189,248,0.16), transparent 28%),
+    radial-gradient(circle at 50% 90%, rgba(244,114,182,0.16), transparent 32%);
+}
+
+/* ===== PREMIUM SIDE LOGOS ===== */
+.side-logo-scroll {
+  position: absolute;
+  top: 115px;
+  bottom: 45px;
+  width: 88px;
+  overflow: hidden;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.side-logo-scroll.left {
+  left: 16px;
+}
+
+.side-logo-scroll.right {
+  right: 16px;
+}
+
+.logo-track {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  animation: logoMove 22s linear infinite;
+}
+
+.side-logo-scroll.right .logo-track {
+  animation-direction: reverse;
+}
+
+.logo-track img {
+  width: 70px;
+  height: 70px;
+  object-fit: contain;
+  background: linear-gradient(135deg, #ffffff, #fff7d6) !important;
+  border-radius: 50%;
+  padding: 9px;
+  border: 2px solid #facc15 !important;
+  box-shadow: 0 12px 28px rgba(0,0,0,0.45);
+}
+
+.logo-track img:hover {
+  transform: scale(1.2) rotate(3deg);
+  box-shadow: 0 20px 40px rgba(250,204,21,0.5);
+}
+
+@keyframes logoMove {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-50%);
+  }
+}
+
+/* ===== PARTNERS CARD ===== */
+.rtf-partners-wrap,
+.partners-container {
+  width: 100%;
+  max-width: 1180px;
+  margin: auto;
+  position: relative;
+  z-index: 5;
+}
+
+.rtf-partners-heading,
+.partners-title-box {
+  text-align: center;
+  margin-bottom: 26px;
+}
+
+.rtf-partners-heading::before,
+.partners-title-box::before {
+  content: "Official Partner Directory";
+  display: inline-block;
+  margin-bottom: 14px;
+  padding: 8px 18px;
+  border-radius: 999px;
+  color: #1b2a57;
+  background: linear-gradient(90deg, #facc15, #fde68a);
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  box-shadow: 0 10px 28px rgba(250,204,21,0.32);
+}
+
+.rtf-partners-heading h2,
+.partners-title-box h2 {
+  font-size: clamp(32px, 4vw, 52px);
+  font-weight: 800;
+  margin: 0;
+  letter-spacing: 1px;
+}
+
+.rtf-partners-heading p,
+.partners-title-box p {
+  color: #fde68a;
+  font-size: 17px;
+  margin-top: 8px;
+  letter-spacing: 0.4px;
+}
+
+.rtf-partners-card,
+.partners-card {
+  position: relative;
+  overflow: hidden;
+  background:
+    linear-gradient(135deg, rgba(255,255,255,0.18), rgba(255,255,255,0.07)) !important;
+  border-radius: 26px;
+  padding: 24px;
+}
+
+.rtf-partners-card::before,
+.partners-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -120%;
+  width: 70%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.18), transparent);
+  transform: skewX(-20deg);
+  animation: cardShine 7s infinite;
+}
+
+@keyframes cardShine {
+  0% {
+    left: -120%;
+  }
+  45%, 100% {
+    left: 130%;
+  }
+}
+
+.rtf-partners-top,
+.partners-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 18px;
+  background: rgba(15,23,42,0.48);
+  padding: 14px;
+  border-radius: 18px;
+  border: 1px solid rgba(255,255,255,0.14);
+}
+
+.rtf-partners-top h3,
+.partners-top h3 {
+  color: #fde68a;
+  font-size: 24px;
+  font-weight: 800;
+  margin: 0;
+}
+
+#partnerSearch {
+  width: 360px;
+  max-width: 100%;
+  padding: 13px 16px;
+  border-radius: 14px;
+  border: 2px solid transparent !important;
+  outline: none;
+  font-size: 14px;
+  background: #ffffff;
+  color: #111827;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.22);
+}
+
+#partnerSearch:focus {
+  border-color: #facc15 !important;
+  box-shadow:
+    0 0 0 4px rgba(250,204,21,0.25),
+    0 14px 34px rgba(0,0,0,0.28);
+}
+
+.rtf-table-box,
+.partners-table-wrap {
+  max-height: 560px;
+  overflow: auto;
+  border-radius: 18px;
+  background: #ffffff;
+  border: 1px solid rgba(255,255,255,0.2);
+}
+
+#partnersTable {
+  width: 100%;
+  border-collapse: collapse;
+  background: #ffffff;
+  font-size: 14px;
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+#partnersTable thead {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: linear-gradient(90deg, #1b2a57, #243b7a, #1b2a57) !important;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+}
+
+#partnersTable th,
+#partnersTable td {
+  padding: 13px 14px;
+  border-bottom: 1px solid #e5e7eb;
+  text-align: left;
+  white-space: nowrap;
+  color: #111827;
+}
+
+#partnersTable th {
+  color: #ffffff;
+  font-weight: 700;
+  padding: 15px 14px !important;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+}
+
+#partnersTable td:first-child,
+#partnersTable th:first-child {
+  text-align: center;
+  width: 70px;
+}
+
+#partnersTable td:nth-child(2) {
+  font-weight: 700;
+  color: #1b2a57;
+}
+
+#partnersTable td:nth-child(3) {
+  font-weight: 600;
+  color: #9a3412;
+}
+
+#partnersTable tbody tr:nth-child(even) {
+  background: #f8fafc;
+}
+
+#partnersTable tbody tr {
+  transition: 0.22s ease;
+}
+
+#partnersTable tbody tr:hover {
+  background: linear-gradient(90deg, #fff7cc, #ffffff) !important;
+  transform: scale(1.006);
+}
+
+/* ===== COMING SOON SECTIONS ===== */
+#rtffam.page-section,
+#rtfglobal.page-section {
+  align-items: center;
+  justify-content: center;
+}
+
+#rtffam img,
+#rtfglobal img {
+  transition: 0.35s ease;
+  box-shadow:
+    0 0 0 4px rgba(250,204,21,0.35),
+    0 28px 70px rgba(0,0,0,0.5);
+}
+
+#rtffam img:hover,
+#rtfglobal img:hover {
+  transform: scale(1.04) rotate(-1deg);
+}
+
+/* ===== FOOTER ===== */
+footer {
+  background:
+    radial-gradient(circle at top left, rgba(250,204,21,0.14), transparent 28%),
+    linear-gradient(135deg, #0f172a, #020617) !important;
+  border-top: 1px solid rgba(255,255,255,0.12);
+}
+
+footer .bg-white\/10 {
+  transition: 0.25s ease;
+}
+
+footer .bg-white\/10:hover {
+  transform: translateY(-5px);
+  border-color: rgba(250,204,21,0.4) !important;
+}
+
+footer a:hover {
+  color: #facc15 !important;
+}
+
+/* ===== SCROLLBAR ===== */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0b1020;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(#facc15, #f97316);
+  border-radius: 10px;
+}
+
+/* ===== MOBILE ===== */
+@media (max-width: 1024px) {
+  .side-logo-scroll {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .page-section {
+    padding: 82px 14px 40px 14px !important;
+  }
+
+  .nav-arrow-button {
+    width: 46px !important;
+    height: 46px !important;
+  }
+
+  .nav-arrow-button.left {
+    left: 8px !important;
+  }
+
+  .nav-arrow-button.right {
+    right: 8px !important;
+  }
+
+  #home img[alt="Event Logo"] {
+    width: 150px !important;
+    height: 150px !important;
+  }
+
+  #about h1,
+  #attractions h2,
+  #rtffam h2,
+  #rtfglobal h2,
+  .rtf-partners-heading h2,
+  .partners-title-box h2 {
+    font-size: 30px !important;
+  }
+
+  .rtf-partners-card,
+  .partners-card {
+    padding: 16px !important;
+    border-radius: 20px !important;
+  }
+
+  .rtf-partners-top,
+  .partners-top {
+    flex-direction: column !important;
+    align-items: stretch !important;
+  }
+
+  #partnerSearch {
+    width: 100%;
+  }
+
+  #partnersTable {
+    font-size: 12px !important;
+  }
+
+  #partnersTable th,
+  #partnersTable td {
+    padding: 10px !important;
+  }
+
+  footer {
+    text-align: center;
+  }
+}
 
 <!-- attractions -->
 <section id="attractions" class="page-section relative min-h-screen py-20 text-white overflow-hidden">
