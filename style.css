@@ -11,51 +11,13 @@ body {
   background: #0b1020 !important;
 }
 
-/* ===== PAGE SECTION FIX ===== */
+/* ===== PAGE SECTION ===== */
 .page-section {
   position: relative !important;
   margin: 0 !important;
-  padding-top: 90px !important;
   min-height: 100vh !important;
   scroll-margin-top: 80px;
   background: transparent !important;
-}
-
-/* ===== REMOVE GAP BELOW NAVBAR ===== */
-nav + .page-section {
-  margin-top: 0 !important;
-}
-
-/* ===== NAVIGATION ARROWS ===== */
-.nav-arrow-button {
-  position: fixed !important;
-  top: 50% !important;
-  transform: translateY(-50%) !important;
-  color: #1b2a57 !important;
-  border: none !important;
-  cursor: pointer !important;
-  z-index: 99999 !important;
-  border-radius: 9999px !important;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35) !important;
-  width: 55px !important;
-  height: 55px !important;
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-}
-
-.nav-arrow-button.left {
-  left: 20px !important;
-  background: linear-gradient(135deg, #00c9ff, #92fe9d) !important;
-}
-
-.nav-arrow-button.right {
-  right: 20px !important;
-  background: linear-gradient(135deg, #fdc830, #f37335) !important;
-}
-
-.nav-arrow-button:hover {
-  transform: translateY(-50%) scale(1.1) !important;
 }
 
 /* ===== PREMIUM PARTNERS SECTION ===== */
@@ -107,7 +69,7 @@ nav + .page-section {
   margin-top: 10px;
 }
 
-/* ===== PARTNER SEARCH ===== */
+/* ===== SEARCH ===== */
 .partner-controls {
   display: flex;
   gap: 14px;
@@ -245,7 +207,7 @@ nav + .page-section {
   }
 }
 
-/* ===== VIDEO SECTION ===== */
+/* ===== VIDEOS ===== */
 .video-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -260,7 +222,7 @@ nav + .page-section {
   box-shadow: 0 20px 45px rgba(0, 0, 0, 0.35);
 }
 
-/* ===== WRITTEN FEEDBACK ===== */
+/* ===== FEEDBACK ===== */
 .feedback-scroll {
   display: flex;
   gap: 20px;
@@ -345,18 +307,5 @@ nav + .page-section {
 
   .video-grid video {
     height: 220px;
-  }
-
-  .nav-arrow-button {
-    width: 46px !important;
-    height: 46px !important;
-  }
-
-  .nav-arrow-button.left {
-    left: 8px !important;
-  }
-
-  .nav-arrow-button.right {
-    right: 8px !important;
   }
 }
