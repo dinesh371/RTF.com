@@ -722,21 +722,68 @@ As shared earlier, RTF has been postponed until further notice, so as a continuo
   </div>
 </section>
 <!-- Partners Section --><!-- ================= PARTNERS SECTION FINAL PREMIUM ================= -->
+<!-- ================= PARTNERS SECTION PREMIUM WITH SIDE LOGOS ================= -->
+
 <style>
   #partners {
     margin: 0 !important;
     padding: 90px 20px !important;
     min-height: 100vh;
     background: linear-gradient(135deg, #111936 0%, #2c2638 55%, #4a2630 100%) !important;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .side-logo-scroll {
+    position: absolute;
+    top: 100px;
+    bottom: 40px;
+    width: 80px;
+    overflow: hidden;
+    z-index: 1;
+    opacity: 0.95;
+  }
+
+  .side-logo-scroll.left {
+    left: 10px;
+  }
+
+  .side-logo-scroll.right {
+    right: 10px;
+  }
+
+  .logo-track {
     display: flex;
-    align-items: center;
-    justify-content: center;
+    flex-direction: column;
+    gap: 22px;
+    animation: logoMove 18s linear infinite;
+  }
+
+  .side-logo-scroll.right .logo-track {
+    animation-direction: reverse;
+  }
+
+  .logo-track img {
+    width: 64px;
+    height: 64px;
+    object-fit: contain;
+    background: #fff;
+    border-radius: 50%;
+    padding: 8px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.35);
+  }
+
+  @keyframes logoMove {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-50%); }
   }
 
   .rtf-partners-wrap {
     width: 100%;
     max-width: 1180px;
     margin: auto;
+    position: relative;
+    z-index: 3;
   }
 
   .rtf-partners-heading {
@@ -761,10 +808,10 @@ As shared earlier, RTF has been postponed until further notice, so as a continuo
   .rtf-partners-card {
     background: rgba(255, 255, 255, 0.12);
     border: 1px solid rgba(255,255,255,0.18);
-    border-radius: 24px;
+    border-radius: 26px;
     padding: 24px;
-    box-shadow: 0 25px 55px rgba(0,0,0,0.35);
-    backdrop-filter: blur(10px);
+    box-shadow: 0 28px 65px rgba(0,0,0,0.42);
+    backdrop-filter: blur(12px);
   }
 
   .rtf-partners-top {
@@ -778,7 +825,7 @@ As shared earlier, RTF has been postponed until further notice, so as a continuo
   .rtf-partners-top h3 {
     color: #fff;
     font-size: 24px;
-    font-weight: 700;
+    font-weight: 800;
     margin: 0;
   }
 
@@ -844,15 +891,15 @@ As shared earlier, RTF has been postponed until further notice, so as a continuo
     background: #fff4c2;
   }
 
-  #partnersTable td:nth-child(6) {
-    font-weight: 700;
-    color: #1B2A57;
+  @media (max-width: 900px) {
+    .side-logo-scroll {
+      display: none;
+    }
   }
 
   @media (max-width: 768px) {
     #partners {
       padding: 70px 12px !important;
-      align-items: flex-start;
     }
 
     .rtf-partners-heading h2 {
@@ -876,6 +923,38 @@ As shared earlier, RTF has been postponed until further notice, so as a continuo
 
 <section id="partners" class="page-section">
 
+  <!-- LEFT SIDE SCROLLING LOGOS -->
+  <div class="side-logo-scroll left">
+    <div class="logo-track">
+      <img src="images/logo1.png">
+      <img src="images/logo2.png">
+      <img src="images/logo3.png">
+      <img src="images/logo4.png">
+      <img src="images/logo5.png">
+      <img src="images/logo1.png">
+      <img src="images/logo2.png">
+      <img src="images/logo3.png">
+      <img src="images/logo4.png">
+      <img src="images/logo5.png">
+    </div>
+  </div>
+
+  <!-- RIGHT SIDE SCROLLING LOGOS -->
+  <div class="side-logo-scroll right">
+    <div class="logo-track">
+      <img src="images/logo1.png">
+      <img src="images/logo2.png">
+      <img src="images/logo3.png">
+      <img src="images/logo4.png">
+      <img src="images/logo5.png">
+      <img src="images/logo1.png">
+      <img src="images/logo2.png">
+      <img src="images/logo3.png">
+      <img src="images/logo4.png">
+      <img src="images/logo5.png">
+    </div>
+  </div>
+
   <div class="rtf-partners-wrap">
 
     <div class="rtf-partners-heading">
@@ -894,55 +973,67 @@ As shared earlier, RTF has been postponed until further notice, so as a continuo
         <table id="partnersTable">
           <thead>
             <tr>
-              <th>S.No</th>
+              <th>S. No.</th>
               <th>Name</th>
               <th>Title</th>
               <th>Organization</th>
-               <th>City</th>
-
+              <th>City</th>
             </tr>
           </thead>
 
-      <tbody>
-<tr><td>1</td><td>Mr. Guneet Singh</td><td>Founder</td><td>Your Nice Trip</td><td>Faridabad</td></tr>
-<tr><td>2</td><td>Mr. Anil Dhingra</td><td>ED</td><td>Unique Air Services</td><td>Delhi</td></tr>
-<tr><td>3</td><td>Mr. Narender Sharma</td><td>Director</td><td>Perfection Consulting (India) Pvt Ltd</td><td>Delhi</td></tr>
-<tr><td>4</td><td>Mr. Nilesh Bhutwala</td><td>Partner</td><td>Travel Theme Holidays</td><td>Surat</td></tr>
-<tr><td>5</td><td>Ms. Leena Jumde</td><td>CEO</td><td>Travel Gratitude</td><td>Mumbai</td></tr>
-<tr><td>6</td><td>Mr. Sachin Sharma</td><td>MD</td><td>Travel By Passion</td><td>Delhi</td></tr>
-<tr><td>7</td><td>Ms. Priyanka Mohidekar</td><td>Director</td><td>Touring Toes LLP</td><td>Pune</td></tr>
-<tr><td>8</td><td>Mr. Dilip Soni</td><td>Owner</td><td>Sonii Travels</td><td>Mumbai</td></tr>
-<tr><td>9</td><td>Mr. Niranjan Ji</td><td>Director</td><td>Smithasya Enter Pvt Ltd (Holiday Kool)</td><td>Pune</td></tr>
-<tr><td>10</td><td>Ms. Madhuri Wadangenkar</td><td>Founder</td><td>Skip The Line Tour</td><td>Mumbai</td></tr>
-<tr><td>11</td><td>Mr. Ganesh L Sakhara</td><td>Owner</td><td>ShreeNath Travels</td><td>Pune</td></tr>
-<tr><td>12</td><td>Mr. Alankaran Verma</td><td>Owner</td><td>Sai Tour & Travels</td><td>Una</td></tr>
-<tr><td>13</td><td>Mr. Madhu</td><td>CEO & Founder</td><td>NB4 Holidays</td><td>Kochi</td></tr>
-<tr><td>14</td><td>Mr. Tejas Kale</td><td>Director</td><td>My Travel World Travel</td><td>Pune</td></tr>
-<tr><td>15</td><td>Mr. Kartik Pachchigar</td><td>Owner</td><td>Magical India Holidays</td><td>Surat</td></tr>
-<tr><td>16</td><td>Mr. Tushar Patel</td><td>Sales Executive</td><td>Magical India Holidays</td><td>Surat</td></tr>
-<tr><td>17</td><td>Mr. Ram Raj Singh</td><td>Founder & MD</td><td>Luxurious Heritage</td><td>Delhi</td></tr>
-<tr><td>18</td><td>Mr. Mahendra R Jain</td><td>Owner</td><td>Kering Holiday</td><td>Mumbai</td></tr>
-<tr><td>19</td><td>Mr. Mukesh Kumar</td><td>Founder</td><td>KaaSaa Events</td><td>Delhi</td></tr>
-<tr><td>20</td><td>Ms. Dilpreet (Sheena) Sewal</td><td>Founder</td><td>India TajMahal tour operators</td><td>Delhi</td></tr>
-<tr><td>21</td><td>Mr. Pushpendra Sen</td><td>Founder</td><td>Historical India Tours And Travels</td><td>Orchha</td></tr>
-<tr><td>22</td><td>Mr. Shubham Gupta</td><td>Manager</td><td>Galaxy Holidays</td><td>Pune</td></tr>
-<tr><td>23</td><td>Ms. Sarika Chopra</td><td>Founder & CEO</td><td>Explorers-Den</td><td>Faridabad</td></tr>
-<tr><td>24</td><td>Ms. Chandni Sharma</td><td>Director</td><td>Ascel Group</td><td>Ghaziabad</td></tr>
-<tr><td>25</td><td>Mr. Devendra P. Divekar</td><td>Owner</td><td>Go Weekends</td><td>Mumbai</td></tr>
-<tr><td>26</td><td>Ms. Pooja</td><td>Founder</td><td>Journey Master</td><td>Delhi</td></tr>
-<tr><td>27</td><td>Mr. Santhosh Kumar</td><td>Owner</td><td>GodZone Holidays & Tours</td><td>Alibaug</td></tr>
-<tr><td>28</td><td>Ms. Pooja V Patil</td><td>Owner</td><td>Plango Holidays Explore World</td><td>Mumbai</td></tr>
-<tr><td>29</td><td>Ms. Neetu Gola</td><td>Founder</td><td>Om Sai Travels</td><td>Delhi</td></tr>
-<tr><td>30</td><td>Mr. Aman Saini</td><td>Owner</td><td>Colors of India</td><td>Delhi</td></tr>
-</tbody>
+          <tbody>
+            <tr><td>1</td><td>Mr. Guneet Singh</td><td>Founder</td><td>Your Nice Trip</td><td>Faridabad</td></tr>
+            <tr><td>2</td><td>Mr. Anil Dhingra</td><td>ED</td><td>Unique Air Services</td><td>Delhi</td></tr>
+            <tr><td>3</td><td>Mr. Narender Sharma</td><td>Director</td><td>Perfection Consulting (India) Pvt Ltd</td><td>Delhi</td></tr>
+            <tr><td>4</td><td>Mr. Nilesh Bhutwala</td><td>Partner</td><td>Travel Theme Holidays</td><td>Surat</td></tr>
+            <tr><td>5</td><td>Ms. Leena Jumde</td><td>CEO</td><td>Travel Gratitude</td><td>Mumbai</td></tr>
+            <tr><td>6</td><td>Mr. Sachin Sharma</td><td>MD</td><td>Travel By Passion</td><td>Delhi</td></tr>
+            <tr><td>7</td><td>Ms. Priyanka Mohidekar</td><td>Director</td><td>Touring Toes LLP</td><td>Pune</td></tr>
+            <tr><td>8</td><td>Mr. Dilip Soni</td><td>Owner</td><td>Sonii Travels</td><td>Mumbai</td></tr>
+            <tr><td>9</td><td>Mr. Niranjan Ji</td><td>Director</td><td>Smithasya Enter Pvt Ltd (Holiday Kool)</td><td>Pune</td></tr>
+            <tr><td>10</td><td>Ms. Madhuri Wadangenkar</td><td>Founder</td><td>Skip The Line Tour</td><td>Mumbai</td></tr>
+            <tr><td>11</td><td>Mr. Ganesh L Sakhara</td><td>Owner</td><td>ShreeNath Travels</td><td>Pune</td></tr>
+            <tr><td>12</td><td>Mr. Alankaran Verma</td><td>Owner</td><td>Sai Tour & Travels</td><td>Una</td></tr>
+            <tr><td>13</td><td>Mr. Madhu</td><td>CEO & Founder</td><td>NB4 Holidays</td><td>Kochi</td></tr>
+            <tr><td>14</td><td>Mr. Tejas Kale</td><td>Director</td><td>My Travel World Travel</td><td>Pune</td></tr>
+            <tr><td>15</td><td>Mr. Kartik Pachchigar</td><td>Owner</td><td>Magical India Holidays</td><td>Surat</td></tr>
+            <tr><td>16</td><td>Mr. Tushar Patel</td><td>Sales Executive</td><td>Magical India Holidays</td><td>Surat</td></tr>
+            <tr><td>17</td><td>Mr. Ram Raj Singh</td><td>Founder & MD</td><td>Luxurious Heritage</td><td>Delhi</td></tr>
+            <tr><td>18</td><td>Mr. Mahendra R Jain</td><td>Owner</td><td>Kering Holiday</td><td>Mumbai</td></tr>
+            <tr><td>19</td><td>Mr. Mukesh Kumar</td><td>Founder</td><td>KaaSaa Events</td><td>Delhi</td></tr>
+            <tr><td>20</td><td>Ms. Dilpreet (Sheena) Sewal</td><td>Founder</td><td>India TajMahal tour operators</td><td>Delhi</td></tr>
+            <tr><td>21</td><td>Mr. Pushpendra Sen</td><td>Founder</td><td>Historical India Tours And Travels</td><td>Orchha</td></tr>
+            <tr><td>22</td><td>Mr. Shubham Gupta</td><td>Manager</td><td>Galaxy Holidays</td><td>Pune</td></tr>
+            <tr><td>23</td><td>Ms. Sarika Chopra</td><td>Founder & CEO</td><td>Explorers-Den</td><td>Faridabad</td></tr>
+            <tr><td>24</td><td>Ms. Chandni Sharma</td><td>Director</td><td>Ascel Group</td><td>Ghaziabad</td></tr>
+            <tr><td>25</td><td>Mr. Devendra P. Divekar</td><td>Owner</td><td>Go Weekends</td><td>Mumbai</td></tr>
+            <tr><td>26</td><td>Ms. Pooja</td><td>Founder</td><td>Journey Master</td><td>Delhi</td></tr>
+            <tr><td>27</td><td>Mr. Santhosh Kumar</td><td>Owner</td><td>GodZone Holidays & Tours</td><td>Alibaug</td></tr>
+            <tr><td>28</td><td>Ms. Pooja V Patil</td><td>Owner</td><td>Plango Holidays Explore World</td><td>Mumbai</td></tr>
+            <tr><td>29</td><td>Ms. Neetu Gola</td><td>Founder</td><td>Om Sai Travels</td><td>Delhi</td></tr>
+            <tr><td>30</td><td>Mr. Aman Saini</td><td>Owner</td><td>Colors of India</td><td>Delhi</td></tr>
+          </tbody>
         </table>
       </div>
 
     </div>
   </div>
-
-
 </section>
+
+<script>
+  const partnerSearch = document.getElementById("partnerSearch");
+  const partnerRows = document.querySelectorAll("#partnersTable tbody tr");
+
+  if (partnerSearch) {
+    partnerSearch.addEventListener("keyup", function () {
+      const value = this.value.toLowerCase();
+
+      partnerRows.forEach(row => {
+        row.style.display = row.innerText.toLowerCase().includes(value) ? "" : "none";
+      });
+    });
+  }
+</script>
 
 <!-- ================= RTF FAM 2026 COMING SOON ================= -->
 <section id="rtffam" class="page-section relative min-h-screen flex items-center justify-center text-white">
