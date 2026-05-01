@@ -1074,17 +1074,12 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  const partnerSearch = document.getElementById("partnerSearch");
-  if (partnerSearch) {
-    partnerSearch.addEventListener("keyup", function () {
-      const value = this.value.toLowerCase();
-      const rows = document.querySelectorAll("#partnersTable tbody tr");
-      rows.forEach(row => {
-        row.style.display = row.innerText.toLowerCase().includes(value) ? "" : "none";
-      });
-    });
-  }
-
+   document.getElementById("partnerSearch").addEventListener("keyup", function () {
+  let value = this.value.toLowerCase();
+  document.querySelectorAll("#partnersTable tbody tr").forEach(row => {
+    row.style.display = row.innerText.toLowerCase().includes(value) ? "" : "none";
+  });
+});
   let slideIndex = 0;
   const slideImages = [
     "images/Venue Photos/19.jpeg",
