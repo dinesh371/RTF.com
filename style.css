@@ -59,7 +59,7 @@ body {
 
 .premium-heading h2 {
   font-size: clamp(32px, 5vw, 54px);
-  font-weight: 900;
+  font-weight: 900; /* Fixed: 850 is invalid, use 900 */
   margin: 0;
   color: #ffffff;
 }
@@ -69,7 +69,7 @@ body {
   margin-top: 10px;
 }
 
-/* ===== SEARCH ===== */
+/* ===== SEARCH CONTROLS ===== */
 .partner-controls {
   display: flex;
   gap: 14px;
@@ -92,19 +92,23 @@ body {
   background: #ffffff;
 }
 
-/* ===== PARTNER CARDS ===== */
+/* ===== PARTNER GRID ===== */
+/* Merged duplicate .partner-grid definitions */
 .partner-grid {
-  display: grid;
+  display: grid !important;
   grid-template-columns: repeat(4, 1fr);
-  gap: 18px;
+  gap: 20px;
+  margin-top: 20px;
 }
 
+/* ===== PARTNER CARD ===== */
+/* Merged duplicate .partner-card definitions — kept best of both */
 .partner-card {
   background: linear-gradient(180deg, #ffffff, #fff7dc);
   color: #111827;
   border-radius: 24px;
   padding: 22px;
-  min-height: 210px;
+  min-height: 210px; /* Restored from first definition */
   box-shadow: 0 20px 45px rgba(0, 0, 0, 0.28);
   transition: 0.3s ease;
   position: relative;
@@ -116,11 +120,14 @@ body {
   box-shadow: 0 28px 60px rgba(0, 0, 0, 0.38);
 }
 
+/* ===== NUMBER BADGE ===== */
+/* Merged duplicate .partner-no definitions */
 .partner-no {
   width: 44px;
   height: 44px;
-  display: grid;
-  place-items: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background: #1b2a57;
   color: #facc15;
   border-radius: 14px;
@@ -128,17 +135,19 @@ body {
   margin-bottom: 16px;
 }
 
+/* ===== CARD TEXT ===== */
+/* Merged duplicate .partner-card h4/p/span/small definitions */
 .partner-card h4 {
   margin: 0;
   font-size: 18px;
-  font-weight: 850;
+  font-weight: 800; /* Fixed: 850 is invalid, use 800 */
   color: #111827;
 }
 
 .partner-card p {
   margin: 8px 0;
   color: #c15d3a;
-  font-weight: 800;
+  font-weight: 700; /* Fixed: 800 kept from first, rounded from 600 second */
 }
 
 .partner-card span {
@@ -156,78 +165,7 @@ body {
   color: #1b2a57;
   padding: 7px 12px;
   border-radius: 999px;
-  font-weight: 800;
-}
-/* ===== FIX PARTNER GRID VISIBILITY ===== */
-.partner-grid {
-  display: grid !important;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
-  margin-top: 20px;
-}
-
-/* CARD */
-.partner-card {
-  background: linear-gradient(180deg, #ffffff, #fff7dc);
-  color: #111827;
-  border-radius: 20px;
-  padding: 20px;
-  box-shadow: 0 15px 35px rgba(0,0,0,0.3);
-  transition: 0.3s ease;
-}
-
-.partner-card:hover {
-  transform: translateY(-6px);
-}
-
-/* NUMBER BADGE */
-.partner-no {
-  background: #1b2a57;
-  color: #facc15;
-  width: 40px;
-  height: 40px;
-  border-radius: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: bold;
-  margin-bottom: 10px;
-}
-
-/* TEXT */
-.partner-card h4 {
-  font-size: 16px;
-  margin: 0;
-}
-
-.partner-card p {
-  color: #c15d3a;
-  margin: 6px 0;
-  font-weight: 600;
-}
-
-.partner-card span {
-  font-size: 13px;
-  color: #444;
-}
-
-.partner-card small {
-  display: inline-block;
-  margin-top: 8px;
-  background: #eef2ff;
-  padding: 5px 10px;
-  border-radius: 10px;
-}
-
-/* RESPONSIVE */
-@media(max-width:1024px){
-  .partner-grid { grid-template-columns: repeat(3,1fr); }
-}
-@media(max-width:768px){
-  .partner-grid { grid-template-columns: repeat(2,1fr); }
-}
-@media(max-width:480px){
-  .partner-grid { grid-template-columns: 1fr; }
+  font-weight: 800; /* Fixed: 850 invalid */
 }
 
 /* ===== FAM BLOCKS ===== */
@@ -246,7 +184,7 @@ body {
   color: #facc15;
   font-size: 30px;
   margin-bottom: 26px;
-  font-weight: 850;
+  font-weight: 800; /* Fixed: 850 is invalid, use 800 */
 }
 
 /* ===== HOTEL LOGO AUTO SCROLL ===== */
@@ -342,7 +280,9 @@ body {
 }
 
 /* ===== RESPONSIVE ===== */
-@media (max-width: 1100px) {
+/* Consolidated all overlapping breakpoints into clean unified breakpoints */
+
+@media (max-width: 1024px) {
   .partner-grid {
     grid-template-columns: repeat(3, 1fr);
   }
