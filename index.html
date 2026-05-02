@@ -1268,27 +1268,70 @@
     <p class="text-xl md:text-2xl font-semibold tracking-wide">Content Coming Soon</p>
   </div>
 </section>
+<!-- ================= RTF GLOBAL FAM PREMIUM VIEW ================= -->
+<section id="rtfglobal" class="page-section rtfglobal-section">
 
-<!-- ================= RTF GLOBAL FAM COMING SOON ================= -->
-<section id="rtfglobal" class="page-section relative min-h-screen flex items-center justify-center text-white">
-  <div class="absolute inset-0 bg-gradient-to-br from-[#0f172a] via-[#1e293b] to-[#020617] -z-10"></div>
+  <!-- Background -->
+  <div class="rtfglobal-bg"></div>
 
-  <div class="text-center px-6">
-    <h2 class="text-4xl md:text-5xl font-bold mb-4 text-yellow-300">
-      RTF Global FAM
-    </h2>
+  <div class="rtfglobal-container">
 
-    <h3 class="text-2xl md:text-3xl font-bold mb-6 text-white">
-      RTF Global FAM Coming Soon
-    </h3>
+    <!-- HEADER -->
+    <div class="rtfglobal-header">
+      <span class="rtf-badge">RTF GLOBAL FAM 2026</span>
 
-    <img src="images/RTF GLOBAL.jpeg"
-         alt="RTF Global FAM Coming Soon"
-         class="mx-auto w-[300px] md:w-[450px] rounded-2xl shadow-2xl border-4 border-yellow-300 mb-6" />
+      <h2 class="rtf-title">
+        Global FAM Itinerary Showcase
+      </h2>
 
-    <p class="text-xl md:text-2xl font-semibold tracking-wide">
-      Content Coming Soon
-    </p>
+      <p class="rtf-subtitle">
+        16 Days • 14 Destinations • 30+ International Travel Agents • 60+ Hotels
+      </p>
+    </div>
+
+    <!-- PDF CONTAINER -->
+    <div class="rtf-pdf-wrapper">
+
+      <!-- Loader -->
+      <div class="pdf-loader" id="pdfLoader">
+        <div class="loader-spinner"></div>
+        <p>Loading Itinerary...</p>
+      </div>
+
+      <!-- PDF Viewer -->
+      <iframe
+        id="pdfFrame"
+        src="files/RTF_Global_Fam_Itinerary.pdf#toolbar=1&navpanes=0&scrollbar=1"
+        class="rtf-pdf-frame"
+        title="RTF Global FAM Itinerary"
+        onload="document.getElementById('pdfLoader').style.display='none'">
+      </iframe>
+
+      <!-- FALLBACK (if PDF blocked) -->
+      <div class="pdf-fallback">
+        <img src="images/RTF GLOBAL.jpeg" alt="RTF Global FAM">
+
+        <h3>Preview Not Supported</h3>
+        <p>Your browser blocked the PDF preview.</p>
+
+        <a href="files/RTF_Global_Fam_Itinerary.pdf" target="_blank">
+          Open Full Itinerary
+        </a>
+      </div>
+
+    </div>
+
+    <!-- ACTION BUTTONS -->
+    <div class="rtf-actions">
+      <a href="files/RTF_Global_Fam_Itinerary.pdf" target="_blank" class="btn-primary">
+        View Full PDF
+      </a>
+
+      <a href="files/RTF_Global_Fam_Itinerary.pdf" download class="btn-outline">
+        Download
+      </a>
+    </div>
+
   </div>
 </section>
 <!-- ================= SEARCH SCRIPT ================= -->
