@@ -6,116 +6,36 @@
   <title>Rajasthan Travel Fair 2026 - Jodhpur</title>
   <link rel="icon" type="image/png" href="images/Logo2026.jpeg"/>
   <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
   <style>
-    body {
-      font-family: 'Poppins', sans-serif;
-    }
+    body { font-family: 'Poppins', sans-serif; }
 
-    /* Responsive improvements for nav */
-  .custom-nav {
-    position: sticky;
-    top: 0;
-    z-index: 50;
-}
-
-    .nav-link {
-      transition: color 0.2s;
-    }
-
+    /* Gold button */
     .btn-gold {
       background: linear-gradient(90deg, #D4AF37 0%, #F0D878 100%);
       color: #1B2A57;
       font-weight: 600;
       padding: 0.75rem 2.5rem;
       border-radius: 9999px;
-      box-shadow: 0 4px 14px rgba(212, 175, 55, 0.5);
+      box-shadow: 0 4px 14px rgba(212,175,55,0.5);
       transition: all 0.3s ease;
     }
-
-    .btn-gold:hover, .btn-gold:focus {
-      background: linear-gradient(90deg, #b7942d 0%, #d9be52 100%);
-      box-shadow: 0 6px 20px rgba(183, 148, 45, 0.7);
-      outline: none;
+    .btn-gold:hover {
+      background: linear-gradient(90deg,#b7942d 0%,#d9be52 100%);
+      box-shadow: 0 6px 20px rgba(183,148,45,0.7);
     }
 
-    /* Navigation Buttons Styling */
-    .nav-arrow-button {
-      position: fixed;
-      top: 50%;
-      transform: translateY(-50%);
-      background-color: rgb(241, 199, 11);
-      color: #1B2A57;
-      border: none;
-      padding: 1rem;
-      cursor: pointer;
-      z-index: 40;
-      border-radius: 9999px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 50px;
-      height: 50px;
-      font-size: 2rem;
-      font-weight: bold;
-    }
-
-    .nav-arrow-button:hover {
-      background-color: #836f20;
-      color: #1B2A57;
-      transform: translateY(-50%) scale(1.1);
-    }
-
-    .nav-arrow-button.left { left: 1rem; }
-    .nav-arrow-button.right { right: 1rem; }
-
-    /* Modal improvements */
-    #modal .rounded-3xl {
-      max-width: 95vw;
-    }
-
-    /* Responsive tweaks */
-    @media (max-width: 1280px) {
-      .max-w-7xl, .container { max-width: 100vw !important; }
-    }
-
-    
-
-
-    /* Make images and videos responsive */
-    img, video {
-      max-width: 100%;
-      height: auto;
-    }
-
-    /* Section padding for mobile */
-    @media (max-width: 640px) {
-      .page-section {
-        padding-top: 1.5rem !important;
-        padding-bottom: 1.5rem !important;
-      }
-    }
-
-
-    /* ===== FINAL NAV + SECTION + ARROW FIX ===== */
-    html { scroll-behavior: smooth; }
-    html, body { margin: 0 !important; padding: 0 !important; overflow-x: hidden !important; background: #0b1020 !important; }
-
-    .page-section {
-      position: relative !important;
-      margin: 0 !important;
-      min-height: calc(100vh - 80px) !important;
-      padding: 90px 20px 50px 20px !important;
-      display: none;
-      opacity: 0;
-      visibility: hidden;
-    }
-
+    /* Ensure active sections show flex by default */
     .page-section.active {
       display: flex !important;
       opacity: 1 !important;
       visibility: visible !important;
+    }
+
+    /* About section must override to flex-col when active */
+    #about.page-section.active {
+      display: flex !important;
     }
 
     nav .text-yellow-300 { color: #facc15 !important; }
@@ -124,215 +44,153 @@
       display: flex !important;
       flex-direction: column !important;
     }
-
-    .nav-arrow-button {
-      position: fixed !important;
-      top: 50vh !important;
-      transform: translateY(-50%) !important;
-      z-index: 99999 !important;
-      width: 55px !important;
-      height: 55px !important;
-      border: none !important;
-      border-radius: 50% !important;
-      display: flex !important;
-      align-items: center !important;
-      justify-content: center !important;
-      cursor: pointer !important;
-      color: #1B2A57 !important;
-      box-shadow: 0 6px 18px rgba(0,0,0,0.35) !important;
-    }
-
-    .nav-arrow-button.left {
-      left: 20px !important;
-      background: linear-gradient(135deg, #00C9FF, #92FE9D) !important;
-    }
-
-    .nav-arrow-button.right {
-      right: 20px !important;
-      background: linear-gradient(135deg, #FDC830, #F37335) !important;
-    }
-
-    .nav-arrow-button:hover {
-      transform: translateY(-50%) scale(1.1) !important;
-    }
-
-    @media (max-width: 768px) {
-      .nav-arrow-button {
-        width: 46px !important;
-        height: 46px !important;
-      }
-      .nav-arrow-button.left { left: 8px !important; }
-      .nav-arrow-button.right { right: 8px !important; }
-    }
-
   </style>
 </head>
-<body class="bg-gray-50 text-gray-800 m-0 p-0 relative">
-    <!-- Modal -->
-    <div id="modal"
-        class="fixed inset-0 hidden z-50 flex items-center justify-center bg-[rgba(0,0,50,0.6)] backdrop-blur-sm px-2">
-        <div
-            class="bg-[#fff9f0] dark:bg-gray-900 rounded-3xl shadow-2xl max-w-3xl w-full p-6 max-h-[90vh] overflow-auto">
-            <div class="flex justify-between items-center border-b border-gray-300 dark:border-gray-700 pb-4">
-                <h2 class="text-2xl md:text-3xl font-extrabold text-[#1B2A57] dark:text-white tracking-wide">
- Registration for RTF GLOBAL FAM - 2026                </h2>
-                <button onclick="toggleModal()" aria-label="Close modal"
-                    class="text-gray-400 hover:text-red-600 transition duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-red-500 rounded">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M6 18L18 6M6 6l12 12" />
-                    </svg>
-                </button>
-            </div>
-            <div class="mt-6 space-y-6 text-center">
-                <h3 class="text-xl md:text-2xl font-semibold text-[#1B2A57] dark:text-gray-200">Registration open only for International Travel Agents (UK, USA, Europe & Australia</h3>
-                <div class="flex flex-col md:flex-row justify-center items-center gap-4 mt-6">
-                    <button
-                        onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLSfG7ObPQMWzmRFCp0B7Al2c_LIwQQUAHo4tXJgRrGpDIkWKgw/viewform', '_blank')"
-                        class="bg-gradient-to-r from-[#2C3E91] to-[#4A6CF7] hover:from-[#24347a] hover:to-[#3f5fe3] text-white font-semibold px-6 py-2 rounded-2xl shadow-lg transform hover:scale-105 transition-transform duration-300 text-sm md:text-base">
-                        Register for RTF GLOBAL FAM - 2026 
-                    </button>
-                   
-                </div>
-                <button onclick="toggleModal()"
-                    class="mt-4 text-sm text-gray-600 dark:text-gray-400 hover:text-red-600 dark:hover:text-red-500 underline transition duration-300">
-                    Cancel
-                </button>
-            </div>
+<body class="m-0 p-0 relative">
+
+  <!-- ===== MODAL ===== -->
+  <div id="modal" class="fixed inset-0 hidden z-[9999] flex items-center justify-center bg-[rgba(0,0,50,0.6)] backdrop-blur-sm px-2">
+    <div class="bg-[#fff9f0] rounded-3xl shadow-2xl max-w-3xl w-full p-6 max-h-[90vh] overflow-auto">
+      <div class="flex justify-between items-center border-b border-gray-300 pb-4">
+        <h2 class="text-2xl md:text-3xl font-extrabold text-[#1B2A57] tracking-wide">
+          Registration for RTF GLOBAL FAM - 2026
+        </h2>
+        <button onclick="toggleModal()" aria-label="Close modal"
+          class="text-gray-400 hover:text-red-600 transition focus:outline-none rounded">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+          </svg>
+        </button>
+      </div>
+      <div class="mt-6 space-y-6 text-center">
+        <h3 class="text-xl md:text-2xl font-semibold text-[#1B2A57]">
+          Registration open only for International Travel Agents (UK, USA, Europe &amp; Australia)
+        </h3>
+        <div class="flex flex-col md:flex-row justify-center items-center gap-4 mt-6">
+          <button
+            onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLSfG7ObPQMWzmRFCp0B7Al2c_LIwQQUAHo4tXJgRrGpDIkWKgw/viewform','_blank')"
+            class="bg-gradient-to-r from-[#2C3E91] to-[#4A6CF7] text-white font-semibold px-6 py-3 rounded-2xl shadow-lg hover:scale-105 transition-transform">
+            Register for RTF GLOBAL FAM - 2026
+          </button>
         </div>
+        <button onclick="toggleModal()" class="mt-4 text-sm text-gray-600 hover:text-red-600 underline transition">
+          Cancel
+        </button>
+      </div>
     </div>
-    <!-- Navigation Bar -->
-<nav class="bg-[#1B2A57] text-white shadow-md sticky top-0 z-50">
-  <div class="max-w-7xl mx-auto px-4 flex items-center justify-between h-20">
+  </div>
 
-    <!-- Logo + Location -->
-    <div class="flex items-center gap-3 flex-shrink-0">
-      <img src="images/Logo2026.jpeg" alt="RTF Logo" class="h-14 w-14 rounded-full object-cover" />
-      <span class="bg-yellow-400 text-[#1B2A57] px-4 py-1 rounded-full text-sm font-bold whitespace-nowrap">
-        JODHPUR
-      </span>
+  <!-- ===== NAVIGATION ===== -->
+  <nav class="bg-[#1B2A57] text-white shadow-md sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 flex items-center justify-between h-20">
+      <!-- Logo -->
+      <div class="flex items-center gap-3 flex-shrink-0">
+        <img src="images/Logo2026.jpeg" alt="RTF Logo" class="h-14 w-14 rounded-full object-cover"/>
+        <span class="bg-yellow-400 text-[#1B2A57] px-4 py-1 rounded-full text-sm font-bold whitespace-nowrap">JODHPUR</span>
+      </div>
+
+      <!-- Desktop links -->
+      <div class="hidden lg:flex items-center gap-6 text-sm font-semibold tracking-wide whitespace-nowrap">
+        <a href="#home"      class="nav-link hover:text-yellow-300 transition" data-target="home">Home</a>
+        <a href="#about"     class="nav-link hover:text-yellow-300 transition" data-target="about">About</a>
+        <a href="#attractions" class="nav-link hover:text-yellow-300 transition" data-target="attractions">Jodhpur</a>
+        <a href="#partners"  class="nav-link hover:text-yellow-300 transition" data-target="partners">Partners</a>
+        <a href="#rtffam"    class="nav-link hover:text-yellow-300 transition" data-target="rtffam">RTF FAM 2026</a>
+        <a href="#rtfglobal" class="nav-link hover:text-yellow-300 transition" data-target="rtfglobal">RTF Global FAM</a>
+      </div>
+
+      <!-- Right side -->
+      <div class="flex items-center gap-3">
+        <button onclick="toggleModal()"
+          class="hidden lg:inline-block bg-yellow-400 hover:bg-yellow-300 text-[#1B2A57] px-6 py-3 rounded-full font-bold shadow-lg transition whitespace-nowrap">
+          Click Here for Registration
+        </button>
+        <button id="menu-toggle" class="lg:hidden text-white text-3xl font-bold focus:outline-none" aria-label="Open menu">☰</button>
+      </div>
     </div>
 
-    <!-- Desktop Menu -->
-    <div class="hidden lg:flex items-center gap-6 text-sm font-semibold tracking-wide whitespace-nowrap">
-      <a href="#home" class="nav-link hover:text-yellow-300 transition" data-target="home">Home</a>
-      <a href="#about" class="nav-link hover:text-yellow-300 transition" data-target="about">About</a>
-      <a href="#attractions" class="nav-link hover:text-yellow-300 transition" data-target="attractions">Jodhpur</a>
-      <a href="#partners" class="nav-link hover:text-yellow-300 transition" data-target="partners">Partners</a>
-      <a href="#rtffam" class="nav-link hover:text-yellow-300 transition" data-target="rtffam">RTF FAM 2026</a>
-      <a href="#rtfglobal" class="nav-link hover:text-yellow-300 transition" data-target="rtfglobal">RTF Global FAM</a>
-    </div>
-
-    <!-- Right Side -->
-    <div class="flex items-center gap-3">
-      <button onclick="toggleModal()"
-        class="hidden lg:inline-block bg-yellow-400 hover:bg-yellow-300 text-[#1B2A57] px-7 py-3 rounded-full font-bold shadow-lg transition whitespace-nowrap">
-        click here for Registration
+    <!-- Mobile menu -->
+    <div id="mobile-menu" class="hidden lg:hidden bg-white text-[#1B2A57] px-5 py-5 space-y-3 shadow-xl">
+      <a href="#home"      class="nav-link block px-4 py-3 rounded-lg hover:bg-gray-100 font-semibold" data-target="home">🏠 Home</a>
+      <a href="#about"     class="nav-link block px-4 py-3 rounded-lg hover:bg-gray-100 font-semibold" data-target="about">ℹ️ About</a>
+      <a href="#attractions" class="nav-link block px-4 py-3 rounded-lg hover:bg-gray-100 font-semibold" data-target="attractions">📍 Jodhpur</a>
+      <a href="#partners"  class="nav-link block px-4 py-3 rounded-lg hover:bg-gray-100 font-semibold" data-target="partners">🤝 Partners</a>
+      <a href="#rtffam"    class="nav-link block px-4 py-3 rounded-lg hover:bg-gray-100 font-semibold" data-target="rtffam">🤝 RTF FAM 2026</a>
+      <a href="#rtfglobal" class="nav-link block px-4 py-3 rounded-lg hover:bg-gray-100 font-semibold" data-target="rtfglobal">🌍 RTF Global FAM</a>
+      <button onclick="toggleModal()" class="w-full bg-[#1B2A57] hover:bg-[#24386f] text-white px-4 py-3 rounded-xl font-bold shadow-md">
+        🚀 Register Now
       </button>
-      <button id="menu-toggle" class="lg:hidden text-white text-3xl font-bold focus:outline-none" aria-label="Open menu">☰</button>
     </div>
-  </div>
+  </nav>
 
-  <!-- Mobile Menu -->
-  <div id="mobile-menu" class="hidden lg:hidden bg-white text-[#1B2A57] px-5 py-5 space-y-3 shadow-xl">
-    <a href="#home" class="nav-link block px-4 py-3 rounded-lg hover:bg-gray-100 font-semibold" data-target="home">🏠 Home</a>
-    <a href="#about" class="nav-link block px-4 py-3 rounded-lg hover:bg-gray-100 font-semibold" data-target="about">ℹ️ About</a>
-    <a href="#attractions" class="nav-link block px-4 py-3 rounded-lg hover:bg-gray-100 font-semibold" data-target="attractions">📍 Jodhpur</a>
-    <a href="#partners" class="nav-link block px-4 py-3 rounded-lg hover:bg-gray-100 font-semibold" data-target="partners">🤝 Partners</a>
-    <a href="#rtffam" class="nav-link block px-4 py-3 rounded-lg hover:bg-gray-100 font-semibold" data-target="rtffam">🤝 RTF FAM 2026</a>
-    <a href="#rtfglobal" class="nav-link block px-4 py-3 rounded-lg hover:bg-gray-100 font-semibold" data-target="rtfglobal">🌍 RTF Global FAM</a>
-    <button onclick="toggleModal()" class="w-full bg-[#1B2A57] hover:bg-[#24386f] text-white px-4 py-3 rounded-xl font-bold shadow-md">
-      🚀 Register Now
-    </button>
-  </div>
-</nav>
+  <!-- ===== PAGE CONTAINER ===== -->
+  <div id="page-container" class="relative">
 
+    <!-- ══════════════════════════════════════════════════════════ -->
+    <!-- HOME SECTION                                               -->
+    <!-- ══════════════════════════════════════════════════════════ -->
+    <section id="home"
+      class="page-section active min-h-screen flex-col justify-center items-center relative z-10 text-center text-white select-none font-poppins pt-24 pb-12 px-4 sm:px-6 md:px-12">
 
- <!-- Background Video -->
-<div id="page-container" class="relative">
-<!-- Background Video -->
-<div id="page-container" class="relative">
-<!-- Background Video -->
-<div id="page-container" class="relative">
+      <!-- BG Video -->
+      <video autoplay muted loop playsinline class="bg-video absolute inset-0 w-full h-full object-cover -z-10">
+        <source src="vedios/jot.mp4" type="video/mp4"/>
+      </video>
 
-  <!-- Home Section -->
-  <section id="home"
-    class="page-section active min-h-screen flex flex-col justify-center items-center relative z-10 text-center text-white select-none font-poppins pt-24 pb-12 px-4 sm:px-6 md:px-12">
+      <!-- Overlay -->
+      <div class="absolute inset-0 bg-gradient-to-b from-[#c15d3a99] via-[#1b2a57cc] to-[#1b2a57ee] -z-10"></div>
 
-    <!-- Background Video -->
-    <video autoplay muted loop playsinline class="absolute inset-0 w-full h-full object-cover -z-10">
-      <source src="vedios/jot.mp4" type="video/mp4" />
-    </video>
+      <!-- Logo -->
+      <div class="flex flex-col items-center justify-center" style="margin-top:-4rem;margin-bottom:1rem;">
+        <img src="images/finallogo1.png" alt="Event Logo"
+          class="w-40 h-40 md:w-56 md:h-56 lg:w-72 lg:h-72 object-cover rounded-full shadow-xl border-4 border-yellow-300 p-1"/>
+      </div>
 
-    <!-- Gradient Overlay -->
-    <div class="absolute inset-0 bg-gradient-to-b from-[#c15d3a99] via-[#1b2a57cc] to-[#1b2a57ee] -z-10"></div>
-
-    <!-- Logo -->
-    <div class="flex flex-col items-center justify-center" style="margin-top: -4rem; margin-bottom: 1rem;">
-      <img src="images/finallogo1.png" alt="Event Logo"
-        class="w-40 h-40 md:w-56 md:h-56 lg:w-72 lg:h-72 object-cover rounded-full shadow-xl border-4 border-yellow-300 p-1" />
-    </div>
-
-    <!-- Striked Date -->
-    <p class="text-2xl sm:text-3xl md:text-4xl font-semibold mt-20 mb-2 tracking-wide drop-shadow-lg text-white/80 line-through">
-      February 20–22nd, 2026
-    </p>
-
-    <!-- Coming Soon -->
-    <p class="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-widest text-yellow-300 drop-shadow-lg animate-pulse">
-      COMING SOON!!!
-    </p><!-- IMPORTANT UPDATE + VIDEO (Audio Enabled) -->
-<div class="w-full max-w-7xl mx-auto px-2 sm:px-4 mt-10">
-  <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
-
-    <!-- LEFT: IMPORTANT UPDATE -->
-    <div class="bg-white/10 backdrop-blur-xl border border-white/20 rounded-3xl shadow-2xl p-6 sm:p-8 text-left">
-      <h2 class="text-xl sm:text-2xl md:text-3xl font-bold text-yellow-300 mb-4 text-center">
-     RTF FAM 2026
-      </h2>
-
-  
-      <p class="mt-4 text-sm sm:text-base md:text-lg leading-relaxed text-white/95">
-       "RTF FAM 2026 (20–24 March) was a grand success — stands as a true testament to the power of collaboration. This achievement is thanks to our travel agents and our 15+ hotel partners, whose support and hospitality made it possible.With participation from 31+ travel agents, this journey was not just an event, but a milestone.”
+      <!-- Date crossed out -->
+      <p class="text-2xl sm:text-3xl md:text-4xl font-semibold mt-20 mb-2 tracking-wide drop-shadow-lg text-white/80 line-through">
+        February 20–22nd, 2026
       </p>
 
-    
-    </div>
+      <!-- Coming soon -->
+      <p class="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-widest text-yellow-300 drop-shadow-lg animate-pulse">
+        COMING SOON!!!
+      </p>
 
-    <!-- RIGHT: VIDEO (Audio Works) -->
-    <div class="bg-white/10 backdrop-blur-xl border border-white/20 rounded-3xl shadow-2xl p-3 sm:p-4 flex flex-col items-center justify-center">
-  <div class="w-full overflow-hidden rounded-2xl ring-1 ring-white/20">
-    <video controls playsinline class="w-full h-[320px] sm:h-[380px] md:h-[420px] object-cover">
-      <source src="vedios/rtf-preview.mp4" type="video/mp4" />
-      Your browser does not support the video tag.
-    </video>
-  </div>
+      <!-- Update + Video -->
+      <div class="w-full max-w-7xl mx-auto px-2 sm:px-4 mt-10">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
+          <!-- Left: update -->
+          <div class="bg-white/10 backdrop-blur-xl border border-white/20 rounded-3xl shadow-2xl p-6 sm:p-8 text-left">
+            <h2 class="text-xl sm:text-2xl md:text-3xl font-bold text-yellow-300 mb-4 text-center">RTF FAM 2026</h2>
+            <p class="mt-4 text-sm sm:text-base md:text-lg leading-relaxed text-white/95">
+              "RTF FAM 2026 (20–24 March) was a grand success — stands as a true testament to the power of collaboration.
+              This achievement is thanks to our travel agents and our 15+ hotel partners, whose support and hospitality made it possible.
+              With participation from 31+ travel agents, this journey was not just an event, but a milestone."
+            </p>
+          </div>
+          <!-- Right: video -->
+          <div class="bg-white/10 backdrop-blur-xl border border-white/20 rounded-3xl shadow-2xl p-3 sm:p-4 flex flex-col items-center justify-center">
+            <div class="w-full overflow-hidden rounded-2xl ring-1 ring-white/20">
+              <video controls playsinline class="w-full h-[320px] sm:h-[380px] md:h-[420px] object-cover">
+                <source src="vedios/rtf-preview.mp4" type="video/mp4"/>
+                Your browser does not support the video tag.
+              </video>
+            </div>
+            <p class="mt-4 text-center text-white text-base sm:text-lg font-medium">
+              Please
+              <a href="vedios/rtf-preview.mp4" target="_blank" class="text-yellow-300 font-bold underline hover:text-yellow-200 transition">CLICK HERE</a>
+              to view the success of RTF FAM (March 20-24, 2026)
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-  <p class="mt-4 text-center text-white text-base sm:text-lg font-medium">
-    Please 
-    <a href="vedios/rtf-preview.mp4" target="_blank"
-       class="text-yellow-300 font-bold underline hover:text-yellow-200 transition">
-      CLICK HERE
-    </a>
-    to view the success of RTF FAM (March 20-24, 2026)
-  </p>
-</div>
-    </div>
- </div>
-</div>
-
-  </section>
-</div>
-
-
-
-<!-- About Section -->
-	
     <!-- ══════════════════════════════════════════════════════════ -->
     <!-- ABOUT SECTION  — video background FIXED                   -->
     <!-- ══════════════════════════════════════════════════════════ -->
     <section id="about" class="page-section" style="min-height:100vh; position:relative;">
- 
+
       <!-- Background video — uses class bg-video so JS plays it -->
       <video autoplay muted loop playsinline
         class="bg-video about-bg-video">
@@ -340,20 +198,20 @@
       </video>
       <!-- Dark overlay -->
       <div class="about-overlay"></div>
- 
+
       <!-- Content sits above video + overlay -->
       <div class="about-content w-full">
         <div class="max-w-7xl mx-auto">
- 
+
           <!-- Title -->
           <div class="text-center mb-10">
             <h1 class="text-4xl md:text-5xl font-extrabold text-yellow-300 tracking-wide mb-2">About Rajasthan Travel Fair</h1>
             <p class="text-gray-300 text-lg">RTF Concept — Connecting Travel, Culture &amp; Commerce</p>
           </div>
- 
+
           <!-- Three concept cards -->
           <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
- 
+
             <!-- Card 1: RTF -->
             <div class="bg-white/10 backdrop-blur-xl border border-yellow-300/30 rounded-3xl p-6 flex flex-col items-center text-center shadow-2xl hover:border-yellow-400 transition-all duration-300">
               <img src="images/finallogo1.png" alt="RTF Logo" class="w-20 h-20 rounded-full object-cover border-2 border-yellow-300 mb-4 bg-white p-1"/>
@@ -370,7 +228,7 @@
                 The inaugural edition of RTF is currently in the planning phase and is scheduled to take place in 2026, with a vision to create a strong and sustainable tourism network for Rajasthan.
               </p>
             </div>
- 
+
             <!-- Card 2: RTF FAM -->
             <div class="bg-white/10 backdrop-blur-xl border border-yellow-300/30 rounded-3xl p-6 flex flex-col items-center text-center shadow-2xl hover:border-yellow-400 transition-all duration-300">
               <img src="images/finallogo1.png" alt="RTF FAM Logo" class="w-20 h-20 rounded-full object-cover border-2 border-yellow-300 mb-4 bg-white p-1"/>
@@ -392,7 +250,7 @@
                 <a href="#partners" class="nav-link text-yellow-300 underline font-semibold hover:text-yellow-200" data-target="partners">click here</a>.
               </p>
             </div>
- 
+
             <!-- Card 3: RTF Global FAM -->
             <div class="bg-white/10 backdrop-blur-xl border border-yellow-300/30 rounded-3xl p-6 flex flex-col items-center text-center shadow-2xl hover:border-yellow-400 transition-all duration-300">
               <img src="images/finallogo1.png" alt="RTF Global Logo" class="w-20 h-20 rounded-full object-cover border-2 border-yellow-300 mb-4 bg-white p-1"/>
@@ -412,11 +270,11 @@
               </p>
             </div>
           </div>
- 
+
           <!-- ══ MEET THE ORGANIZERS — 3-1-2 LAYOUT ══ -->
           <section id="organizers">
             <h2>Meet the Organizers</h2>
- 
+
             <!-- Row 1: 3 cards (Kanchan, Vinny, Pooja) -->
             <div class="org-row-3">
               <!-- Kanchan -->
@@ -444,7 +302,7 @@
                 <p class="mt-3">📞 <a href="tel:+919166222900">+91-91662-22900</a></p>
               </div>
             </div>
- 
+
             <!-- Row 2: 1 card centered (Kishore) -->
             <div class="org-row-1">
               <div class="org-card">
@@ -454,7 +312,7 @@
                 <p>Rajasthan Travel Fair</p>
               </div>
             </div>
- 
+
             <!-- Row 3: 2 cards (Divya, Dinesh) -->
             <div class="org-row-2">
               <div class="org-card">
@@ -472,731 +330,227 @@
             </div>
           </section>
           <!-- end organizers -->
- 
+
         </div>
       </div><!-- end about-content -->
     </section>
     <!-- ══ END ABOUT ══ -->
 
-        <!-- Responsive Tweaks -->
-        <style>
-            @media (max-width: 1023px) {
-                #about .flex.flex-col.lg\:flex-row {
-                    flex-direction: column !important;
-                }
-                #about .w-full.lg\:w-1\/2 {
-                    width: 100% !important;
-                }
-                #about .text-left {
-                    text-align: center !important;
-                }
-            }
-            @media (max-width: 640px) {
-                #about .w-full.max-w-\[90vw\] {
-                    width: 100vw !important;
-                    max-width: 100vw !important;
-                }
-                #about .h-\[180px\] {
-                    height: 120px !important;
-                }
-                #about .rounded-2xl {
-                    border-radius: 0.75rem !important;
-                }
-                #about .p-6.md\:p-10 {
-                    padding: 1rem !important;
-                }
-            }
-      
+    <!-- ══════════════════════════════════════════════════════════ -->
+    <!-- ATTRACTIONS (JODHPUR)                                      -->
+    <!-- ══════════════════════════════════════════════════════════ -->
+    <section id="attractions" class="page-section relative min-h-screen py-20 text-white overflow-hidden">
+      <video autoplay muted loop playsinline class="bg-video absolute inset-0 w-full h-full object-cover z-0">
+        <source src="vedios/6941_India_Indian_1920x1080.mp4" type="video/mp4"/>
+      </video>
+      <div class="absolute inset-0 bg-black/70 z-10"></div>
 
-    /* ===== FINAL NAV + SECTION + ARROW FIX ===== */
-    html { scroll-behavior: smooth; }
-    html, body { margin: 0 !important; padding: 0 !important; overflow-x: hidden !important; background: #0b1020 !important; }
-
-    .page-section {
-      position: relative !important;
-      margin: 0 !important;
-      min-height: calc(100vh - 80px) !important;
-      padding: 90px 20px 50px 20px !important;
-      display: none;
-      opacity: 0;
-      visibility: hidden;
-    }
-
-    .page-section.active {
-      display: flex !important;
-      opacity: 1 !important;
-      visibility: visible !important;
-    }
-
-    nav .text-yellow-300 { color: #facc15 !important; }
-
-    #mobile-menu.flex {
-      display: flex !important;
-      flex-direction: column !important;
-    }
-
-    .nav-arrow-button {
-      position: fixed !important;
-      top: 50vh !important;
-      transform: translateY(-50%) !important;
-      z-index: 99999 !important;
-      width: 55px !important;
-      height: 55px !important;
-      border: none !important;
-      border-radius: 50% !important;
-      display: flex !important;
-      align-items: center !important;
-      justify-content: center !important;
-      cursor: pointer !important;
-      color: #1B2A57 !important;
-      box-shadow: 0 6px 18px rgba(0,0,0,0.35) !important;
-    }
-
-    .nav-arrow-button.left {
-      left: 20px !important;
-      background: linear-gradient(135deg, #00C9FF, #92FE9D) !important;
-    }
-
-    .nav-arrow-button.right {
-      right: 20px !important;
-      background: linear-gradient(135deg, #FDC830, #F37335) !important;
-    }
-
-    .nav-arrow-button:hover {
-      transform: translateY(-50%) scale(1.1) !important;
-    }
-
-    @media (max-width: 768px) {
-      .nav-arrow-button {
-        width: 46px !important;
-        height: 46px !important;
-      }
-      .nav-arrow-button.left { left: 8px !important; }
-      .nav-arrow-button.right { right: 8px !important; }
-    }
-
-  </style>
-
-    </div>
-</section>
-   </div>
-     </section>
-
-<!-- attractions -->
-<section id="attractions" class="page-section relative min-h-screen py-20 text-white overflow-hidden">
-
-<video autoplay muted loop playsinline class="bg-video absolute inset-0 z-0">
-  <source src="vedios/6941_India_Indian_1920x1080.mp4" type="video/mp4" />
-</video>
-<div class="absolute inset-0 bg-black/70 z-10"></div>
-<div class="relative z-20 max-w-7xl mx-auto px-4">
-
-    <!-- Heading -->
-    <div class="text-center mb-14">
-      <h2 class="text-4xl md:text-5xl font-bold text-yellow-300 mb-4">
-        Discover Jodhpur
-      </h2>
-      <p class="text-lg md:text-xl text-gray-200 max-w-3xl mx-auto">
-        The magnificent Blue City of Rajasthan offers a perfect blend of history, culture, and adventure.
-      </p>
-    </div>
-
-    <!-- Cards -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-
-      <!-- Card 1 -->
-      <div class="bg-white rounded-3xl shadow-2xl overflow-hidden text-gray-900">
-        <img src="images/Mehrangarh_Fort_sanhita.jpg"
-             class="w-full h-60 object-cover" />
-
-        <div class="p-6">
-          <h3 class="text-2xl font-bold text-[#1B2A57] mb-3">
-            Mehrangarh Fort
-          </h3>
-
-          <p class="text-gray-700 mb-5">
-            One of the largest forts in India, standing 400 feet above the city with stunning views and rich history.
+      <div class="relative z-20 max-w-7xl mx-auto px-4 w-full">
+        <div class="text-center mb-14">
+          <h2 class="text-4xl md:text-5xl font-bold text-yellow-300 mb-4">Discover Jodhpur</h2>
+          <p class="text-lg md:text-xl text-gray-200 max-w-3xl mx-auto">
+            The magnificent Blue City of Rajasthan offers a perfect blend of history, culture, and adventure.
           </p>
-
-          <span class="bg-yellow-300 text-yellow-900 px-4 py-2 rounded-full text-sm font-bold">
-            Open: 9:00 AM - 5:00 PM
-          </span>
         </div>
-      </div>
 
-      <!-- Card 2 -->
-      <div class="bg-white rounded-3xl shadow-2xl overflow-hidden text-gray-900">
-        <img src="images/Umaid Bhawan Palace.jpg"
-             class="w-full h-60 object-cover" />
-
-        <div class="p-6">
-          <h3 class="text-2xl font-bold text-[#1B2A57] mb-3">
-            Umaid Bhawan Palace
-          </h3>
-
-          <p class="text-gray-700 mb-5">
-            A royal residence, luxury hotel, and museum. One of the world’s largest private palaces.
-          </p>
-
-          <span class="bg-yellow-300 text-yellow-900 px-4 py-2 rounded-full text-sm font-bold">
-            Open: 10:00 AM - 4:30 PM
-          </span>
-        </div>
-      </div>
-
-      <!-- Card 3 -->
-      <div class="bg-white rounded-3xl shadow-2xl overflow-hidden text-gray-900">
-        <img src="images/Blue city.jpeg"
-             class="w-full h-60 object-cover" />
-
-        <div class="p-6">
-          <h3 class="text-2xl font-bold text-[#1B2A57] mb-3">
-            Blue City
-          </h3>
-
-          <p class="text-gray-700 mb-5">
-            Explore the iconic blue-painted houses. Best view from Mehrangarh Fort for a breathtaking panorama.
-          </p>
-
-          <span class="bg-yellow-300 text-yellow-900 px-4 py-2 rounded-full text-sm font-bold">
-            Best view from Fort
-          </span>
-        </div>
-      </div>
-
-    </div>
-
-  </div>
-</section>
-<style>
-/* Partners Section Styles */
-#partners {
-  background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
-  flex-direction: column;
-  align-items: stretch;
-  justify-content: flex-start;
-  padding: 90px 0 60px 0 !important;
-}
- 
-.partners-inner {
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 1.5rem;
-}
- 
-.partners-page-title {
-  text-align: center;
-  margin-bottom: 2rem;
-}
- 
-.partners-page-title h2 {
-  font-size: 2.5rem;
-  font-weight: 800;
-  color: #fde047;
-  letter-spacing: 0.03em;
-}
- 
-.partners-page-title p {
-  color: #94a3b8;
-  font-size: 1rem;
-  margin-top: 0.5rem;
-}
- 
-/* Hotel Logos Scroll */
-.hotel-scroll-bar {
-  background: rgba(255,255,255,0.05);
-  border: 1px solid rgba(253,224,71,0.2);
-  border-radius: 1rem;
-  padding: 1rem 1.5rem;
-  margin-bottom: 2rem;
-  overflow: hidden;
-}
- 
-.hotel-scroll-bar h3 {
-  text-align: center;
-  color: #fde047;
-  font-weight: 700;
-  font-size: 1.1rem;
-  margin-bottom: 0.75rem;
-}
- 
-.logo-slider { overflow: hidden; }
-.logo-track {
-  display: flex;
-  gap: 2rem;
-  animation: scrollLogos 25s linear infinite;
-  width: max-content;
-}
-.logo-track img {
-  height: 60px;
-  width: auto;
-  object-fit: contain;
-  filter: brightness(0.9) contrast(1.1);
-  border-radius: 0.5rem;
-}
-@keyframes scrollLogos {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
-}
- 
-/* Two-column layout: participants + videos */
-.fam-two-col {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1.5rem;
-  margin-bottom: 2rem;
-}
- 
-@media (max-width: 900px) {
-  .fam-two-col { grid-template-columns: 1fr; }
-}
- 
-.fam-panel {
-  background: rgba(255,255,255,0.04);
-  border: 1px solid rgba(253,224,71,0.15);
-  border-radius: 1.25rem;
-  padding: 1.25rem;
-}
- 
-.fam-panel h3 {
-  color: #fde047;
-  font-weight: 700;
-  font-size: 1.1rem;
-  margin-bottom: 1rem;
-  text-align: center;
-}
- 
-/* Participants list */
-.participants-search {
-  width: 100%;
-  padding: 0.5rem 0.75rem;
-  border-radius: 0.5rem;
-  background: rgba(255,255,255,0.08);
-  border: 1px solid rgba(255,255,255,0.15);
-  color: white;
-  font-size: 0.85rem;
-  margin-bottom: 0.75rem;
-  outline: none;
-}
-.participants-search::placeholder { color: #94a3b8; }
-.participants-search:focus { border-color: #fde047; }
- 
-.participants-table-wrap {
-  max-height: 400px;
-  overflow-y: auto;
-  border-radius: 0.75rem;
-}
- 
-.participants-table {
-  width: 100%;
-  border-collapse: collapse;
-  font-size: 0.8rem;
-}
- 
-.participants-table thead th {
-  background: rgba(253,224,71,0.15);
-  color: #fde047;
-  padding: 0.5rem 0.6rem;
-  text-align: left;
-  font-weight: 700;
-  position: sticky;
-  top: 0;
-  z-index: 1;
-}
- 
-.participants-table tbody tr {
-  border-bottom: 1px solid rgba(255,255,255,0.06);
-  transition: background 0.2s;
-}
- 
-.participants-table tbody tr:hover {
-  background: rgba(253,224,71,0.07);
-}
- 
-.participants-table tbody td {
-  padding: 0.45rem 0.6rem;
-  color: #e2e8f0;
-  vertical-align: top;
-}
- 
-.participants-table tbody td:first-child {
-  color: #94a3b8;
-  font-size: 0.75rem;
-  text-align: center;
-}
- 
-/* Videos grid */
-.videos-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 0.75rem;
-}
- 
-.video-item {
-  background: rgba(0,0,0,0.3);
-  border-radius: 0.75rem;
-  overflow: hidden;
-}
- 
-.video-item video {
-  width: 100%;
-  height: 130px;
-  object-fit: cover;
-  display: block;
-}
- 
-.video-item p {
-  text-align: center;
-  font-size: 0.75rem;
-  color: #94a3b8;
-  padding: 0.3rem 0.5rem;
-}
- 
-/* Written Feedback scroll */
-.feedback-scroll-section {
-  background: rgba(255,255,255,0.04);
-  border: 1px solid rgba(253,224,71,0.15);
-  border-radius: 1.25rem;
-  padding: 1.25rem;
-  margin-bottom: 2rem;
-  overflow: hidden;
-}
- 
-.feedback-scroll-section h3 {
-  color: #fde047;
-  font-weight: 700;
-  font-size: 1.1rem;
-  margin-bottom: 1rem;
-  text-align: center;
-}
- 
-.feedback-track-wrap { overflow: hidden; }
- 
-.feedback-track {
-  display: flex;
-  gap: 1rem;
-  animation: scrollFeedback 30s linear infinite;
-  width: max-content;
-}
- 
-.feedback-track:hover { animation-play-state: paused; }
- 
-@keyframes scrollFeedback {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
-}
- 
-.feedback-card-item {
-  background: rgba(255,255,255,0.07);
-  border: 1px solid rgba(253,224,71,0.2);
-  border-radius: 1rem;
-  padding: 1rem 1.25rem;
-  min-width: 240px;
-  max-width: 260px;
-  flex-shrink: 0;
-}
- 
-.feedback-card-item h4 { color: #fde047; font-weight: 700; font-size: 0.9rem; margin-bottom: 0.2rem; }
-.feedback-card-item .org { color: #7dd3fc; font-size: 0.78rem; margin-bottom: 0.4rem; }
-.feedback-card-item .quote { color: #e2e8f0; font-size: 0.82rem; line-height: 1.5; font-style: italic; }
- 
-/* Gallery */
-.gallery-section {
-  background: rgba(255,255,255,0.04);
-  border: 1px solid rgba(253,224,71,0.15);
-  border-radius: 1.25rem;
-  padding: 1.25rem;
-}
- 
-.gallery-section h3 {
-  color: #fde047;
-  font-weight: 700;
-  font-size: 1.1rem;
-  margin-bottom: 1rem;
-  text-align: center;
-}
- 
-.gallery-scroll-wrap { overflow: hidden; }
- 
-.gallery-scroll-track {
-  display: flex;
-  gap: 1rem;
-  animation: scrollGallery 35s linear infinite;
-  width: max-content;
-}
- 
-.gallery-scroll-track:hover { animation-play-state: paused; }
- 
-@keyframes scrollGallery {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
-}
- 
-.gallery-scroll-track img {
-  height: 180px;
-  width: 260px;
-  object-fit: cover;
-  border-radius: 0.75rem;
-  flex-shrink: 0;
-  border: 2px solid rgba(253,224,71,0.2);
-}
-</style>
- 
-<section id="partners" class="page-section">
-  <div class="partners-inner">
- 
-    <!-- Title -->
-    <div class="partners-page-title">
-      <h2>Rajasthan Travel Fair FAMilarization Trip (RTF FAM)</h2>
-      <p>Season 1 — March 20–24, 2026 · Jodhpur · Jaisalmer · Jawai</p>
-    </div>
- 
-    <!-- Hotel Logos Scroll -->
-    <div class="hotel-scroll-bar">
-      <h3>Hotel Logos with Name and City</h3>
-      <div class="logo-slider">
-        <div class="logo-track">
-          <img src="images/hotels/1.png" alt="Hotel Partner">
-          <img src="images/hotels/2.png" alt="Hotel Partner">
-          <img src="images/hotels/3.png" alt="Hotel Partner">
-          <img src="images/hotels/4.png" alt="Hotel Partner">
-          <img src="images/hotels/5.png" alt="Hotel Partner">
-          <img src="images/hotels/6.png" alt="Hotel Partner">
-          <!-- Duplicates for seamless loop -->
-          <img src="images/hotels/1.png" alt="Hotel Partner">
-          <img src="images/hotels/2.png" alt="Hotel Partner">
-          <img src="images/hotels/3.png" alt="Hotel Partner">
-          <img src="images/hotels/4.png" alt="Hotel Partner">
-          <img src="images/hotels/5.png" alt="Hotel Partner">
-          <img src="images/hotels/6.png" alt="Hotel Partner">
-        </div>
-      </div>
-    </div>
- 
-    <!-- Two Column: Participants + Feedback Videos -->
-    <div class="fam-two-col">
- 
-      <!-- LEFT: Participating Travel Companies -->
-      <div class="fam-panel">
-        <h3>List of Confirmed Participants for RTF FAM Tour</h3>
-        <input type="text" class="participants-search" id="participantSearch" placeholder="Search name, city, company..." />
-        <div class="participants-table-wrap">
-          <table class="participants-table" id="participantsTable">
-            <thead>
-              <tr>
-                <th>#</th>
-                <th>Name</th>
-                <th>Title</th>
-                <th>Organization</th>
-                <th>City</th>
-              </tr>
-            </thead>
-            <tbody id="participantsTbody">
-              <tr><td>1</td><td>Mr. Guneet Singh</td><td>Founder</td><td>Your Nice Trip</td><td>Faridabad</td></tr>
-              <tr><td>2</td><td>Mr. Anil Dhingra</td><td>ED</td><td>Unique Air Services</td><td>Delhi</td></tr>
-              <tr><td>3</td><td>Mr. Narender Sharma</td><td>Director</td><td>Perfection Consulting (India) Pvt Ltd</td><td>Delhi</td></tr>
-              <tr><td>4</td><td>Mr. Nilesh Bhutwala</td><td>Partner</td><td>Travel Theme Holidays</td><td>Surat</td></tr>
-              <tr><td>5</td><td>Ms. Leena Jumde</td><td>CEO</td><td>Travel Gratitude</td><td>Mumbai</td></tr>
-              <tr><td>6</td><td>Mr. Sachin Sharma</td><td>MD</td><td>Travel By Passion</td><td>Delhi</td></tr>
-              <tr><td>7</td><td>Ms. Priyanka Mohidekar</td><td>Director</td><td>Touring Toes LLP</td><td>Pune</td></tr>
-              <tr><td>8</td><td>Mr. Dilip Soni</td><td>Owner</td><td>Sonii Travels</td><td>Mumbai</td></tr>
-              <tr><td>9</td><td>Mr. Niranjan Ji</td><td>Director</td><td>Smithasya Enter Pvt Ltd (Holiday Kool)</td><td>Pune</td></tr>
-              <tr><td>10</td><td>Ms. Madhuri Wadangenkar</td><td>Founder</td><td>Skip The Line Tour</td><td>Mumbai</td></tr>
-              <tr><td>11</td><td>Mr. Ganesh L Sakhara</td><td>Owner</td><td>ShreeNath Travels</td><td>Pune</td></tr>
-              <tr><td>12</td><td>Mr. Alankaran Verma</td><td>Owner</td><td>Sai Tour &amp; Travels</td><td>Una</td></tr>
-              <tr><td>13</td><td>Mr. Madhu</td><td>CEO &amp; Founder</td><td>NB4 Holidays</td><td>Kochi</td></tr>
-              <tr><td>14</td><td>Mr. Tejas Kale</td><td>Director</td><td>My Travel World Travel</td><td>Pune</td></tr>
-              <tr><td>15</td><td>Mr. Kartik Pachchigar</td><td>Owner</td><td>Magical India Holidays</td><td>Surat</td></tr>
-              <tr><td>16</td><td>Mr. Tushar Patel</td><td>Sales Executive</td><td>Magical India Holidays</td><td>Surat</td></tr>
-              <tr><td>17</td><td>Mr. Ram Raj Singh</td><td>Founder &amp; MD</td><td>Luxurious Heritage</td><td>Delhi</td></tr>
-              <tr><td>18</td><td>Mr. Mahendra R Jain</td><td>Owner</td><td>Kering Holiday</td><td>Mumbai</td></tr>
-              <tr><td>19</td><td>Mr. Mukesh Kumar</td><td>Founder</td><td>KaaSaa Events</td><td>Delhi</td></tr>
-              <tr><td>20</td><td>Ms. Dilpreet (Sheena) Sewal</td><td>Founder</td><td>India TajMahal Tour Operators</td><td>Delhi</td></tr>
-              <tr><td>21</td><td>Mr. Pushpendra Sen</td><td>Founder</td><td>Historical India Tours And Travels</td><td>Orchha</td></tr>
-              <tr><td>22</td><td>Mr. Shubham Gupta</td><td>Manager</td><td>Galaxy Holidays</td><td>Pune</td></tr>
-              <tr><td>23</td><td>Ms. Sarika Chopra</td><td>Founder &amp; CEO</td><td>Explorers-Den</td><td>Faridabad</td></tr>
-              <tr><td>24</td><td>Ms. Chandni Sharma</td><td>Director</td><td>Ascel Group</td><td>Ghaziabad</td></tr>
-              <tr><td>25</td><td>Mr. Devendra P. Divekar</td><td>Owner</td><td>Go Weekends</td><td>Mumbai</td></tr>
-              <tr><td>26</td><td>Ms. Pooja</td><td>Founder</td><td>Journey Master</td><td>Delhi</td></tr>
-              <tr><td>27</td><td>Mr. Santhosh Kumar</td><td>Owner</td><td>GodZone Holidays &amp; Tours</td><td>Alibaug</td></tr>
-              <tr><td>28</td><td>Ms. Pooja V Patil</td><td>Owner</td><td>Plango Holidays Explore World</td><td>Mumbai</td></tr>
-              <tr><td>29</td><td>Ms. Neetu Gola</td><td>Founder</td><td>Om Sai Travels</td><td>Delhi</td></tr>
-              <tr><td>30</td><td>Mr. Aman Saini</td><td>Owner</td><td>Colors of India</td><td>Delhi</td></tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
- 
-      <!-- RIGHT: Feedback Videos -->
-      <div class="fam-panel">
-        <h3>Feedback Videos — Travel Agents</h3>
-        <div class="videos-grid">
-          <div class="video-item">
-            <video controls playsinline src="vedios/feedback1.mp4"></video>
-            <p>Video 1</p>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+          <div class="bg-white rounded-3xl shadow-2xl overflow-hidden text-gray-900">
+            <img src="images/Mehrangarh_Fort_sanhita.jpg" class="w-full h-60 object-cover"/>
+            <div class="p-6">
+              <h3 class="text-2xl font-bold text-[#1B2A57] mb-3">Mehrangarh Fort</h3>
+              <p class="text-gray-700 mb-5">One of the largest forts in India, standing 400 feet above the city with stunning views and rich history.</p>
+              <span class="bg-yellow-300 text-yellow-900 px-4 py-2 rounded-full text-sm font-bold">Open: 9:00 AM - 5:00 PM</span>
+            </div>
           </div>
-          <div class="video-item">
-            <video controls playsinline src="vedios/feedback2.mp4"></video>
-            <p>Video 2</p>
+          <div class="bg-white rounded-3xl shadow-2xl overflow-hidden text-gray-900">
+            <img src="images/Umaid Bhawan Palace.jpg" class="w-full h-60 object-cover"/>
+            <div class="p-6">
+              <h3 class="text-2xl font-bold text-[#1B2A57] mb-3">Umaid Bhawan Palace</h3>
+              <p class="text-gray-700 mb-5">A royal residence, luxury hotel, and museum. One of the world's largest private palaces.</p>
+              <span class="bg-yellow-300 text-yellow-900 px-4 py-2 rounded-full text-sm font-bold">Open: 10:00 AM - 4:30 PM</span>
+            </div>
           </div>
-          <div class="video-item">
-            <video controls playsinline src="vedios/feedback3.mp4"></video>
-            <p>Video 3</p>
-          </div>
-          <div class="video-item">
-            <video controls playsinline src="vedios/feedback4.mp4"></video>
-            <p>Video 4</p>
-          </div>
-          <div class="video-item">
-            <video controls playsinline src="vedios/feedback5.mp4"></video>
-            <p>Video 5</p>
-          </div>
-          <div class="video-item">
-            <video controls playsinline src="vedios/feedback6.mp4"></video>
-            <p>Video 6</p>
+          <div class="bg-white rounded-3xl shadow-2xl overflow-hidden text-gray-900">
+            <img src="images/Blue city.jpeg" class="w-full h-60 object-cover"/>
+            <div class="p-6">
+              <h3 class="text-2xl font-bold text-[#1B2A57] mb-3">Blue City</h3>
+              <p class="text-gray-700 mb-5">Explore the iconic blue-painted houses. Best view from Mehrangarh Fort for a breathtaking panorama.</p>
+              <span class="bg-yellow-300 text-yellow-900 px-4 py-2 rounded-full text-sm font-bold">Best view from Fort</span>
+            </div>
           </div>
         </div>
       </div>
-    </div>
- 
-    <!-- Written Feedback Scroll -->
-    <div class="feedback-scroll-section">
-      <h3>Travel Agent Written Feedback</h3>
-      <div class="feedback-track-wrap">
-        <div class="feedback-track">
-          <!-- Original set -->
-          <div class="feedback-card-item">
-            <h4>Mr. Guneet Singh</h4>
-            <div class="org">Your Nice Trip · Faridabad</div>
-            <div class="quote">"Excellent experience and very well managed FAM trip."</div>
-          </div>
-          <div class="feedback-card-item">
-            <h4>Ms. Leena Jumde</h4>
-            <div class="org">Travel Gratitude · Mumbai</div>
-            <div class="quote">"Great hospitality and strong networking opportunity."</div>
-          </div>
-          <div class="feedback-card-item">
-            <h4>Mr. Sachin Sharma</h4>
-            <div class="org">Travel By Passion · Delhi</div>
-            <div class="quote">"A valuable platform to explore Rajasthan tourism."</div>
-          </div>
-          <div class="feedback-card-item">
-            <h4>Ms. Priyanka Mohidekar</h4>
-            <div class="org">Touring Toes LLP · Pune</div>
-            <div class="quote">"Beautifully organized with memorable destination exposure."</div>
-          </div>
-          <div class="feedback-card-item">
-            <h4>Mr. Nilesh Bhutwala</h4>
-            <div class="org">Travel Theme Holidays · Surat</div>
-            <div class="quote">"An immersive journey through Rajasthan's best offerings."</div>
-          </div>
-          <div class="feedback-card-item">
-            <h4>Ms. Sarika Chopra</h4>
-            <div class="org">Explorers-Den · Faridabad</div>
-            <div class="quote">"The hotel partners were outstanding in their hospitality."</div>
-          </div>
-          <!-- Duplicate set for seamless loop -->
-          <div class="feedback-card-item">
-            <h4>Mr. Guneet Singh</h4>
-            <div class="org">Your Nice Trip · Faridabad</div>
-            <div class="quote">"Excellent experience and very well managed FAM trip."</div>
-          </div>
-          <div class="feedback-card-item">
-            <h4>Ms. Leena Jumde</h4>
-            <div class="org">Travel Gratitude · Mumbai</div>
-            <div class="quote">"Great hospitality and strong networking opportunity."</div>
-          </div>
-          <div class="feedback-card-item">
-            <h4>Mr. Sachin Sharma</h4>
-            <div class="org">Travel By Passion · Delhi</div>
-            <div class="quote">"A valuable platform to explore Rajasthan tourism."</div>
-          </div>
-          <div class="feedback-card-item">
-            <h4>Ms. Priyanka Mohidekar</h4>
-            <div class="org">Touring Toes LLP · Pune</div>
-            <div class="quote">"Beautifully organized with memorable destination exposure."</div>
-          </div>
-          <div class="feedback-card-item">
-            <h4>Mr. Nilesh Bhutwala</h4>
-            <div class="org">Travel Theme Holidays · Surat</div>
-            <div class="quote">"An immersive journey through Rajasthan's best offerings."</div>
-          </div>
-          <div class="feedback-card-item">
-            <h4>Ms. Sarika Chopra</h4>
-            <div class="org">Explorers-Den · Faridabad</div>
-            <div class="quote">"The hotel partners were outstanding in their hospitality."</div>
-          </div>
-        </div>
-      </div>
-    </div>
- 
-    <!-- RTF FAM Gallery -->
-    <div class="gallery-section">
-      <h3>RTF FAM Gallery</h3>
-      <div class="gallery-scroll-wrap">
-        <div class="gallery-scroll-track">
-          <img src="images/gallery/1.jpeg" alt="RTF FAM Gallery">
-          <img src="images/gallery/2.jpeg" alt="RTF FAM Gallery">
-          <img src="images/gallery/3.jpeg" alt="RTF FAM Gallery">
-          <img src="images/gallery/4.jpeg" alt="RTF FAM Gallery">
-          <img src="images/gallery/5.jpeg" alt="RTF FAM Gallery">
-          <img src="images/gallery/6.jpeg" alt="RTF FAM Gallery">
-          <!-- Duplicates for seamless loop -->
-          <img src="images/gallery/1.jpeg" alt="RTF FAM Gallery">
-          <img src="images/gallery/2.jpeg" alt="RTF FAM Gallery">
-          <img src="images/gallery/3.jpeg" alt="RTF FAM Gallery">
-          <img src="images/gallery/4.jpeg" alt="RTF FAM Gallery">
-          <img src="images/gallery/5.jpeg" alt="RTF FAM Gallery">
-          <img src="images/gallery/6.jpeg" alt="RTF FAM Gallery">
-        </div>
-      </div>
-    </div>
- 
-  </div><!-- end partners-inner -->
-</section>
-<!-- ======================== END PARTNERS SECTION ======================== -->
- 
-<!-- Participant Search Script -->
-<script>
-(function() {
-  var searchInput = document.getElementById('participantSearch');
-  if (searchInput) {
-    searchInput.addEventListener('keyup', function() {
-      var val = this.value.toLowerCase();
-      var rows = document.querySelectorAll('#participantsTbody tr');
-      rows.forEach(function(row) {
-        row.style.display = row.innerText.toLowerCase().includes(val) ? '' : 'none';
-      });
-    });
-  }
-})();
-</script>
-<!-- ================= RTF FAM 2026 COMING SOON ================= -->
-<section id="rtffam" class="page-section relative min-h-screen flex items-center justify-center text-white">
-  <div class="absolute inset-0 bg-gradient-to-br from-[#1B2A57] via-[#2c2638] to-[#4a2630] -z-10"></div>
-  <div class="text-center px-6">
-    <h2 class="text-4xl md:text-5xl font-bold mb-4 text-yellow-300">RTF FAM 2026</h2>
-    <img src="images/RTF @026.jpeg" alt="RTF FAM 2026 Coming Soon" class="mx-auto w-[300px] md:w-[450px] rounded-2xl shadow-2xl border-4 border-yellow-300 mb-6" />
-    <p class="text-xl md:text-2xl font-semibold tracking-wide">Content Coming Soon</p>
-  </div>
-</section>
-<!-- ================= RTF GLOBAL FAM PREMIUM VIEW ================= -->
+    </section>
 
-	
+    <!-- ══════════════════════════════════════════════════════════ -->
+    <!-- PARTNERS SECTION                                           -->
+    <!-- ══════════════════════════════════════════════════════════ -->
+    <section id="partners" class="page-section">
+      <div class="partners-inner">
+
+        <div class="partners-page-title">
+          <h2>Rajasthan Travel Fair FAMilarization Trip (RTF FAM)</h2>
+          <p>Season 1 — March 20–24, 2026 · Jodhpur · Jaisalmer · Jawai</p>
+        </div>
+
+        <!-- Hotel logos scroll -->
+        <div class="hotel-scroll-bar">
+          <h3>Hotel Logos with Name and City</h3>
+          <div class="logo-slider">
+            <div class="logo-track">
+              <img src="images/hotels/1.png" alt="Hotel Partner">
+              <img src="images/hotels/2.png" alt="Hotel Partner">
+              <img src="images/hotels/3.png" alt="Hotel Partner">
+              <img src="images/hotels/4.png" alt="Hotel Partner">
+              <img src="images/hotels/5.png" alt="Hotel Partner">
+              <img src="images/hotels/6.png" alt="Hotel Partner">
+              <!-- Duplicates for seamless loop -->
+              <img src="images/hotels/1.png" alt="Hotel Partner">
+              <img src="images/hotels/2.png" alt="Hotel Partner">
+              <img src="images/hotels/3.png" alt="Hotel Partner">
+              <img src="images/hotels/4.png" alt="Hotel Partner">
+              <img src="images/hotels/5.png" alt="Hotel Partner">
+              <img src="images/hotels/6.png" alt="Hotel Partner">
+            </div>
+          </div>
+        </div>
+
+        <!-- Two-col: participants + feedback videos -->
+        <div class="fam-two-col">
+          <!-- Participants -->
+          <div class="fam-panel">
+            <h3>List of Confirmed Participants for RTF FAM Tour</h3>
+            <input type="text" class="participants-search" id="participantSearch" placeholder="Search name, city, company..."/>
+            <div class="participants-table-wrap">
+              <table class="participants-table" id="participantsTable">
+                <thead>
+                  <tr>
+                    <th>#</th><th>Name</th><th>Title</th><th>Organization</th><th>City</th>
+                  </tr>
+                </thead>
+                <tbody id="participantsTbody">
+                  <tr><td>1</td><td>Mr. Guneet Singh</td><td>Founder</td><td>Your Nice Trip</td><td>Faridabad</td></tr>
+                  <tr><td>2</td><td>Mr. Anil Dhingra</td><td>ED</td><td>Unique Air Services</td><td>Delhi</td></tr>
+                  <tr><td>3</td><td>Mr. Narender Sharma</td><td>Director</td><td>Perfection Consulting (India) Pvt Ltd</td><td>Delhi</td></tr>
+                  <tr><td>4</td><td>Mr. Nilesh Bhutwala</td><td>Partner</td><td>Travel Theme Holidays</td><td>Surat</td></tr>
+                  <tr><td>5</td><td>Ms. Leena Jumde</td><td>CEO</td><td>Travel Gratitude</td><td>Mumbai</td></tr>
+                  <tr><td>6</td><td>Mr. Sachin Sharma</td><td>MD</td><td>Travel By Passion</td><td>Delhi</td></tr>
+                  <tr><td>7</td><td>Ms. Priyanka Mohidekar</td><td>Director</td><td>Touring Toes LLP</td><td>Pune</td></tr>
+                  <tr><td>8</td><td>Mr. Dilip Soni</td><td>Owner</td><td>Sonii Travels</td><td>Mumbai</td></tr>
+                  <tr><td>9</td><td>Mr. Niranjan Ji</td><td>Director</td><td>Smithasya Enter Pvt Ltd (Holiday Kool)</td><td>Pune</td></tr>
+                  <tr><td>10</td><td>Ms. Madhuri Wadangenkar</td><td>Founder</td><td>Skip The Line Tour</td><td>Mumbai</td></tr>
+                  <tr><td>11</td><td>Mr. Ganesh L Sakhara</td><td>Owner</td><td>ShreeNath Travels</td><td>Pune</td></tr>
+                  <tr><td>12</td><td>Mr. Alankaran Verma</td><td>Owner</td><td>Sai Tour &amp; Travels</td><td>Una</td></tr>
+                  <tr><td>13</td><td>Mr. Madhu</td><td>CEO &amp; Founder</td><td>NB4 Holidays</td><td>Kochi</td></tr>
+                  <tr><td>14</td><td>Mr. Tejas Kale</td><td>Director</td><td>My Travel World Travel</td><td>Pune</td></tr>
+                  <tr><td>15</td><td>Mr. Kartik Pachchigar</td><td>Owner</td><td>Magical India Holidays</td><td>Surat</td></tr>
+                  <tr><td>16</td><td>Mr. Tushar Patel</td><td>Sales Executive</td><td>Magical India Holidays</td><td>Surat</td></tr>
+                  <tr><td>17</td><td>Mr. Ram Raj Singh</td><td>Founder &amp; MD</td><td>Luxurious Heritage</td><td>Delhi</td></tr>
+                  <tr><td>18</td><td>Mr. Mahendra R Jain</td><td>Owner</td><td>Kering Holiday</td><td>Mumbai</td></tr>
+                  <tr><td>19</td><td>Mr. Mukesh Kumar</td><td>Founder</td><td>KaaSaa Events</td><td>Delhi</td></tr>
+                  <tr><td>20</td><td>Ms. Dilpreet (Sheena) Sewal</td><td>Founder</td><td>India TajMahal Tour Operators</td><td>Delhi</td></tr>
+                  <tr><td>21</td><td>Mr. Pushpendra Sen</td><td>Founder</td><td>Historical India Tours And Travels</td><td>Orchha</td></tr>
+                  <tr><td>22</td><td>Mr. Shubham Gupta</td><td>Manager</td><td>Galaxy Holidays</td><td>Pune</td></tr>
+                  <tr><td>23</td><td>Ms. Sarika Chopra</td><td>Founder &amp; CEO</td><td>Explorers-Den</td><td>Faridabad</td></tr>
+                  <tr><td>24</td><td>Ms. Chandni Sharma</td><td>Director</td><td>Ascel Group</td><td>Ghaziabad</td></tr>
+                  <tr><td>25</td><td>Mr. Devendra P. Divekar</td><td>Owner</td><td>Go Weekends</td><td>Mumbai</td></tr>
+                  <tr><td>26</td><td>Ms. Pooja</td><td>Founder</td><td>Journey Master</td><td>Delhi</td></tr>
+                  <tr><td>27</td><td>Mr. Santhosh Kumar</td><td>Owner</td><td>GodZone Holidays &amp; Tours</td><td>Alibaug</td></tr>
+                  <tr><td>28</td><td>Ms. Pooja V Patil</td><td>Owner</td><td>Plango Holidays Explore World</td><td>Mumbai</td></tr>
+                  <tr><td>29</td><td>Ms. Neetu Gola</td><td>Founder</td><td>Om Sai Travels</td><td>Delhi</td></tr>
+                  <tr><td>30</td><td>Mr. Aman Saini</td><td>Owner</td><td>Colors of India</td><td>Delhi</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- Feedback videos -->
+          <div class="fam-panel">
+            <h3>Feedback Videos — Travel Agents</h3>
+            <div class="videos-grid">
+              <div class="video-item"><video controls playsinline src="vedios/feedback1.mp4"></video><p>Video 1</p></div>
+              <div class="video-item"><video controls playsinline src="vedios/feedback2.mp4"></video><p>Video 2</p></div>
+              <div class="video-item"><video controls playsinline src="vedios/feedback3.mp4"></video><p>Video 3</p></div>
+              <div class="video-item"><video controls playsinline src="vedios/feedback4.mp4"></video><p>Video 4</p></div>
+              <div class="video-item"><video controls playsinline src="vedios/feedback5.mp4"></video><p>Video 5</p></div>
+              <div class="video-item"><video controls playsinline src="vedios/feedback6.mp4"></video><p>Video 6</p></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Written feedback scroll -->
+        <div class="feedback-scroll-section">
+          <h3>Travel Agent Written Feedback</h3>
+          <div class="feedback-track-wrap">
+            <div class="feedback-track">
+              <div class="feedback-card-item"><h4>Mr. Guneet Singh</h4><div class="org">Your Nice Trip · Faridabad</div><div class="quote">"Excellent experience and very well managed FAM trip."</div></div>
+              <div class="feedback-card-item"><h4>Ms. Leena Jumde</h4><div class="org">Travel Gratitude · Mumbai</div><div class="quote">"Great hospitality and strong networking opportunity."</div></div>
+              <div class="feedback-card-item"><h4>Mr. Sachin Sharma</h4><div class="org">Travel By Passion · Delhi</div><div class="quote">"A valuable platform to explore Rajasthan tourism."</div></div>
+              <div class="feedback-card-item"><h4>Ms. Priyanka Mohidekar</h4><div class="org">Touring Toes LLP · Pune</div><div class="quote">"Beautifully organized with memorable destination exposure."</div></div>
+              <div class="feedback-card-item"><h4>Mr. Nilesh Bhutwala</h4><div class="org">Travel Theme Holidays · Surat</div><div class="quote">"An immersive journey through Rajasthan's best offerings."</div></div>
+              <div class="feedback-card-item"><h4>Ms. Sarika Chopra</h4><div class="org">Explorers-Den · Faridabad</div><div class="quote">"The hotel partners were outstanding in their hospitality."</div></div>
+              <!-- Duplicates for seamless loop -->
+              <div class="feedback-card-item"><h4>Mr. Guneet Singh</h4><div class="org">Your Nice Trip · Faridabad</div><div class="quote">"Excellent experience and very well managed FAM trip."</div></div>
+              <div class="feedback-card-item"><h4>Ms. Leena Jumde</h4><div class="org">Travel Gratitude · Mumbai</div><div class="quote">"Great hospitality and strong networking opportunity."</div></div>
+              <div class="feedback-card-item"><h4>Mr. Sachin Sharma</h4><div class="org">Travel By Passion · Delhi</div><div class="quote">"A valuable platform to explore Rajasthan tourism."</div></div>
+              <div class="feedback-card-item"><h4>Ms. Priyanka Mohidekar</h4><div class="org">Touring Toes LLP · Pune</div><div class="quote">"Beautifully organized with memorable destination exposure."</div></div>
+              <div class="feedback-card-item"><h4>Mr. Nilesh Bhutwala</h4><div class="org">Travel Theme Holidays · Surat</div><div class="quote">"An immersive journey through Rajasthan's best offerings."</div></div>
+              <div class="feedback-card-item"><h4>Ms. Sarika Chopra</h4><div class="org">Explorers-Den · Faridabad</div><div class="quote">"The hotel partners were outstanding in their hospitality."</div></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Gallery -->
+        <div class="gallery-section">
+          <h3>RTF FAM Gallery</h3>
+          <div class="gallery-scroll-wrap">
+            <div class="gallery-scroll-track">
+              <img src="images/gallery/1.jpeg" alt="RTF FAM Gallery">
+              <img src="images/gallery/2.jpeg" alt="RTF FAM Gallery">
+              <img src="images/gallery/3.jpeg" alt="RTF FAM Gallery">
+              <img src="images/gallery/4.jpeg" alt="RTF FAM Gallery">
+              <img src="images/gallery/5.jpeg" alt="RTF FAM Gallery">
+              <img src="images/gallery/6.jpeg" alt="RTF FAM Gallery">
+              <!-- Duplicates -->
+              <img src="images/gallery/1.jpeg" alt="RTF FAM Gallery">
+              <img src="images/gallery/2.jpeg" alt="RTF FAM Gallery">
+              <img src="images/gallery/3.jpeg" alt="RTF FAM Gallery">
+              <img src="images/gallery/4.jpeg" alt="RTF FAM Gallery">
+              <img src="images/gallery/5.jpeg" alt="RTF FAM Gallery">
+              <img src="images/gallery/6.jpeg" alt="RTF FAM Gallery">
+            </div>
+          </div>
+        </div>
+
+      </div><!-- end partners-inner -->
+    </section>
+
+    <!-- ══════════════════════════════════════════════════════════ -->
+    <!-- RTF FAM 2026 COMING SOON                                   -->
+    <!-- ══════════════════════════════════════════════════════════ -->
+    <section id="rtffam" class="page-section relative min-h-screen items-center justify-center text-white">
+      <div class="absolute inset-0 bg-gradient-to-br from-[#1B2A57] via-[#2c2638] to-[#4a2630] -z-10"></div>
+      <div class="text-center px-6">
+        <h2 class="text-4xl md:text-5xl font-bold mb-4 text-yellow-300">RTF FAM 2026</h2>
+        <img src="images/RTF @026.jpeg" alt="RTF FAM 2026 Coming Soon"
+          class="mx-auto w-[300px] md:w-[450px] rounded-2xl shadow-2xl border-4 border-yellow-300 mb-6"/>
+        <p class="text-xl md:text-2xl font-semibold tracking-wide">Content Coming Soon</p>
+      </div>
+    </section>
+
     <!-- ══════════════════════════════════════════════════════════ -->
     <!-- RTF GLOBAL FAM — PDF FLIPBOOK VIEWER                      -->
     <!-- ══════════════════════════════════════════════════════════ -->
     <section id="rtfglobal" class="page-section">
       <div class="rtfglobal-inner">
- 
+
         <!-- Header -->
         <div class="rtfglobal-header">
           <span class="rtf-badge">RTF GLOBAL FAM 2026</span>
           <h2 class="rtf-title">Global FAM Itinerary Showcase</h2>
           <p class="rtf-subtitle">16 Days · 14 Destinations · 30+ International Travel Agents · 60+ Hotels</p>
         </div>
- 
+
         <!-- Stats row -->
         <div class="rtf-info-grid">
           <div><strong>16</strong><span>Days</span></div>
@@ -1204,14 +558,14 @@
           <div><strong>30+</strong><span>Travel Agents</span></div>
           <div><strong>60+</strong><span>Hotel Partners</span></div>
         </div>
- 
+
         <!-- Flipbook viewer -->
         <div class="pdf-flipbook-wrapper">
- 
+
           <!-- Main flipbook card -->
           <div class="flipbook-card">
             <div class="flipbook-label">RTF Global Brochure</div>
- 
+
             <!-- Canvas area -->
             <div class="flipbook-canvas-wrap" id="flipbookCanvasWrap">
               <!-- Loading spinner -->
@@ -1222,7 +576,7 @@
               <!-- Canvas target for PDF.js rendering -->
               <canvas id="flipbookCanvas"></canvas>
             </div>
- 
+
             <!-- Page navigation controls -->
             <div class="flipbook-controls" id="flipbookControls">
               <button class="flip-btn prev-btn" id="pdfPrevBtn" disabled title="Previous page (← arrow key)">
@@ -1238,10 +592,10 @@
               </button>
             </div>
           </div>
- 
+
           <!-- Thumbnail strip -->
           <div class="thumb-strip" id="pdfThumbStrip"></div>
- 
+
           <!-- Action buttons -->
           <div class="rtf-actions">
             <a href="files/RTF_Global_Fam_Itinerary.pdf" target="_blank" class="btn-primary">
@@ -1256,306 +610,83 @@
           </div>
         </div>
         <!-- end pdf-flipbook-wrapper -->
- 
+
       </div>
     </section>
- 
+
   </div><!-- end page-container -->
 
-	
-<!-- ================= SEARCH SCRIPT ================= -->
-<!-- Footer Section -->
-<footer class="relative bg-[#0f172a] text-gray-300 px-4 py-14 md:px-8 lg:px-16 overflow-hidden">
-  <div class="absolute inset-0 bg-gradient-to-br from-indigo-900/40 via-slate-900 to-black"></div>
+  <!-- ===== FOOTER ===== -->
+  <footer class="relative bg-[#0f172a] text-gray-300 px-4 py-14 md:px-8 lg:px-16 overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-br from-indigo-900/40 via-slate-900 to-black"></div>
+    <div class="relative max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-12">
 
-  <div class="relative max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-12">
+      <div class="lg:col-span-2 space-y-10">
+        <div>
+          <h3 class="text-3xl font-bold text-white mb-3">About Us</h3>
+          <p class="text-sm leading-7 text-gray-400 max-w-3xl">
+            Rajasthan Travel Fair — connecting travel agents, hotels, and DMCs to build a vibrant tourism network for Rajasthan.
+          </p>
+        </div>
 
-    <!-- Left Section -->
-    <div class="lg:col-span-2 space-y-10">
-
-      <div>
-        <h3 class="text-3xl font-bold text-white mb-3">About Us</h3>
-        <p class="text-sm leading-7 text-gray-400 max-w-3xl">
-          We are a trusted technology partner delivering innovative solutions to empower your business
-          and drive digital transformation.
-        </p>
-      </div>
-
-      <!-- Contact Information -->
-      <div class="bg-white/10 backdrop-blur-xl border border-white/10 rounded-3xl p-6 md:p-8 shadow-2xl">
-        <h3 class="text-3xl font-bold text-center text-white mb-8">
-          Contact Information
-        </h3>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-
-          <!-- India Outtabox -->
-          <div class="bg-white/10 rounded-2xl p-6 border border-white/10 hover:border-indigo-400/50 transition">
-            <h4 class="text-xl font-bold text-indigo-300 mb-5">
-              India Outtabox Pvt Ltd
-            </h4>
-
-            <div class="space-y-4 text-sm">
-              <p><span class="font-semibold text-white">📞 Phone:</span><br>+91 91662 22900 / 96600 61777 / 9660061201</p>
-              <p><span class="font-semibold text-white">✉ Email:</span><br>info@indiaouttabox.com<br>indiaouttabox@gmail.com</p>
-              <p><span class="font-semibold text-white">📍 Address:</span><br>
-                Sir Pratap Colony, D-1,<br>
-                Near Paanch Batti, Ratanada,<br>
-                Jodhpur, Rajasthan - 342001
-              </p>
+        <div class="bg-white/10 backdrop-blur-xl border border-white/10 rounded-3xl p-6 md:p-8 shadow-2xl">
+          <h3 class="text-3xl font-bold text-center text-white mb-8">Contact Information</h3>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="bg-white/10 rounded-2xl p-6 border border-white/10 hover:border-indigo-400/50 transition">
+              <h4 class="text-xl font-bold text-indigo-300 mb-5">India Outtabox Pvt Ltd</h4>
+              <div class="space-y-4 text-sm">
+                <p><span class="font-semibold text-white">📞 Phone:</span><br>+91 91662 22900 / 96600 61777 / 9660061201</p>
+                <p><span class="font-semibold text-white">✉ Email:</span><br>info@indiaouttabox.com<br>indiaouttabox@gmail.com</p>
+                <p><span class="font-semibold text-white">📍 Address:</span><br>Sir Pratap Colony, D-1,<br>Near Paanch Batti, Ratanada,<br>Jodhpur, Rajasthan - 342001</p>
+              </div>
+            </div>
+            <div class="bg-white/10 rounded-2xl p-6 border border-white/10 hover:border-indigo-400/50 transition">
+              <h4 class="text-xl font-bold text-indigo-300 mb-5">Rajasthan Travel Fair</h4>
+              <div class="space-y-4 text-sm">
+                <p><span class="font-semibold text-white">📞 Phone:</span><br>+91 91662 22900 / 96600 61777 / 9660061201</p>
+                <p><span class="font-semibold text-white">✉ Email:</span><br>info@rajasthantravelfair.com<br>rajasthantravelfair2026@gmail.com</p>
+                <p><span class="font-semibold text-white">📍 Address:</span><br>Sir Pratap Colony, D-1,<br>Near Paanch Batti, Ratanada,<br>Jodhpur, Rajasthan - 342001</p>
+              </div>
             </div>
           </div>
-
-          <!-- Rajasthan Travel Fair -->
-          <div class="bg-white/10 rounded-2xl p-6 border border-white/10 hover:border-indigo-400/50 transition">
-            <h4 class="text-xl font-bold text-indigo-300 mb-5">
-              Rajasthan Travel Fair
-            </h4>
-
-            <div class="space-y-4 text-sm">
-              <p><span class="font-semibold text-white">📞 Phone:</span><br>+91 91662 22900 / 96600 61777 / 9660061201</p>
-              <p><span class="font-semibold text-white">✉ Email:</span><br>info@rajasthantravelfair.com<br>rajasthantravelfair2026@gmail.com</p>
-              <p><span class="font-semibold text-white">📍 Address:</span><br>
-                Sir Pratap Colony, D-1,<br>
-                Near Paanch Batti, Ratanada,<br>
-                Jodhpur, Rajasthan - 342001
-              </p>
-            </div>
-          </div>
-
         </div>
       </div>
-    </div>
 
-    <!-- Right Section -->
-    <div class="space-y-8">
-      <div class="bg-white/10 backdrop-blur-xl border border-white/10 rounded-3xl p-6 shadow-2xl">
-        <h3 class="text-2xl font-bold text-white mb-5">Quick Links</h3>
-
-        <ul class="space-y-3 text-sm">
+      <div class="space-y-8">
+        <div class="bg-white/10 backdrop-blur-xl border border-white/10 rounded-3xl p-6 shadow-2xl">
+          <h3 class="text-2xl font-bold text-white mb-5">Quick Links</h3>
           <ul class="space-y-3 text-sm">
-  <li>
-    <a href="#about" class="nav-link hover:text-indigo-300 transition" data-target="about">
-      About Us
-    </a>
-  </li>
-
-  <li>
-    <a href="#privacy" class="nav-link hover:text-indigo-300 transition" data-target="privacy">
-      Privacy Policy
-    </a>
-  </li>
-
-  <li>
-    <a href="#terms" class="nav-link hover:text-indigo-300 transition" data-target="terms">
-      Terms & Conditions
-    </a>
-  </li>
-
-  <li>
-    <a href="#faq" class="nav-link hover:text-indigo-300 transition" data-target="faq">
-      FAQ
-    </a>
-  </li>
-</ul>
-        </ul>
+            <li><a href="#about"   class="nav-link hover:text-indigo-300 transition" data-target="about">About Us</a></li>
+            <li><a href="#partners" class="nav-link hover:text-indigo-300 transition" data-target="partners">Partners</a></li>
+            <li><a href="#rtfglobal" class="nav-link hover:text-indigo-300 transition" data-target="rtfglobal">RTF Global FAM</a></li>
+          </ul>
+        </div>
+        <div class="bg-white/10 backdrop-blur-xl border border-white/10 rounded-3xl p-6 shadow-2xl">
+          <h3 class="text-2xl font-bold text-white mb-3">Rajasthan Travel Fair</h3>
+          <p class="text-sm leading-6 text-gray-400">Experience the cultural heritage, tourism opportunities, and vibrant traditions of Rajasthan at RTF 2026.</p>
+        </div>
       </div>
 
-      <div class="bg-white/10 backdrop-blur-xl border border-white/10 rounded-3xl p-6 shadow-2xl">
-        <h3 class="text-2xl font-bold text-white mb-3">Rajasthan Travel Fair</h3>
-        <p class="text-sm leading-6 text-gray-400">
-          Experience the cultural heritage, tourism opportunities, and vibrant traditions of Rajasthan at RTF 2026.
-        </p>
-      </div>
     </div>
+    <div class="mt-10 border-t border-gray-700 pt-4 text-center text-xs text-gray-500">
+      © 2026 India Outtabox Pvt Ltd. All rights reserved.
+    </div>
+  </footer>
 
-  </div>
-<!-- Bottom -->
-<div class="mt-10 border-t border-gray-700 pt-4 text-center text-xs text-gray-500">
-  © 2026 India Outtabox Pvt Ltd. All rights&nbsp reserved.
-</div>
-</footer>
+  <!-- Arrow navigation buttons -->
+  <button id="prev-page-button" class="nav-arrow-button left hidden" aria-label="Previous Section">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3" stroke="currentColor" width="26" height="26">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5"/>
+    </svg>
+  </button>
+  <button id="next-page-button" class="nav-arrow-button right" aria-label="Next Section">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3" stroke="currentColor" width="26" height="26">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5"/>
+    </svg>
+  </button>
 
-  <!-- Scripts -->
-  <script>
-    function showTerms() {
-      document.getElementById('mainContent').style.display = 'none';
-      document.getElementById('privacySection').style.display = 'none'; // Ensure privacy is hidden
-      document.getElementById('termsSection').style.display = 'block';
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
+  <!-- Single script tag — no duplicates -->
+  <script src="script.js"></script>
 
-    function showPrivacy() {
-      document.getElementById('mainContent').style.display = 'none';
-      document.getElementById('termsSection').style.display = 'none'; // Ensure terms are hidden
-      document.getElementById('privacySection').style.display = 'block';
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-
-    function backToMain() {
-      document.getElementById('termsSection').style.display = 'none';
-      document.getElementById('privacySection').style.display = 'none'; // Hide privacy section
-      document.getElementById('mainContent').style.display = 'block';
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-  </script>
-</div>
-
-
-
-<!-- Navigation Buttons -->
-<button id="prev-page-button" class="nav-arrow-button left hidden" aria-label="Previous Section">
-  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3" stroke="currentColor" class="w-8 h-8">
-    <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
-  </svg>
-</button>
-<button id="next-page-button" class="nav-arrow-button right" aria-label="Next Section">
-  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3" stroke="currentColor" class="w-8 h-8">
-    <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
-  </svg>
-</button>
-
-<!-- Final Navigation Script -->
-<script>
-function toggleModal() {
-  const modal = document.getElementById("modal");
-  if (modal) modal.classList.toggle("hidden");
-
-  const mobileMenu = document.getElementById("mobile-menu");
-  if (mobileMenu) {
-    mobileMenu.classList.add("hidden");
-    mobileMenu.classList.remove("flex");
-  }
-}
-
-document.addEventListener("DOMContentLoaded", function () {
-  const sectionOrder = ["home", "about", "attractions", "partners", "rtffam", "rtfglobal"];
-  const sections = sectionOrder.map(id => document.getElementById(id)).filter(Boolean);
-
-  const navLinks = document.querySelectorAll(".nav-link");
-  const menuToggle = document.getElementById("menu-toggle");
-  const mobileMenu = document.getElementById("mobile-menu");
-  const prevBtn = document.getElementById("prev-page-button");
-  const nextBtn = document.getElementById("next-page-button");
-
-  let currentIndex = 0;
-
-  function showPage(index, updateUrl = true) {
-    if (index < 0 || index >= sections.length) return;
-
-    sections.forEach(sec => {
-      sec.classList.remove("active");
-      sec.style.display = "none";
-      sec.style.opacity = "0";
-      sec.style.visibility = "hidden";
-    });
-
-    currentIndex = index;
-    const active = sections[currentIndex];
-
-    active.style.display = "flex";
-    active.style.opacity = "1";
-    active.style.visibility = "visible";
-    active.classList.add("active");
-
-    if (updateUrl) {
-      history.pushState(null, "", "#" + active.id);
-    }
-
-    window.scrollTo({ top: 0, behavior: "smooth" });
-    updateArrows();
-    updateActiveNav();
-  }
-
-  function updateArrows() {
-    if (prevBtn) prevBtn.classList.toggle("hidden", currentIndex === 0);
-    if (nextBtn) nextBtn.classList.toggle("hidden", currentIndex === sections.length - 1);
-  }
-
-  function updateActiveNav() {
-    const activeId = sections[currentIndex]?.id;
-    navLinks.forEach(link => {
-      link.classList.remove("text-yellow-300");
-      if (link.getAttribute("data-target") === activeId) {
-        link.classList.add("text-yellow-300");
-      }
-    });
-  }
-
-  navLinks.forEach(link => {
-    link.addEventListener("click", function (e) {
-      e.preventDefault();
-      const targetId = this.getAttribute("data-target");
-      const index = sections.findIndex(sec => sec.id === targetId);
-      if (index !== -1) showPage(index);
-
-      if (mobileMenu) {
-        mobileMenu.classList.add("hidden");
-        mobileMenu.classList.remove("flex");
-      }
-    });
-  });
-
-  if (prevBtn) {
-    prevBtn.addEventListener("click", function () {
-      showPage(currentIndex - 1);
-    });
-  }
-
-  if (nextBtn) {
-    nextBtn.addEventListener("click", function () {
-      showPage(currentIndex + 1);
-    });
-  }
-
-  if (menuToggle && mobileMenu) {
-    menuToggle.addEventListener("click", function () {
-      mobileMenu.classList.toggle("hidden");
-      mobileMenu.classList.toggle("flex");
-    });
-  }
-
-   document.getElementById("partnerSearch").addEventListener("keyup", function () {
-  let value = this.value.toLowerCase();
-  document.querySelectorAll("#partnersTable tbody tr").forEach(row => {
-    row.style.display = row.innerText.toLowerCase().includes(value) ? "" : "none";
-  });
-});
-  let slideIndex = 0;
-  const slideImages = [
-    "images/Venue Photos/19.jpeg",
-    "images/Venue Photos/20.jpeg",
-    "images/Venue Photos/21.jpeg",
-    "images/Venue Photos/22.jpeg",
-    "images/Venue Photos/23.jpeg"
-  ];
-  const slideImageElement = document.getElementById("slideImage");
-
-  window.changeSlide = function (n) {
-    if (!slideImageElement) return;
-    slideIndex = (slideIndex + n + slideImages.length) % slideImages.length;
-    slideImageElement.style.opacity = "0";
-    setTimeout(() => {
-      slideImageElement.src = slideImages[slideIndex];
-      slideImageElement.loading = "lazy";
-      slideImageElement.style.opacity = "1";
-    }, 300);
-  };
-
-  if (slideImageElement) {
-    setInterval(() => window.changeSlide(1), 5000);
-  }
-
-  window.addEventListener("popstate", function () {
-    const hash = window.location.hash.replace("#", "");
-    const index = sections.findIndex(sec => sec.id === hash);
-    if (index !== -1) showPage(index, false);
-  });
-
-  const initialHash = window.location.hash.replace("#", "");
-  const initialIndex = sections.findIndex(sec => sec.id === initialHash);
-  showPage(initialIndex !== -1 ? initialIndex : 0, initialIndex === -1);
-});
-</script>
 </body>
 </html>
