@@ -12,7 +12,7 @@ function toggleModal() {
 
 // ===== MAIN SCRIPT =====
 document.addEventListener("DOMContentLoaded", function () {
-  const sectionOrder = ["home", "about", "attractions", "partners", "rtffam", "rtfglobal"];
+  const sectionOrder = ["home", "about", "attractions", "rtffam", "rtfglobal"];
   const sections = sectionOrder.map(id => document.getElementById(id)).filter(Boolean);
 
   const navLinks = document.querySelectorAll(".nav-link");
