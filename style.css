@@ -20,6 +20,44 @@ body {
   background: transparent !important;
 }
 
+/* ===== ABOUT SECTION FIX ===== */
+#about.page-section {
+  min-height: auto !important;
+  padding: 100px 20px !important;
+  display: block !important;
+  overflow: hidden;
+}
+
+#about img {
+  width: 100%;
+  max-height: 420px;
+  object-fit: cover;
+  border-radius: 16px;
+}
+
+#about video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
+
+#about .content,
+#about .relative {
+  position: relative;
+  z-index: 2;
+}
+
+#about::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
+
 /* ===== PREMIUM PARTNERS SECTION ===== */
 #partners.page-section,
 .premium-partners-section {
@@ -59,7 +97,7 @@ body {
 
 .premium-heading h2 {
   font-size: clamp(32px, 5vw, 54px);
-  font-weight: 900; /* Fixed: 850 is invalid, use 900 */
+  font-weight: 900;
   margin: 0;
   color: #ffffff;
 }
@@ -93,7 +131,6 @@ body {
 }
 
 /* ===== PARTNER GRID ===== */
-/* Merged duplicate .partner-grid definitions */
 .partner-grid {
   display: grid !important;
   grid-template-columns: repeat(4, 1fr);
@@ -102,13 +139,12 @@ body {
 }
 
 /* ===== PARTNER CARD ===== */
-/* Merged duplicate .partner-card definitions — kept best of both */
 .partner-card {
   background: linear-gradient(180deg, #ffffff, #fff7dc);
   color: #111827;
   border-radius: 24px;
   padding: 22px;
-  min-height: 210px; /* Restored from first definition */
+  min-height: 210px;
   box-shadow: 0 20px 45px rgba(0, 0, 0, 0.28);
   transition: 0.3s ease;
   position: relative;
@@ -120,8 +156,6 @@ body {
   box-shadow: 0 28px 60px rgba(0, 0, 0, 0.38);
 }
 
-/* ===== NUMBER BADGE ===== */
-/* Merged duplicate .partner-no definitions */
 .partner-no {
   width: 44px;
   height: 44px;
@@ -135,19 +169,17 @@ body {
   margin-bottom: 16px;
 }
 
-/* ===== CARD TEXT ===== */
-/* Merged duplicate .partner-card h4/p/span/small definitions */
 .partner-card h4 {
   margin: 0;
   font-size: 18px;
-  font-weight: 800; /* Fixed: 850 is invalid, use 800 */
+  font-weight: 800;
   color: #111827;
 }
 
 .partner-card p {
   margin: 8px 0;
   color: #c15d3a;
-  font-weight: 700; /* Fixed: 800 kept from first, rounded from 600 second */
+  font-weight: 700;
 }
 
 .partner-card span {
@@ -165,7 +197,7 @@ body {
   color: #1b2a57;
   padding: 7px 12px;
   border-radius: 999px;
-  font-weight: 800; /* Fixed: 850 invalid */
+  font-weight: 800;
 }
 
 /* ===== FAM BLOCKS ===== */
@@ -184,7 +216,7 @@ body {
   color: #facc15;
   font-size: 30px;
   margin-bottom: 26px;
-  font-weight: 800; /* Fixed: 850 is invalid, use 800 */
+  font-weight: 800;
 }
 
 /* ===== HOTEL LOGO AUTO SCROLL ===== */
@@ -211,6 +243,7 @@ body {
   from {
     transform: translateX(0);
   }
+
   to {
     transform: translateX(-50%);
   }
@@ -280,8 +313,6 @@ body {
 }
 
 /* ===== RESPONSIVE ===== */
-/* Consolidated all overlapping breakpoints into clean unified breakpoints */
-
 @media (max-width: 1024px) {
   .partner-grid {
     grid-template-columns: repeat(3, 1fr);
