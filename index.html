@@ -724,29 +724,293 @@ As shared earlier, RTF has been postponed until further notice, so as a continuo
 
   </div>
 </section>
-  
-  <!-- ================ PARTNERS SECTION ================= -->
-<section id="partners" class="page-section premium-partners-section">
-
-  <div class="premium-partners-wrap">
-
-    <div class="premium-heading">
-      <span>RTF FAM 2026</span>
-      <h2>List of Confirmed Participants for RTF FAM Tour</h2>
-      <p>Confirmed travel companies and representatives participating in RTF FAM 2026.</p>
+<style>
+/* Partners Section Styles */
+#partners {
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  padding: 90px 0 60px 0 !important;
+}
+ 
+.partners-inner {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+ 
+.partners-page-title {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+ 
+.partners-page-title h2 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #fde047;
+  letter-spacing: 0.03em;
+}
+ 
+.partners-page-title p {
+  color: #94a3b8;
+  font-size: 1rem;
+  margin-top: 0.5rem;
+}
+ 
+/* Hotel Logos Scroll */
+.hotel-scroll-bar {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(253,224,71,0.2);
+  border-radius: 1rem;
+  padding: 1rem 1.5rem;
+  margin-bottom: 2rem;
+  overflow: hidden;
+}
+ 
+.hotel-scroll-bar h3 {
+  text-align: center;
+  color: #fde047;
+  font-weight: 700;
+  font-size: 1.1rem;
+  margin-bottom: 0.75rem;
+}
+ 
+.logo-slider { overflow: hidden; }
+.logo-track {
+  display: flex;
+  gap: 2rem;
+  animation: scrollLogos 25s linear infinite;
+  width: max-content;
+}
+.logo-track img {
+  height: 60px;
+  width: auto;
+  object-fit: contain;
+  filter: brightness(0.9) contrast(1.1);
+  border-radius: 0.5rem;
+}
+@keyframes scrollLogos {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+ 
+/* Two-column layout: participants + videos */
+.fam-two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+ 
+@media (max-width: 900px) {
+  .fam-two-col { grid-template-columns: 1fr; }
+}
+ 
+.fam-panel {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(253,224,71,0.15);
+  border-radius: 1.25rem;
+  padding: 1.25rem;
+}
+ 
+.fam-panel h3 {
+  color: #fde047;
+  font-weight: 700;
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+ 
+/* Participants list */
+.participants-search {
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.5rem;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.15);
+  color: white;
+  font-size: 0.85rem;
+  margin-bottom: 0.75rem;
+  outline: none;
+}
+.participants-search::placeholder { color: #94a3b8; }
+.participants-search:focus { border-color: #fde047; }
+ 
+.participants-table-wrap {
+  max-height: 400px;
+  overflow-y: auto;
+  border-radius: 0.75rem;
+}
+ 
+.participants-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.8rem;
+}
+ 
+.participants-table thead th {
+  background: rgba(253,224,71,0.15);
+  color: #fde047;
+  padding: 0.5rem 0.6rem;
+  text-align: left;
+  font-weight: 700;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+ 
+.participants-table tbody tr {
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  transition: background 0.2s;
+}
+ 
+.participants-table tbody tr:hover {
+  background: rgba(253,224,71,0.07);
+}
+ 
+.participants-table tbody td {
+  padding: 0.45rem 0.6rem;
+  color: #e2e8f0;
+  vertical-align: top;
+}
+ 
+.participants-table tbody td:first-child {
+  color: #94a3b8;
+  font-size: 0.75rem;
+  text-align: center;
+}
+ 
+/* Videos grid */
+.videos-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+}
+ 
+.video-item {
+  background: rgba(0,0,0,0.3);
+  border-radius: 0.75rem;
+  overflow: hidden;
+}
+ 
+.video-item video {
+  width: 100%;
+  height: 130px;
+  object-fit: cover;
+  display: block;
+}
+ 
+.video-item p {
+  text-align: center;
+  font-size: 0.75rem;
+  color: #94a3b8;
+  padding: 0.3rem 0.5rem;
+}
+ 
+/* Written Feedback scroll */
+.feedback-scroll-section {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(253,224,71,0.15);
+  border-radius: 1.25rem;
+  padding: 1.25rem;
+  margin-bottom: 2rem;
+  overflow: hidden;
+}
+ 
+.feedback-scroll-section h3 {
+  color: #fde047;
+  font-weight: 700;
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+ 
+.feedback-track-wrap { overflow: hidden; }
+ 
+.feedback-track {
+  display: flex;
+  gap: 1rem;
+  animation: scrollFeedback 30s linear infinite;
+  width: max-content;
+}
+ 
+.feedback-track:hover { animation-play-state: paused; }
+ 
+@keyframes scrollFeedback {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+ 
+.feedback-card-item {
+  background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(253,224,71,0.2);
+  border-radius: 1rem;
+  padding: 1rem 1.25rem;
+  min-width: 240px;
+  max-width: 260px;
+  flex-shrink: 0;
+}
+ 
+.feedback-card-item h4 { color: #fde047; font-weight: 700; font-size: 0.9rem; margin-bottom: 0.2rem; }
+.feedback-card-item .org { color: #7dd3fc; font-size: 0.78rem; margin-bottom: 0.4rem; }
+.feedback-card-item .quote { color: #e2e8f0; font-size: 0.82rem; line-height: 1.5; font-style: italic; }
+ 
+/* Gallery */
+.gallery-section {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(253,224,71,0.15);
+  border-radius: 1.25rem;
+  padding: 1.25rem;
+}
+ 
+.gallery-section h3 {
+  color: #fde047;
+  font-weight: 700;
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+ 
+.gallery-scroll-wrap { overflow: hidden; }
+ 
+.gallery-scroll-track {
+  display: flex;
+  gap: 1rem;
+  animation: scrollGallery 35s linear infinite;
+  width: max-content;
+}
+ 
+.gallery-scroll-track:hover { animation-play-state: paused; }
+ 
+@keyframes scrollGallery {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+ 
+.gallery-scroll-track img {
+  height: 180px;
+  width: 260px;
+  object-fit: cover;
+  border-radius: 0.75rem;
+  flex-shrink: 0;
+  border: 2px solid rgba(253,224,71,0.2);
+}
+</style>
+ 
+<section id="partners" class="page-section">
+  <div class="partners-inner">
+ 
+    <!-- Title -->
+    <div class="partners-page-title">
+      <h2>Rajasthan Travel Fair FAMilarization Trip (RTF FAM)</h2>
+      <p>Season 1 — March 20–24, 2026 · Jodhpur · Jaisalmer · Jawai</p>
     </div>
-
-    <div class="partner-controls">
-      <input type="text" id="partnerSearch" placeholder="Search name, city, title..." />
-      <select id="cityFilter">
-        <option value="">All Cities</option>
-      </select>
-    </div>
-
-    <div class="partner-grid" id="partnerGrid"></div>
-
-    <div class="fam-block">
-      <h3>Hotel Partners</h3>
+ 
+    <!-- Hotel Logos Scroll -->
+    <div class="hotel-scroll-bar">
+      <h3>Hotel Logos with Name and City</h3>
       <div class="logo-slider">
         <div class="logo-track">
           <img src="images/hotels/1.png" alt="Hotel Partner">
@@ -755,7 +1019,7 @@ As shared earlier, RTF has been postponed until further notice, so as a continuo
           <img src="images/hotels/4.png" alt="Hotel Partner">
           <img src="images/hotels/5.png" alt="Hotel Partner">
           <img src="images/hotels/6.png" alt="Hotel Partner">
-
+          <!-- Duplicates for seamless loop -->
           <img src="images/hotels/1.png" alt="Hotel Partner">
           <img src="images/hotels/2.png" alt="Hotel Partner">
           <img src="images/hotels/3.png" alt="Hotel Partner">
@@ -765,60 +1029,205 @@ As shared earlier, RTF has been postponed until further notice, so as a continuo
         </div>
       </div>
     </div>
-
-    <div class="fam-block">
-      <h3>Travel Agent Feedback Videos</h3>
-      <div class="video-grid">
-        <video controls playsinline src="vedios/feedback1.mp4"></video>
-        <video controls playsinline src="vedios/feedback2.mp4"></video>
-        <video controls playsinline src="vedios/feedback3.mp4"></video>
+ 
+    <!-- Two Column: Participants + Feedback Videos -->
+    <div class="fam-two-col">
+ 
+      <!-- LEFT: Participating Travel Companies -->
+      <div class="fam-panel">
+        <h3>List of Confirmed Participants for RTF FAM Tour</h3>
+        <input type="text" class="participants-search" id="participantSearch" placeholder="Search name, city, company..." />
+        <div class="participants-table-wrap">
+          <table class="participants-table" id="participantsTable">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Name</th>
+                <th>Title</th>
+                <th>Organization</th>
+                <th>City</th>
+              </tr>
+            </thead>
+            <tbody id="participantsTbody">
+              <tr><td>1</td><td>Mr. Guneet Singh</td><td>Founder</td><td>Your Nice Trip</td><td>Faridabad</td></tr>
+              <tr><td>2</td><td>Mr. Anil Dhingra</td><td>ED</td><td>Unique Air Services</td><td>Delhi</td></tr>
+              <tr><td>3</td><td>Mr. Narender Sharma</td><td>Director</td><td>Perfection Consulting (India) Pvt Ltd</td><td>Delhi</td></tr>
+              <tr><td>4</td><td>Mr. Nilesh Bhutwala</td><td>Partner</td><td>Travel Theme Holidays</td><td>Surat</td></tr>
+              <tr><td>5</td><td>Ms. Leena Jumde</td><td>CEO</td><td>Travel Gratitude</td><td>Mumbai</td></tr>
+              <tr><td>6</td><td>Mr. Sachin Sharma</td><td>MD</td><td>Travel By Passion</td><td>Delhi</td></tr>
+              <tr><td>7</td><td>Ms. Priyanka Mohidekar</td><td>Director</td><td>Touring Toes LLP</td><td>Pune</td></tr>
+              <tr><td>8</td><td>Mr. Dilip Soni</td><td>Owner</td><td>Sonii Travels</td><td>Mumbai</td></tr>
+              <tr><td>9</td><td>Mr. Niranjan Ji</td><td>Director</td><td>Smithasya Enter Pvt Ltd (Holiday Kool)</td><td>Pune</td></tr>
+              <tr><td>10</td><td>Ms. Madhuri Wadangenkar</td><td>Founder</td><td>Skip The Line Tour</td><td>Mumbai</td></tr>
+              <tr><td>11</td><td>Mr. Ganesh L Sakhara</td><td>Owner</td><td>ShreeNath Travels</td><td>Pune</td></tr>
+              <tr><td>12</td><td>Mr. Alankaran Verma</td><td>Owner</td><td>Sai Tour &amp; Travels</td><td>Una</td></tr>
+              <tr><td>13</td><td>Mr. Madhu</td><td>CEO &amp; Founder</td><td>NB4 Holidays</td><td>Kochi</td></tr>
+              <tr><td>14</td><td>Mr. Tejas Kale</td><td>Director</td><td>My Travel World Travel</td><td>Pune</td></tr>
+              <tr><td>15</td><td>Mr. Kartik Pachchigar</td><td>Owner</td><td>Magical India Holidays</td><td>Surat</td></tr>
+              <tr><td>16</td><td>Mr. Tushar Patel</td><td>Sales Executive</td><td>Magical India Holidays</td><td>Surat</td></tr>
+              <tr><td>17</td><td>Mr. Ram Raj Singh</td><td>Founder &amp; MD</td><td>Luxurious Heritage</td><td>Delhi</td></tr>
+              <tr><td>18</td><td>Mr. Mahendra R Jain</td><td>Owner</td><td>Kering Holiday</td><td>Mumbai</td></tr>
+              <tr><td>19</td><td>Mr. Mukesh Kumar</td><td>Founder</td><td>KaaSaa Events</td><td>Delhi</td></tr>
+              <tr><td>20</td><td>Ms. Dilpreet (Sheena) Sewal</td><td>Founder</td><td>India TajMahal Tour Operators</td><td>Delhi</td></tr>
+              <tr><td>21</td><td>Mr. Pushpendra Sen</td><td>Founder</td><td>Historical India Tours And Travels</td><td>Orchha</td></tr>
+              <tr><td>22</td><td>Mr. Shubham Gupta</td><td>Manager</td><td>Galaxy Holidays</td><td>Pune</td></tr>
+              <tr><td>23</td><td>Ms. Sarika Chopra</td><td>Founder &amp; CEO</td><td>Explorers-Den</td><td>Faridabad</td></tr>
+              <tr><td>24</td><td>Ms. Chandni Sharma</td><td>Director</td><td>Ascel Group</td><td>Ghaziabad</td></tr>
+              <tr><td>25</td><td>Mr. Devendra P. Divekar</td><td>Owner</td><td>Go Weekends</td><td>Mumbai</td></tr>
+              <tr><td>26</td><td>Ms. Pooja</td><td>Founder</td><td>Journey Master</td><td>Delhi</td></tr>
+              <tr><td>27</td><td>Mr. Santhosh Kumar</td><td>Owner</td><td>GodZone Holidays &amp; Tours</td><td>Alibaug</td></tr>
+              <tr><td>28</td><td>Ms. Pooja V Patil</td><td>Owner</td><td>Plango Holidays Explore World</td><td>Mumbai</td></tr>
+              <tr><td>29</td><td>Ms. Neetu Gola</td><td>Founder</td><td>Om Sai Travels</td><td>Delhi</td></tr>
+              <tr><td>30</td><td>Mr. Aman Saini</td><td>Owner</td><td>Colors of India</td><td>Delhi</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+ 
+      <!-- RIGHT: Feedback Videos -->
+      <div class="fam-panel">
+        <h3>Feedback Videos — Travel Agents</h3>
+        <div class="videos-grid">
+          <div class="video-item">
+            <video controls playsinline src="vedios/feedback1.mp4"></video>
+            <p>Video 1</p>
+          </div>
+          <div class="video-item">
+            <video controls playsinline src="vedios/feedback2.mp4"></video>
+            <p>Video 2</p>
+          </div>
+          <div class="video-item">
+            <video controls playsinline src="vedios/feedback3.mp4"></video>
+            <p>Video 3</p>
+          </div>
+          <div class="video-item">
+            <video controls playsinline src="vedios/feedback4.mp4"></video>
+            <p>Video 4</p>
+          </div>
+          <div class="video-item">
+            <video controls playsinline src="vedios/feedback5.mp4"></video>
+            <p>Video 5</p>
+          </div>
+          <div class="video-item">
+            <video controls playsinline src="vedios/feedback6.mp4"></video>
+            <p>Video 6</p>
+          </div>
+        </div>
       </div>
     </div>
-
-    <div class="fam-block">
-      <h3>Written Feedback</h3>
-      <div class="feedback-scroll">
-        <div class="feedback-card">
-          <h4>Mr. Guneet Singh</h4>
-          <p>Your Nice Trip</p>
-          <span>Excellent experience and very well managed FAM trip.</span>
-        </div>
-
-        <div class="feedback-card">
-          <h4>Ms. Leena Jumde</h4>
-          <p>Travel Gratitude</p>
-          <span>Great hospitality and strong networking opportunity.</span>
-        </div>
-
-        <div class="feedback-card">
-          <h4>Mr. Sachin Sharma</h4>
-          <p>Travel By Passion</p>
-          <span>A valuable platform to explore Rajasthan tourism.</span>
-        </div>
-
-        <div class="feedback-card">
-          <h4>Ms. Priyanka Mohidekar</h4>
-          <p>Touring Toes LLP</p>
-          <span>Beautifully organized with memorable destination exposure.</span>
+ 
+    <!-- Written Feedback Scroll -->
+    <div class="feedback-scroll-section">
+      <h3>Travel Agent Written Feedback</h3>
+      <div class="feedback-track-wrap">
+        <div class="feedback-track">
+          <!-- Original set -->
+          <div class="feedback-card-item">
+            <h4>Mr. Guneet Singh</h4>
+            <div class="org">Your Nice Trip · Faridabad</div>
+            <div class="quote">"Excellent experience and very well managed FAM trip."</div>
+          </div>
+          <div class="feedback-card-item">
+            <h4>Ms. Leena Jumde</h4>
+            <div class="org">Travel Gratitude · Mumbai</div>
+            <div class="quote">"Great hospitality and strong networking opportunity."</div>
+          </div>
+          <div class="feedback-card-item">
+            <h4>Mr. Sachin Sharma</h4>
+            <div class="org">Travel By Passion · Delhi</div>
+            <div class="quote">"A valuable platform to explore Rajasthan tourism."</div>
+          </div>
+          <div class="feedback-card-item">
+            <h4>Ms. Priyanka Mohidekar</h4>
+            <div class="org">Touring Toes LLP · Pune</div>
+            <div class="quote">"Beautifully organized with memorable destination exposure."</div>
+          </div>
+          <div class="feedback-card-item">
+            <h4>Mr. Nilesh Bhutwala</h4>
+            <div class="org">Travel Theme Holidays · Surat</div>
+            <div class="quote">"An immersive journey through Rajasthan's best offerings."</div>
+          </div>
+          <div class="feedback-card-item">
+            <h4>Ms. Sarika Chopra</h4>
+            <div class="org">Explorers-Den · Faridabad</div>
+            <div class="quote">"The hotel partners were outstanding in their hospitality."</div>
+          </div>
+          <!-- Duplicate set for seamless loop -->
+          <div class="feedback-card-item">
+            <h4>Mr. Guneet Singh</h4>
+            <div class="org">Your Nice Trip · Faridabad</div>
+            <div class="quote">"Excellent experience and very well managed FAM trip."</div>
+          </div>
+          <div class="feedback-card-item">
+            <h4>Ms. Leena Jumde</h4>
+            <div class="org">Travel Gratitude · Mumbai</div>
+            <div class="quote">"Great hospitality and strong networking opportunity."</div>
+          </div>
+          <div class="feedback-card-item">
+            <h4>Mr. Sachin Sharma</h4>
+            <div class="org">Travel By Passion · Delhi</div>
+            <div class="quote">"A valuable platform to explore Rajasthan tourism."</div>
+          </div>
+          <div class="feedback-card-item">
+            <h4>Ms. Priyanka Mohidekar</h4>
+            <div class="org">Touring Toes LLP · Pune</div>
+            <div class="quote">"Beautifully organized with memorable destination exposure."</div>
+          </div>
+          <div class="feedback-card-item">
+            <h4>Mr. Nilesh Bhutwala</h4>
+            <div class="org">Travel Theme Holidays · Surat</div>
+            <div class="quote">"An immersive journey through Rajasthan's best offerings."</div>
+          </div>
+          <div class="feedback-card-item">
+            <h4>Ms. Sarika Chopra</h4>
+            <div class="org">Explorers-Den · Faridabad</div>
+            <div class="quote">"The hotel partners were outstanding in their hospitality."</div>
+          </div>
         </div>
       </div>
     </div>
-
-    <div class="fam-block">
+ 
+    <!-- RTF FAM Gallery -->
+    <div class="gallery-section">
       <h3>RTF FAM Gallery</h3>
-      <div class="gallery-grid">
-        <img src="images/gallery/1.jpeg" alt="RTF FAM Gallery">
-        <img src="images/gallery/2.jpeg" alt="RTF FAM Gallery">
-        <img src="images/gallery/3.jpeg" alt="RTF FAM Gallery">
-        <img src="images/gallery/4.jpeg" alt="RTF FAM Gallery">
-        <img src="images/gallery/5.jpeg" alt="RTF FAM Gallery">
-        <img src="images/gallery/6.jpeg" alt="RTF FAM Gallery">
+      <div class="gallery-scroll-wrap">
+        <div class="gallery-scroll-track">
+          <img src="images/gallery/1.jpeg" alt="RTF FAM Gallery">
+          <img src="images/gallery/2.jpeg" alt="RTF FAM Gallery">
+          <img src="images/gallery/3.jpeg" alt="RTF FAM Gallery">
+          <img src="images/gallery/4.jpeg" alt="RTF FAM Gallery">
+          <img src="images/gallery/5.jpeg" alt="RTF FAM Gallery">
+          <img src="images/gallery/6.jpeg" alt="RTF FAM Gallery">
+          <!-- Duplicates for seamless loop -->
+          <img src="images/gallery/1.jpeg" alt="RTF FAM Gallery">
+          <img src="images/gallery/2.jpeg" alt="RTF FAM Gallery">
+          <img src="images/gallery/3.jpeg" alt="RTF FAM Gallery">
+          <img src="images/gallery/4.jpeg" alt="RTF FAM Gallery">
+          <img src="images/gallery/5.jpeg" alt="RTF FAM Gallery">
+          <img src="images/gallery/6.jpeg" alt="RTF FAM Gallery">
+        </div>
       </div>
     </div>
-
-  </div>
+ 
+  </div><!-- end partners-inner -->
 </section>
-  
+<!-- ======================== END PARTNERS SECTION ======================== -->
+ 
+<!-- Participant Search Script -->
+<script>
+(function() {
+  var searchInput = document.getElementById('participantSearch');
+  if (searchInput) {
+    searchInput.addEventListener('keyup', function() {
+      var val = this.value.toLowerCase();
+      var rows = document.querySelectorAll('#participantsTbody tr');
+      rows.forEach(function(row) {
+        row.style.display = row.innerText.toLowerCase().includes(val) ? '' : 'none';
+      });
+    });
+  }
+})();
+</script>
 <!-- ================= RTF FAM 2026 COMING SOON ================= -->
 <section id="rtffam" class="page-section relative min-h-screen flex items-center justify-center text-white">
   <div class="absolute inset-0 bg-gradient-to-br from-[#1B2A57] via-[#2c2638] to-[#4a2630] -z-10"></div>
