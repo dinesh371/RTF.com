@@ -528,93 +528,109 @@
     <!-- ══════════════════════════════════════════════════════════ -->
     <!-- RTF FAM 2026 COMING SOON                                   -->
     <!-- ══════════════════════════════════════════════════════════ -->
-    <section id="rtffam" class="page-section relative min-h-screen items-center justify-center text-white">
-      <div class="absolute inset-0 bg-gradient-to-br from-[#1B2A57] via-[#2c2638] to-[#4a2630] -z-10"></div>
-      <div class="text-center px-6">
-        <h2 class="text-4xl md:text-5xl font-bold mb-4 text-yellow-300">RTF FAM 2026</h2>
-        <img src="images/RTF @026.jpeg" alt="RTF FAM 2026 Coming Soon"
-          class="mx-auto w-[300px] md:w-[450px] rounded-2xl shadow-2xl border-4 border-yellow-300 mb-6"/>
-        <p class="text-xl md:text-2xl font-semibold tracking-wide">Content Coming Soon</p>
-      </div>
-    </section>
+    <!-- ================= RTF FAM 2026 ================= -->
+<section id="rtffam" class="page-section relative min-h-screen flex items-center justify-center text-white overflow-hidden">
+  <div class="absolute inset-0 bg-gradient-to-br from-[#1B2A57] via-[#2c2638] to-[#4a2630] -z-10"></div>
 
-    <!-- ══════════════════════════════════════════════════════════ -->
-    <!-- RTF GLOBAL FAM — PDF FLIPBOOK VIEWER                      -->
-    <!-- ══════════════════════════════════════════════════════════ -->
-    <section id="rtfglobal" class="page-section">
-      <div class="rtfglobal-inner">
+  <div class="text-center px-6">
+    <h2 class="text-4xl md:text-5xl font-bold mb-4 text-yellow-300">
+      RTF FAM 2026
+    </h2>
 
-        <!-- Header -->
-        <div class="rtfglobal-header">
-          <span class="rtf-badge">RTF GLOBAL FAM 2026</span>
-          <h2 class="rtf-title">Global FAM Itinerary Showcase</h2>
-          <p class="rtf-subtitle">16 Days · 14 Destinations · 30+ International Travel Agents · 60+ Hotels</p>
-        </div>
+    <img src="images/RTF @026.jpeg"
+         alt="RTF FAM 2026 Coming Soon"
+         class="mx-auto w-[300px] md:w-[450px] rounded-2xl shadow-2xl border-4 border-yellow-300 mb-6" />
 
-        <!-- Stats row -->
-        <div class="rtf-info-grid">
-          <div><strong>16</strong><span>Days</span></div>
-          <div><strong>14</strong><span>Destinations</span></div>
-          <div><strong>30+</strong><span>Travel Agents</span></div>
-          <div><strong>60+</strong><span>Hotel Partners</span></div>
-        </div>
+    <p class="text-xl md:text-2xl font-semibold tracking-wide">
+      Content Coming Soon
+    </p>
+  </div>
+</section>
 
-        <!-- Flipbook viewer -->
-        <div class="pdf-flipbook-wrapper">
 
-          <!-- Main flipbook card -->
-          <div class="flipbook-card">
-            <div class="flipbook-label">RTF Global Brochure</div>
+<!-- ================= RTF GLOBAL FAM ================= -->
+<section id="rtfglobal" class="page-section rtfglobal-section">
 
-            <!-- Canvas area -->
-            <div class="flipbook-canvas-wrap" id="flipbookCanvasWrap">
-              <!-- Loading spinner -->
-              <div class="pdf-loading-state" id="pdfLoadState">
-                <div class="spinner"></div>
-                <p>Loading itinerary...</p>
-              </div>
-              <!-- Canvas target for PDF.js rendering -->
-              <canvas id="flipbookCanvas"></canvas>
-            </div>
+  <div class="rtfglobal-inner">
 
-            <!-- Page navigation controls -->
-            <div class="flipbook-controls" id="flipbookControls">
-              <button class="flip-btn prev-btn" id="pdfPrevBtn" disabled title="Previous page (← arrow key)">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3" stroke="currentColor" width="22" height="22">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5"/>
-                </svg>
-              </button>
-              <span class="page-counter" id="pdfPageCount">Loading...</span>
-              <button class="flip-btn next-btn" id="pdfNextBtn" title="Next page (→ arrow key)">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3" stroke="currentColor" width="22" height="22">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5"/>
-                </svg>
-              </button>
-            </div>
+    <div class="rtfglobal-header">
+      <span class="rtf-badge">RTF GLOBAL FAM 2026</span>
+
+      <h2 class="rtf-title">
+        Global FAM Itinerary Showcase
+      </h2>
+
+      <p class="rtf-subtitle">
+        16 Days · 14 Destinations · 30+ International Travel Agents · 60+ Hotels
+      </p>
+    </div>
+
+    <div class="rtf-info-grid">
+      <div><strong>16</strong><span>Days</span></div>
+      <div><strong>14</strong><span>Destinations</span></div>
+      <div><strong>30+</strong><span>Travel Agents</span></div>
+      <div><strong>60+</strong><span>Hotel Partners</span></div>
+    </div>
+
+    <div class="pdf-flipbook-wrapper">
+
+      <div class="flipbook-card">
+        <div class="flipbook-label">RTF Global Brochure</div>
+
+        <div class="flipbook-canvas-wrap" id="flipbookCanvasWrap">
+
+          <div class="pdf-loading-state" id="pdfLoadState">
+            <div class="spinner"></div>
+            <p>Loading itinerary...</p>
           </div>
 
-          <!-- Thumbnail strip -->
-          <div class="thumb-strip" id="pdfThumbStrip"></div>
+          <canvas id="flipbookCanvas"></canvas>
 
-          <!-- Action buttons -->
-          <div class="rtf-actions">
-            <a href="Documents/RTF_Global_Fam_Itinerary.pdf" target="_blank" class="btn-primary">
-              📄 View Full PDF
-            </a>
-            <a href="files/RTF_Global_Fam_Itinerary.pdf" download class="btn-outline">
-              ⬇ Download
-            </a>
-            <button onclick="toggleModal()" class="btn-primary" style="background:#1b2a57;color:#facc15;border:1.5px solid #facc15;">
-              ✈ Register Now
-            </button>
-          </div>
+          <!-- Backup direct PDF viewer -->
+          <iframe
+            id="pdfFallbackViewer"
+            src="Documents/RTF_Global_Fam_Itinerary.pdf#toolbar=1&navpanes=0&scrollbar=1"
+            style="display:none;width:100%;height:100%;border:0;">
+          </iframe>
+
         </div>
-        <!-- end pdf-flipbook-wrapper -->
 
+        <div class="flipbook-controls" id="flipbookControls">
+          <button class="flip-btn prev-btn" id="pdfPrevBtn" disabled title="Previous page">
+            &#10094;
+          </button>
+
+          <span class="page-counter" id="pdfPageCount">
+            Loading...
+          </span>
+
+          <button class="flip-btn next-btn" id="pdfNextBtn" title="Next page">
+            &#10095;
+          </button>
+        </div>
       </div>
-    </section>
 
-  </div><!-- end page-container -->
+      <div class="thumb-strip" id="pdfThumbStrip"></div>
+
+      <div class="rtf-actions">
+        <a href="Documents/RTF_Global_Fam_Itinerary.pdf" target="_blank" class="btn-primary">
+          📄 View Full PDF
+        </a>
+
+        <a href="Documents/RTF_Global_Fam_Itinerary.pdf" download class="btn-outline">
+          ⬇ Download
+        </a>
+
+        <button onclick="toggleModal()" class="btn-primary register-btn">
+          ✈ Register Now
+        </button>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
 
   <!-- ===== FOOTER ===== -->
   <footer class="relative bg-[#0f172a] text-gray-300 px-4 py-14 md:px-8 lg:px-16 overflow-hidden">
