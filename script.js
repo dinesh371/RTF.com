@@ -36,11 +36,16 @@ document.addEventListener("DOMContentLoaded", function () {
   function showPage(index, updateUrl = true) {
     if (index < 0 || index >= sections.length) return;
 
+    // Hide all sections and pause their videos
     sections.forEach(section => {
       section.classList.remove("active");
       section.style.display = "none";
       section.style.opacity = "0";
       section.style.visibility = "hidden";
+
+      // Pause any video in sections being hidden
+      const vid = section.querySelector("video");
+      if (vid) vid.pause();
     });
 
     currentIndex = index;
@@ -50,6 +55,13 @@ document.addEventListener("DOMContentLoaded", function () {
     activeSection.style.opacity = "1";
     activeSection.style.visibility = "visible";
     activeSection.classList.add("active");
+
+    // Play the video in the newly visible section
+    const activeVideo = activeSection.querySelector("video");
+    if (activeVideo) {
+      activeVideo.muted = true; // required for autoplay policy
+      activeVideo.play().catch(() => {}); // silently ignore browser blocks
+    }
 
     if (updateUrl) {
       history.pushState(null, "", "#" + activeSection.id);
