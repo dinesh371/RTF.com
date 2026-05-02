@@ -328,210 +328,133 @@
 
 <!-- About Section -->
 <section id="about"
-    class="page-section relative w-full min-h-screen flex items-center justify-center overflow-hidden text-white pt-12 pb-12 bg-gray-900 bg-cover bg-center"
-    style="background-image: url('images/ChatGPT Image Jun 8, 2026, 11_23_22 PM.png');">
-    
-    <!-- Background Video -->
-  
-      <video autoplay muted loop playsinline class="bg-video absolute inset-0 z-0">
-  <source src="vedios/about.mp4" type="video/mp4" />
-</video>
-<div class="absolute inset-0 bg-black/70 z-10"></div>
-<div class="relative z-20 max-w-7xl mx-auto px-4">
-
-
-      
-        
-        <!-- Heading -->
-     <!-- Heading with Logo -->
-<div class="text-center mb-6 px-4 flex flex-col items-center justify-center gap-6">
-  <div class="flex items-center justify-center gap-6 flex-wrap">
-    <!-- Logo -->
-    <img src="images/finallogo1.png"alt="Event Logo"
-         class="w-32 h-32 md:w-40 md:h-40 object-cover rounded-full shadow-xl border-4 border-yellow-300 bg-white p-1" />
-    
-    <!-- Heading Text -->
-    <div class="text-center">
-      <h1 class="text-4xl md:text-5xl font-bold text-white">Welcome to Jodhpur</h1>
-      <p class="mt-2 text-lg md:text-xl text-yellow-100">Explore the rich heritage and stunning architecture</p>
+  class="page-section relative w-full min-h-screen text-white overflow-hidden"
+  style="display:none; flex-direction:column; align-items:center; justify-content:flex-start;">
+ 
+  <!-- Background Video -->
+  <video autoplay muted loop playsinline class="absolute inset-0 w-full h-full object-cover z-0">
+    <source src="vedios/about.mp4" type="video/mp4" />
+  </video>
+  <div class="absolute inset-0 bg-black/75 z-10"></div>
+ 
+  <div class="relative z-20 w-full max-w-7xl mx-auto px-4 py-10">
+ 
+    <!-- Page Title -->
+    <div class="text-center mb-10">
+      <h1 class="text-4xl md:text-5xl font-extrabold text-yellow-300 tracking-wide mb-2">About Rajasthan Travel Fair</h1>
+      <p class="text-gray-300 text-lg">RTF Concept — Connecting Travel, Culture &amp; Commerce</p>
     </div>
-  </div>
-</div>
-
-
-
-        <!-- About Content & Slider -->
-        <div class="flex flex-col lg:flex-row gap-10 items-center justify-center px-2 sm:px-6 md:px-12">
-            
-            <!-- About Content -->
-            <div class="w-full lg:w-1/2 text-left space-y-6 bg-white/20 p-10 rounded-3xl backdrop-blur-xl shadow-2xl border border-yellow-200">
-                <p class="text-xl text-gray-100 font-medium leading-relaxed">
-                    The event is planned, hosted and organised by 
-                    <span class="font-bold text-yellow-300">India Outtabox Pvt Ltd</span>
-                </p>
-                <p>
-As shared earlier, RTF has been postponed until further notice, so as a continuous engagement activity, we organized a FAM trip to Jodhpur-Jaisalmer-Jawai.
-"RTF FAM 2026 (20–24 March) was a grand success — stands as a true testament to the power of collaboration. This achievement belongs to our incredible team of travel agents and our 15+ hotel partners whose generous support and hospitality made it possible. With participation from 31+ travel agents, this journey was not just an event, but a milestone.”               
-                </p>
-            </div>
-
-            <!-- Image Slider -->
-            <div class="w-full lg:w-1/2 flex flex-row items-center justify-center gap-6">
-                <button onclick="changeSlide(-1)" aria-label="Previous Slide"
-                    class="text-3xl font-bold bg-yellow-200/80 text-yellow-900 p-3 rounded-full shadow-lg hover:bg-yellow-400 hover:text-white transition duration-200">
-                    ❮
-                </button>
-                <div class="w-full max-w-[520px] h-[360px] rounded-2xl overflow-hidden border-4 border-yellow-300/60 shadow-2xl relative bg-white/30">
-                    <img id="slideImage" src="images/Venue Photos/19.jpeg" alt="Slide"
-                        class="w-full h-full object-cover absolute inset-0 transition-opacity duration-700 ease-in-out opacity-100" />
-                </div>
-                <button onclick="changeSlide(1)" aria-label="Next Slide"
-                    class="text-3xl font-bold bg-yellow-200/80 text-yellow-900 p-3 rounded-full shadow-lg hover:bg-yellow-400 hover:text-white transition duration-200">
-                    ❯
-                </button>
-            </div>
+ 
+    <!-- THREE CONCEPT CARDS -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+ 
+      <!-- Card 1: RTF -->
+      <div class="bg-white/10 backdrop-blur-xl border border-yellow-300/30 rounded-3xl p-6 flex flex-col items-center text-center shadow-2xl hover:border-yellow-400 transition-all duration-300">
+        <img src="images/finallogo1.png" alt="RTF Logo" class="w-20 h-20 rounded-full object-cover border-2 border-yellow-300 mb-4 bg-white p-1" />
+        <h3 class="text-xl font-bold text-yellow-300 mb-1">Rajasthan Travel Fair</h3>
+        <p class="text-yellow-100 text-sm font-semibold mb-3">(RTF)</p>
+        <p class="text-gray-300 text-sm leading-relaxed">
+          Rajasthan Travel Fair (RTF) is a curated 3-day B2B networking platform designed for the travel and tourism industry. It brings together Travel Agents, Hotels, and Destination Management Companies (DMCs) under one roof to connect, collaborate, and build meaningful business relationships.
+        </p>
+        <p class="text-gray-300 text-sm leading-relaxed mt-3">
+          The format encourages direct interaction — whether it's exchanging contacts, discussing potential partnerships, or understanding each other's offerings in a more personal setting.
+        </p>
+        <p class="text-gray-300 text-sm leading-relaxed mt-3">
+          The inaugural edition of RTF is currently in the planning phase and is scheduled to take place in 2026, with a vision to create a strong and sustainable tourism network for Rajasthan.
+        </p>
+      </div>
+ 
+      <!-- Card 2: RTF FAM — title is clickable link to partners page -->
+      <div class="bg-white/10 backdrop-blur-xl border border-yellow-300/30 rounded-3xl p-6 flex flex-col items-center text-center shadow-2xl hover:border-yellow-400 transition-all duration-300">
+        <img src="images/finallogo1.png" alt="RTF FAM Logo" class="w-20 h-20 rounded-full object-cover border-2 border-yellow-300 mb-4 bg-white p-1" />
+ 
+        <!-- CLICKABLE TITLE -->
+        <h3 class="text-xl font-bold text-yellow-300 mb-1">
+          <a href="#partners"
+             class="nav-link hover:text-yellow-200 underline underline-offset-4 decoration-dotted transition-colors duration-200 cursor-pointer"
+             data-target="partners"
+             title="View RTF FAM details">
+            Rajasthan Travel Fair FAMilarization Trip
+          </a>
+        </h3>
+        <p class="text-yellow-100 text-sm font-semibold mb-3">(RTF FAM)</p>
+ 
+        <p class="text-gray-300 text-sm leading-relaxed">
+          RTF FAM is an ongoing engagement initiative designed to provide travel agents with first-hand exposure to Rajasthan's diverse destinations. These curated trips focus on showcasing the region's rich history, vibrant culture, and most importantly, its wide range of hospitality offerings.
+        </p>
+        <p class="text-gray-300 text-sm leading-relaxed mt-3">
+          Through live experiences, site inspections, and direct interactions with hotel teams and management, travel partners gain the confidence and insight needed to effectively promote Rajasthan to their clients.
+        </p>
+        <p class="text-gray-300 text-sm leading-relaxed mt-3">
+          The first season of RTF FAM was successfully conducted from March 20th to 24th, 2026, and received an encouraging response from both participating travel partners and supporting hotel partners.
+        </p>
+        <p class="text-gray-300 text-sm leading-relaxed mt-3">
+          To learn more about the first season of RTF FAM, please
+          <a href="#partners" class="nav-link text-yellow-300 underline font-semibold hover:text-yellow-200" data-target="partners">click here</a>.
+        </p>
+      </div>
+ 
+      <!-- Card 3: RTF Global FAM -->
+      <div class="bg-white/10 backdrop-blur-xl border border-yellow-300/30 rounded-3xl p-6 flex flex-col items-center text-center shadow-2xl hover:border-yellow-400 transition-all duration-300">
+        <img src="images/finallogo1.png" alt="RTF Global Logo" class="w-20 h-20 rounded-full object-cover border-2 border-yellow-300 mb-4 bg-white p-1" />
+        <h3 class="text-xl font-bold text-yellow-300 mb-1">Rajasthan Travel Fair Global FAM</h3>
+        <p class="text-yellow-100 text-sm font-semibold mb-3">(RTF GLOBAL FAM)</p>
+        <p class="text-gray-300 text-sm leading-relaxed">
+          RTF Global FAM is the next step in our journey — an initiative aimed at bringing international travel partners to Rajasthan. It offers travel agents from across the globe an opportunity to experience the state's tourism potential, cultural richness, and hospitality standards first-hand.
+        </p>
+        <p class="text-gray-300 text-sm leading-relaxed mt-3">
+          Designed on the lines of RTF FAM, this extended program allows participants to explore Rajasthan deeply before presenting it to their clients with confidence and authenticity.
+        </p>
+        <p class="text-gray-300 text-sm leading-relaxed mt-3">
+          The Global FAM is a 16-day immersive journey covering 14 key destinations across Rajasthan, offering a comprehensive view of the region's travel landscape.
+        </p>
+        <p class="text-gray-300 text-sm leading-relaxed mt-3">
+          To apply for the upcoming RTF Global FAM,
+          <button onclick="toggleModal()" class="text-yellow-300 underline font-semibold hover:text-yellow-200">click here</button>
+          (RTF Registration Form).
+        </p>
+      </div>
+    </div>
+ 
+    <!-- MEET THE TEAM -->
+    <div class="mb-12">
+      <h2 class="text-3xl font-bold text-center text-white mb-8">Meet the Team</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+ 
+        <!-- Kanchan K Williams -->
+        <div class="bg-white/5 hover:bg-white/10 transition duration-300 rounded-2xl shadow-xl p-8 text-center flex flex-col items-center border border-white/10 hover:border-yellow-300/50">
+          <img src="images/Members Pics/Mrs. Kanchan Kishore.jpeg" alt="Kanchan K Williams"
+               class="w-28 h-28 object-cover object-top rounded-full border-2 border-yellow-300 shadow-md mb-4" />
+          <h3 class="text-lg font-bold text-yellow-200">Kanchan K Williams</h3>
+          <p class="text-sm text-gray-300 mt-1">Co-Founder</p>
+          <p class="text-sm text-gray-400">India Outtabox Pvt Ltd</p>
+          <p class="text-sm text-yellow-100 mt-3">📞 <a href="tel:+919660061201" class="hover:underline">+91-96600-61201</a></p>
         </div>
-
-        <!-- Feature Cards -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 px-2 sm:px-6 md:px-12 py-10">
-            <div class="bg-white/90 p-8 rounded-2xl shadow-xl hover:scale-105 transition-transform duration-300 flex flex-col items-center border border-yellow-100">
-                <div class="text-yellow-600 mb-4 flex justify-center">
-                    <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
-                    </svg>
-                </div>
-                <h4 class="text-xl font-semibold text-center mb-2 text-yellow-900">Luxury Hotels</h4>
-                <p class="text-center text-gray-700 text-base">Connect with the finest luxury accommodations in Rajasthan.</p>
-            </div>
-
-            <div class="bg-white/90 p-8 rounded-2xl shadow-xl hover:scale-105 transition-transform duration-300 flex flex-col items-center border border-blue-100">
-                <div class="text-blue-700 mb-4 flex justify-center">
-                    <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
-                    </svg>
-                </div>
-                <h4 class="text-xl font-semibold text-center mb-2 text-blue-900">Global Network</h4>
-                <p class="text-center text-gray-700 text-base">Network with top travel agencies from around the world.</p>
-            </div>
-
-            <div class="bg-white/90 p-8 rounded-2xl shadow-xl hover:scale-105 transition-transform duration-300 flex flex-col items-center border border-orange-100">
-                <div class="text-orange-600 mb-4 flex justify-center">
-                    <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M12 11c0 3.517-1.009 6.799-2.753 9.571m-3.44-2.04l.054-.09A13.916 13.916 0 008 11a4 4 0 118 0c0 1.017-.07 2.019-.203 3m-2.118 6.844A21.88 21.88 0 0015.171 17m3.839 1.132c.645-2.266.99-4.659.99-7.132A8 8 0 008 4.07M3 15.364c.64-1.319 1-2.8 1-4.364 0-1.457.39-2.823 1.07-4" />
-                    </svg>
-                </div>
-                <h4 class="text-xl font-semibold text-center mb-2 text-orange-900">Cultural Heritage</h4>
-                <p class="text-center text-gray-700 text-base">Explore Rajasthan’s rich cultural traditions and art forms.</p>
-            </div>
-
-            <div class="bg-white/90 p-8 rounded-2xl shadow-xl hover:scale-105 transition-transform duration-300 flex flex-col items-center border border-pink-100">
-                <div class="text-pink-600 mb-4 flex justify-center">
-                    <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
-                </div>
-                <h4 class="text-xl font-semibold text-center mb-2 text-pink-900">Experiences</h4>
-                <p class="text-center text-gray-700 text-base">Discover unforgettable travel adventures across Rajasthan.</p>
-            </div>
+ 
+        <!-- Vinny Williams -->
+        <div class="bg-white/5 hover:bg-white/10 transition duration-300 rounded-2xl shadow-xl p-8 text-center flex flex-col items-center border border-white/10 hover:border-yellow-300/50">
+          <img src="images/Members Pics/Mr. Vinny Williams.jpeg" alt="Vinny Williams"
+               class="w-28 h-28 object-cover object-top rounded-full border-2 border-yellow-300 shadow-md mb-4" />
+          <h3 class="text-lg font-bold text-yellow-200">Vinny K Williams</h3>
+          <p class="text-sm text-gray-300 mt-1">CEO &amp; Founder</p>
+          <p class="text-sm text-gray-400">India Outtabox Pvt Ltd</p>
+          <p class="text-xs text-gray-500 italic mt-1">(RTF is his brain child)</p>
+          <p class="text-sm text-yellow-100 mt-3">📞 <a href="tel:+919660061777" class="hover:underline">+91-96600-61777</a></p>
         </div>
-<!-- Organizers Section -->
-<div class="w-full flex justify-center px-4 sm:px-8 md:px-16 py-14">
-  
-  <div class="w-full max-w-4xl bg-white/10 backdrop-blur-2xl border border-yellow-200/30 p-10 rounded-3xl shadow-2xl text-white">
-    
-    <!-- Title -->
-  
-<!-- Meet the Organizers Section -->
-<section id="organizers" class="py-16 px-4 bg-[#111827] rounded-3xl border border-yellow-300/30">
-
-  <h2 class="text-3xl font-bold text-center mb-10 text-white">
-    Meet the Organizers
-  </h2>
-
-  <div class="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-
-    <!-- Kanchan K Williams -->
-    <div class="bg-white/5 hover:bg-white/10 transition duration-300 rounded-2xl shadow-xl p-8 text-center flex flex-col items-center min-h-[345px]">
-      <img src="images/Members Pics/Mrs. Kanchan Kishore.jpeg"
-           alt="Kanchan K Williams"
-           class="w-32 h-32 object-cover object-top rounded-full border-2 border-yellow-300 shadow-md mb-6" />
-
-      <h3 class="text-xl font-bold text-yellow-200 leading-snug">Kanchan K Williams</h3>
-      <p class="text-sm text-gray-300 mt-2">Co-Founder</p>
-      <p class="text-sm text-gray-400 mt-1">India Outtabox Pvt Ltd</p>
-
-      <p class="text-sm text-yellow-100 mt-5">
-        📞 <a href="tel:+919660061201" class="hover:underline">+91-96600-61201</a>
-      </p>
-    </div>
-
-    <!-- Vinny Williams -->
-    <div class="bg-white/5 hover:bg-white/10 transition duration-300 rounded-2xl shadow-xl p-8 text-center flex flex-col items-center min-h-[345px]">
-      <img src="images/Members Pics/Mr. Vinny Williams.jpeg"
-           alt="Vinny Williams"
-           class="w-32 h-32 object-cover object-top rounded-full border-2 border-yellow-300 shadow-md mb-6" />
-
-      <h3 class="text-xl font-bold text-yellow-200 leading-snug">Vinny Williams</h3>
-      <p class="text-sm text-gray-300 mt-2">CEO & Founder</p>
-      <p class="text-sm text-gray-400 mt-1">India Outtabox Pvt Ltd</p>
-
-      <p class="text-sm text-yellow-100 mt-5">
-        📞 <a href="tel:+919660061777" class="hover:underline">+91-96600-61777</a>
-      </p>
-    </div>
-
-    <!-- Pooja -->
-    <div class="bg-white/5 hover:bg-white/10 transition duration-300 rounded-2xl shadow-xl p-8 text-center flex flex-col items-center min-h-[345px]">
-      <img src="images/Members Pics/Pooja.jpeg"
-           alt="Pooja"
-           class="w-32 h-32 object-cover object-[center_30%] rounded-full border-2 border-yellow-300 shadow-md mb-6" />
-
-      <h3 class="text-xl font-bold text-yellow-200 leading-snug">Pooja</h3>
-      <p class="text-sm text-gray-300 mt-2">Operations Manager</p>
-      <p class="text-sm text-gray-400 mt-1">India Outtabox Pvt Ltd</p>
-
-      <p class="text-sm text-yellow-100 mt-5">
-        📞 <a href="tel:+919166222900" class="hover:underline">+91-91662-22900</a>
-      </p>
-    </div>
-
-    <!-- Kishore Williams -->
-    <div class="bg-white/5 hover:bg-white/10 transition duration-300 rounded-2xl shadow-xl p-8 text-center flex flex-col items-center min-h-[345px]">
-      <div class="w-32 h-32 rounded-full border-2 border-yellow-300 shadow-md mb-6 bg-yellow-300/10 flex items-center justify-center text-yellow-200 text-4xl font-bold">
-        KW
+ 
+        <!-- Pooja -->
+        <div class="bg-white/5 hover:bg-white/10 transition duration-300 rounded-2xl shadow-xl p-8 text-center flex flex-col items-center border border-white/10 hover:border-yellow-300/50">
+          <img src="images/Members Pics/Pooja.jpeg" alt="Pooja"
+               class="w-28 h-28 object-cover object-[center_30%] rounded-full border-2 border-yellow-300 shadow-md mb-4" />
+          <h3 class="text-lg font-bold text-yellow-200">Pooja K.</h3>
+          <p class="text-sm text-gray-300 mt-1">Operations Manager</p>
+          <p class="text-sm text-gray-400">India Outtabox Pvt Ltd</p>
+          <p class="text-sm text-yellow-100 mt-3">📞 <a href="tel:+919166222900" class="hover:underline">+91-91662-22900</a></p>
+        </div>
+ 
       </div>
-
-      <h3 class="text-xl font-bold text-yellow-200 leading-snug">Kishore Williams</h3>
-      <p class="text-sm text-gray-300 mt-2">Mentor & Advisor</p>
-      <p class="text-sm text-gray-400 mt-1">Rajasthan Travel Fair</p>
     </div>
-
-    <!-- Divya S. -->
-    <div class="bg-white/5 hover:bg-white/10 transition duration-300 rounded-2xl shadow-xl p-8 text-center flex flex-col items-center min-h-[345px]">
-      <div class="w-32 h-32 rounded-full border-2 border-yellow-300 shadow-md mb-6 bg-yellow-300/10 flex items-center justify-center text-yellow-200 text-4xl font-bold">
-        DS
-      </div>
-
-      <h3 class="text-xl font-bold text-yellow-200 leading-snug">Divya S.</h3>
-      <p class="text-sm text-gray-300 mt-2">Operations Assistant</p>
-      <p class="text-sm text-gray-400 mt-1">Rajasthan Travel Fair</p>
-    </div>
-
-    <!-- Dinesh -->
-    <div class="bg-white/5 hover:bg-white/10 transition duration-300 rounded-2xl shadow-xl p-8 text-center flex flex-col items-center min-h-[345px]">
-      <div class="w-32 h-32 rounded-full border-2 border-yellow-300 shadow-md mb-6 bg-yellow-300/10 flex items-center justify-center text-yellow-200 text-4xl font-bold">
-        D
-      </div>
-
-      <h3 class="text-xl font-bold text-yellow-200 leading-snug">Dinesh</h3>
-      <p class="text-sm text-gray-300 mt-2">Website Manager</p>
-      <p class="text-sm text-gray-400 mt-1">Rajasthan Travel Fair</p>
-    </div>
-
+ 
   </div>
 </section>
         <!-- Responsive Tweaks -->
