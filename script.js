@@ -10,65 +10,57 @@ function toggleModal() {
   }
 }
 
-// ===== MAIN SCRIPT =====
+// ===== MAIN SCRIPT — single DOMContentLoaded, no duplicates =====
 document.addEventListener("DOMContentLoaded", function () {
-  const sectionOrder = [
-    "home",
-    "about",
-    "attractions",
-    "partners",
-    "rtffam",
-    "rtfglobal"
-  ];
 
-  const sections = sectionOrder
-    .map(id => document.getElementById(id))
-    .filter(Boolean);
+  // ── Section order ──────────────────────────────────────────────
+  const sectionOrder = ["home", "about", "attractions", "partners", "rtffam", "rtfglobal"];
+  const sections = sectionOrder.map(id => document.getElementById(id)).filter(Boolean);
 
-  const navLinks = document.querySelectorAll(".nav-link");
-  const menuToggle = document.getElementById("menu-toggle");
-  const mobileMenu = document.getElementById("mobile-menu");
-  const prevBtn = document.getElementById("prev-page-button");
-  const nextBtn = document.getElementById("next-page-button");
+  const navLinks     = document.querySelectorAll(".nav-link");
+  const menuToggle   = document.getElementById("menu-toggle");
+  const mobileMenu   = document.getElementById("mobile-menu");
+  const prevBtn      = document.getElementById("prev-page-button");
+  const nextBtn      = document.getElementById("next-page-button");
 
   let currentIndex = 0;
 
+  // ── showPage ───────────────────────────────────────────────────
   function showPage(index, updateUrl = true) {
     if (index < 0 || index >= sections.length) return;
 
-    // Hide all sections and pause their videos
+    // Hide all sections; pause their videos
     sections.forEach(section => {
       section.classList.remove("active");
-      section.style.display = "none";
-      section.style.opacity = "0";
+      section.style.display    = "none";
+      section.style.opacity    = "0";
       section.style.visibility = "hidden";
 
-      // Pause any video in sections being hidden
-      const vid = section.querySelector("video");
-      if (vid) vid.pause();
+      section.querySelectorAll("video").forEach(v => {
+        try { v.pause(); } catch (e) {}
+      });
     });
 
     currentIndex = index;
-
     const activeSection = sections[currentIndex];
-    activeSection.style.display = "flex";
-    activeSection.style.opacity = "1";
+
+    activeSection.style.display    = "flex";
+    activeSection.style.opacity    = "1";
     activeSection.style.visibility = "visible";
     activeSection.classList.add("active");
 
-    // Play the video in the newly visible section
-    const activeVideo = activeSection.querySelector("video");
-    if (activeVideo) {
-      activeVideo.muted = true; // required for autoplay policy
-      activeVideo.play().catch(() => {}); // silently ignore browser blocks
-    }
+    // Play background / autoplay videos in the active section
+    // (only videos with autoplay attribute or class bg-video)
+    activeSection.querySelectorAll("video[autoplay], video.bg-video").forEach(v => {
+      v.muted = true;
+      v.play().catch(() => {});
+    });
 
     if (updateUrl) {
       history.pushState(null, "", "#" + activeSection.id);
     }
 
     window.scrollTo({ top: 0, behavior: "smooth" });
-
     updateArrows();
     updateActiveNav();
   }
@@ -80,25 +72,21 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function updateActiveNav() {
     const activeId = sections[currentIndex]?.id;
-
     navLinks.forEach(link => {
       link.classList.remove("text-yellow-300");
-
       if (link.getAttribute("data-target") === activeId) {
         link.classList.add("text-yellow-300");
       }
     });
   }
 
+  // ── Nav link clicks ────────────────────────────────────────────
   navLinks.forEach(link => {
-    link.addEventListener("click", function (event) {
-      event.preventDefault();
-
+    link.addEventListener("click", function (e) {
+      e.preventDefault();
       const targetId = this.getAttribute("data-target");
-      const index = sections.findIndex(section => section.id === targetId);
-
+      const index = sections.findIndex(s => s.id === targetId);
       if (index !== -1) showPage(index);
-
       if (mobileMenu) {
         mobileMenu.classList.add("hidden");
         mobileMenu.classList.remove("flex");
@@ -106,28 +94,20 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  if (prevBtn) {
-    prevBtn.addEventListener("click", function () {
-      showPage(currentIndex - 1);
-    });
-  }
+  // ── Arrow buttons ──────────────────────────────────────────────
+  if (prevBtn) prevBtn.addEventListener("click", () => showPage(currentIndex - 1));
+  if (nextBtn) nextBtn.addEventListener("click", () => showPage(currentIndex + 1));
 
-  if (nextBtn) {
-    nextBtn.addEventListener("click", function () {
-      showPage(currentIndex + 1);
-    });
-  }
-
+  // ── Mobile menu toggle ─────────────────────────────────────────
   if (menuToggle && mobileMenu) {
-    menuToggle.addEventListener("click", function () {
+    menuToggle.addEventListener("click", () => {
       mobileMenu.classList.toggle("hidden");
       mobileMenu.classList.toggle("flex");
     });
   }
 
-  // ===== ABOUT IMAGE SLIDER =====
+  // ── About slide image auto-rotate ─────────────────────────────
   let slideIndex = 0;
-
   const slideImages = [
     "images/Venue Photos/19.jpeg",
     "images/Venue Photos/20.jpeg",
@@ -135,117 +115,215 @@ document.addEventListener("DOMContentLoaded", function () {
     "images/Venue Photos/22.jpeg",
     "images/Venue Photos/23.jpeg"
   ];
+  const slideImageEl = document.getElementById("slideImage");
 
-  const slideImageElement = document.getElementById("slideImage");
-
-  window.changeSlide = function (direction) {
-    if (!slideImageElement) return;
-
-    slideIndex = (slideIndex + direction + slideImages.length) % slideImages.length;
-    slideImageElement.style.opacity = "0";
-
+  window.changeSlide = function (dir) {
+    if (!slideImageEl) return;
+    slideIndex = (slideIndex + dir + slideImages.length) % slideImages.length;
+    slideImageEl.style.opacity = "0";
     setTimeout(() => {
-      slideImageElement.src = slideImages[slideIndex];
-      slideImageElement.loading = "lazy";
-      slideImageElement.style.opacity = "1";
+      slideImageEl.src = slideImages[slideIndex];
+      slideImageEl.style.opacity = "1";
     }, 300);
   };
 
-  if (slideImageElement) {
-    setInterval(() => window.changeSlide(1), 5000);
-  }
+  if (slideImageEl) setInterval(() => window.changeSlide(1), 5000);
 
-  // ===== PARTNERS DATA =====
-  const partners = [
-    ["Mr. Guneet Singh", "Founder", "Your Nice Trip", "Faridabad"],
-    ["Mr. Anil Dhingra", "ED", "Unique Air Services", "Delhi"],
-    ["Mr. Narender Sharma", "Director", "Perfection Consulting (India) Pvt Ltd", "Delhi"],
-    ["Mr. Nilesh Bhutwala", "Partner", "Travel Theme Holidays", "Surat"],
-    ["Ms. Leena Jumde", "CEO", "Travel Gratitude", "Mumbai"],
-    ["Mr. Sachin Sharma", "MD", "Travel By Passion", "Delhi"],
-    ["Ms. Priyanka Mohidekar", "Director", "Touring Toes LLP", "Pune"],
-    ["Mr. Dilip Soni", "Owner", "Sonii Travels", "Mumbai"],
-    ["Mr. Niranjan Ji", "Director", "Smithasya Enter Pvt Ltd (Holiday Kool)", "Pune"],
-    ["Ms. Madhuri Wadangenkar", "Founder", "Skip The Line Tour", "Mumbai"],
-    ["Mr. Ganesh L Sakhara", "Owner", "ShreeNath Travels", "Pune"],
-    ["Mr. Alankaran Verma", "Owner", "Sai Tour & Travels", "Una"],
-    ["Mr. Madhu", "CEO & Founder", "NB4 Holidays", "Kochi"],
-    ["Mr. Tejas Kale", "Director", "My Travel World Travel", "Pune"],
-    ["Mr. Kartik Pachchigar", "Owner", "Magical India Holidays", "Surat"],
-    ["Mr. Tushar Patel", "Sales Executive", "Magical India Holidays", "Surat"],
-    ["Mr. Ram Raj Singh", "Founder & MD", "Luxurious Heritage", "Delhi"],
-    ["Mr. Mahendra R Jain", "Owner", "Kering Holiday", "Mumbai"],
-    ["Mr. Mukesh Kumar", "Founder", "KaaSaa Events", "Delhi"],
-    ["Ms. Dilpreet (Sheena) Sewal", "Founder", "India TajMahal tour operators", "Delhi"],
-    ["Mr. Pushpendra Sen", "Founder", "Historical India Tours And Travels", "Orchha"],
-    ["Mr. Shubham Gupta", "Manager", "Galaxy Holidays", "Pune"],
-    ["Ms. Sarika Chopra", "Founder & CEO", "Explorers-Den", "Faridabad"],
-    ["Ms. Chandni Sharma", "Director", "Ascel Group", "Ghaziabad"],
-    ["Mr. Devendra P. Divekar", "Owner", "Go Weekends", "Mumbai"],
-    ["Ms. Pooja", "Founder", "Journey Master", "Delhi"],
-    ["Mr. Santhosh Kumar", "Owner", "GodZone Holidays & Tours", "Alibaug"],
-    ["Ms. Pooja V Patil", "Owner", "Plango Holidays Explore World", "Mumbai"],
-    ["Ms. Neetu Gola", "Founder", "Om Sai Travels", "Delhi"],
-    ["Mr. Aman Saini", "Owner", "Colors of India", "Delhi"]
-  ];
-
-  const partnerGrid = document.getElementById("partnerGrid");
-  const partnerSearch = document.getElementById("partnerSearch");
-  const cityFilter = document.getElementById("cityFilter");
-
-  if (partnerGrid && partnerSearch && cityFilter) {
-    const cities = [...new Set(partners.map(partner => partner[3]))].sort();
-
-    cities.forEach(city => {
-      const option = document.createElement("option");
-      option.value = city;
-      option.textContent = city;
-      cityFilter.appendChild(option);
+  // ── Participant search (correct ID: participantSearch) ─────────
+  const participantSearch = document.getElementById("participantSearch");
+  if (participantSearch) {
+    participantSearch.addEventListener("keyup", function () {
+      const val = this.value.toLowerCase();
+      document.querySelectorAll("#participantsTbody tr").forEach(row => {
+        row.style.display = row.innerText.toLowerCase().includes(val) ? "" : "none";
+      });
     });
-
-    function renderPartners() {
-      const keyword = partnerSearch.value.toLowerCase().trim();
-      const city = cityFilter.value;
-
-      const filteredPartners = partners.filter(partner => {
-        const searchableText = partner.join(" ").toLowerCase();
-        const matchesSearch = searchableText.includes(keyword);
-        const matchesCity = !city || partner[3] === city;
-
-        return matchesSearch && matchesCity;
-      });
-
-      partnerGrid.innerHTML = "";
-
-      filteredPartners.forEach((partner, index) => {
-        partnerGrid.innerHTML += `
-          <div class="partner-card">
-            <div class="partner-no">${String(index + 1).padStart(2, "0")}</div>
-            <h4>${partner[0]}</h4>
-            <p>${partner[1]}</p>
-            <span>${partner[2]}</span>
-            <small>${partner[3]}</small>
-          </div>
-        `;
-      });
-    }
-
-    partnerSearch.addEventListener("input", renderPartners);
-    cityFilter.addEventListener("change", renderPartners);
-
-    renderPartners();
   }
 
-  // ===== HASH / INITIAL PAGE LOAD =====
+  // ── Hash / back-button navigation ─────────────────────────────
   window.addEventListener("popstate", function () {
     const hash = window.location.hash.replace("#", "");
-    const index = sections.findIndex(section => section.id === hash);
-
-    if (index !== -1) showPage(index, false);
+    const idx  = sections.findIndex(s => s.id === hash);
+    if (idx !== -1) showPage(idx, false);
   });
 
-  const initialHash = window.location.hash.replace("#", "");
-  const initialIndex = sections.findIndex(section => section.id === initialHash);
-
+  // ── Initial page load ──────────────────────────────────────────
+  const initialHash  = window.location.hash.replace("#", "");
+  const initialIndex = sections.findIndex(s => s.id === initialHash);
   showPage(initialIndex !== -1 ? initialIndex : 0, initialIndex === -1);
+
+  // ── PDF.js Flipbook for #rtfglobal ─────────────────────────────
+  initPdfFlipbook();
 });
+
+// ===== PDF FLIPBOOK =====
+function initPdfFlipbook() {
+  const pdfUrl    = "files/RTF_Global_Fam_Itinerary.pdf";
+  const canvasWrap = document.getElementById("flipbookCanvasWrap");
+  const canvas    = document.getElementById("flipbookCanvas");
+  const loadState = document.getElementById("pdfLoadState");
+  const prevPdf   = document.getElementById("pdfPrevBtn");
+  const nextPdf   = document.getElementById("pdfNextBtn");
+  const pageCount = document.getElementById("pdfPageCount");
+  const thumbStrip = document.getElementById("pdfThumbStrip");
+
+  if (!canvas || !canvasWrap) return;
+
+  // Dynamically load PDF.js from CDN
+  if (typeof pdfjsLib === "undefined") {
+    const script = document.createElement("script");
+    script.src = "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js";
+    script.onload = function () {
+      pdfjsLib.GlobalWorkerOptions.workerSrc =
+        "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js";
+      loadPdf();
+    };
+    script.onerror = function () {
+      showIframeFallback(pdfUrl);
+    };
+    document.head.appendChild(script);
+  } else {
+    loadPdf();
+  }
+
+  let pdfDoc     = null;
+  let currentPage = 1;
+  let rendering  = false;
+  const thumbCanvases = {};
+
+  function loadPdf() {
+    if (loadState) {
+      loadState.style.display = "flex";
+    }
+    pdfjsLib.getDocument(pdfUrl).promise.then(function (doc) {
+      pdfDoc = doc;
+      if (loadState) loadState.style.display = "none";
+      renderPage(1);
+      buildThumbs();
+    }).catch(function (err) {
+      console.warn("PDF load error:", err);
+      showIframeFallback(pdfUrl);
+    });
+  }
+
+  function renderPage(num) {
+    if (!pdfDoc || rendering) return;
+    rendering = true;
+    currentPage = num;
+
+    if (pageCount) {
+      pageCount.textContent = `Page ${num} / ${pdfDoc.numPages}`;
+    }
+    if (prevPdf) prevPdf.disabled = num <= 1;
+    if (nextPdf) nextPdf.disabled = num >= pdfDoc.numPages;
+
+    // Update active thumb
+    document.querySelectorAll(".thumb-item").forEach((el, i) => {
+      el.classList.toggle("active-thumb", i + 1 === num);
+    });
+
+    pdfDoc.getPage(num).then(function (page) {
+      const containerWidth = canvasWrap.offsetWidth || 740;
+      const viewport = page.getViewport({ scale: 1 });
+      const scale    = (containerWidth - 20) / viewport.width;
+      const scaledVP = page.getViewport({ scale });
+
+      canvas.width  = scaledVP.width;
+      canvas.height = scaledVP.height;
+
+      const ctx = canvas.getContext("2d");
+      const renderCtx = { canvasContext: ctx, viewport: scaledVP };
+
+      page.render(renderCtx).promise.then(function () {
+        rendering = false;
+      });
+    });
+  }
+
+  function buildThumbs() {
+    if (!thumbStrip || !pdfDoc) return;
+    thumbStrip.innerHTML = "";
+
+    for (let i = 1; i <= pdfDoc.numPages; i++) {
+      const thumbItem = document.createElement("div");
+      thumbItem.className = "thumb-item" + (i === 1 ? " active-thumb" : "");
+      thumbItem.dataset.page = i;
+
+      const thumbCanvas = document.createElement("canvas");
+      thumbItem.appendChild(thumbCanvas);
+      thumbStrip.appendChild(thumbItem);
+
+      thumbItem.addEventListener("click", function () {
+        renderPage(parseInt(this.dataset.page));
+        // Scroll thumb into view
+        this.scrollIntoView({ behavior: "smooth", inline: "center", block: "nearest" });
+      });
+
+      // Render thumb
+      pdfDoc.getPage(i).then(function (page) {
+        const vp = page.getViewport({ scale: 0.18 });
+        thumbCanvas.width  = vp.width;
+        thumbCanvas.height = vp.height;
+        thumbCanvas.style.width  = "100%";
+        thumbCanvas.style.height = "100%";
+        page.render({ canvasContext: thumbCanvas.getContext("2d"), viewport: vp });
+      });
+    }
+  }
+
+  function showIframeFallback(url) {
+    if (loadState) loadState.style.display = "none";
+    if (canvas) canvas.style.display = "none";
+    const iframe = document.createElement("iframe");
+    iframe.src = url + "#toolbar=1&navpanes=0";
+    iframe.className = "pdf-iframe-fallback";
+    iframe.title = "RTF Global FAM Itinerary";
+    if (canvasWrap) canvasWrap.appendChild(iframe);
+    // Hide controls if iframe shown
+    const controls = document.getElementById("flipbookControls");
+    if (controls) controls.style.display = "none";
+    if (thumbStrip) thumbStrip.style.display = "none";
+  }
+
+  // Arrow button events
+  if (prevPdf) {
+    prevPdf.addEventListener("click", function () {
+      if (currentPage > 1) {
+        renderPage(currentPage - 1);
+        scrollActiveThumb();
+      }
+    });
+  }
+
+  if (nextPdf) {
+    nextPdf.addEventListener("click", function () {
+      if (pdfDoc && currentPage < pdfDoc.numPages) {
+        renderPage(currentPage + 1);
+        scrollActiveThumb();
+      }
+    });
+  }
+
+  // Keyboard navigation when rtfglobal section is active
+  document.addEventListener("keydown", function (e) {
+    const rtfSection = document.getElementById("rtfglobal");
+    if (!rtfSection || !rtfSection.classList.contains("active")) return;
+    if (!pdfDoc) return;
+
+    if (e.key === "ArrowLeft" && currentPage > 1) {
+      renderPage(currentPage - 1);
+      scrollActiveThumb();
+    }
+    if (e.key === "ArrowRight" && currentPage < pdfDoc.numPages) {
+      renderPage(currentPage + 1);
+      scrollActiveThumb();
+    }
+  });
+
+  function scrollActiveThumb() {
+    setTimeout(() => {
+      const activeThumb = document.querySelector(".thumb-item.active-thumb");
+      if (activeThumb) activeThumb.scrollIntoView({ behavior: "smooth", inline: "center", block: "nearest" });
+    }, 50);
+  }
+}
