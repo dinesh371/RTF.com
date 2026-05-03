@@ -147,7 +147,7 @@ const legalContent = {
   }
 };
 
-function showLegalModal(type) {
+function showLegalModal(type, e) {
   const modal = document.getElementById("legalModal");
   const title = document.getElementById("legalModalTitle");
   const body  = document.getElementById("legalModalBody");
@@ -155,7 +155,7 @@ function showLegalModal(type) {
   title.textContent = legalContent[type].title;
   body.innerHTML = legalContent[type].body;
   modal.style.display = "flex";
-  event && event.preventDefault();
+  if (e) e.preventDefault();
 }
 
 function closeLegalModal() {
