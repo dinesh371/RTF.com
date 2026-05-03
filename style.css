@@ -250,14 +250,20 @@ nav .text-yellow-300 { color: #facc15 !important; }
   margin-bottom: 2rem;
   overflow: hidden;
 }
+
 .feedback-scroll-section h3 {
   color: #fde047;
-  font-weight: 700;
-  font-size: 1.1rem;
+  font-weight: 800;
+  font-size: 1.2rem;
   margin-bottom: 1rem;
   text-align: center;
 }
-.feedback-track-wrap { overflow: hidden; width: 100%; }
+
+.feedback-track-wrap {
+  overflow: hidden;
+  width: 100%;
+}
+
 .feedback-track {
   display: flex;
   gap: 1rem;
@@ -265,47 +271,100 @@ nav .text-yellow-300 { color: #facc15 !important; }
   width: max-content;
   will-change: transform;
 }
-.feedback-track:hover { animation-play-state: paused; }
+
+.feedback-track:hover {
+  animation-play-state: paused;
+}
+
 @keyframes scrollFeedback {
-  0%   { transform: translateX(0); }
+  0% { transform: translateX(0); }
   100% { transform: translateX(-50%); }
 }
+
 .feedback-card-item {
   background: rgba(255,255,255,0.07);
-  border: 1px solid rgba(253,224,71,0.2);
+  border: 1px solid rgba(253,224,71,0.22);
   border-radius: 1rem;
   padding: 1rem 1.25rem;
-  min-width: 240px;
-  max-width: 265px;
+  min-width: 245px;
+  max-width: 270px;
   flex-shrink: 0;
   text-align: center;
   position: relative;
   overflow: hidden;
-  transition: border-color 0.3s;
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
-.feedback-card-item:hover { border-color: rgba(253,224,71,0.55); }
 
-/* Feedback person image */
+.feedback-card-item:hover {
+  transform: translateY(-5px);
+  border-color: rgba(253,224,71,0.6);
+  box-shadow: 0 14px 35px rgba(0,0,0,0.35);
+}
+
+/* Profile image wrapper */
+.profile-img,
+.feedback-person-img-wrap {
+  width: 82px;
+  height: 82px;
+  margin: 0 auto 14px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 3px solid #facc15;
+  background: linear-gradient(135deg, #111827, #334155);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow:
+    0 0 0 4px rgba(250,204,21,0.12),
+    0 8px 24px rgba(250,204,21,0.25);
+}
+
+/* Image */
+.profile-img img,
 .feedback-person-img {
-  width: 78px;
-  height: 78px;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
   object-position: center top;
-  border-radius: 50%;
-  margin: 0 auto 12px;
   display: block;
-  border: 3px solid #facc15;
-  box-shadow: 0 0 0 4px rgba(250,204,21,0.12), 0 8px 24px rgba(250,204,21,0.25);
-  background: #111827;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.35s ease;
 }
+
+/* Hover zoom */
+.feedback-card-item:hover .profile-img img,
 .feedback-card-item:hover .feedback-person-img {
-  transform: scale(1.07);
-  box-shadow: 0 0 0 6px rgba(250,204,21,0.2), 0 14px 32px rgba(250,204,21,0.38);
+  transform: scale(1.12);
 }
-.feedback-card-item h4 { color: #fde047; font-weight: 700; font-size: 0.88rem; margin-bottom: 0.2rem; margin-top: 0; }
-.feedback-card-item .org { color: #7dd3fc; font-size: 0.75rem; margin-bottom: 0.5rem; }
-.feedback-card-item .quote { color: #e2e8f0; font-size: 0.80rem; line-height: 1.55; font-style: italic; }
+
+/* Initial fallback */
+.profile-img span {
+  color: #facc15;
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.feedback-card-item h4 {
+  color: #fde047;
+  font-weight: 800;
+  font-size: 0.9rem;
+  margin-bottom: 0.25rem;
+  margin-top: 0;
+}
+
+.feedback-card-item .org {
+  color: #7dd3fc;
+  font-size: 0.76rem;
+  margin-bottom: 0.55rem;
+  line-height: 1.35;
+}
+
+.feedback-card-item .quote {
+  color: #e2e8f0;
+  font-size: 0.8rem;
+  line-height: 1.55;
+  font-style: italic;
+}
 
 /* ── GALLERY SCROLL ── */
 .gallery-section {
