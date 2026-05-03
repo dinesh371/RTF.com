@@ -12,7 +12,7 @@
 <body class="m-0 p-0 relative">
 
   <!-- ===== MODAL ===== -->
-  <div id="modal" class="fixed inset-0 hidden z-[9999] items-center justify-center bg-[rgba(0,0,50,0.7)] backdrop-blur-sm px-2" style="display:none;">
+  <div id="modal" class="fixed inset-0 z-[9999] items-center justify-center bg-[rgba(0,0,50,0.7)] backdrop-blur-sm px-2" style="display:none;">
     <div class="bg-[#fff9f0] rounded-3xl shadow-2xl max-w-3xl w-full p-6 max-h-[90vh] overflow-auto">
       <div class="flex justify-between items-center border-b border-gray-300 pb-4">
         <h2 class="text-2xl md:text-3xl font-extrabold text-[#1B2A57] tracking-wide">
@@ -218,9 +218,8 @@
               <div class="org-card">
                 <img src="images/Members Pics/Dinesh.T.JPg" alt="Dinesh T" style="object-position:center 30%;"/>
                 <h3>Dinesh T.</h3>
-                <p>Operations Manager</p>
-                <p>India Outtabox Pvt Ltd</p>
-                <p class="mt-3">📞 <a href="tel:+8331956172">+91-8331956172</a></p>
+                <p>Website Manager</p>
+                <p>Rajasthan Travel Fair</p>
               </div>
             </div>
           </section>
@@ -560,8 +559,8 @@
             <li><a href="#attractions" class="nav-link footer-link" data-target="attractions">📍 Discover Jodhpur</a></li>
             <li><a href="#rtffam"     class="nav-link footer-link" data-target="rtffam">🤝 RTF FAM 2026</a></li>
             <li><a href="#rtfglobal"  class="nav-link footer-link" data-target="rtfglobal">🌍 RTF Global FAM</a></li>
-            <li><a href="#" onclick="showLegalModal('privacy')" class="footer-link">🔒 Privacy Policy</a></li>
-            <li><a href="#" onclick="showLegalModal('terms')" class="footer-link">📋 Terms &amp; Conditions</a></li>
+            <li><a href="#" onclick="showLegalModal('privacy', event)" class="footer-link">🔒 Privacy Policy</a></li>
+            <li><a href="#" onclick="showLegalModal('terms', event)" class="footer-link">📋 Terms &amp; Conditions</a></li>
           </ul>
         </div>
 
@@ -622,16 +621,16 @@
       <div class="footer-bottom">
         <p>© 2026 India Outtabox Pvt Ltd · Rajasthan Travel Fair. All rights reserved.</p>
         <div class="footer-legal-links">
-          <a href="#" onclick="showLegalModal('privacy')">Privacy Policy</a>
+          <a href="#" onclick="showLegalModal('privacy', event)">Privacy Policy</a>
           <span>·</span>
-          <a href="#" onclick="showLegalModal('terms')">Terms &amp; Conditions</a>
+          <a href="#" onclick="showLegalModal('terms', event)">Terms &amp; Conditions</a>
         </div>
       </div>
     </div>
   </footer>
 
   <!-- ===== LEGAL MODAL ===== -->
-  <div id="legalModal" style="display:none;" class="fixed inset-0 z-[99999] items-center justify-center bg-[rgba(0,0,30,0.75)] backdrop-blur-sm px-3">
+  <div id="legalModal" style="display:none;" class="fixed inset-0 z-[99999] flex items-center justify-center bg-[rgba(0,0,30,0.75)] backdrop-blur-sm px-3">
     <div class="bg-white rounded-3xl shadow-2xl max-w-3xl w-full max-h-[90vh] flex flex-col">
       <div class="flex justify-between items-center px-6 py-4 border-b border-gray-200">
         <h2 id="legalModalTitle" class="text-2xl font-extrabold text-[#1B2A57]">Legal</h2>
