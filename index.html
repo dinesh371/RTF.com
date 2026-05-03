@@ -659,6 +659,46 @@
     // No override needed — script.js auto-discovers sections by ID in sectionOrder array.
     // Since we removed #partners from the DOM and kept #rtffam, the script works correctly.
   </script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
 
+  const imageMap = {
+    "Mr. Alankaran Verma": "Name_Mr_Alankaran_Verma.jpg",
+    "Mr. Sachin Sharma": "Name_Mr_Sachin_Sharma.jpg",
+    "Ms. Pooja V Patil": "Name__Ms_Pooja_V_Patil.jpg",
+    "Ms. Chandani Sharma": "Name__Ms_Chandani_Sharma.jpg",
+    "Mr. Niranjan D Kulkarni": "Name_Mr_Niranjan_D_Kulkarni.jpg",
+    "Mr. Ram Raj Singh": "Name_Mr_Ram_Raj_Singh.jpg",
+    "Mr. Guneet Singh": "Name_Mr_Guneet_Singh.jpg",
+    "Ms. Priyanka Mohidekar": "Name_Ms_Priyanka_Mohidekar.jpg",
+    "Ms. Neetu Gola": "Name_Ms_Neetu_Gola.jpg",
+    "Ms. Dilpreet (Sheena) Sewal": "Name_Ms_Dilpreet_Sheena_Sewal.jpg",
+    "Ms. Madhuri Wadangenkar": "Name_Ms_Madhuri_Wadangenkar.jpg",
+    "Mr. Dilip Soni": "Name_Mr_Dilip_Soni.jpg",
+    "Mr. Mahendra R Jain": "Name_Mr_Mahendra_R_Jain.jpg",
+    "Mr. Ganesh L Sakhara": "Name_Mr_Ganesh_L_Sakhara.jpg",
+    "Mr. Devendra P. Divekar": "Name_Mr_Devendra_P_Divekar.jpg",
+    "Ms. Sarika Chopra": "Name_Ms_Sarika_Chopra.jpg",
+    "Mr. Tejas Kale": "Name_Mr_Tejas_Kale.jpg"
+  };
+
+  const cards = document.querySelectorAll(".feedback-card-item");
+
+  cards.forEach(card => {
+    const name = card.querySelector("h4")?.innerText.trim();
+
+    const img = document.createElement("img");
+    img.className = "feedback-person-img";
+    img.src = imageMap[name] 
+      ? "images/feedback/" + imageMap[name]
+      : "images/feedback/default.jpg";
+
+    img.alt = name;
+
+    card.insertBefore(img, card.firstChild);
+  });
+
+});
+</script>
 </body>
 </html>
