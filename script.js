@@ -148,14 +148,14 @@ const legalContent = {
 };
 
 function showLegalModal(type, e) {
+  if (e) e.preventDefault();
   const modal = document.getElementById("legalModal");
   const title = document.getElementById("legalModalTitle");
   const body  = document.getElementById("legalModalBody");
   if (!modal || !legalContent[type]) return;
   title.textContent = legalContent[type].title;
-  body.innerHTML = legalContent[type].body;
+  body.innerHTML    = legalContent[type].body;
   modal.style.display = "flex";
-  if (e) e.preventDefault();
 }
 
 function closeLegalModal() {
@@ -164,7 +164,7 @@ function closeLegalModal() {
 }
 
 // Close legal modal on backdrop click
-document.addEventListener("click", function(e) {
+document.addEventListener("click", function (e) {
   const modal = document.getElementById("legalModal");
   if (modal && e.target === modal) closeLegalModal();
 });
@@ -174,39 +174,42 @@ document.addEventListener("DOMContentLoaded", function () {
   const sectionOrder = ["home", "about", "attractions", "rtffam", "rtfglobal"];
   const sections = sectionOrder.map(id => document.getElementById(id)).filter(Boolean);
 
-  const navLinks     = document.querySelectorAll(".nav-link");
-  const menuToggle   = document.getElementById("menu-toggle");
-  const mobileMenu   = document.getElementById("mobile-menu");
+  const navLinks       = document.querySelectorAll(".nav-link");
+  const menuToggle     = document.getElementById("menu-toggle");
+  const mobileMenu     = document.getElementById("mobile-menu");
   const prevSectionBtn = document.getElementById("prev-page-button");
   const nextSectionBtn = document.getElementById("next-page-button");
 
   let currentIndex = 0;
 
-  // ── showPage ──────────────────────────────────────────────────────────────
-  function showPage(index, updateUrl = true) {
+  // ── showPage ───────────────────────────────────────────────────────────────
+  function showPage(index, updateUrl) {
     if (index < 0 || index >= sections.length) return;
+    if (updateUrl === undefined) updateUrl = true;
 
-    sections.forEach(section => {
+    sections.forEach(function (section) {
       section.classList.remove("active");
       section.style.display    = "none";
       section.style.opacity    = "0";
       section.style.visibility = "hidden";
-      // pause all videos in hidden sections
-      section.querySelectorAll("video").forEach(v => { try { v.pause(); } catch(e){} });
+      // Pause all videos in hidden sections
+      section.querySelectorAll("video").forEach(function (v) {
+        try { v.pause(); } catch (err) {}
+      });
     });
 
     currentIndex = index;
-    const active = sections[currentIndex];
+    var active = sections[currentIndex];
 
     active.style.display    = "flex";
     active.style.opacity    = "1";
     active.style.visibility = "visible";
     active.classList.add("active");
 
-    // play bg videos in active section
-    active.querySelectorAll("video[autoplay], video.bg-video, video.about-bg-video").forEach(v => {
+    // Play background videos in the active section
+    active.querySelectorAll("video[autoplay], video.bg-video, video.about-bg-video").forEach(function (v) {
       v.muted = true;
-      v.play().catch(() => {});
+      v.play().catch(function () {});
     });
 
     if (updateUrl) history.pushState(null, "", "#" + active.id);
@@ -214,30 +217,32 @@ document.addEventListener("DOMContentLoaded", function () {
 
     updateSectionArrows();
     updateActiveNav();
-
-    // restart CSS animations for scrolling tracks when section becomes visible
     restartScrollAnimations(active);
   }
 
-  // ── restartScrollAnimations ───────────────────────────────────────────────
+  // ── restartScrollAnimations ────────────────────────────────────────────────
+  // Restarts CSS keyframe animations on scroll tracks when their section becomes visible
   function restartScrollAnimations(section) {
-    const tracks = section.querySelectorAll(".logo-track, .feedback-track, .gallery-scroll-track");
-    tracks.forEach(track => {
+    var tracks = section.querySelectorAll(
+      ".logo-track, .feedback-track, .gallery-scroll-track, .rtf-slider-track"
+    );
+    tracks.forEach(function (track) {
       track.style.animation = "none";
-      // Force reflow
-      void track.offsetWidth;
+      void track.offsetWidth; // force reflow
       track.style.animation = "";
     });
   }
 
+  // ── Arrow visibility ───────────────────────────────────────────────────────
   function updateSectionArrows() {
     if (prevSectionBtn) prevSectionBtn.classList.toggle("hidden", currentIndex === 0);
     if (nextSectionBtn) nextSectionBtn.classList.toggle("hidden", currentIndex === sections.length - 1);
   }
 
+  // ── Active nav highlight ───────────────────────────────────────────────────
   function updateActiveNav() {
-    const activeId = sections[currentIndex]?.id;
-    navLinks.forEach(link => {
+    var activeId = sections[currentIndex] ? sections[currentIndex].id : "";
+    navLinks.forEach(function (link) {
       link.classList.remove("text-yellow-300");
       if (link.getAttribute("data-target") === activeId) {
         link.classList.add("text-yellow-300");
@@ -245,12 +250,12 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // ── Nav links ──────────────────────────────────────────────────────────────
-  navLinks.forEach(link => {
-    link.addEventListener("click", function(e) {
+  // ── Nav link clicks ────────────────────────────────────────────────────────
+  navLinks.forEach(function (link) {
+    link.addEventListener("click", function (e) {
       e.preventDefault();
-      const targetId = this.getAttribute("data-target");
-      const index = sections.findIndex(s => s.id === targetId);
+      var targetId = this.getAttribute("data-target");
+      var index = sections.findIndex(function (s) { return s.id === targetId; });
       if (index !== -1) showPage(index);
       if (mobileMenu) {
         mobileMenu.classList.add("hidden");
@@ -259,73 +264,67 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  if (prevSectionBtn) prevSectionBtn.addEventListener("click", () => showPage(currentIndex - 1));
-  if (nextSectionBtn) nextSectionBtn.addEventListener("click", () => showPage(currentIndex + 1));
+  // ── Arrow button clicks ────────────────────────────────────────────────────
+  if (prevSectionBtn) prevSectionBtn.addEventListener("click", function () { showPage(currentIndex - 1); });
+  if (nextSectionBtn) nextSectionBtn.addEventListener("click", function () { showPage(currentIndex + 1); });
 
+  // ── Mobile menu toggle ─────────────────────────────────────────────────────
   if (menuToggle && mobileMenu) {
-    menuToggle.addEventListener("click", () => {
+    menuToggle.addEventListener("click", function () {
       mobileMenu.classList.toggle("hidden");
       mobileMenu.classList.toggle("flex");
     });
   }
 
   // ── Participant search ─────────────────────────────────────────────────────
-  const participantSearch = document.getElementById("participantSearch");
+  var participantSearch = document.getElementById("participantSearch");
   if (participantSearch) {
-    participantSearch.addEventListener("keyup", function() {
-      const val = this.value.toLowerCase();
-      document.querySelectorAll("#participantsTbody tr").forEach(row => {
+    participantSearch.addEventListener("keyup", function () {
+      var val = this.value.toLowerCase();
+      document.querySelectorAll("#participantsTbody tr").forEach(function (row) {
         row.style.display = row.innerText.toLowerCase().includes(val) ? "" : "none";
       });
     });
   }
 
-  // ── Browser back/forward ──────────────────────────────────────────────────
-  window.addEventListener("popstate", function() {
-    const hash = window.location.hash.replace("#", "");
-    const index = sections.findIndex(s => s.id === hash);
+  // ── Browser back / forward ─────────────────────────────────────────────────
+  window.addEventListener("popstate", function () {
+    var hash = window.location.hash.replace("#", "");
+    var index = sections.findIndex(function (s) { return s.id === hash; });
     if (index !== -1) showPage(index, false);
   });
 
-  // ── Initial page ──────────────────────────────────────────────────────────
-  const initialHash = window.location.hash.replace("#", "");
-  const resolvedHash = initialHash === "partners" ? "rtffam" : initialHash;
-  const initialIndex = sections.findIndex(s => s.id === resolvedHash);
+  // ── Initial page load ──────────────────────────────────────────────────────
+  var initialHash   = window.location.hash.replace("#", "");
+  // Legacy alias: #partners used to map to #rtffam
+  var resolvedHash  = initialHash === "partners" ? "rtffam" : initialHash;
+  var initialIndex  = sections.findIndex(function (s) { return s.id === resolvedHash; });
   showPage(initialIndex !== -1 ? initialIndex : 0, initialIndex === -1);
 
-  // ── Init RTF Global FAM Slideshow ─────────────────────────────────────────
+  // ── Init RTF Global FAM slideshow ──────────────────────────────────────────
   initGlobalSlideshow();
 
-  // ── Duplicate feedback track for seamless loop ────────────────────────────
-  duplicateScrollTrack("feedbackTrack");
+  // NOTE: feedbackTrack is already duplicated in the HTML for the seamless
+  // CSS translateX(-50%) loop — no JavaScript duplication needed or called.
 });
-
-// ===== DUPLICATE SCROLL TRACK (for seamless infinite scroll) =====
-function duplicateScrollTrack(id) {
-  const track = document.getElementById(id);
-  if (!track) return;
-  // Clone all current children and append so the -50% animation loops seamlessly
-  const originals = Array.from(track.children);
-  originals.forEach(function(child) {
-    track.appendChild(child.cloneNode(true));
-  });
-  track.style.animationPlayState = "running";
-}
 
 // ===== RTF GLOBAL FAM IMAGE SLIDESHOW =====
 function initGlobalSlideshow() {
-  const slides = document.querySelectorAll(".global-slideshow .slide");
-  const dots = document.querySelectorAll(".slideshow-dots .dot");
-  const prevBtn = document.getElementById("slidePrev");
-  const nextBtn = document.getElementById("slideNext");
-  const progressBar = document.getElementById("slideProgressBar");
+  // Scope all queries inside #rtfglobal so they don't clash with other sections
+  var container  = document.getElementById("rtfglobal");
+  if (!container) return;
+
+  var slides     = container.querySelectorAll(".global-slideshow .slide");
+  var dots       = container.querySelectorAll(".slideshow-dots .dot");
+  var prevBtn    = container.querySelector(".slide-prev");
+  var nextBtn    = container.querySelector(".slide-next");
+  var progressBar = container.querySelector(".progress-bar");
 
   if (!slides.length) return;
 
-  let current = 0;
-  let autoTimer = null;
-
-  const SLIDE_DURATION = 30000; // 30 seconds per slide, 6 slides = 3 minutes
+  var current      = 0;
+  var autoTimer    = null;
+  var SLIDE_DURATION = 5000; // 5 seconds per slide
 
   function goToSlide(index) {
     slides[current].classList.remove("active");
@@ -338,16 +337,16 @@ function initGlobalSlideshow() {
 
     if (progressBar) {
       progressBar.style.transition = "none";
-      progressBar.style.width = "0%";
-      void progressBar.offsetWidth;
-      progressBar.style.transition = `width ${SLIDE_DURATION}ms linear`;
-      progressBar.style.width = "100%";
+      progressBar.style.width      = "0%";
+      void progressBar.offsetWidth; // force reflow
+      progressBar.style.transition = "width " + SLIDE_DURATION + "ms linear";
+      progressBar.style.width      = "100%";
     }
   }
 
   function startAuto() {
     stopAuto();
-    autoTimer = setInterval(() => goToSlide(current + 1), SLIDE_DURATION);
+    autoTimer = setInterval(function () { goToSlide(current + 1); }, SLIDE_DURATION);
   }
 
   function stopAuto() {
@@ -358,39 +357,34 @@ function initGlobalSlideshow() {
   }
 
   if (prevBtn) {
-    prevBtn.addEventListener("click", () => {
+    prevBtn.addEventListener("click", function () {
       goToSlide(current - 1);
       startAuto();
     });
   }
 
   if (nextBtn) {
-    nextBtn.addEventListener("click", () => {
+    nextBtn.addEventListener("click", function () {
       goToSlide(current + 1);
       startAuto();
     });
   }
 
-  dots.forEach((dot, i) => {
-    dot.addEventListener("click", () => {
-      goToSlide(i);
+  // Dot navigation — use data-slide attribute for correct index
+  dots.forEach(function (dot) {
+    dot.addEventListener("click", function () {
+      var slideIndex = parseInt(this.getAttribute("data-slide"), 10);
+      goToSlide(slideIndex);
       startAuto();
     });
   });
 
-  document.addEventListener("keydown", function(e) {
-    const rtfGlobal = document.getElementById("rtfglobal");
+  // Keyboard arrow navigation (only when rtfglobal section is active)
+  document.addEventListener("keydown", function (e) {
+    var rtfGlobal = document.getElementById("rtfglobal");
     if (!rtfGlobal || !rtfGlobal.classList.contains("active")) return;
-
-    if (e.key === "ArrowLeft") {
-      goToSlide(current - 1);
-      startAuto();
-    }
-
-    if (e.key === "ArrowRight") {
-      goToSlide(current + 1);
-      startAuto();
-    }
+    if (e.key === "ArrowLeft")  { goToSlide(current - 1); startAuto(); }
+    if (e.key === "ArrowRight") { goToSlide(current + 1); startAuto(); }
   });
 
   goToSlide(0);
