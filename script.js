@@ -299,6 +299,58 @@ document.addEventListener("DOMContentLoaded", function () {
   // ── Duplicate feedback track for seamless loop ────────────────────────────
   duplicateScrollTrack("feedbackTrack");
 });
+  // ── Init RTF Global FAM Slideshow ─────────────────────────
+  initGlobalSlideshow();
+
+  // ── Duplicate feedback track ────────────────────────────
+  duplicateScrollTrack("feedbackTrack");
+
+
+  // ✅ ADD THIS BELOW 👇
+
+  const feedbackImageMap = {
+    "alankaran verma": "images/agents/alankaran-verma.jpg",
+    "sachin sharma": "images/agents/sachin-sharma.jpg",
+    "aman saini": "images/agents/aman-saini.jpg"
+    // ... keep rest
+  };
+
+  document.querySelectorAll(".feedback-card-item").forEach(card => {
+
+    const nameEl = card.querySelector("h4");
+    if (!nameEl) return;
+
+    let cleanName = nameEl.innerText
+      .replace(/Mr\.|Ms\.|Mrs\./gi, "")
+      .trim()
+      .toLowerCase();
+
+    const imagePath = feedbackImageMap[cleanName];
+
+    const profileDiv = document.createElement("div");
+    profileDiv.className = "profile-img";
+
+    const img = document.createElement("img");
+    img.src = imagePath || "";
+
+    img.onerror = function () {
+      profileDiv.innerHTML = "";
+      const span = document.createElement("span");
+      span.innerText = cleanName
+        .split(" ")
+        .map(w => w[0])
+        .join("")
+        .substring(0,2)
+        .toUpperCase();
+      profileDiv.appendChild(span);
+    };
+
+    profileDiv.appendChild(img);
+    card.insertBefore(profileDiv, nameEl);
+
+  });
+
+});  // ← THIS LINE MUST STAY LAST
 
 // ===== DUPLICATE SCROLL TRACK (for seamless infinite scroll) =====
 function duplicateScrollTrack(id) {
