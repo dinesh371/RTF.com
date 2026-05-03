@@ -12,7 +12,8 @@ function toggleModal() {
 
 // ===== MAIN SCRIPT =====
 document.addEventListener("DOMContentLoaded", function () {
-  const sectionOrder = ["home", "about", "attractions", "partners", "rtffam", "rtfglobal"];
+  // 'partners' removed — RTF FAM 2026 (#rtffam) now holds all that content
+  const sectionOrder = ["home", "about", "attractions", "rtffam", "rtfglobal"];
   const sections = sectionOrder.map(id => document.getElementById(id)).filter(Boolean);
 
   const navLinks = document.querySelectorAll(".nav-link");
@@ -67,10 +68,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function updateActiveNav() {
     const activeId = sections[currentIndex]?.id;
-
     navLinks.forEach(link => {
       link.classList.remove("text-yellow-300");
-
       if (link.getAttribute("data-target") === activeId) {
         link.classList.add("text-yellow-300");
       }
@@ -80,12 +79,9 @@ document.addEventListener("DOMContentLoaded", function () {
   navLinks.forEach(link => {
     link.addEventListener("click", function (event) {
       event.preventDefault();
-
       const targetId = this.getAttribute("data-target");
       const index = sections.findIndex(section => section.id === targetId);
-
       if (index !== -1) showPage(index);
-
       if (mobileMenu) {
         mobileMenu.classList.add("hidden");
         mobileMenu.classList.remove("flex");
@@ -93,13 +89,8 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  if (prevSectionBtn) {
-    prevSectionBtn.addEventListener("click", () => showPage(currentIndex - 1));
-  }
-
-  if (nextSectionBtn) {
-    nextSectionBtn.addEventListener("click", () => showPage(currentIndex + 1));
-  }
+  if (prevSectionBtn) prevSectionBtn.addEventListener("click", () => showPage(currentIndex - 1));
+  if (nextSectionBtn) nextSectionBtn.addEventListener("click", () => showPage(currentIndex + 1));
 
   if (menuToggle && mobileMenu) {
     menuToggle.addEventListener("click", () => {
@@ -110,11 +101,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Participant search
   const participantSearch = document.getElementById("participantSearch");
-
   if (participantSearch) {
     participantSearch.addEventListener("keyup", function () {
       const searchValue = this.value.toLowerCase();
-
       document.querySelectorAll("#participantsTbody tr").forEach(row => {
         row.style.display = row.innerText.toLowerCase().includes(searchValue) ? "" : "none";
       });
@@ -125,13 +114,13 @@ document.addEventListener("DOMContentLoaded", function () {
   window.addEventListener("popstate", function () {
     const hash = window.location.hash.replace("#", "");
     const index = sections.findIndex(section => section.id === hash);
-
     if (index !== -1) showPage(index, false);
   });
 
+  // Handle legacy #partners URL — redirect to #rtffam
   const initialHash = window.location.hash.replace("#", "");
-  const initialIndex = sections.findIndex(section => section.id === initialHash);
-
+  const resolvedHash = initialHash === "partners" ? "rtffam" : initialHash;
+  const initialIndex = sections.findIndex(section => section.id === resolvedHash);
   showPage(initialIndex !== -1 ? initialIndex : 0, initialIndex === -1);
 
   initPdfFlipbook();
@@ -161,14 +150,11 @@ function initPdfFlipbook() {
     .then(() => {
       pdfjsLib.GlobalWorkerOptions.workerSrc =
         "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js";
-
       return pdfjsLib.getDocument(pdfUrl).promise;
     })
     .then(doc => {
       pdfDoc = doc;
-
       if (loadState) loadState.style.display = "none";
-
       renderPage(1);
       buildThumbs();
     })
@@ -179,11 +165,7 @@ function initPdfFlipbook() {
 
   function loadPdfJs() {
     return new Promise((resolve, reject) => {
-      if (window.pdfjsLib) {
-        resolve();
-        return;
-      }
-
+      if (window.pdfjsLib) { resolve(); return; }
       const script = document.createElement("script");
       script.src = "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js";
       script.onload = resolve;
@@ -194,15 +176,9 @@ function initPdfFlipbook() {
 
   function renderPage(pageNumber) {
     if (!pdfDoc) return;
-
-    if (rendering) {
-      pendingPage = pageNumber;
-      return;
-    }
-
+    if (rendering) { pendingPage = pageNumber; return; }
     rendering = true;
     currentPage = pageNumber;
-
     updatePdfControls();
 
     pdfDoc.getPage(pageNumber).then(page => {
@@ -210,25 +186,18 @@ function initPdfFlipbook() {
       const viewport = page.getViewport({ scale: 1 });
       const scale = Math.max((containerWidth - 24) / viewport.width, 0.5);
       const scaledViewport = page.getViewport({ scale });
-
       const pixelRatio = window.devicePixelRatio || 1;
 
       canvas.width = Math.floor(scaledViewport.width * pixelRatio);
       canvas.height = Math.floor(scaledViewport.height * pixelRatio);
-
       canvas.style.width = `${Math.floor(scaledViewport.width)}px`;
       canvas.style.height = `${Math.floor(scaledViewport.height)}px`;
 
       const context = canvas.getContext("2d");
       context.setTransform(pixelRatio, 0, 0, pixelRatio, 0, 0);
-
-      return page.render({
-        canvasContext: context,
-        viewport: scaledViewport
-      }).promise;
+      return page.render({ canvasContext: context, viewport: scaledViewport }).promise;
     }).then(() => {
       rendering = false;
-
       if (pendingPage !== null) {
         const nextPage = pendingPage;
         pendingPage = null;
@@ -243,14 +212,9 @@ function initPdfFlipbook() {
 
   function updatePdfControls() {
     if (!pdfDoc) return;
-
-    if (pageCount) {
-      pageCount.textContent = `Page ${currentPage} / ${pdfDoc.numPages}`;
-    }
-
+    if (pageCount) pageCount.textContent = `Page ${currentPage} / ${pdfDoc.numPages}`;
     if (prevPdfBtn) prevPdfBtn.disabled = currentPage <= 1;
     if (nextPdfBtn) nextPdfBtn.disabled = currentPage >= pdfDoc.numPages;
-
     document.querySelectorAll(".thumb-item").forEach(item => {
       item.classList.toggle("active-thumb", Number(item.dataset.page) === currentPage);
     });
@@ -273,58 +237,38 @@ function initPdfFlipbook() {
 
   document.addEventListener("keydown", function (event) {
     const rtfGlobalSection = document.getElementById("rtfglobal");
-
     if (!rtfGlobalSection || !rtfGlobalSection.classList.contains("active")) return;
-
-    if (event.key === "ArrowLeft") {
-      event.preventDefault();
-      goToPreviousPdfPage();
-    }
-
-    if (event.key === "ArrowRight") {
-      event.preventDefault();
-      goToNextPdfPage();
-    }
+    if (event.key === "ArrowLeft") { event.preventDefault(); goToPreviousPdfPage(); }
+    if (event.key === "ArrowRight") { event.preventDefault(); goToNextPdfPage(); }
   });
 
   function buildThumbs() {
     if (!thumbStrip || !pdfDoc) return;
-
     thumbStrip.innerHTML = "";
-
     for (let pageNumber = 1; pageNumber <= pdfDoc.numPages; pageNumber++) {
       const thumbItem = document.createElement("button");
       thumbItem.type = "button";
       thumbItem.className = "thumb-item";
       thumbItem.dataset.page = pageNumber;
       thumbItem.setAttribute("aria-label", `Open page ${pageNumber}`);
-
       const thumbCanvas = document.createElement("canvas");
       thumbItem.appendChild(thumbCanvas);
       thumbStrip.appendChild(thumbItem);
-
       thumbItem.addEventListener("click", function () {
         renderPage(Number(this.dataset.page));
         scrollActiveThumb();
       });
-
       renderThumb(pageNumber, thumbCanvas);
     }
-
     updatePdfControls();
   }
 
   function renderThumb(pageNumber, thumbCanvas) {
     pdfDoc.getPage(pageNumber).then(page => {
       const viewport = page.getViewport({ scale: 0.18 });
-
       thumbCanvas.width = viewport.width;
       thumbCanvas.height = viewport.height;
-
-      page.render({
-        canvasContext: thumbCanvas.getContext("2d"),
-        viewport
-      });
+      page.render({ canvasContext: thumbCanvas.getContext("2d"), viewport });
     }).catch(error => {
       console.warn(`Thumbnail render error on page ${pageNumber}:`, error);
     });
@@ -333,14 +277,7 @@ function initPdfFlipbook() {
   function scrollActiveThumb() {
     setTimeout(() => {
       const activeThumb = document.querySelector(".thumb-item.active-thumb");
-
-      if (activeThumb) {
-        activeThumb.scrollIntoView({
-          behavior: "smooth",
-          inline: "center",
-          block: "nearest"
-        });
-      }
+      if (activeThumb) activeThumb.scrollIntoView({ behavior: "smooth", inline: "center", block: "nearest" });
     }, 80);
   }
 
@@ -348,15 +285,10 @@ function initPdfFlipbook() {
     if (loadState) {
       loadState.style.display = "flex";
       loadState.innerHTML = `
-        <p style="color:#ef4444;font-weight:700;margin:0;">
-          PDF failed to load.
-        </p>
-        <a href="${pdfUrl}" target="_blank" style="color:#facc15;text-decoration:underline;margin-top:8px;">
-          Open PDF directly
-        </a>
+        <p style="color:#ef4444;font-weight:700;margin:0;">PDF failed to load.</p>
+        <a href="${pdfUrl}" target="_blank" style="color:#facc15;text-decoration:underline;margin-top:8px;">Open PDF directly</a>
       `;
     }
-
     if (pageCount) pageCount.textContent = "PDF not loaded";
     if (prevPdfBtn) prevPdfBtn.disabled = true;
     if (nextPdfBtn) nextPdfBtn.disabled = true;
