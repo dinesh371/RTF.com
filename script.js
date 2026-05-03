@@ -298,3 +298,35 @@ function initPdfFlipbook() {
     if (pdfDoc) renderPage(currentPage);
   });
 }
+.feedback-card-item {
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.feedback-person-img {
+  width: 82px;
+  height: 82px;
+  object-fit: cover;
+  object-position: center top;
+  border-radius: 50%;
+  margin: 0 auto 14px;
+  display: block;
+  border: 3px solid #facc15;
+  box-shadow:
+    0 0 0 5px rgba(250, 204, 21, 0.12),
+    0 10px 28px rgba(250, 204, 21, 0.28);
+  background: #111827;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.feedback-card-item:hover .feedback-person-img {
+  transform: scale(1.08);
+  box-shadow:
+    0 0 0 6px rgba(250, 204, 21, 0.18),
+    0 16px 36px rgba(250, 204, 21, 0.42);
+}
+
+.feedback-card-item h4 {
+  margin-top: 6px;
+}
