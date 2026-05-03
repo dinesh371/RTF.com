@@ -314,32 +314,32 @@ function duplicateScrollTrack(id) {
 
 // ===== RTF GLOBAL FAM IMAGE SLIDESHOW =====
 function initGlobalSlideshow() {
-  const slides    = document.querySelectorAll(".global-slideshow .slide");
-  const dots      = document.querySelectorAll(".slideshow-dots .dot");
-  const prevBtn   = document.getElementById("slidePrev");
-  const nextBtn   = document.getElementById("slideNext");
+  const slides = document.querySelectorAll(".global-slideshow .slide");
+  const dots = document.querySelectorAll(".slideshow-dots .dot");
+  const prevBtn = document.getElementById("slidePrev");
+  const nextBtn = document.getElementById("slideNext");
   const progressBar = document.getElementById("slideProgressBar");
 
   if (!slides.length) return;
 
-  let current   = 0;
+  let current = 0;
   let autoTimer = null;
-  const SLIDE_DURATION = 4000; // 4 seconds
+
+  const SLIDE_DURATION = 30000; // 30 seconds per slide, 6 slides = 3 minutes
 
   function goToSlide(index) {
     slides[current].classList.remove("active");
-    dots[current] && dots[current].classList.remove("active");
+    if (dots[current]) dots[current].classList.remove("active");
 
     current = (index + slides.length) % slides.length;
 
     slides[current].classList.add("active");
-    dots[current] && dots[current].classList.add("active");
+    if (dots[current]) dots[current].classList.add("active");
 
-    // reset progress bar
     if (progressBar) {
       progressBar.style.transition = "none";
       progressBar.style.width = "0%";
-      void progressBar.offsetWidth; // reflow
+      void progressBar.offsetWidth;
       progressBar.style.transition = `width ${SLIDE_DURATION}ms linear`;
       progressBar.style.width = "100%";
     }
@@ -351,29 +351,47 @@ function initGlobalSlideshow() {
   }
 
   function stopAuto() {
-    if (autoTimer) { clearInterval(autoTimer); autoTimer = null; }
+    if (autoTimer) {
+      clearInterval(autoTimer);
+      autoTimer = null;
+    }
   }
 
-  if (prevBtn) prevBtn.addEventListener("click", () => { goToSlide(current - 1); startAuto(); });
-  if (nextBtn) nextBtn.addEventListener("click", () => { goToSlide(current + 1); startAuto(); });
+  if (prevBtn) {
+    prevBtn.addEventListener("click", () => {
+      goToSlide(current - 1);
+      startAuto();
+    });
+  }
+
+  if (nextBtn) {
+    nextBtn.addEventListener("click", () => {
+      goToSlide(current + 1);
+      startAuto();
+    });
+  }
 
   dots.forEach((dot, i) => {
-    dot.addEventListener("click", () => { goToSlide(i); startAuto(); });
+    dot.addEventListener("click", () => {
+      goToSlide(i);
+      startAuto();
+    });
   });
 
-  // keyboard nav (only when rtfglobal section is active)
   document.addEventListener("keydown", function(e) {
     const rtfGlobal = document.getElementById("rtfglobal");
     if (!rtfGlobal || !rtfGlobal.classList.contains("active")) return;
-    if (e.key === "ArrowLeft")  { goToSlide(current - 1); startAuto(); }
-    if (e.key === "ArrowRight") { goToSlide(current + 1); startAuto(); }
-  });
 
-  // init progress bar
-  if (progressBar) {
-    progressBar.style.transition = `width ${SLIDE_DURATION}ms linear`;
-    progressBar.style.width = "100%";
-  }
+    if (e.key === "ArrowLeft") {
+      goToSlide(current - 1);
+      startAuto();
+    }
+
+    if (e.key === "ArrowRight") {
+      goToSlide(current + 1);
+      startAuto();
+    }
+  });
 
   goToSlide(0);
   startAuto();
