@@ -433,7 +433,7 @@ nav .text-yellow-300 { color: #facc15 !important; }
 .global-slideshow {
   position: relative;
   width: 100%;
-  height: 480px;
+  height: 550px;
 }
 @media (max-width: 640px) { .global-slideshow { height: 320px; } }
 
