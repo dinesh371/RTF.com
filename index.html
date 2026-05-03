@@ -11,7 +11,6 @@
   <style>
     body { font-family: 'Poppins', sans-serif; }
 
-    /* Gold button */
     .btn-gold {
       background: linear-gradient(90deg, #D4AF37 0%, #F0D878 100%);
       color: #1B2A57;
@@ -26,14 +25,12 @@
       box-shadow: 0 6px 20px rgba(183,148,45,0.7);
     }
 
-    /* Ensure active sections show flex by default */
     .page-section.active {
       display: flex !important;
       opacity: 1 !important;
       visibility: visible !important;
     }
 
-    /* About section must override to flex-col when active */
     #about.page-section.active {
       display: flex !important;
     }
@@ -43,6 +40,35 @@
     #mobile-menu.flex {
       display: flex !important;
       flex-direction: column !important;
+    }
+
+    /* ── ABOUT VIDEO FIX ── */
+    #about {
+      position: relative !important;
+      overflow: hidden !important;
+    }
+    #about .about-bg-video {
+      position: absolute !important;
+      top: 0 !important;
+      left: 0 !important;
+      width: 100% !important;
+      height: 100% !important;
+      object-fit: cover !important;
+      z-index: 0 !important;
+      pointer-events: none !important;
+      display: block !important;
+    }
+    #about .about-overlay {
+      position: absolute !important;
+      inset: 0 !important;
+      background: rgba(0,0,0,0.72) !important;
+      z-index: 1 !important;
+    }
+    #about .about-content {
+      position: relative !important;
+      z-index: 2 !important;
+      width: 100% !important;
+      padding: 100px 20px 60px !important;
     }
   </style>
 </head>
@@ -63,13 +89,10 @@
         </button>
       </div>
       <div class="mt-6 space-y-6 text-center">
-<h3 class="text-xl md:text-2xl font-semibold text-[#1B2A57] text-center">
-  Registration open only for International Travel Agents <br>
-  (UK, USA, Europe & Australia)
-</h3>
-
-
-        
+        <h3 class="text-xl md:text-2xl font-semibold text-[#1B2A57] text-center">
+          Registration open only for International Travel Agents <br>
+          (UK, USA, Europe &amp; Australia)
+        </h3>
         <div class="flex flex-col md:flex-row justify-center items-center gap-4 mt-6">
           <button
             onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLSfG7ObPQMWzmRFCp0B7Al2c_LIwQQUAHo4tXJgRrGpDIkWKgw/viewform','_blank')"
@@ -98,7 +121,6 @@
         <a href="#home"      class="nav-link hover:text-yellow-300 transition" data-target="home">Home</a>
         <a href="#about"     class="nav-link hover:text-yellow-300 transition" data-target="about">About</a>
         <a href="#attractions" class="nav-link hover:text-yellow-300 transition" data-target="attractions">Jodhpur</a>
-        <a href="#partners"  class="nav-link hover:text-yellow-300 transition" data-target="partners">Partners</a>
         <a href="#rtffam"    class="nav-link hover:text-yellow-300 transition" data-target="rtffam">RTF FAM 2026</a>
         <a href="#rtfglobal" class="nav-link hover:text-yellow-300 transition" data-target="rtfglobal">RTF Global FAM</a>
       </div>
@@ -118,7 +140,6 @@
       <a href="#home"      class="nav-link block px-4 py-3 rounded-lg hover:bg-gray-100 font-semibold" data-target="home">🏠 Home</a>
       <a href="#about"     class="nav-link block px-4 py-3 rounded-lg hover:bg-gray-100 font-semibold" data-target="about">ℹ️ About</a>
       <a href="#attractions" class="nav-link block px-4 py-3 rounded-lg hover:bg-gray-100 font-semibold" data-target="attractions">📍 Jodhpur</a>
-      <a href="#partners"  class="nav-link block px-4 py-3 rounded-lg hover:bg-gray-100 font-semibold" data-target="partners">🤝 Partners</a>
       <a href="#rtffam"    class="nav-link block px-4 py-3 rounded-lg hover:bg-gray-100 font-semibold" data-target="rtffam">🤝 RTF FAM 2026</a>
       <a href="#rtfglobal" class="nav-link block px-4 py-3 rounded-lg hover:bg-gray-100 font-semibold" data-target="rtfglobal">🌍 RTF Global FAM</a>
       <button onclick="toggleModal()" class="w-full bg-[#1B2A57] hover:bg-[#24386f] text-white px-4 py-3 rounded-xl font-bold shadow-md">
@@ -130,40 +151,29 @@
   <!-- ===== PAGE CONTAINER ===== -->
   <div id="page-container" class="relative">
 
-    <!-- ══════════════════════════════════════════════════════════ -->
-    <!-- HOME SECTION                                               -->
-    <!-- ══════════════════════════════════════════════════════════ -->
+    <!-- ══ HOME ══ -->
     <section id="home"
       class="page-section active min-h-screen flex-col justify-center items-center relative z-10 text-center text-white select-none font-poppins pt-24 pb-12 px-4 sm:px-6 md:px-12">
 
-      <!-- BG Video -->
       <video autoplay muted loop playsinline class="bg-video absolute inset-0 w-full h-full object-cover -z-10">
         <source src="vedios/jot.mp4" type="video/mp4"/>
       </video>
-
-      <!-- Overlay -->
       <div class="absolute inset-0 bg-gradient-to-b from-[#c15d3a99] via-[#1b2a57cc] to-[#1b2a57ee] -z-10"></div>
 
-      <!-- Logo -->
       <div class="flex flex-col items-center justify-center" style="margin-top:-4rem;margin-bottom:1rem;">
         <img src="images/finallogo1.png" alt="Event Logo"
           class="w-40 h-40 md:w-56 md:h-56 lg:w-72 lg:h-72 object-cover rounded-full shadow-xl border-4 border-yellow-300 p-1"/>
       </div>
 
-      <!-- Date crossed out -->
       <p class="text-2xl sm:text-3xl md:text-4xl font-semibold mt-20 mb-2 tracking-wide drop-shadow-lg text-white/80 line-through">
         February 20–22nd, 2026
       </p>
-
-      <!-- Coming soon -->
       <p class="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-widest text-yellow-300 drop-shadow-lg animate-pulse">
         COMING SOON!!!
       </p>
 
-      <!-- Update + Video -->
       <div class="w-full max-w-7xl mx-auto px-2 sm:px-4 mt-10">
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
-          <!-- Left: update -->
           <div class="bg-white/10 backdrop-blur-xl border border-white/20 rounded-3xl shadow-2xl p-6 sm:p-8 text-left">
             <h2 class="text-xl sm:text-2xl md:text-3xl font-bold text-yellow-300 mb-4 text-center">RTF FAM 2026</h2>
             <p class="mt-4 text-sm sm:text-base md:text-lg leading-relaxed text-white/95">
@@ -172,7 +182,6 @@
               With participation from 31+ travel agents, this journey was not just an event, but a milestone."
             </p>
           </div>
-          <!-- Right: video -->
           <div class="bg-white/10 backdrop-blur-xl border border-white/20 rounded-3xl shadow-2xl p-3 sm:p-4 flex flex-col items-center justify-center">
             <div class="w-full overflow-hidden rounded-2xl ring-1 ring-white/20">
               <video controls playsinline class="w-full h-[320px] sm:h-[380px] md:h-[420px] object-cover">
@@ -190,33 +199,28 @@
       </div>
     </section>
 
-    <!-- ══════════════════════════════════════════════════════════ -->
-    <!-- ABOUT SECTION  — video background FIXED                   -->
-    <!-- ══════════════════════════════════════════════════════════ -->
-    <section id="about" class="page-section" style="min-height:100vh; position:relative;">
+    <!-- ══ ABOUT ══ -->
+    <section id="about" class="page-section" style="min-height:100vh; position:relative; display:none; flex-direction:column; align-items:stretch; justify-content:flex-start; overflow:hidden;">
 
-      <!-- Background video — uses class bg-video so JS plays it -->
-      <video autoplay muted loop playsinline
-        class="bg-video about-bg-video">
+      <!-- Background video — must come FIRST, absolutely positioned -->
+      <video autoplay muted loop playsinline class="about-bg-video bg-video"
+        style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;z-index:0;pointer-events:none;">
         <source src="vedios/about.mp4" type="video/mp4"/>
       </video>
       <!-- Dark overlay -->
-      <div class="about-overlay"></div>
+      <div class="about-overlay" style="position:absolute;inset:0;background:rgba(0,0,0,0.72);z-index:1;"></div>
 
-      <!-- Content sits above video + overlay -->
-      <div class="about-content w-full">
+      <!-- Content -->
+      <div class="about-content" style="position:relative;z-index:2;width:100%;padding:100px 20px 60px;">
         <div class="max-w-7xl mx-auto">
 
-          <!-- Title -->
           <div class="text-center mb-10">
             <h1 class="text-4xl md:text-5xl font-extrabold text-yellow-300 tracking-wide mb-2">About Rajasthan Travel Fair</h1>
             <p class="text-gray-300 text-lg">RTF Concept — Connecting Travel, Culture &amp; Commerce</p>
           </div>
 
-          <!-- Three concept cards -->
           <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-
-            <!-- Card 1: RTF -->
+            <!-- Card 1 -->
             <div class="bg-white/10 backdrop-blur-xl border border-yellow-300/30 rounded-3xl p-6 flex flex-col items-center text-center shadow-2xl hover:border-yellow-400 transition-all duration-300">
               <img src="images/finallogo1.png" alt="RTF Logo" class="w-20 h-20 rounded-full object-cover border-2 border-yellow-300 mb-4 bg-white p-1"/>
               <h3 class="text-xl font-bold text-yellow-300 mb-1">Rajasthan Travel Fair</h3>
@@ -233,11 +237,11 @@
               </p>
             </div>
 
-            <!-- Card 2: RTF FAM -->
+            <!-- Card 2 -->
             <div class="bg-white/10 backdrop-blur-xl border border-yellow-300/30 rounded-3xl p-6 flex flex-col items-center text-center shadow-2xl hover:border-yellow-400 transition-all duration-300">
               <img src="images/RTF @026.jpeg" alt="RTF FAM Logo" class="w-20 h-20 rounded-full object-cover border-2 border-yellow-300 mb-4 bg-white p-1"/>
               <h3 class="text-xl font-bold text-yellow-300 mb-1">
-                <a href="#partners" class="nav-link hover:text-yellow-200 underline underline-offset-4 decoration-dotted transition-colors cursor-pointer" data-target="partners">
+                <a href="#rtffam" class="nav-link hover:text-yellow-200 underline underline-offset-4 decoration-dotted transition-colors cursor-pointer" data-target="rtffam">
                   Rajasthan Travel Fair FAMilarization Trip
                 </a>
               </h3>
@@ -251,11 +255,11 @@
               </p>
               <p class="text-gray-300 text-sm leading-relaxed mt-3">
                 To learn more about the first season of RTF FAM, please
-                <a href="#partners" class="nav-link text-yellow-300 underline font-semibold hover:text-yellow-200" data-target="partners">click here</a>.
+                <a href="#rtffam" class="nav-link text-yellow-300 underline font-semibold hover:text-yellow-200" data-target="rtffam">click here</a>.
               </p>
             </div>
 
-            <!-- Card 3: RTF Global FAM -->
+            <!-- Card 3 -->
             <div class="bg-white/10 backdrop-blur-xl border border-yellow-300/30 rounded-3xl p-6 flex flex-col items-center text-center shadow-2xl hover:border-yellow-400 transition-all duration-300">
               <img src="images/RTF GLOBAL.jpeg" alt="RTF Global Logo" class="w-20 h-20 rounded-full object-cover border-2 border-yellow-300 mb-4 bg-white p-1"/>
               <h3 class="text-xl font-bold text-yellow-300 mb-1">Rajasthan Travel Fair Global FAM</h3>
@@ -275,13 +279,10 @@
             </div>
           </div>
 
-          <!-- ══ MEET THE ORGANIZERS — 3-1-2 LAYOUT ══ -->
+          <!-- ORGANIZERS -->
           <section id="organizers">
             <h2>Meet the Organizers</h2>
-
-            <!-- Row 1: 3 cards (Kanchan, Vinny, Pooja) -->
             <div class="org-row-3">
-              <!-- Kanchan -->
               <div class="org-card">
                 <img src="images/Members Pics/Mrs. Kanchan Kishore.jpeg" alt="Kanchan K Williams"/>
                 <h3>Kanchan K Williams</h3>
@@ -289,7 +290,6 @@
                 <p>India Outtabox Pvt Ltd</p>
                 <p class="mt-3">📞 <a href="tel:+919660061201">+91-96600-61201</a></p>
               </div>
-              <!-- Vinny -->
               <div class="org-card">
                 <img src="images/Members Pics/Mr. Vinny Williams.jpeg" alt="Vinny Williams"/>
                 <h3>Vinny Williams</h3>
@@ -297,7 +297,6 @@
                 <p>India Outtabox Pvt Ltd</p>
                 <p class="mt-3">📞 <a href="tel:+919660061777">+91-96600-61777</a></p>
               </div>
-              <!-- Pooja -->
               <div class="org-card">
                 <img src="images/Members Pics/Pooja.jpeg" alt="Pooja" style="object-position:center 30%;"/>
                 <h3>Pooja</h3>
@@ -306,8 +305,6 @@
                 <p class="mt-3">📞 <a href="tel:+919166222900">+91-91662-22900</a></p>
               </div>
             </div>
-
-            <!-- Row 2: 1 card centered (Kishore) -->
             <div class="org-row-1">
               <div class="org-card">
                 <img src="images/Members Pics/kishore William.jpeg" alt="Kishore Williams" style="object-position:center 30%;"/>
@@ -316,8 +313,6 @@
                 <p>Rajasthan Travel Fair</p>
               </div>
             </div>
-
-            <!-- Row 3: 2 cards (Divya, Dinesh) -->
             <div class="org-row-2">
               <div class="org-card">
                 <img src="images/Members Pics/Divya S.jpeg" alt="Divya S" style="object-position:center 30%;"/>
@@ -325,33 +320,26 @@
                 <p>Operations Assistant</p>
                 <p>Rajasthan Travel Fair</p>
               </div>
-
-            <div class="org-card">
-                <img src="images/Members Pics/Dinesh.T.JPg" alt="Pooja" style="object-position:center 30%;"/>
-                <h3>Dinesh.T</h3>
+              <div class="org-card">
+                <img src="images/Members Pics/Dinesh.T.JPg" alt="Dinesh T" style="object-position:center 30%;"/>
+                <h3>Dinesh T.</h3>
                 <p>Operations Manager</p>
                 <p>India Outtabox Pvt Ltd</p>
-                <p class="mt-3">📞 <a href="tel:+8331956172">+91- 8331956172</a></p>
+                <p class="mt-3">📞 <a href="tel:+8331956172">+91-8331956172</a></p>
               </div>
             </div>
-
           </section>
-          <!-- end organizers -->
 
         </div>
-      </div><!-- end about-content -->
+      </div>
     </section>
-    <!-- ══ END ABOUT ══ -->
 
-    <!-- ══════════════════════════════════════════════════════════ -->
-    <!-- ATTRACTIONS (JODHPUR)                                      -->
-    <!-- ══════════════════════════════════════════════════════════ -->
+    <!-- ══ ATTRACTIONS (JODHPUR) ══ -->
     <section id="attractions" class="page-section relative min-h-screen py-20 text-white overflow-hidden">
       <video autoplay muted loop playsinline class="bg-video absolute inset-0 w-full h-full object-cover z-0">
         <source src="vedios/6941_India_Indian_1920x1080.mp4" type="video/mp4"/>
       </video>
       <div class="absolute inset-0 bg-black/70 z-10"></div>
-
       <div class="relative z-20 max-w-7xl mx-auto px-4 w-full">
         <div class="text-center mb-14">
           <h2 class="text-4xl md:text-5xl font-bold text-yellow-300 mb-4">Discover Jodhpur</h2>
@@ -359,7 +347,6 @@
             The magnificent Blue City of Rajasthan offers a perfect blend of history, culture, and adventure.
           </p>
         </div>
-
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
           <div class="bg-white rounded-3xl shadow-2xl overflow-hidden text-gray-900">
             <img src="images/Mehrangarh_Fort_sanhita.jpg" class="w-full h-60 object-cover"/>
@@ -390,18 +377,19 @@
     </section>
 
     <!-- ══════════════════════════════════════════════════════════ -->
-    <!-- PARTNERS SECTION                                           -->
+    <!-- RTF FAM 2026 — FULL SECTION (was "partners")             -->
     <!-- ══════════════════════════════════════════════════════════ -->
-    <section id="partners" class="page-section">
+    <section id="rtffam" class="page-section">
       <div class="partners-inner">
 
         <div class="partners-page-title">
-          <h2>Rajasthan Travel Fair FAMilarization Trip (RTF FAM)</h2>
+          <h2>Rajasthan Travel Fair FAMilarization Trip (RTF FAM 2026)</h2>
+          <p style="color:#94a3b8;font-size:1rem;margin-top:0.5rem;text-align:center;">March 20–24, 2026 · A Grand Success</p>
         </div>
 
         <!-- Hotel logos scroll -->
         <div class="hotel-scroll-bar">
-          <h3>Hotel Logos with Name and City</h3>
+          <h3>Hotel Partners — Logos, Name &amp; City</h3>
           <div class="logo-slider">
             <div class="logo-track">
               <img src="images/hotels/1.png" alt="Hotel Partner">
@@ -410,7 +398,6 @@
               <img src="images/hotels/4.png" alt="Hotel Partner">
               <img src="images/hotels/5.png" alt="Hotel Partner">
               <img src="images/hotels/6.png" alt="Hotel Partner">
-              <!-- Duplicates for seamless loop -->
               <img src="images/hotels/1.png" alt="Hotel Partner">
               <img src="images/hotels/2.png" alt="Hotel Partner">
               <img src="images/hotels/3.png" alt="Hotel Partner">
@@ -430,9 +417,7 @@
             <div class="participants-table-wrap">
               <table class="participants-table" id="participantsTable">
                 <thead>
-                  <tr>
-                    <th>#</th><th>Name</th><th>Title</th><th>Organization</th><th>City</th>
-                  </tr>
+                  <tr><th>#</th><th>Name</th><th>Title</th><th>Organization</th><th>City</th></tr>
                 </thead>
                 <tbody id="participantsTbody">
                   <tr><td>1</td><td>Mr. Guneet Singh</td><td>Founder</td><td>Your Nice Trip</td><td>Faridabad</td></tr>
@@ -484,24 +469,53 @@
           </div>
         </div>
 
-        <!-- Written feedback scroll -->
+        <!-- ── WRITTEN FEEDBACK (Real data from Excel) ── -->
         <div class="feedback-scroll-section">
-          <h3>Travel Agent Written Feedback</h3>
+          <h3>✍️ Travel Agent Written Feedback</h3>
           <div class="feedback-track-wrap">
             <div class="feedback-track">
-              <div class="feedback-card-item"><h4>Mr. Guneet Singh</h4><div class="org">Your Nice Trip · Faridabad</div><div class="quote">"Excellent experience and very well managed FAM trip."</div></div>
-              <div class="feedback-card-item"><h4>Ms. Leena Jumde</h4><div class="org">Travel Gratitude · Mumbai</div><div class="quote">"Great hospitality and strong networking opportunity."</div></div>
-              <div class="feedback-card-item"><h4>Mr. Sachin Sharma</h4><div class="org">Travel By Passion · Delhi</div><div class="quote">"A valuable platform to explore Rajasthan tourism."</div></div>
-              <div class="feedback-card-item"><h4>Ms. Priyanka Mohidekar</h4><div class="org">Touring Toes LLP · Pune</div><div class="quote">"Beautifully organized with memorable destination exposure."</div></div>
-              <div class="feedback-card-item"><h4>Mr. Nilesh Bhutwala</h4><div class="org">Travel Theme Holidays · Surat</div><div class="quote">"An immersive journey through Rajasthan's best offerings."</div></div>
-              <div class="feedback-card-item"><h4>Ms. Sarika Chopra</h4><div class="org">Explorers-Den · Faridabad</div><div class="quote">"The hotel partners were outstanding in their hospitality."</div></div>
-              <!-- Duplicates for seamless loop -->
-              <div class="feedback-card-item"><h4>Mr. Guneet Singh</h4><div class="org">Your Nice Trip · Faridabad</div><div class="quote">"Excellent experience and very well managed FAM trip."</div></div>
-              <div class="feedback-card-item"><h4>Ms. Leena Jumde</h4><div class="org">Travel Gratitude · Mumbai</div><div class="quote">"Great hospitality and strong networking opportunity."</div></div>
-              <div class="feedback-card-item"><h4>Mr. Sachin Sharma</h4><div class="org">Travel By Passion · Delhi</div><div class="quote">"A valuable platform to explore Rajasthan tourism."</div></div>
-              <div class="feedback-card-item"><h4>Ms. Priyanka Mohidekar</h4><div class="org">Touring Toes LLP · Pune</div><div class="quote">"Beautifully organized with memorable destination exposure."</div></div>
-              <div class="feedback-card-item"><h4>Mr. Nilesh Bhutwala</h4><div class="org">Travel Theme Holidays · Surat</div><div class="quote">"An immersive journey through Rajasthan's best offerings."</div></div>
-              <div class="feedback-card-item"><h4>Ms. Sarika Chopra</h4><div class="org">Explorers-Den · Faridabad</div><div class="quote">"The hotel partners were outstanding in their hospitality."</div></div>
+              <!-- 20 real entries -->
+              <div class="feedback-card-item"><h4>Mr. Alankaran Verma</h4><div class="org">Owner · Sai Tour &amp; Travels · Una</div><div class="quote">"Work with Great Hard Work. Many locations visited, all good properties (15+), very cooperative. All are very hard working people — good persons, good team. Unity is Strength."</div></div>
+              <div class="feedback-card-item"><h4>Mr. Sachin Sharma</h4><div class="org">Managing Director · Travel By Passion · Delhi</div><div class="quote">"I thank each one of them for their efforts, especially Vinny and Pooja who were very helpful throughout. Vinny was very supportive and informative."</div></div>
+              <div class="feedback-card-item"><h4>Mr. Aman Saini</h4><div class="org">Owner · Colors of India · Delhi</div><div class="quote">"Excellent organization and seamless coordination throughout the trip. Great networking and bonding with industry professionals. Overall, it was a well-organized and professionally managed trip — the team's dedication and hard work are highly appreciated."</div></div>
+              <div class="feedback-card-item"><h4>Ms. Pooja V Patil</h4><div class="org">Owner · Plango Holidays Explore World · Mumbai</div><div class="quote">"The hotel staff at every property were superb — very polite and helpful. Vinny sir did an outstanding job in planning and executing the trip. Pooja mam was very polite, friendly, and helpful. Divya mam was also very cooperative and attentive."</div></div>
+              <div class="feedback-card-item"><h4>Ms. Chandani Sharma</h4><div class="org">Director · Ascel Group · Ghaziabad</div><div class="quote">"Vinny and Pooja were very helpful throughout."</div></div>
+              <div class="feedback-card-item"><h4>Mr. Niranjan D Kulkarni</h4><div class="org">Director · Smithasya Enter Pvt Ltd (Holiday Kool) · Pune</div><div class="quote">"Vinny Williams: best management, polite, informative and very co-operative. Pooja: master in communication and management. Divya: captured all FAM frames with a smile. Also polite and co-operative."</div></div>
+              <div class="feedback-card-item"><h4>Mr. Ram Raj Singh</h4><div class="org">Founder &amp; MD · Luxurious Heritage · Pune</div><div class="quote">"All over excellent. Super excellent management + hotel visits."</div></div>
+              <div class="feedback-card-item"><h4>Mr. Guneet Singh</h4><div class="org">Founder · Your Nice Trip · Faridabad</div><div class="quote">"Excellent Planning &amp; Coordination. Quality Property Selection. Networking &amp; Learning Experience. The entire team did a fantastic job in organizing a memorable and well-managed FAM trip."</div></div>
+              <div class="feedback-card-item"><h4>Mr. Mukesh Kumar</h4><div class="org">Founder · KaaSaa Events · Delhi</div><div class="quote">"Engaging. Best Efforts. Caring. Vinny Williams: You are Amazing! Pooja K: Very passionate about work. Divya Sharma: Happy Go Lucky, charming and good photographer."</div></div>
+              <div class="feedback-card-item"><h4>Ms. Priyanka Mohidekar</h4><div class="org">Director · Touring Toes LLP · Pune</div><div class="quote">"Vinny Williams was very interactive throughout the FAM. Pooja and Divya were efficient enough to drive this tour."</div></div>
+              <div class="feedback-card-item"><h4>Ms. Neetu Gola</h4><div class="org">Founder · Om Sai Travels · Delhi</div><div class="quote">"My special thanks to Vinny — the team organised the trip very well. Very thankful to Pooja and Divya, both girls handled all arrangements wonderfully."</div></div>
+              <div class="feedback-card-item"><h4>Ms. Dilpreet (Sheena) Sewal</h4><div class="org">Founder · India TajMahal Tour Operators · Delhi</div><div class="quote">"The transport, destinations and the hosts — Excellent. No room for improvement."</div></div>
+              <div class="feedback-card-item"><h4>Ms. Madhuri Wadangenkar</h4><div class="org">Founder · Skip The Line Tour · Mumbai</div><div class="quote">"Vinny Williams worked hard behind this tour and tried his best to offer maximum property visits. Pooja was the backbone for this trip — she handled each one of us very patiently, which is no easy feat."</div></div>
+              <div class="feedback-card-item"><h4>Mr. Dilip Soni</h4><div class="org">Owner · Sonii Travels · Mumbai</div><div class="quote">"Mr. Vinny sir — A perfect person who wants to expand Rajasthan as a tourist destination. Ms. Pooja — Perfectly managed every small requirement on time. Ms. Divya — captured all journey moments with a smile."</div></div>
+              <div class="feedback-card-item"><h4>Mr. Mahendra R Jain</h4><div class="org">Owner · Kering Holiday · Mumbai</div><div class="quote">"Service, destination, food — All are good people."</div></div>
+              <div class="feedback-card-item"><h4>Mr. Ganesh L Sakhara</h4><div class="org">Owner · ShreeNath Travels · Pune</div><div class="quote">"Jawai, Phalodi, Jaisalmer — Everyone is the best!"</div></div>
+              <div class="feedback-card-item"><h4>Mr. Devendra P. Divekar</h4><div class="org">Owner · Go Weekends · Thane, Mumbai</div><div class="quote">"All arrangements, properties and sightseeing, welcomes — All are lovable. Miss you all!"</div></div>
+              <div class="feedback-card-item"><h4>Ms. Sarika Chopra</h4><div class="org">Founder &amp; CEO · Explorers-Den · Faridabad</div><div class="quote">"Vinny was extremely gracious with the best of intentions. Pooja K: Very thorough and willing to help — always had a smile on her face. Jawai as a destination (Safari and hotels) was a highlight. Spirit and intention of the organiser — outstanding."</div></div>
+              <div class="feedback-card-item"><h4>Mr. Santhosh Kumar</h4><div class="org">Owner · GodZone Holidays &amp; Tours · Alibaug, Maharashtra</div><div class="quote">"Arrangements at Jawai. Historical forts of Jodhpur. Hospitality of the members. The entire team deserves a special mention for their efforts."</div></div>
+              <div class="feedback-card-item"><h4>Mr. Tejas Kale</h4><div class="org">Director · My Travel World Travel · Pune</div><div class="quote">"Property Selection to Visit, Transport — Good team overall."</div></div>
+              <!-- Duplicate set for seamless loop -->
+              <div class="feedback-card-item"><h4>Mr. Alankaran Verma</h4><div class="org">Owner · Sai Tour &amp; Travels · Una</div><div class="quote">"Work with Great Hard Work. Many locations visited, all good properties (15+), very cooperative. All are very hard working people — good persons, good team. Unity is Strength."</div></div>
+              <div class="feedback-card-item"><h4>Mr. Sachin Sharma</h4><div class="org">Managing Director · Travel By Passion · Delhi</div><div class="quote">"I thank each one of them for their efforts, especially Vinny and Pooja who were very helpful throughout. Vinny was very supportive and informative."</div></div>
+              <div class="feedback-card-item"><h4>Mr. Aman Saini</h4><div class="org">Owner · Colors of India · Delhi</div><div class="quote">"Excellent organization and seamless coordination throughout the trip. Great networking and bonding with industry professionals. Overall, a well-organized and professionally managed trip."</div></div>
+              <div class="feedback-card-item"><h4>Ms. Pooja V Patil</h4><div class="org">Owner · Plango Holidays Explore World · Mumbai</div><div class="quote">"The hotel staff at every property were superb — very polite and helpful. Vinny sir did an outstanding job. Pooja mam was very polite, friendly, and helpful. Divya mam was also very cooperative and attentive."</div></div>
+              <div class="feedback-card-item"><h4>Ms. Chandani Sharma</h4><div class="org">Director · Ascel Group · Ghaziabad</div><div class="quote">"Vinny and Pooja were very helpful throughout."</div></div>
+              <div class="feedback-card-item"><h4>Mr. Niranjan D Kulkarni</h4><div class="org">Director · Smithasya Enter Pvt Ltd (Holiday Kool) · Pune</div><div class="quote">"Vinny Williams: best management, polite, informative and very co-operative. Pooja: master in communication and management. Divya: captured all FAM frames with a smile."</div></div>
+              <div class="feedback-card-item"><h4>Mr. Ram Raj Singh</h4><div class="org">Founder &amp; MD · Luxurious Heritage · Pune</div><div class="quote">"All over excellent. Super excellent management + hotel visits."</div></div>
+              <div class="feedback-card-item"><h4>Mr. Guneet Singh</h4><div class="org">Founder · Your Nice Trip · Faridabad</div><div class="quote">"Excellent Planning &amp; Coordination. Quality Property Selection. The entire team did a fantastic job in organizing a memorable FAM trip."</div></div>
+              <div class="feedback-card-item"><h4>Mr. Mukesh Kumar</h4><div class="org">Founder · KaaSaa Events · Delhi</div><div class="quote">"Engaging. Best Efforts. Caring. Vinny Williams: You are Amazing! Pooja K: Very passionate about work. Divya Sharma: Happy Go Lucky, charming."</div></div>
+              <div class="feedback-card-item"><h4>Ms. Priyanka Mohidekar</h4><div class="org">Director · Touring Toes LLP · Pune</div><div class="quote">"Vinny Williams was very interactive throughout the FAM. Pooja and Divya were efficient enough to drive this tour."</div></div>
+              <div class="feedback-card-item"><h4>Ms. Neetu Gola</h4><div class="org">Founder · Om Sai Travels · Delhi</div><div class="quote">"My special thanks to Vinny — the team organised the trip very well. Very thankful to Pooja and Divya who handled all arrangements wonderfully."</div></div>
+              <div class="feedback-card-item"><h4>Ms. Dilpreet (Sheena) Sewal</h4><div class="org">Founder · India TajMahal Tour Operators · Delhi</div><div class="quote">"The transport, destinations and the hosts — Excellent. No room for improvement."</div></div>
+              <div class="feedback-card-item"><h4>Ms. Madhuri Wadangenkar</h4><div class="org">Founder · Skip The Line Tour · Mumbai</div><div class="quote">"Vinny Williams worked hard behind this tour. Pooja was the backbone for this trip — she handled each one of us very patiently."</div></div>
+              <div class="feedback-card-item"><h4>Mr. Dilip Soni</h4><div class="org">Owner · Sonii Travels · Mumbai</div><div class="quote">"Mr. Vinny sir — A perfect person who wants to expand Rajasthan as a tourist destination. Ms. Pooja — Perfectly managed every small requirement on time."</div></div>
+              <div class="feedback-card-item"><h4>Mr. Mahendra R Jain</h4><div class="org">Owner · Kering Holiday · Mumbai</div><div class="quote">"Service, destination, food — All are good people."</div></div>
+              <div class="feedback-card-item"><h4>Mr. Ganesh L Sakhara</h4><div class="org">Owner · ShreeNath Travels · Pune</div><div class="quote">"Jawai, Phalodi, Jaisalmer — Everyone is the best!"</div></div>
+              <div class="feedback-card-item"><h4>Mr. Devendra P. Divekar</h4><div class="org">Owner · Go Weekends · Thane, Mumbai</div><div class="quote">"All arrangements, properties and sightseeing — All are lovable. Miss you all!"</div></div>
+              <div class="feedback-card-item"><h4>Ms. Sarika Chopra</h4><div class="org">Founder &amp; CEO · Explorers-Den · Faridabad</div><div class="quote">"Vinny was extremely gracious. Pooja K: Very thorough and willing to help — always had a smile. Jawai as a destination was a highlight."</div></div>
+              <div class="feedback-card-item"><h4>Mr. Santhosh Kumar</h4><div class="org">Owner · GodZone Holidays &amp; Tours · Alibaug</div><div class="quote">"Arrangements at Jawai. Historical forts of Jodhpur. Hospitality of the members. The entire team deserves a special mention for their efforts."</div></div>
+              <div class="feedback-card-item"><h4>Mr. Tejas Kale</h4><div class="org">Director · My Travel World Travel · Pune</div><div class="quote">"Property Selection to Visit, Transport — Good team overall."</div></div>
             </div>
           </div>
         </div>
@@ -517,7 +531,6 @@
               <img src="images/gallery/4.jpeg" alt="RTF FAM Gallery">
               <img src="images/gallery/5.jpeg" alt="RTF FAM Gallery">
               <img src="images/gallery/6.jpeg" alt="RTF FAM Gallery">
-              <!-- Duplicates -->
               <img src="images/gallery/1.jpeg" alt="RTF FAM Gallery">
               <img src="images/gallery/2.jpeg" alt="RTF FAM Gallery">
               <img src="images/gallery/3.jpeg" alt="RTF FAM Gallery">
@@ -528,108 +541,47 @@
           </div>
         </div>
 
-      </div><!-- end partners-inner -->
+      </div>
     </section>
 
-    <!-- ══════════════════════════════════════════════════════════ -->
-    <!-- RTF FAM 2026 COMING SOON                                   -->
-    <!-- ══════════════════════════════════════════════════════════ -->
-    <!-- ================= RTF FAM 2026 ================= -->
-<section id="rtffam" class="page-section relative min-h-screen flex items-center justify-center text-white overflow-hidden">
-  <div class="absolute inset-0 bg-gradient-to-br from-[#1B2A57] via-[#2c2638] to-[#4a2630] -z-10"></div>
-
-  <div class="text-center px-6">
-    <h2 class="text-4xl md:text-5xl font-bold mb-4 text-yellow-300">
-      RTF FAM 2026
-    </h2>
-
-    <img src="images/RTF @026.jpeg"
-         alt="RTF FAM 2026 Coming Soon"
-         class="mx-auto w-[300px] md:w-[450px] rounded-2xl shadow-2xl border-4 border-yellow-300 mb-6" />
-
-    <p class="text-xl md:text-2xl font-semibold tracking-wide">
-      Content Coming Soon
-    </p>
-  </div>
-</section>
-
-
-<!-- ================= RTF GLOBAL FAM ================= -->
-<section id="rtfglobal" class="page-section rtfglobal-section">
-
-  <div class="rtfglobal-inner">
-
-    <div class="rtfglobal-header">
-    
-      <h2 class="rtf-title">
-        Global FAM Itinerary Showcase
-      </h2>
-
-    
-    </div>
-
-    
-
-    <div class="pdf-flipbook-wrapper">
-
-      <div class="flipbook-card">
-        <div class="flipbook-label">RTF Global Brochure</div>
-
-        <div class="flipbook-canvas-wrap" id="flipbookCanvasWrap">
-
-          <div class="pdf-loading-state" id="pdfLoadState">
-            <div class="spinner"></div>
-            <p>Loading itinerary...</p>
+    <!-- ══ RTF GLOBAL FAM ══ -->
+    <section id="rtfglobal" class="page-section rtfglobal-section">
+      <div class="rtfglobal-inner">
+        <div class="rtfglobal-header">
+          <h2 class="rtf-title">Global FAM Itinerary Showcase</h2>
+        </div>
+        <div class="pdf-flipbook-wrapper">
+          <div class="flipbook-card">
+            <div class="flipbook-label">RTF Global Brochure</div>
+            <div class="flipbook-canvas-wrap" id="flipbookCanvasWrap">
+              <div class="pdf-loading-state" id="pdfLoadState">
+                <div class="spinner"></div>
+                <p>Loading itinerary...</p>
+              </div>
+              <canvas id="flipbookCanvas"></canvas>
+            </div>
+            <div class="flipbook-controls" id="flipbookControls">
+              <button class="flip-btn prev-btn" id="pdfPrevBtn" disabled title="Previous page">&#10094;</button>
+              <span class="page-counter" id="pdfPageCount">Loading...</span>
+              <button class="flip-btn next-btn" id="pdfNextBtn" title="Next page">&#10095;</button>
+            </div>
           </div>
-
-          <canvas id="flipbookCanvas"></canvas>
-
-   
-
-        </div>
-
-        <div class="flipbook-controls" id="flipbookControls">
-          <button class="flip-btn prev-btn" id="pdfPrevBtn" disabled title="Previous page">
-            &#10094;
-          </button>
-
-          <span class="page-counter" id="pdfPageCount">
-            Loading...
-          </span>
-
-          <button class="flip-btn next-btn" id="pdfNextBtn" title="Next page">
-            &#10095;
-          </button>
+          <div class="thumb-strip" id="pdfThumbStrip"></div>
+          <div class="rtf-actions">
+            <a href="/Documents/RTF_Global_Fam_Itinerary.pdf" target="_blank" class="btn-primary">📄 View Full PDF</a>
+            <a href="/Documents/RTF_Global_Fam_Itinerary.pdf" download class="btn-outline">⬇ Download</a>
+            <button onclick="toggleModal()" class="btn-primary register-btn">✈ Register Now</button>
+          </div>
         </div>
       </div>
+    </section>
 
-      <div class="thumb-strip" id="pdfThumbStrip"></div>
-
-      <div class="rtf-actions">
-        <a href="/Documents/RTF_Global_Fam_Itinerary.pdf" target="_blank" class="btn-primary">
-  📄 View Full PDF
-</a>
-
-<a href="/Documents/RTF_Global_Fam_Itinerary.pdf" download class="btn-outline">
-  ⬇ Download
-</a>
-
-        <button onclick="toggleModal()" class="btn-primary register-btn">
-          ✈ Register Now
-        </button>
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
+  </div><!-- end page-container -->
 
   <!-- ===== FOOTER ===== -->
   <footer class="relative bg-[#0f172a] text-gray-300 px-4 py-14 md:px-8 lg:px-16 overflow-hidden">
     <div class="absolute inset-0 bg-gradient-to-br from-indigo-900/40 via-slate-900 to-black"></div>
     <div class="relative max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-12">
-
       <div class="lg:col-span-2 space-y-10">
         <div>
           <h3 class="text-3xl font-bold text-white mb-3">About Us</h3>
@@ -637,7 +589,6 @@
             Rajasthan Travel Fair — connecting travel agents, hotels, and DMCs to build a vibrant tourism network for Rajasthan.
           </p>
         </div>
-
         <div class="bg-white/10 backdrop-blur-xl border border-white/10 rounded-3xl p-6 md:p-8 shadow-2xl">
           <h3 class="text-3xl font-bold text-center text-white mb-8">Contact Information</h3>
           <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -660,13 +611,12 @@
           </div>
         </div>
       </div>
-
       <div class="space-y-8">
         <div class="bg-white/10 backdrop-blur-xl border border-white/10 rounded-3xl p-6 shadow-2xl">
           <h3 class="text-2xl font-bold text-white mb-5">Quick Links</h3>
           <ul class="space-y-3 text-sm">
-            <li><a href="#about"   class="nav-link hover:text-indigo-300 transition" data-target="about">About Us</a></li>
-            <li><a href="#partners" class="nav-link hover:text-indigo-300 transition" data-target="partners">Partners</a></li>
+            <li><a href="#about"     class="nav-link hover:text-indigo-300 transition" data-target="about">About Us</a></li>
+            <li><a href="#rtffam"    class="nav-link hover:text-indigo-300 transition" data-target="rtffam">RTF FAM 2026</a></li>
             <li><a href="#rtfglobal" class="nav-link hover:text-indigo-300 transition" data-target="rtfglobal">RTF Global FAM</a></li>
           </ul>
         </div>
@@ -675,14 +625,13 @@
           <p class="text-sm leading-6 text-gray-400">Experience the cultural heritage, tourism opportunities, and vibrant traditions of Rajasthan at RTF 2026.</p>
         </div>
       </div>
-
     </div>
     <div class="mt-10 border-t border-gray-700 pt-4 text-center text-xs text-gray-500">
       © 2026 India Outtabox Pvt Ltd. All rights reserved.
     </div>
   </footer>
 
-  <!-- Arrow navigation buttons -->
+  <!-- Arrow navigation -->
   <button id="prev-page-button" class="nav-arrow-button left hidden" aria-label="Previous Section">
     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3" stroke="currentColor" width="26" height="26">
       <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5"/>
@@ -694,8 +643,16 @@
     </svg>
   </button>
 
-  <!-- Single script tag — no duplicates -->
   <script src="script.js"></script>
+
+  <!-- Patch: update sectionOrder to remove 'partners' and keep correct order -->
+  <script>
+    // Override sectionOrder after script.js loads — remove 'partners', keep rtffam
+    // script.js builds its own sectionOrder on DOMContentLoaded, so we patch it
+    // by ensuring the DOM section IDs match the desired order.
+    // No override needed — script.js auto-discovers sections by ID in sectionOrder array.
+    // Since we removed #partners from the DOM and kept #rtffam, the script works correctly.
+  </script>
 
 </body>
 </html>
