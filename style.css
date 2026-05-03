@@ -115,6 +115,19 @@ nav .text-yellow-300 { color: #facc15 !important; }
   justify-content: flex-start;
   padding: 90px 0 60px 0 !important;
 }
+.rtffam-section.active {
+  display: flex !important;
+}
+
+/* ===== ATTRACTIONS SECTION ===== */
+#attractions.page-section.active {
+  display: flex !important;
+}
+
+/* ===== RTF GLOBAL FAM SECTION ===== */
+#rtfglobal.page-section.active {
+  display: flex !important;
+}
 
 .partners-inner {
   width: 100%;
