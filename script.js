@@ -299,11 +299,6 @@ document.addEventListener("DOMContentLoaded", function () {
   // ── Duplicate feedback track for seamless loop ────────────────────────────
   duplicateScrollTrack("feedbackTrack");
 });
-  // ── Init RTF Global FAM Slideshow ─────────────────────────
-  initGlobalSlideshow();
-
-  // ── Duplicate feedback track ────────────────────────────
-  duplicateScrollTrack("feedbackTrack");
 
 
   // ✅ ADD THIS BELOW 👇
