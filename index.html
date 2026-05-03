@@ -551,37 +551,63 @@
     </section>
 
     <!-- ══ RTF GLOBAL FAM ══ -->
-    <section id="rtfglobal" class="page-section rtfglobal-section">
-      <div class="rtfglobal-inner">
-        <div class="rtfglobal-header">
-          <h2 class="rtf-title">Global FAM Itinerary Showcase</h2>
+   <section id="rtfglobal" class="page-section rtfglobal-section">
+  <div class="rtfglobal-inner">
+
+    <!-- HEADER -->
+    <div class="rtfglobal-header">
+      <h2 class="rtf-title">Global FAM Itinerary Showcase</h2>
+    </div>
+
+    <!-- 🔥 AUTO IMAGE SLIDER -->
+    <div class="rtf-global-slider">
+      <div class="rtf-slider-track">
+
+        <img src="images/ilovepdf_pages-to-jpg (1)/RTF_Global_Fam_Itinerary_page-0001.jpg" alt="">
+        <img src="images/ilovepdf_pages-to-jpg (1)/RTF_Global_Fam_Itinerary_page-0002.jpg" alt="">
+        <img src="images/ilovepdf_pages-to-jpg (1)/RTF_Global_Fam_Itinerary_page-0003.jpg" alt="">
+        <img src="images/ilovepdf_pages-to-jpg (1)/RTF_Global_Fam_Itinerary_page-0004.jpg" alt="">
+        <img src="images/ilovepdf_pages-to-jpg (1)/RTF_Global_Fam_Itinerary_page-0005.jpg" alt="">
+          <img src="images/ilovepdf_pages-to-jpg (1)/RTF_Global_Fam_Itinerary_page-0006.jpg" alt="">
+
+        <!-- duplicate for smooth infinite loop -->
+        <img src="images/ilovepdf_pages-to-jpg (1)/RTF_Global_Fam_Itinerary_page-0001.jpg" alt="">
+        <img src="images/ilovepdf_pages-to-jpg (1)/RTF_Global_Fam_Itinerary_page-0002.jpg" alt="">
+        <img src="images/ilovepdf_pages-to-jpg (1)/RTF_Global_Fam_Itinerary_page-0003.jpg" alt="">
+        <img src="images/ilovepdf_pages-to-jpg (1)/RTF_Global_Fam_Itinerary_page-0004.jpg" alt="">
+        <img src="images/ilovepdf_pages-to-jpg (1)/RTF_Global_Fam_Itinerary_page-0005.jpg" alt="">
+          <img src="images/ilovepdf_pages-to-jpg (1)/RTF_Global_Fam_Itinerary_page-0006.jpg" alt="">
+
+      </div>
+    </div>
+
+    <!-- PDF FLIPBOOK -->
+    <div class="pdf-flipbook-wrapper">
+      <div class="flipbook-card">
+        <div class="flipbook-label">RTF Global Brochure</div>
+
+        <div class="flipbook-canvas-wrap" id="flipbookCanvasWrap">
+          <div class="pdf-loading-state" id="pdfLoadState">
+            <div class="spinner"></div>
+            <p>Loading itinerary...</p>
+          </div>
+          <canvas id="flipbookCanvas"></canvas>
         </div>
-        <div class="pdf-flipbook-wrapper">
-          <div class="flipbook-card">
-            <div class="flipbook-label">RTF Global Brochure</div>
-            <div class="flipbook-canvas-wrap" id="flipbookCanvasWrap">
-              <div class="pdf-loading-state" id="pdfLoadState">
-                <div class="spinner"></div>
-                <p>Loading itinerary...</p>
-              </div>
-              <canvas id="flipbookCanvas"></canvas>
-            </div>
-            <div class="flipbook-controls" id="flipbookControls">
-              <button class="flip-btn prev-btn" id="pdfPrevBtn" disabled title="Previous page">&#10094;</button>
-              <span class="page-counter" id="pdfPageCount">Loading...</span>
-              <button class="flip-btn next-btn" id="pdfNextBtn" title="Next page">&#10095;</button>
-            </div>
-          </div>
-          <div class="thumb-strip" id="pdfThumbStrip"></div>
-          <div class="rtf-actions">
-            <a href="/Documents/RTF_Global_Fam_Itinerary.pdf" target="_blank" class="btn-primary">📄 View Full PDF</a>
-            <a href="/Documents/RTF_Global_Fam_Itinerary.pdf" download class="btn-outline">⬇ Download</a>
-            <button onclick="toggleModal()" class="btn-primary register-btn">✈ Register Now</button>
-          </div>
+
+        <div class="flipbook-controls" id="flipbookControls">
+          <button class="flip-btn prev-btn" id="pdfPrevBtn" disabled>&#10094;</button>
+          <span class="page-counter" id="pdfPageCount">Loading...</span>
+          <button class="flip-btn next-btn" id="pdfNextBtn">&#10095;</button>
         </div>
       </div>
-    </section>
 
+      <div class="thumb-strip" id="pdfThumbStrip"></div>
+
+    
+    </div>
+
+  </div>
+</section>
   </div><!-- end page-container -->
 
   <!-- ===== FOOTER ===== -->
