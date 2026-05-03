@@ -20,7 +20,7 @@ var legalContent = {
       <p><strong>Last Updated:</strong> May 2026</p>
 
       <h4 style="font-weight:700;color:#1B2A57;margin-top:16px;">1. Who We Are</h4>
-      <p>Rajasthan Travel Fair (RTF) is operated by <strong>India Outtabox Pvt Ltd</strong>, headquartered at Sir Pratap Colony, D-1, Near Paanch Batti, Ratanada, Jodhpur, Rajasthan – 342001, India.</p>
+      <p>Rajasthan Travel Fair (RTF) is operated by <strong>India Outtabox Pvt Ltd</strong>, headquartered at Sir Pratap Colony, D-1, Near Paanch Batti, Ratanada, Jodhpur, Rajasthan – 342001, India. This Privacy Policy explains how we collect, use, and protect your personal data when you visit our website or participate in our events.</p>
 
       <h4 style="font-weight:700;color:#1B2A57;margin-top:16px;">2. Information We Collect</h4>
       <ul style="list-style:disc;padding-left:20px;">
@@ -40,17 +40,38 @@ var legalContent = {
       </ul>
 
       <h4 style="font-weight:700;color:#1B2A57;margin-top:16px;">4. Data Sharing</h4>
-      <p>We do <strong>not</strong> sell, rent, or trade your personal data to third parties. We may share data with hotel partners and event co-organisers solely for logistics purposes.</p>
+      <p>We do <strong>not</strong> sell, rent, or trade your personal data to third parties. We may share data with:</p>
+      <ul style="list-style:disc;padding-left:20px;">
+        <li>Hotel partners and event co-organisers solely for logistics and event management purposes.</li>
+        <li>Service providers (e.g., Google Forms, email platforms) who help us operate the website.</li>
+        <li>Regulatory or legal authorities if required by law.</li>
+      </ul>
 
-      <h4 style="font-weight:700;color:#1B2A57;margin-top:16px;">5. Your Rights</h4>
+      <h4 style="font-weight:700;color:#1B2A57;margin-top:16px;">5. Data Retention</h4>
+      <p>We retain your personal data for as long as necessary for the purposes outlined in this policy, or as required by law. Event-related data is typically retained for 3 years after the event.</p>
+
+      <h4 style="font-weight:700;color:#1B2A57;margin-top:16px;">6. Your Rights</h4>
       <ul style="list-style:disc;padding-left:20px;">
         <li>Access the personal data we hold about you.</li>
         <li>Request correction or deletion of your data.</li>
         <li>Withdraw consent for communications at any time.</li>
+        <li>Lodge a complaint with the relevant data protection authority.</li>
       </ul>
       <p>To exercise your rights, contact us at <a href="mailto:info@rajasthantravelfair.com" style="color:#1B2A57;text-decoration:underline;">info@rajasthantravelfair.com</a>.</p>
 
-      <h4 style="font-weight:700;color:#1B2A57;margin-top:16px;">6. Contact Us</h4>
+      <h4 style="font-weight:700;color:#1B2A57;margin-top:16px;">7. Cookies</h4>
+      <p>Our website may use basic cookies for functional purposes (e.g., remembering your section on the page). We do not use advertising or tracking cookies. By using our site, you consent to this limited use of cookies.</p>
+
+      <h4 style="font-weight:700;color:#1B2A57;margin-top:16px;">8. Security</h4>
+      <p>We take reasonable technical and organisational measures to protect your personal information against unauthorised access, loss, or misuse. However, no internet transmission is 100% secure.</p>
+
+      <h4 style="font-weight:700;color:#1B2A57;margin-top:16px;">9. Third-Party Links</h4>
+      <p>Our website may contain links to external sites (e.g., Google Forms). We are not responsible for the privacy practices of those sites and encourage you to review their policies.</p>
+
+      <h4 style="font-weight:700;color:#1B2A57;margin-top:16px;">10. Changes to This Policy</h4>
+      <p>We may update this Privacy Policy from time to time. Changes will be posted on this page with an updated date. Continued use of the website after changes constitutes acceptance.</p>
+
+      <h4 style="font-weight:700;color:#1B2A57;margin-top:16px;">11. Contact Us</h4>
       <p><strong>India Outtabox Pvt Ltd</strong><br>Sir Pratap Colony, D-1, Near Paanch Batti, Ratanada, Jodhpur, Rajasthan – 342001<br>
       📞 +91-91662-22900 | ✉ <a href="mailto:info@rajasthantravelfair.com" style="color:#1B2A57;text-decoration:underline;">info@rajasthantravelfair.com</a></p>
     `
@@ -60,10 +81,10 @@ var legalContent = {
     body: `
       <h3 style="font-size:1.1rem;font-weight:700;color:#1B2A57;margin-bottom:8px;">Terms &amp; Conditions — Rajasthan Travel Fair (RTF) 2026</h3>
       <p><strong>Last Updated:</strong> May 2026</p>
-      <p>By accessing this website or participating in any RTF event or FAM trip, you agree to be bound by the following Terms &amp; Conditions.</p>
+      <p>By accessing this website or participating in any RTF event or FAM trip, you agree to be bound by the following Terms &amp; Conditions. Please read them carefully.</p>
 
       <h4 style="font-weight:700;color:#1B2A57;margin-top:16px;">1. Organiser</h4>
-      <p>All RTF events are organised by <strong>India Outtabox Pvt Ltd</strong> ("the Organiser").</p>
+      <p>All RTF events are organised by <strong>India Outtabox Pvt Ltd</strong> ("the Organiser"), a company registered in India. References to "RTF", "we", "us", or "our" refer to India Outtabox Pvt Ltd and the Rajasthan Travel Fair initiative.</p>
 
       <h4 style="font-weight:700;color:#1B2A57;margin-top:16px;">2. Eligibility</h4>
       <ul style="list-style:disc;padding-left:20px;">
@@ -72,24 +93,50 @@ var legalContent = {
         <li>The Organiser reserves the right to verify eligibility and decline participation without providing a reason.</li>
       </ul>
 
-      <h4 style="font-weight:700;color:#1B2A57;margin-top:16px;">3. FAM Trip Terms</h4>
+      <h4 style="font-weight:700;color:#1B2A57;margin-top:16px;">3. Registration</h4>
       <ul style="list-style:disc;padding-left:20px;">
-        <li>Participants must attend all scheduled hotel inspections and sessions.</li>
-        <li>Participants must behave professionally toward all organisers, hotel staff, and fellow participants.</li>
-        <li>The Organiser reserves the right to remove any participant for misconduct, without refund.</li>
+        <li>Registration is subject to availability and confirmation by the Organiser.</li>
+        <li>Submitting a registration form does not guarantee participation.</li>
+        <li>Participants must provide accurate and truthful information. False information may result in disqualification.</li>
       </ul>
 
-      <h4 style="font-weight:700;color:#1B2A57;margin-top:16px;">4. Photography &amp; Media</h4>
+      <h4 style="font-weight:700;color:#1B2A57;margin-top:16px;">4. FAM Trip Terms</h4>
+      <ul style="list-style:disc;padding-left:20px;">
+        <li>Participants are expected to attend all scheduled hotel inspections, activities, and sessions unless otherwise communicated.</li>
+        <li>Any costs not specified as included in the FAM itinerary are the responsibility of the participant.</li>
+        <li>Participants must behave professionally and respectfully toward all organisers, hotel staff, and fellow participants.</li>
+        <li>The Organiser reserves the right to remove any participant from the FAM trip for misconduct, without refund or compensation.</li>
+      </ul>
+
+      <h4 style="font-weight:700;color:#1B2A57;margin-top:16px;">5. Cancellation &amp; Changes</h4>
+      <ul style="list-style:disc;padding-left:20px;">
+        <li>The Organiser reserves the right to modify or cancel any event or FAM trip due to circumstances beyond our control.</li>
+        <li>If an event is cancelled by the Organiser, participants will be notified as soon as possible.</li>
+        <li>Participant cancellations may be subject to terms communicated at the time of confirmation.</li>
+      </ul>
+
+      <h4 style="font-weight:700;color:#1B2A57;margin-top:16px;">6. Photography &amp; Media</h4>
       <ul style="list-style:disc;padding-left:20px;">
         <li>By participating in RTF events, participants consent to being photographed and filmed for promotional purposes.</li>
-        <li>Feedback shared may be published on the website or social media with participant's name and company.</li>
+        <li>Feedback shared with the Organiser may be published on the website or social media with the participant's name and company.</li>
+        <li>Participants wishing to opt out of media use must notify the Organiser in writing before the event.</li>
       </ul>
 
-      <h4 style="font-weight:700;color:#1B2A57;margin-top:16px;">5. Governing Law</h4>
-      <p>These Terms are governed by the laws of India. Any disputes shall be subject to the exclusive jurisdiction of courts in Jodhpur, Rajasthan.</p>
+      <h4 style="font-weight:700;color:#1B2A57;margin-top:16px;">7. Liability</h4>
+      <ul style="list-style:disc;padding-left:20px;">
+        <li>The Organiser shall not be liable for any personal injury, loss, damage, or theft of personal property during FAM trips or events.</li>
+        <li>Participants are encouraged to carry their own travel insurance.</li>
+      </ul>
 
-      <h4 style="font-weight:700;color:#1B2A57;margin-top:16px;">6. Contact</h4>
-      <p><strong>India Outtabox Pvt Ltd</strong><br>📞 +91-91662-22900 | ✉ <a href="mailto:info@rajasthantravelfair.com" style="color:#1B2A57;text-decoration:underline;">info@rajasthantravelfair.com</a></p>
+      <h4 style="font-weight:700;color:#1B2A57;margin-top:16px;">8. Intellectual Property</h4>
+      <p>All content on this website, including logos, text, images, and videos, is the property of India Outtabox Pvt Ltd / Rajasthan Travel Fair and may not be reproduced without written permission.</p>
+
+      <h4 style="font-weight:700;color:#1B2A57;margin-top:16px;">9. Governing Law</h4>
+      <p>These Terms &amp; Conditions are governed by the laws of India. Any disputes shall be subject to the exclusive jurisdiction of courts in Jodhpur, Rajasthan.</p>
+
+      <h4 style="font-weight:700;color:#1B2A57;margin-top:16px;">10. Contact</h4>
+      <p><strong>India Outtabox Pvt Ltd</strong><br>Sir Pratap Colony, D-1, Near Paanch Batti, Ratanada, Jodhpur, Rajasthan – 342001<br>
+      📞 +91-91662-22900 | ✉ <a href="mailto:info@rajasthantravelfair.com" style="color:#1B2A57;text-decoration:underline;">info@rajasthantravelfair.com</a></p>
     `
   }
 };
@@ -122,20 +169,11 @@ function rfgOpenLightbox(src) {
   if (!lb || !img) return;
   img.src = src;
   lb.classList.add("open");
-  document.body.style.overflow = "hidden";
 }
 
 function rfgCloseLightbox() {
   var lb = document.getElementById("rfgLightbox");
   if (lb) lb.classList.remove("open");
-  document.body.style.overflow = "";
-}
-
-// Close lightbox when clicking outside image
-function rfgCloseLightboxOutside(e) {
-  if (e.target === document.getElementById("rfgLightbox")) {
-    rfgCloseLightbox();
-  }
 }
 
 // Close lightbox with Escape key
@@ -221,37 +259,18 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // ── Nav link clicks — FIX: handles ALL .nav-link elements including dynamic ones ──
-  function handleNavLinkClick(e) {
-    e.preventDefault();
-    var targetId = this.getAttribute("data-target");
-    if (!targetId) return;
-    var index = sections.findIndex(function (s) { return s.id === targetId; });
-    if (index !== -1) showPage(index);
-    if (mobileMenu) {
-      mobileMenu.classList.add("hidden");
-      mobileMenu.classList.remove("flex");
-    }
-  }
-
-  // Attach to all nav links including ones inside content areas
+  // ── Nav link clicks ───────────────────────────────────────────────────────
   navLinks.forEach(function (link) {
-    link.addEventListener("click", handleNavLinkClick);
-  });
-
-  // FIX: Also use event delegation for dynamically rendered nav-links
-  document.addEventListener("click", function(e) {
-    var link = e.target.closest(".nav-link");
-    if (!link) return;
-    var targetId = link.getAttribute("data-target");
-    if (!targetId) return;
-    e.preventDefault();
-    var index = sections.findIndex(function (s) { return s.id === targetId; });
-    if (index !== -1) showPage(index);
-    if (mobileMenu) {
-      mobileMenu.classList.add("hidden");
-      mobileMenu.classList.remove("flex");
-    }
+    link.addEventListener("click", function (e) {
+      e.preventDefault();
+      var targetId = this.getAttribute("data-target");
+      var index = sections.findIndex(function (s) { return s.id === targetId; });
+      if (index !== -1) showPage(index);
+      if (mobileMenu) {
+        mobileMenu.classList.add("hidden");
+        mobileMenu.classList.remove("flex");
+      }
+    });
   });
 
   // ── Arrow button clicks ───────────────────────────────────────────────────
