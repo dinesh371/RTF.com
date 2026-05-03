@@ -563,3 +563,138 @@ nav .text-yellow-300 { color: #facc15 !important; }
 }
 .footer-legal-links a:hover { color: #facc15; }
 .footer-legal-links span { color: #374151; }
+/* ===== FIX: GLOBAL SLIDESHOW (MATCH YOUR HTML) ===== */
+
+#rtfglobal .global-slideshow-wrapper {
+  width: 100%;
+  max-width: 1050px;
+  height: 620px;
+  margin: 30px auto;
+  overflow: hidden;
+  border-radius: 22px;
+  position: relative;
+  background: #020617;
+  border: 1px solid rgba(250,204,21,0.25);
+  box-shadow: 0 25px 70px rgba(0,0,0,0.5);
+}
+
+#rtfglobal .global-slideshow {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+/* slides */
+#rtfglobal .slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transform: scale(1.05);
+  transition: opacity 1.2s ease, transform 5s ease;
+}
+
+#rtfglobal .slide.active {
+  opacity: 1;
+  transform: scale(1);
+  z-index: 2;
+}
+
+/* images */
+#rtfglobal .slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* best for PDF images */
+  background: #020617;
+}
+
+/* overlay */
+#rtfglobal .slide::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.6), transparent);
+}
+
+/* caption */
+#rtfglobal .slide-caption {
+  position: absolute;
+  bottom: 30px;
+  left: 30px;
+  z-index: 5;
+}
+
+#rtfglobal .slide-badge {
+  background: #fde047;
+  color: #111;
+  padding: 8px 14px;
+  border-radius: 999px;
+  font-weight: 800;
+}
+
+/* arrows */
+#rtfglobal .slide-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 8;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid rgba(250,204,21,0.3);
+  background: rgba(0,0,0,0.6);
+  color: #fde047;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+#rtfglobal .slide-prev { left: 15px; }
+#rtfglobal .slide-next { right: 15px; }
+
+#rtfglobal .slide-arrow:hover {
+  background: #fde047;
+  color: #000;
+}
+
+/* dots */
+#rtfglobal .slideshow-dots {
+  position: absolute;
+  bottom: 18px;
+  right: 25px;
+  display: flex;
+  gap: 8px;
+  z-index: 8;
+}
+
+#rtfglobal .dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.4);
+}
+
+#rtfglobal .dot.active {
+  background: #fde047;
+  transform: scale(1.3);
+}
+
+/* progress bar */
+#rtfglobal .slideshow-progress {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 4px;
+  background: rgba(255,255,255,0.15);
+}
+
+#rtfglobal .progress-bar {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg,#fde047,#f97316);
+}
+
+/* mobile */
+@media (max-width:768px){
+  #rtfglobal .global-slideshow-wrapper {
+    height: 480px;
+  }
+}
