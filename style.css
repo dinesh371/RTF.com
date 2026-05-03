@@ -12,8 +12,8 @@ html, body {
 .page-section {
   position: relative !important;
   margin: 0 !important;
-  min-height: 100vh !important;
-  display: none;
+min-height: auto !important;
+height: auto !important;  display: none;
   opacity: 0;
   visibility: hidden;
   flex-direction: column;
