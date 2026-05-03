@@ -459,71 +459,90 @@
       </div>
     </section>
 
-    <!-- ══ RTF GLOBAL FAM ══ FIXED: properly wrapped in its own section with id="rtfglobal" -->
-    <section id="rtfglobal" class="page-section" style="flex-direction:column; align-items:stretch; justify-content:flex-start; padding:90px 0 60px; background:linear-gradient(135deg,#0f172a 0%,#1e293b 50%,#0f172a 100%);">
-      <div class="partners-inner">
+    <!-- ══ RTF GLOBAL FAM — GRID LAYOUT ══ -->
+    <section id="rtfglobal" class="page-section rtfglobal-section">
+      <div class="rtfglobal-inner">
 
-        <div class="partners-page-title" style="margin-bottom:1.5rem;">
-          <h2>RTF Global FAM — Itinerary Showcase</h2>
-          <p>Explore the complete Global FAM journey — day-wise itinerary, experiences &amp; destinations</p>
+        <div class="rtfglobal-header">
+          <h2 class="rtf-title">RTF Global FAM 2026</h2>
+          <p class="rtf-subtitle">16 Days · 14 Destinations · 30+ International Travel Agents · 60+ Hotels</p>
         </div>
 
-        <!-- Image Slideshow -->
-        <div class="global-slideshow-wrapper">
-          <div class="global-slideshow" id="globalSlideshow">
-            <div class="slide active" data-index="0">
-              <img src="images/global/slide1.jpg" onerror="this.src='images/ilovepdf_pages-to-jpg (1)/RTF_Global_Fam_Itinerary_page-0001.jpg'" alt="RTF Global FAM Slide 1"/>
-            </div>
-            <div class="slide" data-index="1">
-              <img src="images/global/slide2.jpg" onerror="this.src='images/ilovepdf_pages-to-jpg (1)/RTF_Global_Fam_Itinerary_page-0002.jpg'" alt="RTF Global FAM Slide 2"/>
-            </div>
-            <div class="slide" data-index="2">
-              <img src="images/global/slide3.jpg" onerror="this.src='images/ilovepdf_pages-to-jpg (1)/RTF_Global_Fam_Itinerary_page-0003.jpg'" alt="RTF Global FAM Slide 3"/>
-            </div>
-            <div class="slide" data-index="3">
-              <img src="images/global/slide4.jpg" onerror="this.src='images/ilovepdf_pages-to-jpg (1)/RTF_Global_Fam_Itinerary_page-0004.jpg'" alt="RTF Global FAM Slide 4"/>
-            </div>
-            <div class="slide" data-index="4">
-              <img src="images/global/slide5.jpg" onerror="this.src='images/ilovepdf_pages-to-jpg (1)/RTF_Global_Fam_Itinerary_page-0005.jpg'" alt="RTF Global FAM Slide 5"/>
-            </div>
-            <div class="slide" data-index="5">
-              <img src="images/global/slide6.jpg" onerror="this.src='images/ilovepdf_pages-to-jpg (1)/RTF_Global_Fam_Itinerary_page-0006.jpg'" alt="RTF Global FAM Slide 6"/>
-            </div>
+        <!-- ── ROW 1: Poster (left) + Itinerary Snapshot (right) ── -->
+        <div class="rfg-row1">
+          <div class="rfg-poster rfg-cell" onclick="rfgOpenLightbox('images/RTF GLOBAL.jpeg')">
+            <img
+              src="images/RTF GLOBAL.jpeg"
+              alt="RTF Global FAM Poster"
+              onerror="this.src='images/finallogo1.png'"
+            />
+            <div class="rfg-cell-label">RTF Global FAM Poster</div>
           </div>
-
-          <!-- Navigation dots -->
-          <div class="slideshow-dots" id="slideshowDots">
-            <button class="dot active" data-slide="0"></button>
-            <button class="dot" data-slide="1"></button>
-            <button class="dot" data-slide="2"></button>
-            <button class="dot" data-slide="3"></button>
-            <button class="dot" data-slide="4"></button>
-            <button class="dot" data-slide="5"></button>
-          </div>
-
-          <!-- Prev / Next arrows -->
-          <button class="slide-arrow slide-prev" id="slidePrev" aria-label="Previous slide">&#10094;</button>
-          <button class="slide-arrow slide-next" id="slideNext" aria-label="Next slide">&#10095;</button>
-
-          <!-- Progress bar -->
-          <div class="slideshow-progress">
-            <div class="progress-bar" id="slideProgressBar"></div>
+          <div class="rfg-snapshot rfg-cell" onclick="rfgOpenLightbox('images/ilovepdf_pages-to-jpg (1)/RTF_Global_Fam_Itinerary_page-0001.jpg')">
+            <img
+              src="images/ilovepdf_pages-to-jpg (1)/RTF_Global_Fam_Itinerary_page-0001.jpg"
+              alt="RTF Itinerary Snapshot"
+              onerror="this.src='images/finallogo1.png'"
+            />
+            <div class="rfg-cell-label">RTF Itinerary Snapshot</div>
           </div>
         </div>
 
-        <!-- Register CTA -->
-        <div style="text-align:center; margin-top:2rem;">
-          <p style="color:#94a3b8; font-size:0.95rem; margin-bottom:1rem;">
-            Open to international travel agents from UK, USA, Europe &amp; Australia
-          </p>
-          <button onclick="toggleModal()"
-            style="background:linear-gradient(90deg,#facc15,#f97316);color:#020617;font-weight:800;font-size:1rem;padding:14px 32px;border-radius:999px;border:none;cursor:pointer;box-shadow:0 8px 24px rgba(250,204,21,0.3);transition:transform 0.2s ease;"
-            onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='none'">
-            ✈ Register for RTF Global FAM 2026
-          </button>
+        <!-- ── ROW 2: Itinerary Pages 1–4 ── -->
+        <div class="rfg-row2">
+          <div class="rfg-page rfg-cell" onclick="rfgOpenLightbox('images/ilovepdf_pages-to-jpg (1)/RTF_Global_Fam_Itinerary_page-0002.jpg')">
+            <img
+              src="images/ilovepdf_pages-to-jpg (1)/RTF_Global_Fam_Itinerary_page-0002.jpg"
+              alt="Itinerary Page 1"
+              onerror="this.src='images/finallogo1.png'"
+            />
+            <div class="rfg-cell-label">Itinerary Page 1</div>
+          </div>
+          <div class="rfg-page rfg-cell" onclick="rfgOpenLightbox('images/ilovepdf_pages-to-jpg (1)/RTF_Global_Fam_Itinerary_page-0003.jpg')">
+            <img
+              src="images/ilovepdf_pages-to-jpg (1)/RTF_Global_Fam_Itinerary_page-0003.jpg"
+              alt="Itinerary Page 2"
+              onerror="this.src='images/finallogo1.png'"
+            />
+            <div class="rfg-cell-label">Itinerary Page 2</div>
+          </div>
+          <div class="rfg-page rfg-cell" onclick="rfgOpenLightbox('images/ilovepdf_pages-to-jpg (1)/RTF_Global_Fam_Itinerary_page-0004.jpg')">
+            <img
+              src="images/ilovepdf_pages-to-jpg (1)/RTF_Global_Fam_Itinerary_page-0004.jpg"
+              alt="Itinerary Page 3"
+              onerror="this.src='images/finallogo1.png'"
+            />
+            <div class="rfg-cell-label">Itinerary Page 3</div>
+          </div>
+          <div class="rfg-page rfg-cell" onclick="rfgOpenLightbox('images/ilovepdf_pages-to-jpg (1)/RTF_Global_Fam_Itinerary_page-0005.jpg')">
+            <img
+              src="images/ilovepdf_pages-to-jpg (1)/RTF_Global_Fam_Itinerary_page-0005.jpg"
+              alt="Itinerary Page 4"
+              onerror="this.src='images/finallogo1.png'"
+            />
+            <div class="rfg-cell-label">Itinerary Page 4</div>
+          </div>
         </div>
 
+        <!-- ── ROW 3: Full-width Itinerary MAP ── -->
+        <div class="rfg-row3">
+          <div class="rfg-map rfg-cell" onclick="rfgOpenLightbox('images/ilovepdf_pages-to-jpg (1)/RTF_Global_Fam_Itinerary_page-0006.jpg')">
+            <img
+              src="images/ilovepdf_pages-to-jpg (1)/RTF_Global_Fam_Itinerary_page-0006.jpg"
+              alt="Itinerary MAP"
+              onerror="this.src='images/finallogo1.png'"
+            />
+            <div class="rfg-cell-label">Itinerary MAP</div>
+          </div>
+        </div>
+
+    
+      <!-- ── Lightbox overlay ── -->
+      <div id="rfgLightbox" class="rfg-lightbox" onclick="rfgCloseLightbox()">
+        <button class="rfg-lightbox-close" onclick="rfgCloseLightbox()" aria-label="Close">&#10005;</button>
+        <img id="rfgLightboxImg" src="" alt="Full view"/>
       </div>
+
     </section>
 
   </div><!-- end page-container -->
