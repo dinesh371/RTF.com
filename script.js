@@ -1,10 +1,10 @@
 // ===== MODAL =====
 function toggleModal() {
-  const modal = document.getElementById("modal");
+  var modal = document.getElementById("modal");
   if (!modal) return;
-  const isHidden = modal.style.display === "none" || modal.style.display === "";
+  var isHidden = modal.style.display === "none" || modal.style.display === "";
   modal.style.display = isHidden ? "flex" : "none";
-  const mobileMenu = document.getElementById("mobile-menu");
+  var mobileMenu = document.getElementById("mobile-menu");
   if (mobileMenu) {
     mobileMenu.classList.add("hidden");
     mobileMenu.classList.remove("flex");
@@ -12,7 +12,7 @@ function toggleModal() {
 }
 
 // ===== LEGAL MODAL =====
-const legalContent = {
+var legalContent = {
   privacy: {
     title: "Privacy Policy",
     body: `
@@ -23,7 +23,6 @@ const legalContent = {
       <p>Rajasthan Travel Fair (RTF) is operated by <strong>India Outtabox Pvt Ltd</strong>, headquartered at Sir Pratap Colony, D-1, Near Paanch Batti, Ratanada, Jodhpur, Rajasthan – 342001, India. This Privacy Policy explains how we collect, use, and protect your personal data when you visit our website or participate in our events.</p>
 
       <h4 style="font-weight:700;color:#1B2A57;margin-top:16px;">2. Information We Collect</h4>
-      <p>We may collect the following types of information:</p>
       <ul style="list-style:disc;padding-left:20px;">
         <li><strong>Personal identification information</strong> — Name, email address, phone number, company/organisation name, designation, city/country.</li>
         <li><strong>Registration data</strong> — Information submitted via Google Forms or any registration form on this website.</li>
@@ -52,7 +51,6 @@ const legalContent = {
       <p>We retain your personal data for as long as necessary for the purposes outlined in this policy, or as required by law. Event-related data is typically retained for 3 years after the event.</p>
 
       <h4 style="font-weight:700;color:#1B2A57;margin-top:16px;">6. Your Rights</h4>
-      <p>You have the right to:</p>
       <ul style="list-style:disc;padding-left:20px;">
         <li>Access the personal data we hold about you.</li>
         <li>Request correction or deletion of your data.</li>
@@ -105,14 +103,14 @@ const legalContent = {
       <h4 style="font-weight:700;color:#1B2A57;margin-top:16px;">4. FAM Trip Terms</h4>
       <ul style="list-style:disc;padding-left:20px;">
         <li>Participants are expected to attend all scheduled hotel inspections, activities, and sessions unless otherwise communicated.</li>
-        <li>Any costs not specified as included in the FAM itinerary are the responsibility of the participant (e.g., personal shopping, alcoholic beverages, medical expenses).</li>
+        <li>Any costs not specified as included in the FAM itinerary are the responsibility of the participant.</li>
         <li>Participants must behave professionally and respectfully toward all organisers, hotel staff, and fellow participants.</li>
         <li>The Organiser reserves the right to remove any participant from the FAM trip for misconduct, without refund or compensation.</li>
       </ul>
 
       <h4 style="font-weight:700;color:#1B2A57;margin-top:16px;">5. Cancellation &amp; Changes</h4>
       <ul style="list-style:disc;padding-left:20px;">
-        <li>The Organiser reserves the right to modify or cancel any event or FAM trip due to circumstances beyond our control (force majeure, government restrictions, insufficient participation, etc.).</li>
+        <li>The Organiser reserves the right to modify or cancel any event or FAM trip due to circumstances beyond our control.</li>
         <li>If an event is cancelled by the Organiser, participants will be notified as soon as possible.</li>
         <li>Participant cancellations may be subject to terms communicated at the time of confirmation.</li>
       </ul>
@@ -128,7 +126,6 @@ const legalContent = {
       <ul style="list-style:disc;padding-left:20px;">
         <li>The Organiser shall not be liable for any personal injury, loss, damage, or theft of personal property during FAM trips or events.</li>
         <li>Participants are encouraged to carry their own travel insurance.</li>
-        <li>The Organiser's liability, if any, is limited to the direct cost of the event registration, if applicable.</li>
       </ul>
 
       <h4 style="font-weight:700;color:#1B2A57;margin-top:16px;">8. Intellectual Property</h4>
@@ -137,10 +134,7 @@ const legalContent = {
       <h4 style="font-weight:700;color:#1B2A57;margin-top:16px;">9. Governing Law</h4>
       <p>These Terms &amp; Conditions are governed by the laws of India. Any disputes shall be subject to the exclusive jurisdiction of courts in Jodhpur, Rajasthan.</p>
 
-      <h4 style="font-weight:700;color:#1B2A57;margin-top:16px;">10. Changes to Terms</h4>
-      <p>We reserve the right to update these Terms &amp; Conditions at any time. Continued use of the website or participation in RTF events constitutes acceptance of the updated terms.</p>
-
-      <h4 style="font-weight:700;color:#1B2A57;margin-top:16px;">11. Contact</h4>
+      <h4 style="font-weight:700;color:#1B2A57;margin-top:16px;">10. Contact</h4>
       <p><strong>India Outtabox Pvt Ltd</strong><br>Sir Pratap Colony, D-1, Near Paanch Batti, Ratanada, Jodhpur, Rajasthan – 342001<br>
       📞 +91-91662-22900 | ✉ <a href="mailto:info@rajasthantravelfair.com" style="color:#1B2A57;text-decoration:underline;">info@rajasthantravelfair.com</a></p>
     `
@@ -149,9 +143,9 @@ const legalContent = {
 
 function showLegalModal(type, e) {
   if (e) e.preventDefault();
-  const modal = document.getElementById("legalModal");
-  const title = document.getElementById("legalModalTitle");
-  const body  = document.getElementById("legalModalBody");
+  var modal = document.getElementById("legalModal");
+  var title = document.getElementById("legalModalTitle");
+  var body  = document.getElementById("legalModalBody");
   if (!modal || !legalContent[type]) return;
   title.textContent = legalContent[type].title;
   body.innerHTML    = legalContent[type].body;
@@ -159,30 +153,48 @@ function showLegalModal(type, e) {
 }
 
 function closeLegalModal() {
-  const modal = document.getElementById("legalModal");
+  var modal = document.getElementById("legalModal");
   if (modal) modal.style.display = "none";
 }
 
-// Close legal modal on backdrop click
 document.addEventListener("click", function (e) {
-  const modal = document.getElementById("legalModal");
+  var modal = document.getElementById("legalModal");
   if (modal && e.target === modal) closeLegalModal();
+});
+
+// ===== RTF GLOBAL FAM — LIGHTBOX =====
+function rfgOpenLightbox(src) {
+  var lb  = document.getElementById("rfgLightbox");
+  var img = document.getElementById("rfgLightboxImg");
+  if (!lb || !img) return;
+  img.src = src;
+  lb.classList.add("open");
+}
+
+function rfgCloseLightbox() {
+  var lb = document.getElementById("rfgLightbox");
+  if (lb) lb.classList.remove("open");
+}
+
+// Close lightbox with Escape key
+document.addEventListener("keydown", function (e) {
+  if (e.key === "Escape") rfgCloseLightbox();
 });
 
 // ===== MAIN SCRIPT =====
 document.addEventListener("DOMContentLoaded", function () {
-  const sectionOrder = ["home", "about", "attractions", "rtffam", "rtfglobal"];
-  const sections = sectionOrder.map(id => document.getElementById(id)).filter(Boolean);
+  var sectionOrder = ["home", "about", "attractions", "rtffam", "rtfglobal"];
+  var sections = sectionOrder.map(function (id) { return document.getElementById(id); }).filter(Boolean);
 
-  const navLinks       = document.querySelectorAll(".nav-link");
-  const menuToggle     = document.getElementById("menu-toggle");
-  const mobileMenu     = document.getElementById("mobile-menu");
-  const prevSectionBtn = document.getElementById("prev-page-button");
-  const nextSectionBtn = document.getElementById("next-page-button");
+  var navLinks       = document.querySelectorAll(".nav-link");
+  var menuToggle     = document.getElementById("menu-toggle");
+  var mobileMenu     = document.getElementById("mobile-menu");
+  var prevSectionBtn = document.getElementById("prev-page-button");
+  var nextSectionBtn = document.getElementById("next-page-button");
 
-  let currentIndex = 0;
+  var currentIndex = 0;
 
-  // ── showPage ───────────────────────────────────────────────────────────────
+  // ── showPage ──────────────────────────────────────────────────────────────
   function showPage(index, updateUrl) {
     if (index < 0 || index >= sections.length) return;
     if (updateUrl === undefined) updateUrl = true;
@@ -192,7 +204,6 @@ document.addEventListener("DOMContentLoaded", function () {
       section.style.display    = "none";
       section.style.opacity    = "0";
       section.style.visibility = "hidden";
-      // Pause all videos in hidden sections
       section.querySelectorAll("video").forEach(function (v) {
         try { v.pause(); } catch (err) {}
       });
@@ -206,7 +217,6 @@ document.addEventListener("DOMContentLoaded", function () {
     active.style.visibility = "visible";
     active.classList.add("active");
 
-    // Play background videos in the active section
     active.querySelectorAll("video[autoplay], video.bg-video, video.about-bg-video").forEach(function (v) {
       v.muted = true;
       v.play().catch(function () {});
@@ -220,26 +230,25 @@ document.addEventListener("DOMContentLoaded", function () {
     restartScrollAnimations(active);
   }
 
-  // ── restartScrollAnimations ────────────────────────────────────────────────
-  // Restarts CSS keyframe animations on scroll tracks when their section becomes visible
+  // ── restartScrollAnimations ───────────────────────────────────────────────
   function restartScrollAnimations(section) {
     var tracks = section.querySelectorAll(
-      ".logo-track, .feedback-track, .gallery-scroll-track, .rtf-slider-track"
+      ".logo-track, .feedback-track, .gallery-scroll-track"
     );
     tracks.forEach(function (track) {
       track.style.animation = "none";
-      void track.offsetWidth; // force reflow
+      void track.offsetWidth;
       track.style.animation = "";
     });
   }
 
-  // ── Arrow visibility ───────────────────────────────────────────────────────
+  // ── Arrow visibility ──────────────────────────────────────────────────────
   function updateSectionArrows() {
     if (prevSectionBtn) prevSectionBtn.classList.toggle("hidden", currentIndex === 0);
     if (nextSectionBtn) nextSectionBtn.classList.toggle("hidden", currentIndex === sections.length - 1);
   }
 
-  // ── Active nav highlight ───────────────────────────────────────────────────
+  // ── Active nav highlight ──────────────────────────────────────────────────
   function updateActiveNav() {
     var activeId = sections[currentIndex] ? sections[currentIndex].id : "";
     navLinks.forEach(function (link) {
@@ -250,7 +259,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // ── Nav link clicks ────────────────────────────────────────────────────────
+  // ── Nav link clicks ───────────────────────────────────────────────────────
   navLinks.forEach(function (link) {
     link.addEventListener("click", function (e) {
       e.preventDefault();
@@ -264,11 +273,11 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  // ── Arrow button clicks ────────────────────────────────────────────────────
+  // ── Arrow button clicks ───────────────────────────────────────────────────
   if (prevSectionBtn) prevSectionBtn.addEventListener("click", function () { showPage(currentIndex - 1); });
   if (nextSectionBtn) nextSectionBtn.addEventListener("click", function () { showPage(currentIndex + 1); });
 
-  // ── Mobile menu toggle ─────────────────────────────────────────────────────
+  // ── Mobile menu toggle ────────────────────────────────────────────────────
   if (menuToggle && mobileMenu) {
     menuToggle.addEventListener("click", function () {
       mobileMenu.classList.toggle("hidden");
@@ -276,7 +285,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // ── Participant search ─────────────────────────────────────────────────────
+  // ── Participant search ────────────────────────────────────────────────────
   var participantSearch = document.getElementById("participantSearch");
   if (participantSearch) {
     participantSearch.addEventListener("keyup", function () {
@@ -287,106 +296,16 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // ── Browser back / forward ─────────────────────────────────────────────────
+  // ── Browser back / forward ────────────────────────────────────────────────
   window.addEventListener("popstate", function () {
     var hash = window.location.hash.replace("#", "");
     var index = sections.findIndex(function (s) { return s.id === hash; });
     if (index !== -1) showPage(index, false);
   });
 
-  // ── Initial page load ──────────────────────────────────────────────────────
-  var initialHash   = window.location.hash.replace("#", "");
-  // Legacy alias: #partners used to map to #rtffam
-  var resolvedHash  = initialHash === "partners" ? "rtffam" : initialHash;
-  var initialIndex  = sections.findIndex(function (s) { return s.id === resolvedHash; });
+  // ── Initial page load ─────────────────────────────────────────────────────
+  var initialHash  = window.location.hash.replace("#", "");
+  var resolvedHash = initialHash === "partners" ? "rtffam" : initialHash;
+  var initialIndex = sections.findIndex(function (s) { return s.id === resolvedHash; });
   showPage(initialIndex !== -1 ? initialIndex : 0, initialIndex === -1);
-
-  // ── Init RTF Global FAM slideshow ──────────────────────────────────────────
-  initGlobalSlideshow();
-
-  // NOTE: feedbackTrack is already duplicated in the HTML for the seamless
-  // CSS translateX(-50%) loop — no JavaScript duplication needed or called.
 });
-
-// ===== RTF GLOBAL FAM IMAGE SLIDESHOW =====
-function initGlobalSlideshow() {
-  // Scope all queries inside #rtfglobal so they don't clash with other sections
-  var container  = document.getElementById("rtfglobal");
-  if (!container) return;
-
-  var slides     = container.querySelectorAll(".global-slideshow .slide");
-  var dots       = container.querySelectorAll(".slideshow-dots .dot");
-  var prevBtn    = container.querySelector(".slide-prev");
-  var nextBtn    = container.querySelector(".slide-next");
-  var progressBar = container.querySelector(".progress-bar");
-
-  if (!slides.length) return;
-
-  var current      = 0;
-  var autoTimer    = null;
-  var SLIDE_DURATION = 5000; // 5 seconds per slide
-
-  function goToSlide(index) {
-    slides[current].classList.remove("active");
-    if (dots[current]) dots[current].classList.remove("active");
-
-    current = (index + slides.length) % slides.length;
-
-    slides[current].classList.add("active");
-    if (dots[current]) dots[current].classList.add("active");
-
-    if (progressBar) {
-      progressBar.style.transition = "none";
-      progressBar.style.width      = "0%";
-      void progressBar.offsetWidth; // force reflow
-      progressBar.style.transition = "width " + SLIDE_DURATION + "ms linear";
-      progressBar.style.width      = "100%";
-    }
-  }
-
-  function startAuto() {
-    stopAuto();
-    autoTimer = setInterval(function () { goToSlide(current + 1); }, SLIDE_DURATION);
-  }
-
-  function stopAuto() {
-    if (autoTimer) {
-      clearInterval(autoTimer);
-      autoTimer = null;
-    }
-  }
-
-  if (prevBtn) {
-    prevBtn.addEventListener("click", function () {
-      goToSlide(current - 1);
-      startAuto();
-    });
-  }
-
-  if (nextBtn) {
-    nextBtn.addEventListener("click", function () {
-      goToSlide(current + 1);
-      startAuto();
-    });
-  }
-
-  // Dot navigation — use data-slide attribute for correct index
-  dots.forEach(function (dot) {
-    dot.addEventListener("click", function () {
-      var slideIndex = parseInt(this.getAttribute("data-slide"), 10);
-      goToSlide(slideIndex);
-      startAuto();
-    });
-  });
-
-  // Keyboard arrow navigation (only when rtfglobal section is active)
-  document.addEventListener("keydown", function (e) {
-    var rtfGlobal = document.getElementById("rtfglobal");
-    if (!rtfGlobal || !rtfGlobal.classList.contains("active")) return;
-    if (e.key === "ArrowLeft")  { goToSlide(current - 1); startAuto(); }
-    if (e.key === "ArrowRight") { goToSlide(current + 1); startAuto(); }
-  });
-
-  goToSlide(0);
-  startAuto();
-}
