@@ -147,7 +147,7 @@ const legalContent = {
   }
 };
 
-function showLegalModal(type) {
+function showLegalModal(type, e) {
   const modal = document.getElementById("legalModal");
   const title = document.getElementById("legalModalTitle");
   const body  = document.getElementById("legalModalBody");
@@ -155,7 +155,7 @@ function showLegalModal(type) {
   title.textContent = legalContent[type].title;
   body.innerHTML = legalContent[type].body;
   modal.style.display = "flex";
-  event && event.preventDefault();
+  if (e) e.preventDefault();
 }
 
 function closeLegalModal() {
@@ -304,7 +304,11 @@ document.addEventListener("DOMContentLoaded", function () {
 function duplicateScrollTrack(id) {
   const track = document.getElementById(id);
   if (!track) return;
-  // Already duplicated in HTML — just ensure animation runs
+  // Clone all current children and append so the -50% animation loops seamlessly
+  const originals = Array.from(track.children);
+  originals.forEach(function(child) {
+    track.appendChild(child.cloneNode(true));
+  });
   track.style.animationPlayState = "running";
 }
 
