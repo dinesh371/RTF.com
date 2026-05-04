@@ -147,7 +147,7 @@ nav .text-yellow-300 { color: #facc15 !important; }
   background: rgba(255,255,255,0.05);
   border: 1px solid rgba(253,224,71,0.2);
   border-radius: 1rem;
-  padding: 1rem 1.5rem;
+  padding: 1.25rem 1.5rem;
   margin-bottom: 2rem;
   overflow: hidden;
 }
@@ -156,16 +156,19 @@ nav .text-yellow-300 { color: #facc15 !important; }
   color: #fde047;
   font-weight: 700;
   font-size: 1.1rem;
-  margin-bottom: 0.75rem;
+  margin-bottom: 1rem;
 }
 .logo-slider { overflow: hidden; width: 100%; }
 .logo-track {
   display: flex;
-  gap: 2rem;
+  gap: 2.5rem;
   animation: scrollLogos 22s linear infinite;
   width: max-content;
   will-change: transform;
+  align-items: center;
 }
+
+/* FIX RTF FAM #2: Increased logo sizes from 60px to 90px height */
 .logo-track img {
   height: 60px;
   width: auto;
@@ -174,6 +177,22 @@ nav .text-yellow-300 { color: #facc15 !important; }
   border-radius: 0.5rem;
   flex-shrink: 0;
 }
+
+/* Larger logos variant for hotel partners */
+.logo-track-lg img {
+  height: 90px !important;
+  max-width: 180px;
+  padding: 4px;
+  background: rgba(255,255,255,0.06);
+  border-radius: 0.75rem;
+  border: 1px solid rgba(253,224,71,0.15);
+  transition: transform 0.25s ease, border-color 0.25s ease;
+}
+.logo-track-lg img:hover {
+  transform: scale(1.08);
+  border-color: rgba(253,224,71,0.45);
+}
+
 @keyframes scrollLogos {
   0%   { transform: translateX(0); }
   100% { transform: translateX(-50%); }
@@ -246,7 +265,16 @@ nav .text-yellow-300 { color: #facc15 !important; }
 .videos-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; }
 .video-item { background: rgba(0,0,0,0.3); border-radius: 0.75rem; overflow: hidden; }
 .video-item video { width: 100%; height: 130px; object-fit: cover; display: block; }
-.video-item p { text-align: center; font-size: 0.75rem; color: #94a3b8; padding: 0.3rem 0.5rem; }
+/* FIX RTF FAM #3: Video label names styled clearly */
+.video-item p {
+  text-align: center;
+  font-size: 0.78rem;
+  color: #fde047;
+  font-weight: 600;
+  padding: 0.4rem 0.5rem;
+  background: rgba(0,0,0,0.25);
+  margin: 0;
+}
 
 /* ── WRITTEN FEEDBACK SCROLL ── */
 .feedback-scroll-section {
@@ -288,9 +316,22 @@ nav .text-yellow-300 { color: #facc15 !important; }
   text-align: center;
   position: relative;
   overflow: hidden;
-  transition: border-color 0.3s;
+  transition: border-color 0.3s, transform 0.3s ease, box-shadow 0.3s ease;
 }
 .feedback-card-item:hover { border-color: rgba(253,224,71,0.55); }
+
+/* FIX RTF FAM #6: Zoom on hover for feedback cards */
+.feedback-card-zoom {
+  transition: border-color 0.3s, transform 0.35s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.3s ease !important;
+  cursor: zoom-in;
+  z-index: 1;
+}
+.feedback-card-zoom:hover {
+  transform: scale(1.18) translateY(-6px) !important;
+  box-shadow: 0 24px 60px rgba(0,0,0,0.55), 0 0 0 2px rgba(253,224,71,0.5) !important;
+  z-index: 10 !important;
+  border-color: rgba(253,224,71,0.7) !important;
+}
 
 .feedback-person-img {
   width: 78px;
@@ -334,22 +375,36 @@ nav .text-yellow-300 { color: #facc15 !important; }
   animation: scrollGallery 35s linear infinite;
   width: max-content;
   will-change: transform;
+  align-items: center;
 }
 .gallery-scroll-track:hover { animation-play-state: paused; }
 @keyframes scrollGallery {
   0%   { transform: translateX(0); }
   100% { transform: translateX(-50%); }
 }
+
+/* FIX RTF FAM #5: Increased gallery image sizes from 190×270 to 240×340 */
 .gallery-scroll-track img {
-  height: 190px;
-  width: 270px;
+  height: 240px;
+  width: 340px;
   object-fit: cover;
   border-radius: 0.75rem;
   flex-shrink: 0;
   border: 2px solid rgba(253,224,71,0.2);
-  transition: border-color 0.3s;
+  transition: border-color 0.3s, transform 0.35s ease, box-shadow 0.3s ease;
 }
-.gallery-scroll-track img:hover { border-color: rgba(253,224,71,0.6); }
+
+/* FIX RTF FAM #6: Zoom on hover for gallery images */
+.gallery-img-zoom {
+  cursor: zoom-in;
+}
+.gallery-img-zoom:hover {
+  transform: scale(1.2) translateY(-8px) !important;
+  border-color: rgba(253,224,71,0.7) !important;
+  box-shadow: 0 20px 55px rgba(0,0,0,0.6) !important;
+  z-index: 10 !important;
+  position: relative !important;
+}
 
 /* ===== ORGANIZERS ===== */
 #organizers {
@@ -377,7 +432,17 @@ nav .text-yellow-300 { color: #facc15 !important; }
   display: flex; flex-direction: column; align-items: center; justify-content: flex-start;
 }
 .org-card:hover { transform: translateY(-6px); box-shadow: 0 16px 40px rgba(250,204,21,0.15); }
-.org-card img { width: 110px !important; height: 110px !important; border-radius: 50%; border: 3px solid #facc15; margin-bottom: 14px; object-fit: cover; display: block; }
+/* FIX ABOUT #2: object-fit + object-position for proper face centering in round frames */
+.org-card img {
+  width: 110px !important;
+  height: 110px !important;
+  border-radius: 50%;
+  border: 3px solid #facc15;
+  margin-bottom: 14px;
+  object-fit: cover;
+  object-position: center center;
+  display: block;
+}
 .org-card h3 { color: #fde68a; font-size: 18px; font-weight: 800; margin: 0 0 6px; }
 .org-card p { color: #cbd5e1; font-size: 13px; margin: 2px 0; }
 .org-card a { color: #facc15; font-size: 13px; text-decoration: none; }
@@ -489,8 +554,6 @@ nav .text-yellow-300 { color: #facc15 !important; }
 .footer-legal-links span { color: #374151; }
 
 /* ===== RTF GLOBAL FAM SECTION ===== */
-
-/* FIX #4: #rtfglobal now uses display:flex (matching JS showPage) instead of display:block */
 #rtfglobal.page-section {
   background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
   flex-direction: column;
@@ -514,7 +577,6 @@ nav .text-yellow-300 { color: #facc15 !important; }
   box-sizing: border-box;
 }
 
-/* FIX #5: Added missing .rtf-header-wrapper CSS */
 .rtf-header-wrapper {
   display: flex;
   align-items: center;
@@ -579,7 +641,8 @@ nav .text-yellow-300 { color: #facc15 !important; }
 .rfg-cell img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
+  object-position: center center;
   background: #020617;
   display: block;
   flex: 1;
@@ -613,12 +676,29 @@ nav .text-yellow-300 { color: #facc15 !important; }
   height: auto !important;
 }
 
-/* FIX #6: Changed repeat(4,1fr) → repeat(3,1fr) to match the 3 actual cells */
+/* FIX GLOBAL #1: Snapshot cell constrained so image doesn't get cut off */
+.rfg-cell-snapshot {
+  aspect-ratio: unset !important;
+  max-height: 480px;
+  overflow: hidden;
+}
+.rfg-cell-snapshot img {
+  object-fit: contain !important;
+  object-position: center top !important;
+  max-height: 440px;
+}
+
+/* ===== ROW 2: Itinerary Pages — FIX GLOBAL #2: 4-column grid for 4 pages ===== */
 .rfg-row2 {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1rem;
   margin-bottom: 1rem;
+}
+
+/* 4-column override for the itinerary section that now has 4 pages */
+.rfg-row2-four {
+  grid-template-columns: repeat(4, 1fr) !important;
 }
 
 .rfg-row2 .rfg-cell {
@@ -699,8 +779,9 @@ nav .text-yellow-300 { color: #facc15 !important; }
     grid-template-columns: 1fr;
   }
 
-  .rfg-row2 {
-    grid-template-columns: 1fr 1fr;
+  .rfg-row2,
+  .rfg-row2-four {
+    grid-template-columns: 1fr 1fr !important;
   }
 
   .rfg-row1 .rfg-cell,
@@ -708,6 +789,10 @@ nav .text-yellow-300 { color: #facc15 !important; }
   .rfg-row3 .rfg-cell {
     aspect-ratio: 16 / 10;
     height: auto !important;
+  }
+
+  .rfg-cell-snapshot {
+    max-height: 360px;
   }
 
   .rtf-header-wrapper {
@@ -725,8 +810,9 @@ nav .text-yellow-300 { color: #facc15 !important; }
     font-size: 1.55rem;
   }
 
-  .rfg-row2 {
-    grid-template-columns: 1fr;
+  .rfg-row2,
+  .rfg-row2-four {
+    grid-template-columns: 1fr !important;
   }
 
   .rfg-lightbox {
