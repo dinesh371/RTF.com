@@ -59,7 +59,7 @@
         <a href="#rtfglobal"   class="nav-link hover:text-yellow-300 transition" data-target="rtfglobal">RTF Global FAM</a>
       </div>
       <div class="flex items-center gap-3">
-        <!-- FIX #2: CLICK HERE now correctly navigates to RTF FAM 2026 page (data-target="rtffam") -->
+        <!-- FIX HOME #2: CLICK HERE correctly navigates to RTF FAM 2026 page (data-target="rtffam") -->
         <a href="#rtffam"
            class="nav-link"
            data-target="rtffam"
@@ -122,7 +122,8 @@
             </div>
             <p style="font-size:16px; line-height:1.5; color:#ffffff;">
               Please
-              <a href="https://www.rajasthantravelfair.com/#rtfglobal" target="_blank"
+              <!-- FIX HOME #2: This link goes to RTF FAM 2026 page, not Global FAM -->
+              <a href="#rtffam" class="nav-link" data-target="rtffam"
                  style="color:#FFD700; font-weight:600; text-decoration:none;">
                 CLICK HERE
               </a>
@@ -223,7 +224,6 @@
               </div>
             </div>
             <div class="org-row-2">
-              <!-- FIX ABOUT #1: Divya's image path corrected -->
               <div class="org-card">
                 <img src="images/Members Pics/Divya S.jpeg" alt="Divya S" style="object-position:center 30%;"
                      onerror="this.onerror=null; this.src='images/Members Pics/Divya.jpeg'; this.onerror=function(){this.src='images/finallogo1.png';}"/>
@@ -294,8 +294,8 @@
         </div>
 
         <!-- Hotel logos scroll -->
-        <!-- FIX RTF FAM #1: Removed Hotel Partner 6 (WhatsApp Image 2026-03-18 at 2.13.39 PM.jpg.png) from both sets -->
-        <!-- FIX RTF FAM #2: Logo sizes increased via CSS class logo-track-lg -->
+        <!-- FIX RTF FAM #1: Hotel Partner 6 removed from both sets -->
+        <!-- FIX RTF FAM #2: logo-track-lg class for larger logos (90px height) -->
         <div class="hotel-scroll-bar">
           <h3>Hotel Partners</h3>
           <div class="logo-slider">
@@ -305,7 +305,7 @@
               <img src="images/RTF Hotel Partner logo-20260503T101846Z-3-001/RTF Hotel Partner logo/Raj Leela.jpg" alt="Raj Leela">
               <img src="images/RTF Hotel Partner logo-20260503T101846Z-3-001/RTF Hotel Partner logo/Thar.png" alt="Thar">
               <img src="images/RTF Hotel Partner logo-20260503T101846Z-3-001/RTF Hotel Partner logo/WhatsApp Image 2026-03-18 at 2.13.14 PM.jpg" alt="Hotel Partner 5">
-              <!-- Hotel Partner 6 REMOVED as per fix -->
+              <!-- Hotel Partner 6 REMOVED -->
               <img src="images/RTF Hotel Partner logo-20260503T101846Z-3-001/RTF Hotel Partner logo/WhatsApp Image 2026-03-18 at 2.59.56 PM.jpg" alt="Hotel Partner 7">
               <img src="images/RTF Hotel Partner logo-20260503T101846Z-3-001/RTF Hotel Partner logo/WhatsApp Image 2026-03-18 at 5.26.30 PM.jpg" alt="Hotel Partner 8">
               <img src="images/RTF Hotel Partner logo-20260503T101846Z-3-001/RTF Hotel Partner logo/WhatsApp Image 2026-03-18 at 6.11.26 PM.jpg" alt="Hotel Partner 9">
@@ -313,7 +313,7 @@
               <img src="images/RTF Hotel Partner logo-20260503T101846Z-3-001/RTF Hotel Partner logo/images (1).png" alt="Hotel Partner 11">
               <img src="images/RTF Hotel Partner logo-20260503T101846Z-3-001/RTF Hotel Partner logo/shreeram-transparent.png" alt="Shreeram">
               <img src="images/RTF Hotel Partner logo-20260503T101846Z-3-001/RTF Hotel Partner logo/trulyy.webp" alt="Trulyy">
-              <!-- Duplicate for seamless loop (Partner 6 also removed here) -->
+              <!-- Duplicate set for seamless loop -->
               <img src="images/RTF Hotel Partner logo-20260503T101846Z-3-001/RTF Hotel Partner logo/Aaramgah Jawaii Logo (1).png" alt="Aaramgah Jawai">
               <img src="images/RTF Hotel Partner logo-20260503T101846Z-3-001/RTF Hotel Partner logo/K k.webp" alt="KK Hotel">
               <img src="images/RTF Hotel Partner logo-20260503T101846Z-3-001/RTF Hotel Partner logo/Raj Leela.jpg" alt="Raj Leela">
@@ -390,7 +390,7 @@
         </div>
 
         <!-- WRITTEN FEEDBACK -->
-        <!-- FIX RTF FAM #4 & #6: Photos have onerror fallback chains; zoom-on-hover via CSS class feedback-card-zoom -->
+        <!-- FIX RTF FAM #4: Photos with onerror fallback; FIX #6: zoom-on-hover via feedback-card-zoom class -->
         <div class="feedback-scroll-section">
           <h3>✍️ Travel Agent Written Feedback</h3>
           <div class="feedback-track-wrap">
@@ -585,7 +585,7 @@
         </div>
 
         <!-- Gallery -->
-        <!-- FIX RTF FAM #5 & #6: Larger image sizes + zoom on hover via gallery-img-zoom class -->
+        <!-- FIX RTF FAM #5: Larger image sizes (240x340) + FIX #6: zoom on hover via gallery-img-zoom class -->
         <div class="gallery-section">
           <h3>RTF FAM Gallery</h3>
           <div class="gallery-scroll-wrap">
@@ -655,7 +655,7 @@
         </div>
 
         <!-- ROW 1: Poster + Itinerary Snapshot -->
-        <!-- FIX GLOBAL #1: Itinerary Snapshot cell gets rfg-cell-snapshot class to constrain its size -->
+        <!-- FIX GLOBAL #1: rfg-cell-snapshot class constrains snapshot size so it's not cut off -->
         <div class="rfg-row1">
           <div class="rfg-cell" onclick="rfgOpenLightbox('images/ilovepdf_pages-to-jpg (1)/RTF_Global_Fam_Itinerary_page-0001.jpg')">
             <img src="images/ilovepdf_pages-to-jpg (1)/RTF_Global_Fam_Itinerary_page-0001.jpg" alt="RTF Global FAM Poster"/>
@@ -667,8 +667,7 @@
           </div>
         </div>
 
-        <!-- ROW 2: Itinerary Pages 1–4 -->
-        <!-- FIX GLOBAL #2: Added Itinerary Page 4 (page-0006) in the correct 4-column grid -->
+        <!-- ROW 2: Itinerary Pages 1–4 (4-column grid) -->
         <div class="rfg-row2 rfg-row2-four">
           <div class="rfg-cell" onclick="rfgOpenLightbox('images/ilovepdf_pages-to-jpg (1)/RTF_Global_Fam_Itinerary_page-0003.jpg')">
             <img src="images/ilovepdf_pages-to-jpg (1)/RTF_Global_Fam_Itinerary_page-0003.jpg" alt="Itinerary Page 1" onerror="this.src='images/finallogo1.png'"/>
@@ -682,7 +681,6 @@
             <img src="images/ilovepdf_pages-to-jpg (1)/RTF_Global_Fam_Itinerary_page-0005.jpg" alt="Itinerary Page 3" onerror="this.src='images/finallogo1.png'"/>
             <div class="rfg-cell-label">Itinerary Page 3</div>
           </div>
-          <!-- FIX GLOBAL #2: Page 4 now correctly added with its own label -->
           <div class="rfg-cell" onclick="rfgOpenLightbox('images/ilovepdf_pages-to-jpg (1)/RTF_Global_Fam_Itinerary_page-0006.jpg')">
             <img src="images/ilovepdf_pages-to-jpg (1)/RTF_Global_Fam_Itinerary_page-0006.jpg" alt="Itinerary Page 4" onerror="this.src='images/finallogo1.png'"/>
             <div class="rfg-cell-label">Itinerary Page 4</div>
@@ -704,7 +702,7 @@
           </button>
         </div>
 
-      </div><!-- end .rtfglobal-inner -->
+      </div>
 
       <!-- Lightbox -->
       <div id="rfgLightbox" class="rfg-lightbox" onclick="rfgCloseLightbox()">
@@ -712,7 +710,7 @@
         <img id="rfgLightboxImg" src="" alt="Full view"/>
       </div>
 
-    </section><!-- end #rtfglobal -->
+    </section>
 
   </div><!-- end page-container -->
 
@@ -721,7 +719,6 @@
     <div class="footer-bg-grid"></div>
     <div class="footer-inner">
       <div class="footer-top">
-        <!-- Brand col -->
         <div class="footer-brand-col">
           <div class="footer-logo-wrap">
             <img src="images/Logo2026.jpeg" alt="RTF Logo" class="footer-logo-img"/>
@@ -737,7 +734,6 @@
           </div>
         </div>
 
-        <!-- Quick links col -->
         <div class="footer-links-col">
           <h4 class="footer-col-title">Quick Links</h4>
           <ul class="footer-link-list">
@@ -751,7 +747,6 @@
           </ul>
         </div>
 
-        <!-- Contact col 1 -->
         <div class="footer-contact-col">
           <h4 class="footer-col-title">India Outtabox Pvt Ltd</h4>
           <div class="footer-contact-list">
@@ -777,7 +772,6 @@
           </div>
         </div>
 
-        <!-- Contact col 2 -->
         <div class="footer-contact-col">
           <h4 class="footer-col-title">Rajasthan Travel Fair</h4>
           <div class="footer-contact-list">
@@ -804,7 +798,6 @@
         </div>
       </div>
 
-      <!-- Bottom bar -->
       <div class="footer-bottom">
         <p>© 2026 India Outtabox Pvt Ltd · Rajasthan Travel Fair. All rights reserved.</p>
         <div class="footer-legal-links">
