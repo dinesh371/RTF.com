@@ -131,14 +131,6 @@ function rfgCloseLightbox() {
   document.body.style.overflow = "";
 }
 
-// Close lightbox when clicking outside image
-function rfgCloseLightboxOutside(e) {
-  if (e.target === document.getElementById("rfgLightbox")) {
-    rfgCloseLightbox();
-  }
-}
-
-// Close lightbox with Escape key
 document.addEventListener("keydown", function (e) {
   if (e.key === "Escape") rfgCloseLightbox();
 });
@@ -156,7 +148,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
   var currentIndex = 0;
 
-  // ── showPage ──────────────────────────────────────────────────────────────
   function showPage(index, updateUrl) {
     if (index < 0 || index >= sections.length) return;
     if (updateUrl === undefined) updateUrl = true;
@@ -192,7 +183,6 @@ document.addEventListener("DOMContentLoaded", function () {
     restartScrollAnimations(active);
   }
 
-  // ── restartScrollAnimations ───────────────────────────────────────────────
   function restartScrollAnimations(section) {
     var tracks = section.querySelectorAll(
       ".logo-track, .feedback-track, .gallery-scroll-track"
@@ -204,13 +194,11 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // ── Arrow visibility ──────────────────────────────────────────────────────
   function updateSectionArrows() {
     if (prevSectionBtn) prevSectionBtn.classList.toggle("hidden", currentIndex === 0);
     if (nextSectionBtn) nextSectionBtn.classList.toggle("hidden", currentIndex === sections.length - 1);
   }
 
-  // ── Active nav highlight ──────────────────────────────────────────────────
   function updateActiveNav() {
     var activeId = sections[currentIndex] ? sections[currentIndex].id : "";
     navLinks.forEach(function (link) {
@@ -221,7 +209,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // ── Nav link clicks — FIX: handles ALL .nav-link elements including dynamic ones ──
   function handleNavLinkClick(e) {
     e.preventDefault();
     var targetId = this.getAttribute("data-target");
@@ -234,12 +221,11 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
-  // Attach to all nav links including ones inside content areas
   navLinks.forEach(function (link) {
     link.addEventListener("click", handleNavLinkClick);
   });
 
-  // FIX: Also use event delegation for dynamically rendered nav-links
+  // Event delegation for dynamically rendered nav-links
   document.addEventListener("click", function(e) {
     var link = e.target.closest(".nav-link");
     if (!link) return;
@@ -254,11 +240,9 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-  // ── Arrow button clicks ───────────────────────────────────────────────────
   if (prevSectionBtn) prevSectionBtn.addEventListener("click", function () { showPage(currentIndex - 1); });
   if (nextSectionBtn) nextSectionBtn.addEventListener("click", function () { showPage(currentIndex + 1); });
 
-  // ── Mobile menu toggle ────────────────────────────────────────────────────
   if (menuToggle && mobileMenu) {
     menuToggle.addEventListener("click", function () {
       mobileMenu.classList.toggle("hidden");
@@ -266,7 +250,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // ── Participant search ────────────────────────────────────────────────────
   var participantSearch = document.getElementById("participantSearch");
   if (participantSearch) {
     participantSearch.addEventListener("keyup", function () {
@@ -277,14 +260,12 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // ── Browser back / forward ────────────────────────────────────────────────
   window.addEventListener("popstate", function () {
     var hash = window.location.hash.replace("#", "");
     var index = sections.findIndex(function (s) { return s.id === hash; });
     if (index !== -1) showPage(index, false);
   });
 
-  // ── Initial page load ─────────────────────────────────────────────────────
   var initialHash  = window.location.hash.replace("#", "");
   var resolvedHash = initialHash === "partners" ? "rtffam" : initialHash;
   var initialIndex = sections.findIndex(function (s) { return s.id === resolvedHash; });
