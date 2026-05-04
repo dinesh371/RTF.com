@@ -111,8 +111,8 @@ function closeLegalModal() {
 }
 
 document.addEventListener("click", function (e) {
-  var modal = document.getElementById("legalModal");
-  if (modal && e.target === modal) closeLegalModal();
+  var legalModal = document.getElementById("legalModal");
+  if (legalModal && e.target === legalModal) closeLegalModal();
 });
 
 // ===== RTF GLOBAL FAM — LIGHTBOX =====
@@ -140,7 +140,6 @@ document.addEventListener("DOMContentLoaded", function () {
   var sectionOrder = ["home", "about", "attractions", "rtffam", "rtfglobal"];
   var sections = sectionOrder.map(function (id) { return document.getElementById(id); }).filter(Boolean);
 
-  var navLinks       = document.querySelectorAll(".nav-link");
   var menuToggle     = document.getElementById("menu-toggle");
   var mobileMenu     = document.getElementById("mobile-menu");
   var prevSectionBtn = document.getElementById("prev-page-button");
@@ -165,6 +164,7 @@ document.addEventListener("DOMContentLoaded", function () {
     currentIndex = index;
     var active = sections[currentIndex];
 
+    // FIX: Use flex for all sections (consistent with CSS .page-section.active { display: flex })
     active.style.display    = "flex";
     active.style.opacity    = "1";
     active.style.visibility = "visible";
@@ -201,7 +201,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function updateActiveNav() {
     var activeId = sections[currentIndex] ? sections[currentIndex].id : "";
-    navLinks.forEach(function (link) {
+    document.querySelectorAll(".nav-link").forEach(function (link) {
       link.classList.remove("text-yellow-300");
       if (link.getAttribute("data-target") === activeId) {
         link.classList.add("text-yellow-300");
@@ -209,25 +209,9 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  function handleNavLinkClick(e) {
-    e.preventDefault();
-    var targetId = this.getAttribute("data-target");
-    if (!targetId) return;
-    var index = sections.findIndex(function (s) { return s.id === targetId; });
-    if (index !== -1) showPage(index);
-    if (mobileMenu) {
-      mobileMenu.classList.add("hidden");
-      mobileMenu.classList.remove("flex");
-    }
-  }
-
-  navLinks.forEach(function (link) {
-    link.addEventListener("click", handleNavLinkClick);
-  });
-
-  // Event delegation for dynamically rendered nav-links
+  // FIX: Single click handler via event delegation only — no double-binding
   document.addEventListener("click", function(e) {
-    var link = e.target.closest(".nav-link");
+    var link = e.target.closest("a.nav-link, button.nav-link, [class*='nav-link']");
     if (!link) return;
     var targetId = link.getAttribute("data-target");
     if (!targetId) return;
