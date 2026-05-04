@@ -162,11 +162,12 @@ nav .text-yellow-300 { color: #facc15 !important; }
 .logo-track {
   display: flex;
   gap: 2.5rem;
-  animation: scrollLogos 22s linear infinite;
+  animation: scrollLogos 30s linear infinite;
   width: max-content;
   will-change: transform;
   align-items: center;
 }
+/* FIX: Duplicate set in HTML ensures seamless -50% loop */
 .logo-track img {
   height: 60px;
   width: auto;
@@ -176,7 +177,6 @@ nav .text-yellow-300 { color: #facc15 !important; }
   flex-shrink: 0;
 }
 
-/* FIX RTF FAM #2: Larger hotel logos at 90px height */
 .logo-track-lg img {
   height: 90px !important;
   max-width: 180px;
@@ -263,7 +263,6 @@ nav .text-yellow-300 { color: #facc15 !important; }
 .videos-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; }
 .video-item { background: rgba(0,0,0,0.3); border-radius: 0.75rem; overflow: hidden; }
 .video-item video { width: 100%; height: 130px; object-fit: cover; display: block; }
-/* FIX RTF FAM #3: Named video labels */
 .video-item p {
   text-align: center;
   font-size: 0.78rem;
@@ -294,7 +293,7 @@ nav .text-yellow-300 { color: #facc15 !important; }
 .feedback-track {
   display: flex;
   gap: 1rem;
-  animation: scrollFeedback 45s linear infinite;
+  animation: scrollFeedback 60s linear infinite;
   width: max-content;
   will-change: transform;
 }
@@ -318,20 +317,6 @@ nav .text-yellow-300 { color: #facc15 !important; }
 }
 .feedback-card-item:hover { border-color: rgba(253,224,71,0.55); }
 
-/* FIX RTF FAM #6: Zoom on hover for feedback cards */
-.feedback-card-zoom {
-  transition: border-color 0.3s, transform 0.35s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.3s ease !important;
-  cursor: zoom-in;
-  z-index: 1;
-}
-.feedback-card-zoom:hover {
-  transform: scale(1.18) translateY(-6px) !important;
-  box-shadow: 0 24px 60px rgba(0,0,0,0.55), 0 0 0 2px rgba(253,224,71,0.5) !important;
-  z-index: 10 !important;
-  border-color: rgba(253,224,71,0.7) !important;
-}
-
-/* FIX RTF FAM #4: Photo styling for feedback cards */
 .feedback-person-img {
   width: 78px;
   height: 78px;
@@ -371,7 +356,7 @@ nav .text-yellow-300 { color: #facc15 !important; }
 .gallery-scroll-track {
   display: flex;
   gap: 1rem;
-  animation: scrollGallery 35s linear infinite;
+  animation: scrollGallery 40s linear infinite;
   width: max-content;
   will-change: transform;
   align-items: center;
@@ -382,7 +367,6 @@ nav .text-yellow-300 { color: #facc15 !important; }
   100% { transform: translateX(-50%); }
 }
 
-/* FIX RTF FAM #5: Increased gallery image sizes to 240×340 */
 .gallery-scroll-track img {
   height: 240px;
   width: 340px;
@@ -393,16 +377,31 @@ nav .text-yellow-300 { color: #facc15 !important; }
   transition: border-color 0.3s, transform 0.35s ease, box-shadow 0.3s ease;
 }
 
-/* FIX RTF FAM #6: Zoom on hover for gallery images */
 .gallery-img-zoom {
   cursor: zoom-in;
 }
 .gallery-img-zoom:hover {
-  transform: scale(1.2) translateY(-8px) !important;
+  transform: scale(1.12) translateY(-6px) !important;
   border-color: rgba(253,224,71,0.7) !important;
   box-shadow: 0 20px 55px rgba(0,0,0,0.6) !important;
   z-index: 10 !important;
   position: relative !important;
+}
+
+/* FIX: Gallery video row below the scroll track */
+.gallery-video-row {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 1.25rem;
+  flex-wrap: wrap;
+}
+.gallery-video-row .video-item {
+  width: 340px;
+  flex-shrink: 0;
+}
+.gallery-video-row .video-item video {
+  height: 200px;
 }
 
 /* ===== ORGANIZERS ===== */
@@ -431,7 +430,6 @@ nav .text-yellow-300 { color: #facc15 !important; }
   display: flex; flex-direction: column; align-items: center; justify-content: flex-start;
 }
 .org-card:hover { transform: translateY(-6px); box-shadow: 0 16px 40px rgba(250,204,21,0.15); }
-/* FIX ABOUT #2: object-fit + object-position for proper face centering */
 .org-card img {
   width: 110px !important;
   height: 110px !important;
@@ -670,7 +668,6 @@ nav .text-yellow-300 { color: #facc15 !important; }
   height: auto !important;
 }
 
-/* FIX GLOBAL #1: Snapshot constrained — image shows fully, not cut off */
 .rfg-cell-snapshot {
   aspect-ratio: unset !important;
   max-height: 480px;
