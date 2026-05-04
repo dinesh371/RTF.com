@@ -167,8 +167,6 @@ nav .text-yellow-300 { color: #facc15 !important; }
   will-change: transform;
   align-items: center;
 }
-
-/* FIX RTF FAM #2: Increased logo sizes from 60px to 90px height */
 .logo-track img {
   height: 60px;
   width: auto;
@@ -178,7 +176,7 @@ nav .text-yellow-300 { color: #facc15 !important; }
   flex-shrink: 0;
 }
 
-/* Larger logos variant for hotel partners */
+/* FIX RTF FAM #2: Larger hotel logos at 90px height */
 .logo-track-lg img {
   height: 90px !important;
   max-width: 180px;
@@ -265,7 +263,7 @@ nav .text-yellow-300 { color: #facc15 !important; }
 .videos-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; }
 .video-item { background: rgba(0,0,0,0.3); border-radius: 0.75rem; overflow: hidden; }
 .video-item video { width: 100%; height: 130px; object-fit: cover; display: block; }
-/* FIX RTF FAM #3: Video label names styled clearly */
+/* FIX RTF FAM #3: Named video labels */
 .video-item p {
   text-align: center;
   font-size: 0.78rem;
@@ -333,6 +331,7 @@ nav .text-yellow-300 { color: #facc15 !important; }
   border-color: rgba(253,224,71,0.7) !important;
 }
 
+/* FIX RTF FAM #4: Photo styling for feedback cards */
 .feedback-person-img {
   width: 78px;
   height: 78px;
@@ -383,7 +382,7 @@ nav .text-yellow-300 { color: #facc15 !important; }
   100% { transform: translateX(-50%); }
 }
 
-/* FIX RTF FAM #5: Increased gallery image sizes from 190×270 to 240×340 */
+/* FIX RTF FAM #5: Increased gallery image sizes to 240×340 */
 .gallery-scroll-track img {
   height: 240px;
   width: 340px;
@@ -432,7 +431,7 @@ nav .text-yellow-300 { color: #facc15 !important; }
   display: flex; flex-direction: column; align-items: center; justify-content: flex-start;
 }
 .org-card:hover { transform: translateY(-6px); box-shadow: 0 16px 40px rgba(250,204,21,0.15); }
-/* FIX ABOUT #2: object-fit + object-position for proper face centering in round frames */
+/* FIX ABOUT #2: object-fit + object-position for proper face centering */
 .org-card img {
   width: 110px !important;
   height: 110px !important;
@@ -568,7 +567,6 @@ nav .text-yellow-300 { color: #facc15 !important; }
   height: auto !important;
 }
 
-/* ===== RTF GLOBAL FAM INNER CONTAINER ===== */
 .rtfglobal-inner {
   width: 100%;
   max-width: 1200px;
@@ -590,9 +588,7 @@ nav .text-yellow-300 { color: #facc15 !important; }
   border-radius: 1.25rem;
 }
 
-.rtf-header-center {
-  flex: 1;
-}
+.rtf-header-center { flex: 1; }
 
 .rtf-logo img {
   width: 80px;
@@ -650,9 +646,7 @@ nav .text-yellow-300 { color: #facc15 !important; }
   transition: transform 0.35s ease;
 }
 
-.rfg-cell:hover img {
-  transform: scale(1.04);
-}
+.rfg-cell:hover img { transform: scale(1.04); }
 
 .rfg-cell-label {
   text-align: center;
@@ -663,7 +657,7 @@ nav .text-yellow-300 { color: #facc15 !important; }
   flex-shrink: 0;
 }
 
-/* ===== ROW 1: 2 columns ===== */
+/* ===== ROW 1: Poster + Snapshot ===== */
 .rfg-row1 {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -676,7 +670,7 @@ nav .text-yellow-300 { color: #facc15 !important; }
   height: auto !important;
 }
 
-/* FIX GLOBAL #1: Snapshot cell constrained so image doesn't get cut off */
+/* FIX GLOBAL #1: Snapshot constrained — image shows fully, not cut off */
 .rfg-cell-snapshot {
   aspect-ratio: unset !important;
   max-height: 480px;
@@ -688,7 +682,7 @@ nav .text-yellow-300 { color: #facc15 !important; }
   max-height: 440px;
 }
 
-/* ===== ROW 2: Itinerary Pages — FIX GLOBAL #2: 4-column grid for 4 pages ===== */
+/* ===== ROW 2: 4-column itinerary pages ===== */
 .rfg-row2 {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -696,7 +690,6 @@ nav .text-yellow-300 { color: #facc15 !important; }
   margin-bottom: 1rem;
 }
 
-/* 4-column override for the itinerary section that now has 4 pages */
 .rfg-row2-four {
   grid-template-columns: repeat(4, 1fr) !important;
 }
@@ -706,10 +699,8 @@ nav .text-yellow-300 { color: #facc15 !important; }
   height: auto !important;
 }
 
-/* ===== ROW 3 MAP ===== */
-.rfg-row3 {
-  margin-bottom: 1rem;
-}
+/* ===== ROW 3: MAP ===== */
+.rfg-row3 { margin-bottom: 1rem; }
 
 .rfg-row3 .rfg-cell {
   aspect-ratio: 16 / 9;
@@ -728,9 +719,7 @@ nav .text-yellow-300 { color: #facc15 !important; }
   padding: 70px 70px 45px;
 }
 
-.rfg-lightbox.open {
-  display: flex;
-}
+.rfg-lightbox.open { display: flex; }
 
 .rfg-lightbox img {
   max-width: 94vw;
@@ -771,60 +760,22 @@ nav .text-yellow-300 { color: #facc15 !important; }
 
 /* ===== MOBILE RESPONSIVE ===== */
 @media (max-width: 900px) {
-  #rtfglobal.page-section.active {
-    padding: 65px 0 35px 0 !important;
-  }
-
-  .rfg-row1 {
-    grid-template-columns: 1fr;
-  }
-
-  .rfg-row2,
-  .rfg-row2-four {
-    grid-template-columns: 1fr 1fr !important;
-  }
-
-  .rfg-row1 .rfg-cell,
-  .rfg-row2 .rfg-cell,
-  .rfg-row3 .rfg-cell {
+  #rtfglobal.page-section.active { padding: 65px 0 35px 0 !important; }
+  .rfg-row1 { grid-template-columns: 1fr; }
+  .rfg-row2, .rfg-row2-four { grid-template-columns: 1fr 1fr !important; }
+  .rfg-row1 .rfg-cell, .rfg-row2 .rfg-cell, .rfg-row3 .rfg-cell {
     aspect-ratio: 16 / 10;
     height: auto !important;
   }
-
-  .rfg-cell-snapshot {
-    max-height: 360px;
-  }
-
-  .rtf-header-wrapper {
-    flex-direction: column;
-    gap: 1rem;
-  }
+  .rfg-cell-snapshot { max-height: 360px; }
+  .rtf-header-wrapper { flex-direction: column; gap: 1rem; }
 }
 
 @media (max-width: 560px) {
-  .rtfglobal-inner {
-    padding: 0 1rem;
-  }
-
-  .rtf-title {
-    font-size: 1.55rem;
-  }
-
-  .rfg-row2,
-  .rfg-row2-four {
-    grid-template-columns: 1fr !important;
-  }
-
-  .rfg-lightbox {
-    padding: 70px 14px 52px;
-  }
-
-  .rfg-lightbox-close {
-    top: 18px;
-    right: 18px;
-  }
-
-  .rtf-logo {
-    display: none;
-  }
+  .rtfglobal-inner { padding: 0 1rem; }
+  .rtf-title { font-size: 1.55rem; }
+  .rfg-row2, .rfg-row2-four { grid-template-columns: 1fr !important; }
+  .rfg-lightbox { padding: 70px 14px 52px; }
+  .rfg-lightbox-close { top: 18px; right: 18px; }
+  .rtf-logo { display: none; }
 }
