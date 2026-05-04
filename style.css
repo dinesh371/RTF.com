@@ -776,3 +776,128 @@ nav .text-yellow-300 { color: #facc15 !important; }
   .rfg-lightbox-close { top: 18px; right: 18px; }
   .rtf-logo { display: none; }
 }
+/* ===== FINAL RTF REQUESTED FIXES ===== */
+
+/* Home RTF FAM paragraph justify */
+#home p.text-justify {
+  text-align: justify !important;
+  text-align-last: left !important;
+}
+
+/* About page organizer face center */
+.org-card img[alt="Kanchan K Williams"],
+.org-card img[alt="Kishore Williams"] {
+  object-fit: cover !important;
+  object-position: center center !important;
+}
+
+/* Increase hotel partner logo size */
+.logo-track-lg img {
+  height: 125px !important;
+  max-width: 240px !important;
+  padding: 8px !important;
+  object-fit: contain !important;
+  border-radius: 14px !important;
+}
+
+/* Written feedback zoom on hover */
+.feedback-track-wrap,
+.gallery-scroll-wrap {
+  overflow: visible !important;
+}
+
+.feedback-card-item:hover {
+  transform: scale(1.28) !important;
+  z-index: 999 !important;
+  box-shadow: 0 25px 70px rgba(0,0,0,0.75) !important;
+  background: rgba(15,23,42,0.98) !important;
+}
+
+.feedback-card-item:hover .quote {
+  font-size: 0.92rem !important;
+  line-height: 1.65 !important;
+}
+
+/* Gallery image zoom on hover */
+.gallery-img-zoom:hover {
+  transform: scale(1.35) translateY(-8px) !important;
+  z-index: 999 !important;
+  position: relative !important;
+  box-shadow: 0 25px 75px rgba(0,0,0,0.8) !important;
+}
+
+/* RTF Global FAM poster + itinerary same size */
+.rfg-row1 {
+  align-items: stretch !important;
+}
+
+.rfg-row1 .rfg-cell,
+.rfg-cell-snapshot {
+  aspect-ratio: 16 / 10 !important;
+  max-height: 420px !important;
+  overflow: hidden !important;
+}
+
+.rfg-row1 .rfg-cell img,
+.rfg-cell-snapshot img {
+  width: 100% !important;
+  height: 100% !important;
+  max-height: none !important;
+  object-fit: contain !important;
+  object-position: center center !important;
+  padding: 10px !important;
+  box-sizing: border-box !important;
+}
+
+/* RTF Global FAM top banner: bigger logos, square, complete logo visible */
+.rtf-header-wrapper {
+  gap: 24px !important;
+}
+
+.rtf-logo {
+  width: 170px !important;
+  height: 170px !important;
+  border-radius: 18px !important;
+  overflow: visible !important;
+  background: rgba(255,255,255,0.96) !important;
+  padding: 12px !important;
+  border: 2px solid rgba(250,204,21,0.55) !important;
+}
+
+.rtf-logo img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: contain !important;
+  border-radius: 0 !important;
+}
+
+/* Remove circle cropping from all logos */
+img[alt*="Logo"],
+.footer-logo-img,
+nav img,
+#home img[alt="Event Logo"],
+.bg-white\/10 img[src*="Logo"],
+.bg-white\/10 img[src*="RTF"],
+.logo-track img {
+  border-radius: 14px !important;
+  object-fit: contain !important;
+}
+
+/* Home main logo full turban visible */
+#home img[alt="Event Logo"] {
+  background: #fff !important;
+  padding: 10px !important;
+}
+
+/* Mobile adjustment */
+@media (max-width: 900px) {
+  .rtf-logo {
+    width: 130px !important;
+    height: 130px !important;
+  }
+
+  .feedback-card-item:hover,
+  .gallery-img-zoom:hover {
+    transform: scale(1.08) !important;
+  }
+}
