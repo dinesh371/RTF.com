@@ -7,6 +7,8 @@
    - RTF FAM 2026 best fit
    - Gallery and feedback zoom readable
    - RTF Global FAM poster/snapshot fit
+   - Organizer photos: BOX type (not circle)
+   - RTF Global FAM banner logos: maximized size
    ========================================================= */
 
 /* ===== GLOBAL RESET ===== */
@@ -240,10 +242,11 @@ nav img {
   box-shadow: 0 16px 40px rgba(250,204,21,0.15);
 }
 
+/* CHANGED: border-radius from 50% (circle) to 16px (box) */
 .org-card img {
   width: 125px !important;
   height: 125px !important;
-  border-radius: 50% !important;
+  border-radius: 16px !important;
   border: 3px solid #facc15;
   margin-bottom: 14px;
   object-fit: cover !important;
@@ -251,7 +254,6 @@ nav img {
   display: block;
 }
 
-/* Exact face center for Kanchan and Kishore */
 .org-card img[alt="Kanchan K Williams"],
 .org-card img[alt="Kishore Williams"] {
   object-fit: cover !important;
@@ -1306,7 +1308,6 @@ img[src*="logo"],
 
 /* =========================================================
    FINAL EXTRA UPDATE - RTF GLOBAL + ORGANIZER PHOTO FIX
-   Added after cleaned CSS to override all old/conflicting styles
    ========================================================= */
 
 /* RTF Global FAM poster and itinerary snapshot: large full-page style */
@@ -1338,27 +1339,33 @@ img[src*="logo"],
   box-sizing: border-box !important;
 }
 
-/* RTF Global top banner: one large full-visible logo on both sides */
+/* =========================================================
+   RTF GLOBAL FAM BANNER: MAXIMIZED LOGOS
+   CHANGED: grid columns 200px → 280px, logo size 190px → 260px
+   ========================================================= */
 #rtfglobal .rtf-header-wrapper {
   display: grid !important;
-  grid-template-columns: 200px 1fr 200px !important;
+  grid-template-columns: 280px 1fr 280px !important;
   align-items: center !important;
-  justify-content: center !important;
-  gap: 26px !important;
+  justify-items: center !important;
+  gap: 24px !important;
+  padding: 24px 28px !important;
+  min-height: 320px !important;
 }
 
 #rtfglobal .rtf-logo {
-  width: 190px !important;
-  height: 190px !important;
+  width: 260px !important;
+  height: 260px !important;
   border-radius: 22px !important;
   background: #ffffff !important;
-  padding: 12px !important;
-  overflow: visible !important;
+  padding: 10px !important;
+  overflow: hidden !important;
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
   border: 2px solid rgba(250,204,21,0.7) !important;
   box-shadow: 0 14px 36px rgba(0,0,0,0.35) !important;
+  flex-shrink: 0 !important;
 }
 
 #rtfglobal .rtf-logo img {
@@ -1372,43 +1379,46 @@ img[src*="logo"],
   padding: 0 !important;
 }
 
-/* If any side has duplicate logos, show only first */
+/* Hide any duplicate logos beyond the first */
 #rtfglobal .rtf-logo img:not(:first-child) {
   display: none !important;
 }
 
-/* Organizer photo base */
+/* =========================================================
+   ORGANIZERS: BOX TYPE PHOTOS
+   CHANGED: border-radius from 50% (circle) to 16px (rounded box)
+   ========================================================= */
 #organizers .org-card img {
-  border-radius: 50% !important;
+  border-radius: 16px !important;
   object-fit: cover !important;
   background: #111827 !important;
 }
 
-/* Kanchan K Williams: face center in round frame */
 #organizers .org-card img[alt="Kanchan K Williams"] {
   width: 125px !important;
   height: 125px !important;
+  border-radius: 16px !important;
   object-fit: cover !important;
   object-position: center center !important;
 }
 
-/* Kishore Williams: face center in round frame */
 #organizers .org-card img[alt="Kishore Williams"] {
   width: 125px !important;
   height: 125px !important;
+  border-radius: 16px !important;
   object-fit: cover !important;
   object-position: center center !important;
 }
 
-/* Divya image: smaller and better positioned */
 #organizers .org-card img[alt="Divya S"] {
   width: 105px !important;
   height: 105px !important;
+  border-radius: 16px !important;
   object-fit: cover !important;
   object-position: center 28% !important;
 }
 
-/* Best mobile fit */
+/* ===== RESPONSIVE — RTF GLOBAL FAM BANNER ===== */
 @media (max-width: 900px) {
   #rtfglobal .rfg-row1 {
     grid-template-columns: 1fr !important;
@@ -1426,12 +1436,14 @@ img[src*="logo"],
 
   #rtfglobal .rtf-header-wrapper {
     grid-template-columns: 1fr !important;
+    min-height: auto !important;
     gap: 16px !important;
+    padding: 20px !important;
   }
 
   #rtfglobal .rtf-logo {
-    width: 155px !important;
-    height: 155px !important;
+    width: 200px !important;
+    height: 200px !important;
     margin: 0 auto !important;
   }
 }
@@ -1448,7 +1460,7 @@ img[src*="logo"],
   }
 
   #rtfglobal .rtf-logo {
-    width: 130px !important;
-    height: 130px !important;
+    width: 160px !important;
+    height: 160px !important;
   }
 }
