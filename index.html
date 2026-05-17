@@ -319,7 +319,7 @@
               <img src="images/RTF Hotel Partner logo/4c6f9b52-ae73-435e-9949-13913ef042ba.jpg" alt="Raj Leela">
               <img src="images/RTF Hotel Partner logo/741d2767-04c4-4e7d-84a9-8160ead218e7.jpg" alt="Thar">
               <img src="images/RTF Hotel Partner logo/Aaramgah Jawaii Logo (1).png" alt="Hotel Partner">
-]              <img src="images/RTF Hotel Partner logo/Thar.png" alt="Hotel Partner">
+              <img src="images/RTF Hotel Partner logo/Thar.png" alt="Hotel Partner">
               <img src="images/RTF Hotel Partner logo/WhatsApp Image 2026-03-18 at 2.13.39 PM.jpg" alt="Zone Palace">
               <img src="images/RTF Hotel Partner logo/WhatsApp Image 2026-03-18 at 6.11.26 PM.jpg" alt="Hotel Partner">
               <img src="images/RTF Hotel Partner logo/Zone Palace.png" alt="Shreeram">
@@ -391,7 +391,7 @@ Om Sai Tours &Travel</p></div>
 Your Nice Trip</p></div>
             </div>
           </div>
-        </div
+        </div>
         <!-- WRITTEN FEEDBACK -->
         <div class="feedback-scroll-section">
           <h3>✍️ Travel Agent Written Feedback</h3>
@@ -499,7 +499,7 @@ Your Nice Trip</p></div>
     </p>
   </div>
         </div>
-        </div>
+
         <div class="rfg-row1">
           <div class="rfg-cell" onclick="rfgOpenLightbox('images/ilovepdf_pages-to-jpg (1)/RTF_Global_Fam_Itinerary_page-0001.jpg')">
             <img src="images/ilovepdf_pages-to-jpg (1)/RTF_Global_Fam_Itinerary_page-0001.jpg" alt="RTF Global FAM Poster"/>
@@ -545,9 +545,10 @@ Your Nice Trip</p></div>
 
       </div>
 
-      <div id="rfgLightbox" class="rfg-lightbox" onclick="rfgCloseLightbox()">
-        <button class="rfg-lightbox-close" onclick="rfgCloseLightbox()" aria-label="Close">&#10005;</button>
+      <div id="rfgLightbox" class="rfg-lightbox" aria-hidden="true">
+        <button type="button" class="rfg-lightbox-close" onclick="rfgCloseLightbox(event)" aria-label="Close">&#10005;</button>
         <img id="rfgLightboxImg" src="" alt="Full view"/>
+        <div class="rfg-lightbox-help">Click image to zoom · Drag/scroll to view · ESC to close</div>
       </div>
 
     </section>
@@ -673,5 +674,186 @@ Your Nice Trip</p></div>
   </button>
 
   <script src="script.js"></script>
+
+  <!-- ===== FINAL FIX: GLOBAL FAM LIGHTBOX ZOOM + HTML SAFETY PATCH ===== -->
+  <style>
+    .rfg-lightbox {
+      position: fixed !important;
+      inset: 0 !important;
+      z-index: 999999 !important;
+      background: rgba(2, 6, 23, 0.96) !important;
+      display: none !important;
+      align-items: flex-start !important;
+      justify-content: center !important;
+      padding: 70px 24px 60px !important;
+      overflow: auto !important;
+      box-sizing: border-box !important;
+    }
+
+    .rfg-lightbox.open {
+      display: flex !important;
+    }
+
+    #rfgLightboxImg {
+      max-width: 94vw !important;
+      max-height: 86vh !important;
+      width: auto !important;
+      height: auto !important;
+      object-fit: contain !important;
+      background: #ffffff !important;
+      border-radius: 14px !important;
+      padding: 8px !important;
+      cursor: zoom-in !important;
+      transition: transform 0.25s ease !important;
+      transform-origin: center center !important;
+      box-shadow: 0 25px 80px rgba(0,0,0,0.75) !important;
+      user-select: none !important;
+    }
+
+    #rfgLightboxImg.zoomed {
+      max-width: none !important;
+      max-height: none !important;
+      cursor: zoom-out !important;
+    }
+
+    .rfg-lightbox-close {
+      position: fixed !important;
+      top: 22px !important;
+      right: 28px !important;
+      z-index: 1000000 !important;
+      width: 50px !important;
+      height: 50px !important;
+      border-radius: 50% !important;
+      border: 1px solid #facc15 !important;
+      background: rgba(15, 23, 42, 0.92) !important;
+      color: #facc15 !important;
+      font-size: 28px !important;
+      line-height: 46px !important;
+      text-align: center !important;
+      cursor: pointer !important;
+    }
+
+    .rfg-lightbox-close:hover {
+      background: #facc15 !important;
+      color: #0f172a !important;
+    }
+
+    .rfg-lightbox-help {
+      position: fixed !important;
+      left: 50% !important;
+      bottom: 18px !important;
+      transform: translateX(-50%) !important;
+      z-index: 1000000 !important;
+      color: #fde68a !important;
+      background: rgba(15,23,42,0.82) !important;
+      border: 1px solid rgba(250,204,21,0.35) !important;
+      border-radius: 999px !important;
+      padding: 8px 16px !important;
+      font-size: 13px !important;
+      white-space: nowrap !important;
+      pointer-events: none !important;
+    }
+
+    .rfg-cell,
+    .gallery-img-zoom {
+      cursor: zoom-in !important;
+    }
+
+    @media (max-width: 560px) {
+      .rfg-lightbox {
+        padding: 68px 10px 58px !important;
+      }
+
+      #rfgLightboxImg {
+        max-width: 96vw !important;
+        max-height: 82vh !important;
+      }
+
+      .rfg-lightbox-help {
+        font-size: 11px !important;
+        padding: 7px 12px !important;
+      }
+    }
+  </style>
+
+  <script>
+    // ===== FINAL FIX: RTF GLOBAL FAM LIGHTBOX WITH CLICK ZOOM =====
+    var rfgZoomLevel = 1;
+
+    function rfgOpenLightbox(src) {
+      var lb  = document.getElementById("rfgLightbox");
+      var img = document.getElementById("rfgLightboxImg");
+      if (!lb || !img || !src) return;
+
+      rfgZoomLevel = 1;
+      img.src = src;
+      img.classList.remove("zoomed");
+      img.style.transform = "scale(1)";
+      img.style.transformOrigin = "center center";
+
+      lb.classList.add("open");
+      lb.setAttribute("aria-hidden", "false");
+      document.body.style.overflow = "hidden";
+      lb.scrollTop = 0;
+      lb.scrollLeft = 0;
+    }
+
+    function rfgCloseLightbox(e) {
+      if (e) {
+        e.preventDefault();
+        e.stopPropagation();
+      }
+
+      var lb  = document.getElementById("rfgLightbox");
+      var img = document.getElementById("rfgLightboxImg");
+
+      if (lb) {
+        lb.classList.remove("open");
+        lb.setAttribute("aria-hidden", "true");
+      }
+
+      if (img) {
+        img.src = "";
+        img.classList.remove("zoomed");
+        img.style.transform = "scale(1)";
+      }
+
+      rfgZoomLevel = 1;
+      document.body.style.overflow = "";
+    }
+
+    document.addEventListener("click", function (e) {
+      var lb  = document.getElementById("rfgLightbox");
+      var img = document.getElementById("rfgLightboxImg");
+      if (!lb || !img || !lb.classList.contains("open")) return;
+
+      if (e.target === lb) {
+        rfgCloseLightbox(e);
+        return;
+      }
+
+      if (e.target === img) {
+        e.preventDefault();
+        e.stopPropagation();
+
+        if (rfgZoomLevel === 1) {
+          rfgZoomLevel = 2.25;
+          img.classList.add("zoomed");
+          img.style.transform = "scale(" + rfgZoomLevel + ")";
+        } else {
+          rfgZoomLevel = 1;
+          img.classList.remove("zoomed");
+          img.style.transform = "scale(1)";
+        }
+      }
+    }, true);
+
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape") {
+        rfgCloseLightbox(e);
+      }
+    });
+  </script>
+
 </body>
 </html>
