@@ -116,23 +116,71 @@ document.addEventListener("click", function (e) {
 });
 
 // ===== RTF GLOBAL FAM — LIGHTBOX =====
+// ===== RTF GLOBAL FAM — LIGHTBOX WITH ZOOM =====
+var rfgZoomLevel = 1;
+
 function rfgOpenLightbox(src) {
   var lb  = document.getElementById("rfgLightbox");
   var img = document.getElementById("rfgLightboxImg");
+
   if (!lb || !img) return;
+
+  rfgZoomLevel = 1;
   img.src = src;
+  img.classList.remove("zoomed");
+  img.style.transform = "scale(1)";
+  img.style.transformOrigin = "center center";
+
   lb.classList.add("open");
   document.body.style.overflow = "hidden";
 }
 
 function rfgCloseLightbox() {
-  var lb = document.getElementById("rfgLightbox");
+  var lb  = document.getElementById("rfgLightbox");
+  var img = document.getElementById("rfgLightboxImg");
+
   if (lb) lb.classList.remove("open");
+
+  if (img) {
+    img.src = "";
+    img.classList.remove("zoomed");
+    img.style.transform = "scale(1)";
+  }
+
+  rfgZoomLevel = 1;
   document.body.style.overflow = "";
 }
 
+// Click image to zoom in / zoom out
+document.addEventListener("click", function (e) {
+  var lb  = document.getElementById("rfgLightbox");
+  var img = document.getElementById("rfgLightboxImg");
+
+  if (!lb || !img || !lb.classList.contains("open")) return;
+
+  if (e.target === img) {
+    if (rfgZoomLevel === 1) {
+      rfgZoomLevel = 2.2;
+      img.classList.add("zoomed");
+      img.style.transform = "scale(" + rfgZoomLevel + ")";
+      img.style.transformOrigin = "center center";
+    } else {
+      rfgZoomLevel = 1;
+      img.classList.remove("zoomed");
+      img.style.transform = "scale(1)";
+    }
+  }
+
+  if (e.target === lb) {
+    rfgCloseLightbox();
+  }
+});
+
+// ESC close
 document.addEventListener("keydown", function (e) {
-  if (e.key === "Escape") rfgCloseLightbox();
+  if (e.key === "Escape") {
+    rfgCloseLightbox();
+  }
 });
 
 // ===== MAIN SCRIPT =====
