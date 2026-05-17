@@ -1106,59 +1106,76 @@ nav img {
   height: auto !important;
 }
 
-/* ===== LIGHTBOX ===== */
+/* ===== FINAL FIX: RTF GLOBAL FAM LIGHTBOX ZOOM ===== */
 .rfg-lightbox {
-  display: none;
-  position: fixed;
-  inset: 0;
-  background: rgba(2,6,23,0.96);
-  z-index: 99999;
-  align-items: center;
-  justify-content: center;
-  padding: 70px 70px 45px;
+  position: fixed !important;
+  inset: 0 !important;
+  z-index: 999999 !important;
+  background: rgba(2, 6, 23, 0.94) !important;
+  display: none !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 70px 24px 40px !important;
+  overflow: auto !important;
 }
 
 .rfg-lightbox.open {
-  display: flex;
+  display: flex !important;
 }
 
-.rfg-lightbox img {
-  max-width: 94vw;
-  max-height: 86vh;
-  object-fit: contain;
-  border-radius: 18px;
-  box-shadow: 0 25px 80px rgba(0,0,0,0.75);
-  animation: rfgZoomIn 0.25s ease;
+.rfg-lightbox img,
+#rfgLightboxImg {
+  max-width: 94vw !important;
+  max-height: 88vh !important;
+  width: auto !important;
+  height: auto !important;
+  object-fit: contain !important;
+  background: #ffffff !important;
+  border-radius: 14px !important;
+  padding: 8px !important;
+  cursor: zoom-in !important;
+  transition: transform 0.25s ease !important;
+  transform-origin: center center !important;
 }
 
-@keyframes rfgZoomIn {
-  from { opacity: 0; transform: scale(0.92); }
-  to { opacity: 1; transform: scale(1); }
+#rfgLightboxImg.zoomed {
+  max-width: none !important;
+  max-height: none !important;
+  cursor: zoom-out !important;
 }
 
 .rfg-lightbox-close {
-  position: absolute;
-  top: 22px;
-  right: 26px;
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  font-size: 1.7rem;
-  line-height: 1;
-  border: 1px solid rgba(253,224,71,0.35);
-  background: rgba(15,23,42,0.82);
-  color: #fde047;
-  cursor: pointer;
-  z-index: 100000;
-  transition: all 0.25s ease;
-  backdrop-filter: blur(10px);
+  position: fixed !important;
+  top: 24px !important;
+  right: 28px !important;
+  z-index: 1000000 !important;
+  width: 48px !important;
+  height: 48px !important;
+  border-radius: 50% !important;
+  border: 1px solid #facc15 !important;
+  background: rgba(15, 23, 42, 0.85) !important;
+  color: #facc15 !important;
+  font-size: 30px !important;
+  line-height: 44px !important;
+  text-align: center !important;
+  cursor: pointer !important;
 }
 
 .rfg-lightbox-close:hover {
-  background: rgba(253,224,71,0.18);
-  border-color: rgba(253,224,71,0.8);
+  background: #facc15 !important;
+  color: #0f172a !important;
 }
 
+@media (max-width: 560px) {
+  .rfg-lightbox {
+    padding: 70px 12px 40px !important;
+  }
+
+  #rfgLightboxImg {
+    max-width: 96vw !important;
+    max-height: 82vh !important;
+  }
+}
 /* ===== UNIVERSAL LOGO RULE ===== */
 img[alt*="Logo"],
 img[src*="Logo"],
