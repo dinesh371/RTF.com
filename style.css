@@ -1106,27 +1106,26 @@ nav img {
   height: auto !important;
 }
 
-/* ===== FINAL FIX: RTF GLOBAL FAM LIGHTBOX ZOOM ===== */
+/* ===== FINAL RTF LIGHTBOX WITH CLICK ZOOM + DRAG SUPPORT ===== */
 .rfg-lightbox {
   position: fixed !important;
   inset: 0 !important;
   z-index: 999999 !important;
-  background: rgba(2, 6, 23, 0.94) !important;
+  background: rgba(2, 6, 23, 0.96) !important;
   display: none !important;
   align-items: center !important;
   justify-content: center !important;
-  padding: 70px 24px 40px !important;
-  overflow: auto !important;
+  padding: 40px !important;
+  overflow: hidden !important;
 }
 
 .rfg-lightbox.open {
   display: flex !important;
 }
 
-.rfg-lightbox img,
 #rfgLightboxImg {
-  max-width: 94vw !important;
-  max-height: 88vh !important;
+  max-width: 92vw !important;
+  max-height: 90vh !important;
   width: auto !important;
   height: auto !important;
   object-fit: contain !important;
@@ -1136,12 +1135,16 @@ nav img {
   cursor: zoom-in !important;
   transition: transform 0.25s ease !important;
   transform-origin: center center !important;
+  will-change: transform !important;
+  user-select: none !important;
+  -webkit-user-select: none !important;
+  touch-action: none !important;
 }
 
 #rfgLightboxImg.zoomed {
   max-width: none !important;
   max-height: none !important;
-  cursor: zoom-out !important;
+  cursor: grab !important;
 }
 
 .rfg-lightbox-close {
@@ -1166,16 +1169,17 @@ nav img {
   color: #0f172a !important;
 }
 
-@media (max-width: 560px) {
+@media (max-width: 768px) {
   .rfg-lightbox {
-    padding: 70px 12px 40px !important;
+    padding: 20px !important;
   }
 
   #rfgLightboxImg {
     max-width: 96vw !important;
-    max-height: 82vh !important;
+    max-height: 85vh !important;
   }
 }
+
 /* ===== UNIVERSAL LOGO RULE ===== */
 img[alt*="Logo"],
 img[src*="Logo"],
@@ -1444,3 +1448,19 @@ img[src*="logo"],
   #rtfglobal .rfg-row1 .rfg-cell img,
   #rtfglobal .rfg-cell-snapshot img {
     height: 360px !important;
+  }
+}
+
+/* ===== FINAL SAFETY FIXES ===== */
+.rfg-lightbox * {
+  box-sizing: border-box !important;
+}
+
+.rfg-lightbox.open {
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+body.rfg-lightbox-open {
+  overflow: hidden !important;
+}
