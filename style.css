@@ -1308,16 +1308,15 @@ img[src*="logo"],
     height: 210px !important;
   }
 
-  .feedback-card-item {
-    width: 280px !important;
-    min-width: 280px !important;
-    max-width: 280px !important;
-    flex: 0 0 280px !important;
+.feedback-card-item {
+    width: 200px !important;
+    min-width: 200px !important;
+    max-width: 200px !important;
+    flex: 0 0 200px !important;
   }
 
   .feedback-person-img {
-    width: 96px !important;
-    height: 96px !important;
+    height: 165px !important;
   }
 
   .gallery-scroll-track img {
