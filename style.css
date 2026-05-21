@@ -512,7 +512,7 @@ nav img {
   border-radius: 1.25rem;
   padding: 1.25rem;
   margin-bottom: 2rem;
-  overflow: visible !important;
+  overflow: hidden !important;
 }
 
 .feedback-scroll-section h3 {
@@ -524,47 +524,32 @@ nav img {
 }
 
 .feedback-track-wrap {
-  overflow: visible !important;
   width: 100%;
+  overflow-x: auto !important;
+  overflow-y: visible !important;
+  padding: 10px 0 25px;
+  scrollbar-width: thin;
 }
 
 .feedback-track {
   display: flex;
-  gap: 1rem;
-  animation: scrollFeedback 60s linear infinite;
+  flex-wrap: nowrap;
+  gap: 18px;
   width: max-content;
-  will-change: transform;
-}
-
-.feedback-track:hover {
-  animation-play-state: paused;
-}
-
-@keyframes scrollFeedback {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+  animation: none !important;
 }
 
 .feedback-card-item {
+  width: 320px !important;
+  min-width: 320px !important;
+  max-width: 320px !important;
   background: rgba(255,255,255,0.07);
   border: 1px solid rgba(253,224,71,0.2);
   border-radius: 1rem;
   padding: 18px !important;
-  min-width: 300px !important;
-  max-width: 330px !important;
   flex-shrink: 0;
   text-align: center;
-  position: relative;
-  overflow: hidden;
-  transition: border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
-}
-
-.feedback-card-item:hover {
-  transform: scale(1.20) !important;
-  z-index: 999 !important;
-  border-color: rgba(253,224,71,0.65);
-  box-shadow: 0 25px 70px rgba(0,0,0,0.75) !important;
-  background: rgba(15,23,42,0.98) !important;
+  overflow: visible !important;
 }
 
 .feedback-person-img {
@@ -576,22 +561,14 @@ nav img {
   margin: 0 auto 12px;
   display: block;
   border: 3px solid #facc15;
-  box-shadow: 0 0 0 4px rgba(250,204,21,0.12), 0 8px 24px rgba(250,204,21,0.25);
   background: #ffffff !important;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.feedback-card-item:hover .feedback-person-img {
-  transform: scale(1.05);
-  box-shadow: 0 0 0 6px rgba(250,204,21,0.2), 0 14px 32px rgba(250,204,21,0.38);
 }
 
 .feedback-card-item h4 {
   color: #fde047;
   font-weight: 700;
   font-size: 0.92rem;
-  margin-bottom: 0.2rem;
-  margin-top: 0;
+  margin: 0 0 0.25rem;
 }
 
 .feedback-card-item .org {
@@ -607,9 +584,12 @@ nav img {
   font-style: italic;
 }
 
-.feedback-card-item:hover .quote {
-  font-size: 0.92rem !important;
-  line-height: 1.68 !important;
+@media (max-width: 768px) {
+  .feedback-card-item {
+    width: 280px !important;
+    min-width: 280px !important;
+    max-width: 280px !important;
+  }
 }
 
 /* ===== GALLERY ===== */
