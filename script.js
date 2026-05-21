@@ -189,6 +189,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function showPage(index, updateUrl) {
     if (index < 0 || index >= sections.length) return;
+
     if (updateUrl === undefined) updateUrl = true;
 
     sections.forEach(function (section) {
@@ -198,13 +199,16 @@ document.addEventListener("DOMContentLoaded", function () {
       section.style.visibility = "hidden";
 
       section.querySelectorAll("video").forEach(function (v) {
-        try { v.pause(); } catch (err) {}
+        try {
+          v.pause();
+        } catch (err) {}
       });
     });
 
     currentIndex = index;
 
     var active = sections[currentIndex];
+
     active.style.display = "flex";
     active.style.opacity = "1";
     active.style.visibility = "visible";
@@ -307,39 +311,46 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // ===== FEEDBACK IMAGE FALLBACK ONLY =====
-// ===== FEEDBACK AUTO SCROLL FINAL FIX =====
-var feedbackTrack = document.getElementById("feedbackTrack");
+  // ===== FEEDBACK FINAL FIX =====
+  var feedbackTrack = document.getElementById("feedbackTrack");
 
-if (feedbackTrack) {
-  var originalCards = Array.from(
-    feedbackTrack.querySelectorAll(".feedback-card-item")
-  );
-
-  if (!feedbackTrack.dataset.duplicated && originalCards.length > 0) {
-    originalCards.forEach(function (card) {
-      var clone = card.cloneNode(true);
-      feedbackTrack.appendChild(clone);
-    });
-
-    feedbackTrack.dataset.duplicated = "true";
+  if (feedbackTrack) {
+    feedbackTrack.style.animation = "none";
+    feedbackTrack.style.transform = "none";
+    feedbackTrack.style.display = "flex";
+    feedbackTrack.style.flexWrap = "nowrap";
+    feedbackTrack.style.gap = "22px";
+    feedbackTrack.style.width = "max-content";
   }
 
-  feedbackTrack.style.display = "flex";
-feedbackTrack.style.flexWrap = "nowrap";
-feedbackTrack.style.gap = "18px";
-feedbackTrack.style.width = "max-content";
-// Let CSS handle the animation — name was wrong here before
-// animation handled by CSS}
+  var feedbackWrap = document.querySelector(".feedback-track-wrap");
 
-document.querySelectorAll(".feedback-person-img").forEach(function (img) {
-  img.setAttribute("loading", "lazy");
+  if (feedbackWrap) {
+    feedbackWrap.style.overflowX = "auto";
+    feedbackWrap.style.overflowY = "hidden";
+    feedbackWrap.style.width = "100%";
+    feedbackWrap.style.paddingBottom = "18px";
+  }
 
-  img.onerror = function () {
-    this.onerror = null;
-    this.src = "images/finallogo1.png";
-  };
-});
+  document.querySelectorAll(".feedback-card-item").forEach(function (card) {
+    card.style.display = "flex";
+    card.style.visibility = "visible";
+    card.style.opacity = "1";
+    card.style.flexShrink = "0";
+    card.style.width = "320px";
+    card.style.minWidth = "320px";
+    card.style.maxWidth = "320px";
+  });
+
+  document.querySelectorAll(".feedback-person-img").forEach(function (img) {
+    img.setAttribute("loading", "lazy");
+
+    img.onerror = function () {
+      this.onerror = null;
+      this.src = "images/finallogo1.png";
+    };
+  });
+
   // ===== BROWSER BACK =====
   window.addEventListener("popstate", function () {
     var hash = window.location.hash.replace("#", "");
@@ -353,6 +364,7 @@ document.querySelectorAll(".feedback-person-img").forEach(function (img) {
 
   // ===== INITIAL LOAD =====
   var initialHash = window.location.hash.replace("#", "");
+
   var resolvedHash = initialHash === "partners" ? "rtffam" : initialHash;
 
   var initialIndex = sections.findIndex(function (s) {
