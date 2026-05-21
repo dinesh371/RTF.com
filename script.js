@@ -330,8 +330,7 @@ feedbackTrack.style.flexWrap = "nowrap";
 feedbackTrack.style.gap = "18px";
 feedbackTrack.style.width = "max-content";
 // Let CSS handle the animation — name was wrong here before
-feedbackTrack.style.animation = "";  // clear any inline override
-}
+// animation handled by CSS}
 
 document.querySelectorAll(".feedback-person-img").forEach(function (img) {
   img.setAttribute("loading", "lazy");
