@@ -376,7 +376,7 @@ nav img {
 
 .logo-track img:hover,
 .logo-track-lg img:hover {
-  transform: scale(1.08);f
+  transform: scale(1.08);
   border-color: rgba(253,224,71,0.65);
 }
 
