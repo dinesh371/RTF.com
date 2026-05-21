@@ -326,10 +326,11 @@ if (feedbackTrack) {
   }
 
   feedbackTrack.style.display = "flex";
-  feedbackTrack.style.flexWrap = "nowrap";
-  feedbackTrack.style.gap = "18px";
-  feedbackTrack.style.width = "max-content";
-  feedbackTrack.style.animation = "feedbackAutoScroll 90s linear infinite";
+feedbackTrack.style.flexWrap = "nowrap";
+feedbackTrack.style.gap = "18px";
+feedbackTrack.style.width = "max-content";
+// Let CSS handle the animation — name was wrong here before
+feedbackTrack.style.animation = "";  // clear any inline override
 }
 
 document.querySelectorAll(".feedback-person-img").forEach(function (img) {
