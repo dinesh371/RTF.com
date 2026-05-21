@@ -505,7 +505,7 @@ nav img {
   margin: 0;
 }
 
-/* ===== WRITTEN FEEDBACK ===== */
+/* ===== WRITTEN FEEDBACK - FINAL FIX ===== */
 .feedback-scroll-section {
   background: rgba(255,255,255,0.04);
   border: 1px solid rgba(253,224,71,0.15);
@@ -517,78 +517,127 @@ nav img {
 
 .feedback-scroll-section h3 {
   color: #fde047;
-  font-weight: 700;
-  font-size: 1.1rem;
-  margin-bottom: 1rem;
+  font-weight: 800;
+  font-size: 1.35rem;
+  margin-bottom: 1.2rem;
   text-align: center;
 }
 
 .feedback-track-wrap {
   width: 100%;
   overflow-x: auto !important;
-  overflow-y: visible !important;
-  padding: 10px 0 25px;
-  scrollbar-width: thin;
+  overflow-y: hidden !important;
+  padding: 10px 0 22px;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+
+.feedback-track-wrap::-webkit-scrollbar {
+  height: 8px;
+}
+
+.feedback-track-wrap::-webkit-scrollbar-track {
+  background: rgba(255,255,255,0.08);
+  border-radius: 999px;
+}
+
+.feedback-track-wrap::-webkit-scrollbar-thumb {
+  background: #facc15;
+  border-radius: 999px;
 }
 
 .feedback-track {
-  display: flex;
-  flex-wrap: nowrap;
-  gap: 18px;
-  width: max-content;
+  display: flex !important;
+  flex-wrap: nowrap !important;
+  gap: 18px !important;
+  width: max-content !important;
   animation: none !important;
+  transform: none !important;
+  will-change: auto !important;
+  align-items: stretch !important;
 }
 
 .feedback-card-item {
   width: 320px !important;
   min-width: 320px !important;
   max-width: 320px !important;
-  background: rgba(255,255,255,0.07);
-  border: 1px solid rgba(253,224,71,0.2);
-  border-radius: 1rem;
-  padding: 18px !important;
-  flex-shrink: 0;
-  text-align: center;
+  flex-shrink: 0 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  position: relative !important;
   overflow: visible !important;
+  text-align: center;
+  border-radius: 1.1rem;
+  padding: 20px !important;
+  background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(15,23,42,0.94));
+  border: 1px solid rgba(253,224,71,0.25);
+  box-shadow: 0 14px 36px rgba(0,0,0,0.22);
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.feedback-card-item:hover {
+  transform: translateY(-6px) !important;
+  z-index: 5 !important;
+  border-color: rgba(253,224,71,0.75);
+  box-shadow: 0 22px 55px rgba(0,0,0,0.42) !important;
+  background: rgba(15,23,42,0.98) !important;
 }
 
 .feedback-person-img {
-  width: 105px !important;
-  height: 105px !important;
+  width: 110px !important;
+  height: 110px !important;
   object-fit: contain !important;
   object-position: center center !important;
-  border-radius: 14px !important;
-  margin: 0 auto 12px;
-  display: block;
+  border-radius: 16px !important;
+  margin: 0 auto 14px !important;
+  display: block !important;
   border: 3px solid #facc15;
   background: #ffffff !important;
+  padding: 4px !important;
+  box-shadow: 0 0 0 4px rgba(250,204,21,0.12), 0 8px 24px rgba(250,204,21,0.22);
 }
 
 .feedback-card-item h4 {
   color: #fde047;
-  font-weight: 700;
-  font-size: 0.92rem;
-  margin: 0 0 0.25rem;
+  font-weight: 800;
+  font-size: 0.98rem;
+  line-height: 1.35;
+  margin: 0 0 0.3rem !important;
 }
 
 .feedback-card-item .org {
   color: #7dd3fc;
-  font-size: 0.76rem;
-  margin-bottom: 0.5rem;
+  font-size: 0.78rem;
+  line-height: 1.5;
+  margin-bottom: 0.65rem;
 }
 
 .feedback-card-item .quote {
   color: #e2e8f0;
   font-size: 0.86rem;
-  line-height: 1.62;
+  line-height: 1.65;
   font-style: italic;
 }
 
 @media (max-width: 768px) {
+  .feedback-scroll-section {
+    padding: 1rem;
+  }
+
   .feedback-card-item {
     width: 280px !important;
     min-width: 280px !important;
     max-width: 280px !important;
+    padding: 17px !important;
+  }
+
+  .feedback-person-img {
+    width: 96px !important;
+    height: 96px !important;
   }
 }
 
@@ -1266,7 +1315,6 @@ img[src*="logo"],
     font-size: 1.7rem;
   }
 
-  .feedback-card-item:hover,
   .gallery-img-zoom:hover {
     transform: scale(1.08) !important;
   }
@@ -1324,7 +1372,8 @@ img[src*="logo"],
   }
 
   .feedback-card-item {
-    min-width: 260px !important;
+    width: 280px !important;
+    min-width: 280px !important;
     max-width: 280px !important;
   }
 }
