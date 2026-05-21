@@ -308,15 +308,38 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   // ===== FEEDBACK IMAGE FALLBACK ONLY =====
-  document.querySelectorAll(".feedback-person-img").forEach(function (img) {
-    img.setAttribute("loading", "lazy");
+// ===== FEEDBACK AUTO SCROLL FINAL FIX =====
+var feedbackTrack = document.getElementById("feedbackTrack");
 
-    img.onerror = function () {
-      this.onerror = null;
-      this.src = "images/finallogo1.png";
-    };
-  });
+if (feedbackTrack) {
+  var originalCards = Array.from(
+    feedbackTrack.querySelectorAll(".feedback-card-item")
+  );
 
+  if (!feedbackTrack.dataset.duplicated && originalCards.length > 0) {
+    originalCards.forEach(function (card) {
+      var clone = card.cloneNode(true);
+      feedbackTrack.appendChild(clone);
+    });
+
+    feedbackTrack.dataset.duplicated = "true";
+  }
+
+  feedbackTrack.style.display = "flex";
+  feedbackTrack.style.flexWrap = "nowrap";
+  feedbackTrack.style.gap = "18px";
+  feedbackTrack.style.width = "max-content";
+  feedbackTrack.style.animation = "scrollFeedback 90s linear infinite";
+}
+
+document.querySelectorAll(".feedback-person-img").forEach(function (img) {
+  img.setAttribute("loading", "lazy");
+
+  img.onerror = function () {
+    this.onerror = null;
+    this.src = "images/finallogo1.png";
+  };
+});
   // ===== BROWSER BACK =====
   window.addEventListener("popstate", function () {
     var hash = window.location.hash.replace("#", "");
