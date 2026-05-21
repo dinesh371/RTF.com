@@ -21,7 +21,6 @@ body {
 }
 
 /* ===== COMMON PAGE SECTION ===== */
-
 .page-section {
   position: relative !important;
   margin: 0 !important;
@@ -41,7 +40,6 @@ body {
 }
 
 /* ===== NAV ===== */
-
 .nav-link {
   transition: color 0.2s ease;
 }
@@ -64,7 +62,6 @@ nav img {
 }
 
 /* ===== ARROW NAVIGATION BUTTONS ===== */
-
 .nav-arrow-button {
   position: fixed !important;
   top: 50vh !important;
@@ -98,7 +95,6 @@ nav img {
 }
 
 /* ===== HOME ===== */
-
 #home p.text-justify {
   text-align: justify !important;
   text-align-last: left !important;
@@ -115,7 +111,6 @@ nav img {
 }
 
 /* ===== ABOUT SECTION ===== */
-
 .about-section {
   position: relative !important;
   min-height: 100vh !important;
@@ -176,7 +171,6 @@ nav img {
 }
 
 /* ===== ORGANIZERS ===== */
-
 #organizers {
   padding: 42px 20px !important;
   margin-top: 30px !important;
@@ -276,13 +270,11 @@ nav img {
 }
 
 /* ===== ATTRACTIONS ===== */
-
 #attractions.page-section.active {
   display: flex !important;
 }
 
 /* ===== RTF FAM 2026 SECTION ===== */
-
 .rtffam-section {
   background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
   flex-direction: column;
@@ -322,7 +314,6 @@ nav img {
 }
 
 /* ===== HOTEL LOGOS SCROLL ===== */
-
 .hotel-scroll-bar {
   background: rgba(255,255,255,0.05);
   border: 1px solid rgba(253,224,71,0.2);
@@ -391,7 +382,6 @@ nav img {
 }
 
 /* ===== RTF FAM TWO COLUMN ===== */
-
 .fam-two-col {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -415,7 +405,6 @@ nav img {
 }
 
 /* ===== PARTICIPANTS TABLE ===== */
-
 .participants-search {
   width: 100%;
   padding: 0.5rem 0.75rem;
@@ -482,7 +471,6 @@ nav img {
 }
 
 /* ===== VIDEOS ===== */
-
 .videos-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -512,25 +500,41 @@ nav img {
   margin: 0;
 }
 
-/* ===== WRITTEN FEEDBACK AUTO SCROLL ===== */
-
-/* ===== FINAL FEEDBACK AUTO SCROLL FIX ===== */
+/* =======================================================
+   TRAVEL AGENT WRITTEN FEEDBACK - FINAL AUTO SCROLL
+   ======================================================= */
 
 .feedback-scroll-section {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(253,224,71,0.15);
+  border-radius: 1.25rem;
+  padding: 1.25rem;
+  margin-bottom: 2rem;
   overflow: hidden !important;
 }
 
+.feedback-scroll-section h3 {
+  color: #fde047;
+  font-weight: 800;
+  font-size: 1.35rem;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
 .feedback-track-wrap {
-  width: 100% !important;
+  width: 100%;
   overflow: hidden !important;
-  position: relative !important;
+  position: relative;
+  border-radius: 1rem;
 }
 
 .feedback-track {
   display: flex !important;
   flex-wrap: nowrap !important;
+  align-items: stretch !important;
   gap: 18px !important;
   width: max-content !important;
+  min-width: max-content !important;
   animation: feedbackAutoScroll 90s linear infinite !important;
   will-change: transform !important;
 }
@@ -540,11 +544,11 @@ nav img {
 }
 
 @keyframes feedbackAutoScroll {
-  0% {
+  from {
     transform: translateX(0);
   }
 
-  100% {
+  to {
     transform: translateX(-50%);
   }
 }
@@ -553,10 +557,61 @@ nav img {
   width: 320px !important;
   min-width: 320px !important;
   max-width: 320px !important;
+  flex: 0 0 320px !important;
   flex-shrink: 0 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  text-align: center;
+  border-radius: 1.1rem;
+  padding: 20px !important;
+  background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(15,23,42,0.94));
+  border: 1px solid rgba(253,224,71,0.25);
+  box-shadow: 0 14px 36px rgba(0,0,0,0.22);
 }
-/* ===== GALLERY FINAL FIX ===== */
 
+.feedback-card-item:hover {
+  transform: translateY(-6px) !important;
+  z-index: 5 !important;
+  border-color: rgba(253,224,71,0.75);
+}
+
+.feedback-person-img {
+  width: 110px !important;
+  height: 110px !important;
+  object-fit: contain !important;
+  object-position: center center !important;
+  border-radius: 16px !important;
+  margin: 0 auto 14px !important;
+  display: block !important;
+  border: 3px solid #facc15;
+  background: #ffffff !important;
+  padding: 4px !important;
+}
+
+.feedback-card-item h4 {
+  color: #fde047;
+  font-weight: 800;
+  font-size: 0.98rem;
+  line-height: 1.35;
+  margin: 0 0 0.3rem !important;
+}
+
+.feedback-card-item .org {
+  color: #7dd3fc;
+  font-size: 0.78rem;
+  line-height: 1.5;
+  margin-bottom: 0.65rem;
+}
+
+.feedback-card-item .quote {
+  color: #e2e8f0;
+  font-size: 0.86rem;
+  line-height: 1.65;
+  font-style: italic;
+}
+
+/* ===== GALLERY FINAL FIX ===== */
 .gallery-section {
   background: rgba(255,255,255,0.04);
   border: 1px solid rgba(253,224,71,0.15);
@@ -647,7 +702,6 @@ nav img {
 }
 
 /* ===== FOOTER ===== */
-
 .site-footer {
   position: relative;
   background: linear-gradient(135deg, #020617 0%, #0f172a 40%, #111827 100%);
@@ -869,7 +923,6 @@ nav img {
 }
 
 /* ===== RTF GLOBAL FAM SECTION ===== */
-
 #rtfglobal.page-section {
   background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
   flex-direction: column;
@@ -960,7 +1013,6 @@ nav img {
 }
 
 /* ===== RTF GLOBAL FAM GRID CELLS ===== */
-
 .rfg-cell {
   background: rgba(255,255,255,0.04);
   border: 1px solid rgba(253,224,71,0.2);
@@ -1059,7 +1111,6 @@ nav img {
 }
 
 /* ===== LIGHTBOX ===== */
-
 .rfg-lightbox {
   position: fixed !important;
   inset: 0 !important;
@@ -1123,7 +1174,6 @@ nav img {
 }
 
 /* ===== UNIVERSAL LOGO RULE ===== */
-
 img[alt*="Logo"],
 img[src*="Logo"],
 img[src*="logo"],
@@ -1134,7 +1184,6 @@ img[src*="logo"],
 }
 
 /* ===== ORGANIZER FACE FRAMING ===== */
-
 #organizers .org-card img {
   border-radius: 16px !important;
   object-fit: cover !important;
@@ -1164,7 +1213,6 @@ img[src*="logo"],
 }
 
 /* ===== RESPONSIVE ===== */
-
 @media (max-width: 1024px) {
   .footer-top {
     grid-template-columns: 1fr 1fr;
@@ -1262,6 +1310,7 @@ img[src*="logo"],
     width: 280px !important;
     min-width: 280px !important;
     max-width: 280px !important;
+    flex: 0 0 280px !important;
   }
 
   .feedback-person-img {
@@ -1330,7 +1379,6 @@ img[src*="logo"],
 }
 
 /* ===== RTF GLOBAL FAM POSTER LARGE SIZE ===== */
-
 #rtfglobal .rfg-row1 {
   grid-template-columns: 1fr 1fr !important;
   align-items: stretch !important;
@@ -1388,7 +1436,6 @@ img[src*="logo"],
 }
 
 /* ===== FINAL SAFETY FIXES ===== */
-
 .rfg-lightbox * {
   box-sizing: border-box !important;
 }
