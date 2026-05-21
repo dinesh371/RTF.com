@@ -329,7 +329,7 @@ if (feedbackTrack) {
   feedbackTrack.style.flexWrap = "nowrap";
   feedbackTrack.style.gap = "18px";
   feedbackTrack.style.width = "max-content";
-  feedbackTrack.style.animation = "scrollFeedback 90s linear infinite";
+  feedbackTrack.style.animation = "feedbackAutoScroll 90s linear infinite";
 }
 
 document.querySelectorAll(".feedback-person-img").forEach(function (img) {
