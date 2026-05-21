@@ -189,7 +189,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function showPage(index, updateUrl) {
     if (index < 0 || index >= sections.length) return;
-
     if (updateUrl === undefined) updateUrl = true;
 
     sections.forEach(function (section) {
@@ -199,16 +198,13 @@ document.addEventListener("DOMContentLoaded", function () {
       section.style.visibility = "hidden";
 
       section.querySelectorAll("video").forEach(function (v) {
-        try {
-          v.pause();
-        } catch (err) {}
+        try { v.pause(); } catch (err) {}
       });
     });
 
     currentIndex = index;
 
     var active = sections[currentIndex];
-
     active.style.display = "flex";
     active.style.opacity = "1";
     active.style.visibility = "visible";
@@ -311,37 +307,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // ===== FEEDBACK FINAL FIX =====
-  var feedbackTrack = document.getElementById("feedbackTrack");
-
-  if (feedbackTrack) {
-    feedbackTrack.style.animation = "none";
-    feedbackTrack.style.transform = "none";
-    feedbackTrack.style.display = "flex";
-    feedbackTrack.style.flexWrap = "nowrap";
-    feedbackTrack.style.gap = "22px";
-    feedbackTrack.style.width = "max-content";
-  }
-
-  var feedbackWrap = document.querySelector(".feedback-track-wrap");
-
-  if (feedbackWrap) {
-    feedbackWrap.style.overflowX = "auto";
-    feedbackWrap.style.overflowY = "hidden";
-    feedbackWrap.style.width = "100%";
-    feedbackWrap.style.paddingBottom = "18px";
-  }
-
-  document.querySelectorAll(".feedback-card-item").forEach(function (card) {
-    card.style.display = "flex";
-    card.style.visibility = "visible";
-    card.style.opacity = "1";
-    card.style.flexShrink = "0";
-    card.style.width = "320px";
-    card.style.minWidth = "320px";
-    card.style.maxWidth = "320px";
-  });
-
+  // ===== FEEDBACK IMAGE FALLBACK ONLY =====
   document.querySelectorAll(".feedback-person-img").forEach(function (img) {
     img.setAttribute("loading", "lazy");
 
@@ -364,7 +330,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // ===== INITIAL LOAD =====
   var initialHash = window.location.hash.replace("#", "");
-
   var resolvedHash = initialHash === "partners" ? "rtffam" : initialHash;
 
   var initialIndex = sections.findIndex(function (s) {
