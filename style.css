@@ -167,36 +167,119 @@ nav img {
 }
 
 /* ===== ORGANIZERS ===== */
+/* ===== ORGANIZERS ===== */
+#organizers {
+  padding: 42px 20px !important;
+  margin-top: 30px !important;
+  background:
+    radial-gradient(circle at top left, rgba(250,204,21,0.18), transparent 30%),
+    linear-gradient(135deg, #0f172a, #111827, #1b2a57);
+  border-radius: 24px;
+  border: 1px solid rgba(250,204,21,0.25);
+}
+
+#organizers h2 {
+  color: #ffffff;
+  font-size: 34px;
+  font-weight: 800;
+  text-align: center;
+  margin: 0 0 28px !important;
+}
+
+.org-row-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px !important;
+  max-width: 1000px;
+  margin: 0 auto 18px auto !important;
+}
+
+.org-row-1 {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 18px !important;
+}
+
+.org-row-1 > .org-card {
+  width: 310px !important;
+  max-width: 310px !important;
+}
+
+.org-row-2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px !important;
+  max-width: 660px;
+  margin: 0 auto !important;
+}
+
+.org-card {
+  padding: 22px 18px !important;
+  border-radius: 20px;
+  background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(250,204,21,0.28);
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  min-height: auto !important;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+/* Keep organizer layout stable */
+.org-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 40px rgba(250,204,21,0.15);
+}
+
 .org-card img {
   width: 125px !important;
   height: 125px !important;
-
   border-radius: 16px !important;
-
-  border: 3px solid #facc15;
-
-  margin-bottom: 14px;
-
+  border: 3px solid #facc15 !important;
+  margin-bottom: 14px !important;
   object-fit: cover !important;
-
   object-position: center center !important;
-
-  display: block;
+  display: block !important;
 }
 
-/* Face visibility fix */
-.org-card img[alt="Pooja"]{
-object-position:center 65% !important;
+/* Only these 3 face fixes */
+.org-card img.organizer-face {
+  object-position: center 70% !important;
 }
 
-.org-card img[alt="Kishore Williams"]{
-object-position:center 65% !important;
+.org-card h3 {
+  color: #fde68a;
+  font-size: 18px;
+  font-weight: 800;
+  margin: 0 0 6px;
 }
 
-.org-card img[alt="Dinesh T"]{
-object-position:center 65% !important;
+.org-card p {
+  color: #cbd5e1;
+  font-size: 13px;
+  margin: 2px 0;
 }
 
+.org-card a {
+  color: #facc15;
+  font-size: 13px;
+  text-decoration: none;
+}
+
+/* Mobile */
+@media (max-width: 560px) {
+  .org-row-3,
+  .org-row-2 {
+    grid-template-columns: 1fr !important;
+  }
+
+  .org-row-1 > .org-card {
+    width: 100% !important;
+    max-width: 310px !important;
+  }
+}
 /* ===== RTF FAM SECTION ===== */
 .rtffam-section {
   background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
@@ -726,20 +809,4 @@ object-position:center 65% !important;
   .rtf-title {
     font-size: 1.4rem;
   }
-}
-/* ORGANIZER SECTION — FACE CENTERING FIX */
-.org-card img {
-  width: 125px !important;
-  height: 125px !important;
-  border-radius: 16px !important;
-  border: 3px solid #facc15 !important;
-  object-fit: cover !important;
-  object-position: center center !important;
-  display: block !important;
-  margin-bottom: 14px !important;
-}
-
-/* Only these three get adjusted down slightly */
-.org-card img.organizer-face {
-  object-position: center 70% !important;
 }
