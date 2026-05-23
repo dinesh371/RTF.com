@@ -233,20 +233,23 @@ nav img {
   box-shadow: 0 16px 40px rgba(250,204,21,0.15);
 }
 
+/* Default image style for all organizers */
 .org-card img {
-  width: 125px !important;
-  height: 125px !important;
-  border-radius: 16px !important;
+  width: 140px !important;
+  height: 160px !important;
+  border-radius: 18px !important;
   border: 3px solid #facc15 !important;
   margin-bottom: 14px !important;
   object-fit: cover !important;
-  object-position: center center !important;
+  object-position: center 22% !important;
   display: block !important;
+  background: #ffffff !important;
 }
 
 /* Only these 3 face fixes */
 .org-card img.organizer-face {
-  object-position: center 70% !important;
+  height: 175px !important;
+  object-position: center 8% !important;
 }
 
 .org-card h3 {
@@ -278,6 +281,15 @@ nav img {
   .org-row-1 > .org-card {
     width: 100% !important;
     max-width: 310px !important;
+  }
+
+  .org-card img {
+    width: 130px !important;
+    height: 150px !important;
+  }
+
+  .org-card img.organizer-face {
+    height: 165px !important;
   }
 }
 /* ===== RTF FAM SECTION ===== */
