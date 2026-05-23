@@ -658,15 +658,127 @@ nav img {
 }
 
 
-/* ===== RTF GLOBAL FAM: POSTER/SNAPSHOT LARGE SIZE ===== *//* ===== FINAL RTF GLOBAL + FOOTER FIX ===== */
+/* ===== RTF GLOBAL FAM: POSTER/SNAPSHOT LARGE SIZE ===== */
+#rtfglobal .rfg-row1 {
+  grid-template-columns: 1fr 1fr !important;
+  align-items: stretch !important;
+  gap: 1.25rem !important;
+}
 
+#rtfglobal .rfg-row1 .rfg-cell,
+#rtfglobal .rfg-cell-snapshot {
+  width: 100% !important;
+  min-height: 620px !important;
+  max-height: none !important;
+  height: auto !important;
+  aspect-ratio: auto !important;
+  overflow: hidden !important;
+}
+
+#rtfglobal .rfg-row1 .rfg-cell img,
+#rtfglobal .rfg-cell-snapshot img {
+  width: 100% !important;
+  height: 620px !important;
+  max-height: none !important;
+  object-fit: contain !important;
+  object-position: center center !important;
+  background: #020617 !important;
+  padding: 8px !important;
+  box-sizing: border-box !important;
+}
+
+@media (max-width: 900px) {
+  #rtfglobal .rfg-row1 {
+    grid-template-columns: 1fr !important;
+  }
+
+  #rtfglobal .rfg-row1 .rfg-cell,
+  #rtfglobal .rfg-cell-snapshot {
+    min-height: 430px !important;
+  }
+
+  #rtfglobal .rfg-row1 .rfg-cell img,
+  #rtfglobal .rfg-cell-snapshot img {
+    height: 430px !important;
+  }
+}
+
+@media (max-width: 560px) {
+  #rtfglobal .rfg-row1 .rfg-cell,
+  #rtfglobal .rfg-cell-snapshot {
+    min-height: 360px !important;
+  }
+
+  #rtfglobal .rfg-row1 .rfg-cell img,
+  #rtfglobal .rfg-cell-snapshot img {
+    height: 360px !important;
+  }
+}
+
+/* ===== FINAL SAFETY FIXES ===== */
+.rfg-lightbox * {
+  box-sizing: border-box !important;
+}
+
+.rfg-lightbox.open {
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+body.rfg-lightbox-open {
+  overflow: hidden !important;
+}
+
+/* =========================================================
+   FINAL LIVE FIX - RTF GLOBAL FAM + FOOTER + MOBILE
+   Add/keep this at the bottom. It overrides older conflicts.
+   ========================================================= */
+
+/* Prevent overflow everywhere */
+* {
+  box-sizing: border-box;
+}
+
+img,
+video {
+  max-width: 100%;
+}
+
+/* Registration button used after removing button-inside-anchor issue */
+.registration-btn {
+  background: linear-gradient(90deg, #facc15, #f97316) !important;
+  color: #020617 !important;
+  font-weight: 800 !important;
+  font-size: 1rem !important;
+  padding: 14px 36px !important;
+  border-radius: 999px !important;
+  border: none !important;
+  cursor: pointer !important;
+  box-shadow: 0 8px 24px rgba(250,204,21,0.35) !important;
+  transition: transform 0.2s ease, box-shadow 0.2s ease !important;
+  white-space: nowrap !important;
+}
+
+.registration-btn:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 12px 30px rgba(250,204,21,0.45) !important;
+}
+
+/* ===== RTF GLOBAL FAM SECTION ===== */
 #rtfglobal.page-section {
   background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%) !important;
+  flex-direction: column !important;
+  align-items: stretch !important;
+  justify-content: flex-start !important;
   padding: 75px 0 45px !important;
+  width: 100% !important;
+  overflow: hidden !important;
 }
 
 #rtfglobal.page-section.active {
   display: flex !important;
+  opacity: 1 !important;
+  visibility: visible !important;
 }
 
 .rtfglobal-inner {
@@ -693,50 +805,62 @@ nav img {
 .rtf-logo {
   width: 180px !important;
   height: 180px !important;
-  background: #fff !important;
+  background: #ffffff !important;
   border-radius: 22px !important;
   padding: 10px !important;
   border: 2px solid #facc15 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  overflow: hidden !important;
 }
 
 .rtf-logo img {
   width: 100% !important;
   height: 100% !important;
   object-fit: contain !important;
+  display: block !important;
 }
 
 .rtf-title {
   font-size: 2.2rem !important;
+  line-height: 1.15 !important;
   font-weight: 800 !important;
   color: #fde047 !important;
+  margin: 0 !important;
 }
 
 .rtf-subtitle {
   color: #cbd5e1 !important;
   font-size: 1.05rem !important;
+  line-height: 1.6 !important;
+  margin: 8px 0 0 !important;
 }
 
-/* Row 1 = 2 */
+/* Row 1 = 2 cards */
 #rtfglobal .rfg-row1 {
   display: grid !important;
   grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
   gap: 24px !important;
   margin-bottom: 24px !important;
+  align-items: stretch !important;
 }
 
-/* Row 2 = 4 */
-#rtfglobal .rfg-row2-four,
-#rtfglobal .rfg-row2 {
+/* Row 2 = 4 cards */
+#rtfglobal .rfg-row2,
+#rtfglobal .rfg-row2-four {
   display: grid !important;
   grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
   gap: 20px !important;
   margin-bottom: 24px !important;
+  align-items: stretch !important;
 }
 
-/* Row 3 = 1 */
+/* Row 3 = 1 centered card */
 #rtfglobal .rfg-row3 {
   display: flex !important;
   justify-content: center !important;
+  align-items: stretch !important;
   margin-bottom: 24px !important;
 }
 
@@ -753,19 +877,34 @@ nav img {
   text-align: center !important;
   overflow: hidden !important;
   cursor: zoom-in !important;
+  height: 100% !important;
+  transition: transform 0.25s ease, box-shadow 0.25s ease !important;
+}
+
+#rtfglobal .rfg-cell:hover {
+  transform: translateY(-4px) !important;
+  box-shadow: 0 18px 45px rgba(250,204,21,0.18) !important;
 }
 
 #rtfglobal .rfg-cell img {
   width: 100% !important;
   height: 330px !important;
   object-fit: contain !important;
+  object-position: center center !important;
   background: #020617 !important;
   border-radius: 16px !important;
   padding: 8px !important;
   display: block !important;
 }
 
-#rtfglobal .rfg-row1 .rfg-cell img {
+/* First row poster and snapshot larger */
+#rtfglobal .rfg-row1 .rfg-cell,
+#rtfglobal .rfg-cell-snapshot {
+  min-height: 620px !important;
+}
+
+#rtfglobal .rfg-row1 .rfg-cell img,
+#rtfglobal .rfg-cell-snapshot img {
   height: 620px !important;
 }
 
@@ -773,57 +912,121 @@ nav img {
   color: #fde047 !important;
   font-weight: 800 !important;
   margin-top: 12px !important;
+  font-size: 0.95rem !important;
+  line-height: 1.4 !important;
 }
 
-/* Lightbox */
+/* ===== RTF GLOBAL LIGHTBOX ===== */
 .rfg-lightbox {
   position: fixed !important;
   inset: 0 !important;
   z-index: 999999 !important;
-  background: rgba(0,0,0,0.92) !important;
-  display: flex !important;
-  align-items: center !important;
+  background: rgba(2, 6, 23, 0.96) !important;
+  display: none !important;
+  align-items: flex-start !important;
   justify-content: center !important;
-  opacity: 0 !important;
-  visibility: hidden !important;
-  padding: 24px !important;
+  padding: 70px 24px 60px !important;
+  overflow: auto !important;
+  box-sizing: border-box !important;
 }
 
 .rfg-lightbox.open {
+  display: flex !important;
   opacity: 1 !important;
   visibility: visible !important;
 }
 
+#rfgLightboxImg,
 .rfg-lightbox img {
-  max-width: 95vw !important;
-  max-height: 90vh !important;
+  max-width: 94vw !important;
+  max-height: 86vh !important;
+  width: auto !important;
+  height: auto !important;
   object-fit: contain !important;
+  background: #ffffff !important;
   border-radius: 14px !important;
+  padding: 8px !important;
+  cursor: zoom-in !important;
+  transition: transform 0.25s ease !important;
+  transform-origin: center center !important;
+  box-shadow: 0 25px 80px rgba(0,0,0,0.75) !important;
+  user-select: none !important;
+}
+
+#rfgLightboxImg.zoomed {
+  max-width: none !important;
+  max-height: none !important;
+  cursor: zoom-out !important;
 }
 
 .rfg-lightbox-close {
   position: fixed !important;
-  top: 20px !important;
-  right: 24px !important;
+  top: 22px !important;
+  right: 28px !important;
+  z-index: 1000000 !important;
+  width: 50px !important;
+  height: 50px !important;
+  border-radius: 50% !important;
+  border: 1px solid #facc15 !important;
+  background: rgba(15, 23, 42, 0.92) !important;
+  color: #facc15 !important;
   font-size: 28px !important;
-  color: #fff !important;
-  background: rgba(255,255,255,0.15) !important;
-  border: 1px solid rgba(255,255,255,0.3) !important;
-  border-radius: 999px !important;
-  width: 48px !important;
-  height: 48px !important;
+  line-height: 46px !important;
+  text-align: center !important;
   cursor: pointer !important;
 }
 
-/* Footer */
+.rfg-lightbox-close:hover {
+  background: #facc15 !important;
+  color: #0f172a !important;
+}
+
+.rfg-lightbox-help {
+  position: fixed !important;
+  left: 50% !important;
+  bottom: 18px !important;
+  transform: translateX(-50%) !important;
+  z-index: 1000000 !important;
+  color: #fde68a !important;
+  background: rgba(15,23,42,0.82) !important;
+  border: 1px solid rgba(250,204,21,0.35) !important;
+  border-radius: 999px !important;
+  padding: 8px 16px !important;
+  font-size: 13px !important;
+  white-space: nowrap !important;
+  pointer-events: none !important;
+}
+
+body.rfg-lightbox-open {
+  overflow: hidden !important;
+}
+
+/* ===== FOOTER FINAL FIX ===== */
 .site-footer {
+  clear: both !important;
+  display: block !important;
+  width: 100% !important;
   position: relative !important;
+  margin-top: 0 !important;
   background: linear-gradient(135deg, #020617 0%, #0f172a 45%, #111827 100%) !important;
   color: #d1d5db !important;
   overflow: hidden !important;
 }
 
+.footer-bg-grid {
+  position: absolute !important;
+  inset: 0 !important;
+  background-image:
+    linear-gradient(rgba(250,204,21,0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(250,204,21,0.05) 1px, transparent 1px) !important;
+  background-size: 36px 36px !important;
+  opacity: 0.45 !important;
+  pointer-events: none !important;
+}
+
 .footer-inner {
+  position: relative !important;
+  z-index: 2 !important;
   max-width: 1280px !important;
   margin: 0 auto !important;
   padding: 58px 28px 28px !important;
@@ -834,28 +1037,49 @@ nav img {
   grid-template-columns: 2fr 1fr 1.4fr 1.4fr !important;
   gap: 34px !important;
   margin-bottom: 38px !important;
+  align-items: start !important;
 }
 
 .footer-logo-wrap {
   display: flex !important;
   align-items: center !important;
   gap: 16px !important;
+  margin-bottom: 18px !important;
 }
 
 .footer-logo-img {
   width: 82px !important;
   height: 82px !important;
-  object-fit: contain !important;
-  background: #fff !important;
   border-radius: 14px !important;
-  padding: 6px !important;
+  object-fit: contain !important;
   border: 3px solid #facc15 !important;
+  background: #ffffff !important;
+  padding: 6px !important;
+  flex-shrink: 0 !important;
 }
 
 .footer-brand-name,
 .footer-col-title {
   color: #fde047 !important;
   font-weight: 800 !important;
+  margin: 0 0 12px !important;
+}
+
+.footer-brand-name {
+  font-size: 1.35rem !important;
+  line-height: 1.2 !important;
+}
+
+.footer-brand-sub {
+  color: #94a3b8 !important;
+  margin: 4px 0 0 !important;
+  font-size: 0.92rem !important;
+}
+
+.footer-tagline {
+  color: #cbd5e1 !important;
+  line-height: 1.7 !important;
+  margin: 0 0 18px !important;
 }
 
 .footer-link-list {
@@ -874,6 +1098,7 @@ nav img {
 .social-pill {
   color: #e5e7eb !important;
   text-decoration: none !important;
+  transition: color 0.2s ease, background 0.2s ease !important;
 }
 
 .footer-link:hover,
@@ -887,12 +1112,18 @@ nav img {
   display: flex !important;
   flex-direction: column !important;
   gap: 14px !important;
+  word-break: break-word !important;
 }
 
 .fc-item {
   display: flex !important;
   gap: 10px !important;
   line-height: 1.6 !important;
+  align-items: flex-start !important;
+}
+
+.fc-icon {
+  flex: 0 0 auto !important;
 }
 
 .footer-socials {
@@ -911,6 +1142,18 @@ nav img {
   border-radius: 999px !important;
   background: rgba(250,204,21,0.12) !important;
   border: 1px solid rgba(250,204,21,0.35) !important;
+  color: #fde047 !important;
+  font-weight: 700 !important;
+  cursor: pointer !important;
+}
+
+.footer-register-btn {
+  margin-top: 18px !important;
+  width: 100% !important;
+}
+
+.footer-register-btn:hover {
+  background: rgba(250,204,21,0.22) !important;
 }
 
 .footer-bottom {
@@ -918,14 +1161,28 @@ nav img {
   padding-top: 20px !important;
   display: flex !important;
   justify-content: space-between !important;
+  align-items: center !important;
   gap: 16px !important;
+  flex-wrap: wrap !important;
+  color: #94a3b8 !important;
+  font-size: 0.92rem !important;
+}
+
+.footer-bottom p {
+  margin: 0 !important;
+}
+
+.footer-legal-links {
+  display: flex !important;
+  gap: 8px !important;
+  align-items: center !important;
   flex-wrap: wrap !important;
 }
 
-/* Responsive */
+/* ===== FINAL RESPONSIVE FIXES ===== */
 @media (max-width: 1100px) {
-  #rtfglobal .rfg-row2-four,
-  #rtfglobal .rfg-row2 {
+  #rtfglobal .rfg-row2,
+  #rtfglobal .rfg-row2-four {
     grid-template-columns: repeat(2, 1fr) !important;
   }
 
@@ -935,16 +1192,18 @@ nav img {
 }
 
 @media (max-width: 900px) {
-  #rtfglobal .rfg-row1,
-  #rtfglobal .rfg-row2-four,
-  #rtfglobal .rfg-row2 {
+  .fam-two-col {
     grid-template-columns: 1fr !important;
   }
 
-  #rtfglobal .rfg-row1 .rfg-cell img,
-  #rtfglobal .rfg-cell img {
-    height: auto !important;
-    max-height: 520px !important;
+  #rtfglobal.page-section {
+    padding-top: 55px !important;
+  }
+
+  #rtfglobal .rfg-row1,
+  #rtfglobal .rfg-row2,
+  #rtfglobal .rfg-row2-four {
+    grid-template-columns: 1fr !important;
   }
 
   #rtfglobal .rfg-row3 {
@@ -955,14 +1214,61 @@ nav img {
     width: 100% !important;
   }
 
+  #rtfglobal .rfg-row1 .rfg-cell,
+  #rtfglobal .rfg-cell-snapshot {
+    min-height: auto !important;
+  }
+
+  #rtfglobal .rfg-row1 .rfg-cell img,
+  #rtfglobal .rfg-cell-snapshot img,
+  #rtfglobal .rfg-cell img {
+    height: auto !important;
+    max-height: 520px !important;
+  }
+
   .footer-top {
     grid-template-columns: 1fr !important;
+  }
+
+  .footer-logo-wrap {
+    align-items: flex-start !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .registration-btn {
+    padding: 11px 18px !important;
+    font-size: 0.86rem !important;
+  }
+
+  .rtfglobal-inner {
+    padding: 0 16px !important;
+  }
+
+  .rtf-header-wrapper {
+    padding: 22px 16px !important;
+  }
+
+  .rfg-lightbox {
+    padding: 68px 10px 58px !important;
+  }
+
+  #rfgLightboxImg,
+  .rfg-lightbox img {
+    max-width: 96vw !important;
+    max-height: 82vh !important;
+  }
+
+  .rfg-lightbox-help {
+    font-size: 11px !important;
+    padding: 7px 12px !important;
   }
 }
 
 @media (max-width: 560px) {
-  .rtf-title {
-    font-size: 1.45rem !important;
+  #home img[alt="Event Logo"] {
+    width: 190px !important;
+    height: 190px !important;
   }
 
   .rtf-logo {
@@ -970,8 +1276,53 @@ nav img {
     height: 130px !important;
   }
 
+  .rtf-title {
+    font-size: 1.45rem !important;
+  }
+
+  .rtf-subtitle {
+    font-size: 0.9rem !important;
+  }
+
+  #rtfglobal .rfg-cell {
+    padding: 10px !important;
+  }
+
+  #rtfglobal .rfg-cell img {
+    max-height: 430px !important;
+  }
+
+  .footer-inner {
+    padding: 42px 18px 24px !important;
+  }
+
+  .footer-logo-wrap {
+    flex-direction: column !important;
+    text-align: center !important;
+    align-items: center !important;
+  }
+
+  .footer-brand-col,
+  .footer-links-col,
+  .footer-contact-col {
+    text-align: center !important;
+  }
+
+  .fc-item {
+    justify-content: center !important;
+    text-align: left !important;
+  }
+
+  .footer-socials {
+    justify-content: center !important;
+  }
+
   .footer-bottom {
     flex-direction: column !important;
     text-align: center !important;
+  }
+
+  .footer-legal-links {
+    justify-content: center !important;
   }
 }
