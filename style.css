@@ -727,3 +727,19 @@ object-position:center 65% !important;
     font-size: 1.4rem;
   }
 }
+/* ORGANIZER SECTION — FACE CENTERING FIX */
+.org-card img {
+  width: 125px !important;
+  height: 125px !important;
+  border-radius: 16px !important;
+  border: 3px solid #facc15 !important;
+  object-fit: cover !important;
+  object-position: center center !important;
+  display: block !important;
+  margin-bottom: 14px !important;
+}
+
+/* Only these three get adjusted down slightly */
+.org-card img.organizer-face {
+  object-position: center 70% !important;
+}
