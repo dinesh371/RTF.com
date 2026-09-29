@@ -88,6 +88,17 @@ document.addEventListener("DOMContentLoaded", function () {
     .map(function (id) { return document.getElementById(id); })
     .filter(Boolean);
 
+  // SAFETY FIX: if any section is accidentally nested inside another
+  // (e.g. August inside March because of a missing </section>),
+  // move every section back to #page-container as a direct child.
+  // Otherwise hiding March also hides August -> black page.
+  var pageContainer = document.getElementById("page-container");
+  if (pageContainer) {
+    sections.forEach(function (section) {
+      pageContainer.appendChild(section);
+    });
+  }
+
   var menuToggle     = document.getElementById("menu-toggle");
   var mobileMenu     = document.getElementById("mobile-menu");
   var prevSectionBtn = document.getElementById("prev-page-button");
