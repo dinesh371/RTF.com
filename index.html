@@ -596,51 +596,70 @@ Your Nice Trip</p></div>
           </div>
         </div>
 
-        <!-- Two-col: participants + feedback videos -->
         <div class="fam-two-col">
-          <div class="fam-panel">
-            <h3>List of Confirmed Participants for RTF FAM Tour</h3>
-            <input type="text" class="participants-search" id="participantSearch" placeholder="Search name, city, company..."/>
-            <div class="participants-table-wrap">
-              <table class="participants-table" id="participantsTable">
-                <thead>
-                  <tr><th>#</th><th>Name</th><th>Title</th><th>Organization</th><th>City</th></tr>
-                </thead>
-                <tbody id="participantsTbody">
-                  <tr><td>1</td><td>Mr. Guneet Singh</td><td>Founder</td><td>Your Nice Trip</td><td>Faridabad</td></tr>
-                  <tr><td>2</td><td>Mr. Anil Dhingra</td><td>ED</td><td>Unique Air Services</td><td>Delhi</td></tr>
-                  <tr><td>3</td><td>Mr. Narender Sharma</td><td>Director</td><td>Perfection Consulting (India) Pvt Ltd</td><td>Delhi</td></tr>
-                  <tr><td>4</td><td>Mr. Nilesh Bhutwala</td><td>Partner</td><td>Travel Theme Holidays</td><td>Surat</td></tr>
-                  <tr><td>5</td><td>Ms. Leena Jumde</td><td>CEO</td><td>Travel Gratitude</td><td>Mumbai</td></tr>
-                  <tr><td>6</td><td>Mr. Sachin Sharma</td><td>MD</td><td>Travel By Passion</td><td>Delhi</td></tr>
-                  <tr><td>7</td><td>Ms. Priyanka Mohidekar</td><td>Director</td><td>Touring Toes LLP</td><td>Pune</td></tr>
-                  <tr><td>8</td><td>Mr. Dilip Soni</td><td>Owner</td><td>Sonii Travels</td><td>Mumbai</td></tr>
-                  <tr><td>9</td><td>Mr. Niranjan Ji</td><td>Director</td><td>Smithasya Enter Pvt Ltd (Holiday Kool)</td><td>Pune</td></tr>
-                  <tr><td>10</td><td>Ms. Madhuri Wadangenkar</td><td>Founder</td><td>Skip The Line Tour</td><td>Mumbai</td></tr>
-                  <tr><td>11</td><td>Mr. Ganesh L Sakhara</td><td>Owner</td><td>ShreeNath Travels</td><td>Pune</td></tr>
-                  <tr><td>12</td><td>Mr. Alankaran Verma</td><td>Owner</td><td>Sai Tour &amp; Travels</td><td>Una</td></tr>
-                  <tr><td>13</td><td>Mr. Madhu</td><td>CEO &amp; Founder</td><td>NB4 Holidays</td><td>Kochi</td></tr>
-                  <tr><td>14</td><td>Mr. Tejas Kale</td><td>Director</td><td>My Travel World Travel</td><td>Pune</td></tr>
-                  <tr><td>15</td><td>Mr. Kartik Pachchigar</td><td>Owner</td><td>Magical India Holidays</td><td>Surat</td></tr>
-                  <tr><td>16</td><td>Mr. Tushar Patel</td><td>Sales Executive</td><td>Magical India Holidays</td><td>Surat</td></tr>
-                  <tr><td>17</td><td>Mr. Ram Raj Singh</td><td>Founder &amp; MD</td><td>Luxurious Heritage</td><td>Delhi</td></tr>
-                  <tr><td>18</td><td>Mr. Mahendra R Jain</td><td>Owner</td><td>Kering Holiday</td><td>Mumbai</td></tr>
-                  <tr><td>19</td><td>Mr. Mukesh Kumar</td><td>Founder</td><td>KaaSaa Events</td><td>Delhi</td></tr>
-                  <tr><td>20</td><td>Ms. Dilpreet (Sheena) Sewal</td><td>Founder</td><td>India TajMahal Tour Operators</td><td>Delhi</td></tr>
-                  <tr><td>21</td><td>Mr. Pushpendra Sen</td><td>Founder</td><td>Historical India Tours And Travels</td><td>Orchha</td></tr>
-                  <tr><td>22</td><td>Mr. Shubham Gupta</td><td>Manager</td><td>Galaxy Holidays</td><td>Pune</td></tr>
-                  <tr><td>23</td><td>Ms. Sarika Chopra</td><td>Founder &amp; CEO</td><td>Explorers-Den</td><td>Faridabad</td></tr>
-                  <tr><td>24</td><td>Ms. Chandni Sharma</td><td>Director</td><td>Ascel Group</td><td>Ghaziabad</td></tr>
-                  <tr><td>25</td><td>Mr. Devendra P. Divekar</td><td>Owner</td><td>Go Weekends</td><td>Mumbai</td></tr>
-                  <tr><td>26</td><td>Ms. Pooja</td><td>Founder</td><td>Journey Master</td><td>Delhi</td></tr>
-                  <tr><td>27</td><td>Mr. Santhosh Kumar</td><td>Owner</td><td>GodZone Holidays &amp; Tours</td><td>Alibaug</td></tr>
-                  <tr><td>28</td><td>Ms. Pooja V Patil</td><td>Owner</td><td>Plango Holidays Explore World</td><td>Mumbai</td></tr>
-                  <tr><td>29</td><td>Ms. Neetu Gola</td><td>Founder</td><td>Om Sai Travels</td><td>Delhi</td></tr>
-                  <tr><td>30</td><td>Mr. Aman Saini</td><td>Owner</td><td>Colors of India</td><td>Delhi</td></tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
+  <div class="fam-panel">
+    <h3>List of Confirmed Participants for RTF FAM Tour</h3>
+
+    <input
+      type="text"
+      class="participants-search"
+      id="participantSearch"
+      placeholder="Search name, city, company..."
+    />
+
+    <div class="participants-table-wrap">
+      <table class="participants-table" id="participantsTable">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>Organization</th>
+            <th>City</th>
+          </tr>
+        </thead>
+
+        <tbody id="participantsTbody">
+          <tr><td>1</td><td>Anil Dhingra</td><td>Unique Air Services Pvt Ltd</td><td>Delhi</td></tr>
+          <tr><td>2</td><td>Ashif Shaikh</td><td>HiFi Holidays</td><td>Pune</td></tr>
+          <tr><td>3</td><td>Ashish Parekh</td><td>Satya Sai Tours &amp; Travels</td><td>Vadodara</td></tr>
+          <tr><td>4</td><td>Deepti Deorukhkar</td><td>Global Holidays</td><td>Mumbai</td></tr>
+          <tr><td>5</td><td>Gulab Sachdeva</td><td>Travel Router</td><td>Karnal</td></tr>
+          <tr><td>6</td><td>Mahendra Kering</td><td>Kering Holidays</td><td>Mumbai</td></tr>
+          <tr><td>7</td><td>Manish Asrani</td><td>Traveller Idea</td><td>Mumbai</td></tr>
+          <tr><td>8</td><td>Manisha Das</td><td>Solitude Travel Solutions Pvt Ltd</td><td>Guwahati</td></tr>
+          <tr><td>9</td><td>Milind Gawali</td><td>Shivaay Enterprises</td><td>Thane</td></tr>
+          <tr><td>10</td><td>Mohd Iran</td><td>Infinity Tourizm</td><td>Delhi</td></tr>
+          <tr><td>11</td><td>Monu Jagtap</td><td>Kusum travel</td><td>Kalyan</td></tr>
+          <tr><td>12</td><td>Mukesh Bhansali</td><td>Anandi holiday</td><td>Mumbai</td></tr>
+          <tr><td>13</td><td>Narender kumar</td><td>Perfection consulting India pvt ltd</td><td>Delhi</td></tr>
+          <tr><td>14</td><td>Niranjan D Kulkarni</td><td>HOLIDAYKOOL</td><td>Pune</td></tr>
+          <tr><td>15</td><td>Nivid Shah</td><td>Exotrip Holidays</td><td>Mumbai</td></tr>
+          <tr><td>16</td><td>Pooja Patil</td><td>Go Holiday Pvt Ltd</td><td>Mumbai</td></tr>
+          <tr><td>17</td><td>Pratik Jagtap</td><td>pratik tours and travels</td><td>Kalyan</td></tr>
+          <tr><td>18</td><td>Rahul Aggarwal</td><td>Bhavishya Holidays</td><td>Delhi</td></tr>
+          <tr><td>19</td><td>Reena D'Souza</td><td>Holiday Tickle Tours</td><td>Mumbai</td></tr>
+          <tr><td>20</td><td>Salina Chhetri</td><td>Nature Dream Holiday</td><td>Siliguri</td></tr>
+          <tr><td>21</td><td>Shahanawaj Tamboli</td><td>Lucky holidays</td><td>Pune</td></tr>
+          <tr><td>22</td><td>Shruti Kulkarni</td><td>Lets Take A Break</td><td>Mumbai</td></tr>
+          <tr><td>23</td><td>Shubham Gupta</td><td>ALUXURY HOLIDAY</td><td>Pune</td></tr>
+          <tr><td>24</td><td>Sunil Jaiswani</td><td>Atharva Travel</td><td>Kalyan</td></tr>
+          <tr><td>25</td><td>Tanmay agrawal</td><td>Tripguruindia</td><td>Gorakhpur</td></tr>
+          <tr><td>26</td><td>Vaibhav Dharmaji Patil</td><td>OM TRAVEL</td><td>Mumbai</td></tr>
+          <tr><td>27</td><td>Vaidehi P Kamble</td><td>Kanishka Tours &amp; Travels</td><td>Mumbai</td></tr>
+          <tr><td>28</td><td>Vankita Gandhi Nair</td><td>Fly Holidays Tours &amp; Travels</td><td>Mumbai</td></tr>
+          <tr><td>29</td><td>Vidhi</td><td>Vidhi Tours &amp; Travels</td><td>Rajkot</td></tr>
+          <tr><td>30</td><td>Vinita Chandiramani</td><td>Laxmi Travels</td><td>Mumbai</td></tr>
+          <tr><td>31</td><td>Yogesh Deshmukh</td><td>Phoenix Holidays</td><td>Mumbai</td></tr>
+          <tr><td>32</td><td>Vikas Kumar</td><td>Journey and more</td><td>Delhi</td></tr>
+          <tr><td>33</td><td>Rajnish Singh</td><td>R S Wildlife</td><td>Jabalpur</td></tr>
+          <tr><td>34</td><td>Nand Kishore Nadda</td><td>Royal india Experience</td><td>Bilaspur</td></tr>
+          <tr><td>35</td><td>Aman Saini</td><td>Colours of India</td><td>Delhi</td></tr>
+          <tr><td>36</td><td>Vinny K Williams</td><td>India Outtabox</td><td>Jodhpur</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
 
           <div class="fam-panel">
             <h3>Feedback Videos — Travel Agents</h3>
