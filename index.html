@@ -52,12 +52,12 @@
         <span class="bg-yellow-400 text-[#1B2A57] px-4 py-1 rounded-full text-sm font-bold whitespace-nowrap">JODHPUR</span>
       </div>
       <div class="hidden lg:flex items-center gap-6 text-sm font-semibold tracking-wide whitespace-nowrap">
-        <a href="#home"        class="nav-link hover:text-yellow-300 transition" data-target="home">Home</a>
-        <a href="#about"       class="nav-link hover:text-yellow-300 transition" data-target="about">About</a>
-        <a href="#attractions" class="nav-link hover:text-yellow-300 transition" data-target="attractions">Jodhpur</a>
-        <a href="#rtffam"      class="nav-link hover:text-yellow-300 transition" data-target="rtffam">RTF FAM March 2026</a>
+        <a href="#home"         class="nav-link hover:text-yellow-300 transition" data-target="home">Home</a>
+        <a href="#about"        class="nav-link hover:text-yellow-300 transition" data-target="about">About</a>
+        <a href="#attractions"  class="nav-link hover:text-yellow-300 transition" data-target="attractions">Jodhpur</a>
+        <a href="#rtffam"       class="nav-link hover:text-yellow-300 transition" data-target="rtffam">RTF FAM March 2026</a>
         <a href="#rtffamaugust" class="nav-link hover:text-yellow-300 transition" data-target="rtffamaugust">RTF FAM August 2026</a>
-        <a href="#rtfglobal"   class="nav-link hover:text-yellow-300 transition" data-target="rtfglobal">RTF Global FAM</a>
+        <a href="#rtfglobal"    class="nav-link hover:text-yellow-300 transition" data-target="rtfglobal">RTF Global FAM</a>
       </div>
       <div class="flex items-center gap-3">
         <a href="#rtfglobal"
@@ -66,22 +66,19 @@
            style="color:#FFD700; font-weight:800; text-decoration:underline; text-underline-offset:4px;">
          <button onclick="toggleModal()" style="background:linear-gradient(90deg,#facc15,#f97316);color:#020617;font-weight:800;font-size:1rem;padding:14px 36px;border-radius:999px;border:none;cursor:pointer;box-shadow:0 8px 24px rgba(250,204,21,0.35);transition:transform 0.2s ease;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">
                       Click Here For Registration
-
           </button></a>
         <button id="menu-toggle" class="lg:hidden text-white text-3xl font-bold focus:outline-none" aria-label="Open menu">☰</button>
       </div>
     </div>
-    <!-- FIX: Single mobile menu, no duplicate nav -->
     <div id="mobile-menu" class="hidden lg:hidden bg-white text-[#1B2A57] px-5 py-5 space-y-3 shadow-xl">
-      <a href="#home"        class="nav-link block px-4 py-3 rounded-lg hover:bg-gray-100 font-semibold" data-target="home">🏠 Home</a>
-      <a href="#about"       class="nav-link block px-4 py-3 rounded-lg hover:bg-gray-100 font-semibold" data-target="about">ℹ️ About</a>
-      <a href="#attractions" class="nav-link block px-4 py-3 rounded-lg hover:bg-gray-100 font-semibold" data-target="attractions">📍 Jodhpur</a>
-      <a href="#rtffam"      class="nav-link block px-4 py-3 rounded-lg hover:bg-gray-100 font-semibold" data-target="rtffam">🤝 RTF FAM March 2026</a>
-      <a href="#rtffamaugust" class="nav-link block px-4 py-3 rounded-lg hover:bg-gray-100 font-semibold" data-target="rtffamaugust">🤝 RTF FAM August 2026</a>      
-      <a href="#rtfglobal"   class="nav-link block px-4 py-3 rounded-lg hover:bg-gray-100 font-semibold" data-target="rtfglobal">🌍 RTF Global FAM</a>
+      <a href="#home"         class="nav-link block px-4 py-3 rounded-lg hover:bg-gray-100 font-semibold" data-target="home">🏠 Home</a>
+      <a href="#about"        class="nav-link block px-4 py-3 rounded-lg hover:bg-gray-100 font-semibold" data-target="about">ℹ️ About</a>
+      <a href="#attractions"  class="nav-link block px-4 py-3 rounded-lg hover:bg-gray-100 font-semibold" data-target="attractions">📍 Jodhpur</a>
+      <a href="#rtffam"       class="nav-link block px-4 py-3 rounded-lg hover:bg-gray-100 font-semibold" data-target="rtffam">🤝 RTF FAM March 2026</a>
+      <a href="#rtffamaugust" class="nav-link block px-4 py-3 rounded-lg hover:bg-gray-100 font-semibold" data-target="rtffamaugust">🤝 RTF FAM August 2026</a>
+      <a href="#rtfglobal"    class="nav-link block px-4 py-3 rounded-lg hover:bg-gray-100 font-semibold" data-target="rtfglobal">🌍 RTF Global FAM</a>
       <button onclick="toggleModal()" class="w-full bg-[#1B2A57] hover:bg-[#24386f] text-white px-4 py-3 rounded-xl font-bold shadow-md">
         🚀 Click Here For Registration
-
       </button>
     </div>
   </nav>
@@ -91,7 +88,7 @@
 
     <!-- ══ HOME ══ -->
     <section id="home" class="page-section active min-h-screen flex-col justify-center items-center relative z-10 text-center text-white select-none font-poppins pt-24 pb-12 px-4 sm:px-6 md:px-12">
-     <video autoplay muted loop playsinline class="bg-video absolute inset-0 w-full h-full object-cover -z-10">
+      <video autoplay muted loop playsinline class="bg-video absolute inset-0 w-full h-full object-cover -z-10">
         <source src="vedios/jot.mp4" type="video/mp4"/>
       </video>
       <div class="absolute inset-0 bg-gradient-to-b from-[#c15d3a99] via-[#1b2a57cc] to-[#1b2a57ee] -z-10"></div>
@@ -101,7 +98,6 @@
           class="w-40 h-40 md:w-56 md:h-56 lg:w-72 lg:h-72 object-cover rounded-full shadow-xl border-4 border-yellow-300 p-1"/>
       </div>
 
-      <!-- FIX: Removed stale "COMING SOON" — event is now past. Show actual status. -->
       <p class="text-2xl sm:text-3xl md:text-4xl font-bold mt-16 mb-2 tracking-wide text-yellow-300 drop-shadow-lg">
         RTF FAM March 2026 — Grand Success!
       </p>
@@ -139,7 +135,8 @@
     <!-- ══ ABOUT ══ -->
     <section id="about" class="page-section about-section">
       <video autoplay muted loop playsinline class="about-bg-video">
-<source src="vedios/6941_India_Indian_1920x1080.mp4" type="video/mp4"/>      </video>
+        <source src="vedios/6941_India_Indian_1920x1080.mp4" type="video/mp4"/>
+      </video>
       <div class="about-overlay"></div>
       <div class="about-content">
         <div class="max-w-7xl mx-auto">
@@ -161,7 +158,6 @@
 
             <!-- Card 2: RTF FAM -->
             <div class="bg-white/10 backdrop-blur-xl border border-yellow-300/30 rounded-3xl p-6 flex flex-col items-center text-center shadow-2xl hover:border-yellow-400 transition-all duration-300">
-              <!-- FIX: Corrected image filename typo RTF @026.jpeg → RTF 2026.jpeg with fallback -->
               <img src="images/RTF @026.jpeg" alt="RTF FAM Logo" class="w-20 h-20 rounded-full object-cover border-2 border-yellow-300 mb-4 bg-white p-1" onerror="this.src='images/finallogo1.png'"/>
               <h3 class="text-xl font-bold text-yellow-300 mb-1">
                 <a href="#rtffam" class="nav-link hover:text-yellow-200 underline underline-offset-4 decoration-dotted transition-colors cursor-pointer" data-target="rtffam">
@@ -171,7 +167,7 @@
               <p class="text-yellow-100 text-sm font-semibold mb-3">(RTF FAM)</p>
               <p class="text-gray-300 text-sm leading-relaxed">RTF FAM is an ongoing engagement initiative designed to provide travel agents with first-hand exposure to Rajasthan's diverse destinations. These curated trips focus on showcasing the region's rich history, vibrant culture, and most importantly, its wide range of hospitality offerings.</p>
               <p class="text-gray-300 text-sm leading-relaxed mt-3">The first season of RTF FAM was successfully conducted from March 20th to 24th, 2026, and received an encouraging response from both participating travel partners and supporting hotel partners.</p>
-              <p class="text-gray-300 text-sm leading-relaxed mt-3">To learn more about the first season of RTF FAM, please <a href="#rtffam" class="nav-link text-yellow-300 underline font-semibold hover:text-yellow-200" data-target="rtffam">click here</a>.</p>
+              <p class="text-gray-300 text-sm leading-relaxed mt-3">To learn more about the first season of RTF FAM, please <a href="#rtffam" class="nav-link text-yellow-300 underline font-semibold hover:text-yellow-200" data-target="rtffam">click here</a>. For the second season, <a href="#rtffamaugust" class="nav-link text-yellow-300 underline font-semibold hover:text-yellow-200" data-target="rtffamaugust">click here</a>.</p>
             </div>
 
             <!-- Card 3: RTF Global FAM -->
@@ -188,7 +184,6 @@
               <p class="text-gray-300 text-sm leading-relaxed mt-3">To apply for the upcoming RTF Global FAM, <button onclick="toggleModal()" class="text-yellow-300 underline font-semibold hover:text-yellow-200">click here</button> (RTF Registration Form).</p>
             </div>
           </div>
-<!-- ORGANIZERS -->
 
           <!-- ORGANIZERS -->
           <section id="organizers">
@@ -196,7 +191,6 @@
             <div class="org-row-3">
               <div class="org-card">
                 <img src="images/Members Pics/Kanchan aunty'.jpg" alt="Kanchan K Williams">
-                
                 <h3>Kanchan K Williams</h3>
                 <p>Co-Founder</p>
                 <p>India Outtabox Pvt Ltd</p>
@@ -211,8 +205,6 @@
               </div>
               <div class="org-card">
                 <img src="images/Members Pics/Pooja.jpeg" alt="Pooja" class="organizer-face-fix"/>
-
-
                 <h3>Pooja</h3>
                 <p>Operations Manager</p>
                 <p>India Outtabox Pvt Ltd</p>
@@ -229,8 +221,8 @@
             </div>
             <div class="org-row-2">
               <div class="org-card">
-               <img src="images/Members Pics/Divya sharma.jpg" alt="Divya S">
-        <h3>Divya S</h3>
+                <img src="images/Members Pics/Divya sharma.jpg" alt="Divya S">
+                <h3>Divya S</h3>
                 <p>Operations Assistant</p>
                 <p>Rajasthan Travel Fair</p>
               </div>
@@ -288,9 +280,11 @@
       </div>
     </section>
 
-    <!-- ══ RTF FAM March 2026 ══ -->
+
+    <!-- ══════════════════════════════════════════════ -->
+    <!-- ══ RTF FAM MARCH 2026 ══                       -->
+    <!-- ══════════════════════════════════════════════ -->
     <section id="rtffam" class="page-section rtffam-section">
-      <!-- FIX: Single wrapping div — partners-inner wraps ALL content including gallery/feedback -->
       <div class="partners-inner">
 
         <div class="partners-page-title">
@@ -310,23 +304,23 @@
               <img src="images/RTF Hotel Partner logo/741d2767-04c4-4e7d-84a9-8160ead218e7.jpg" alt="Thar">
               <img src="images/RTF Hotel Partner logo/Aaramgah Jawaii Logo (1).png" alt="Hotel Partner">
               <img src="images/RTF Hotel Partner logo/Thar.png" alt="Hotel Partner">
-            <img src="images/RTF Hotel Partner logo/WhatsApp Image 2026-03-18 at 2.13.39 PM.jpg" alt="Zone Palace">
+              <img src="images/RTF Hotel Partner logo/WhatsApp Image 2026-03-18 at 2.13.39 PM.jpg" alt="Hotel Partner">
               <img src="images/RTF Hotel Partner logo/WhatsApp Image 2026-03-18 at 6.11.26 PM.jpg" alt="Hotel Partner">
-              <img src="images/RTF Hotel Partner logo/Zone Palace.png" alt="Shreeram">
+              <img src="images/RTF Hotel Partner logo/Zone Palace.png" alt="Zone Palace">
               <img src="images/RTF Hotel Partner logo/af30b8f4-95c5-4ef0-90f7-2087d238ea06.jpg" alt="Trulyy">
               <img src="images/RTF Hotel Partner logo/c0ba0989-fb26-4c12-9b0d-77f675ea0013.jpg" alt="Hotel Partner">
               <img src="images/RTF Hotel Partner logo/fc31c75b-2050-4676-afcb-9efd78690945.jpg" alt="Hotel Partner">
               <img src="images/RTF Hotel Partner logo/images (1).png" alt="Hotel Partner">
-              <!-- FIX: Duplicate set for seamless infinite loop (translateX -50% needs equal halves) -->
-               <img src="images/RTF Hotel Partner logo/0ed8c6e0-16d6-45d6-a275-3795b11f5c4c.jpg" alt="Aaramgah Jawai">
+              <!-- Duplicate set for seamless infinite loop -->
+              <img src="images/RTF Hotel Partner logo/0ed8c6e0-16d6-45d6-a275-3795b11f5c4c.jpg" alt="Aaramgah Jawai">
               <img src="images/RTF Hotel Partner logo/38191765-6312-4036-917d-4184582d34b6.jpg" alt="KK Hotel">
               <img src="images/RTF Hotel Partner logo/4c6f9b52-ae73-435e-9949-13913ef042ba.jpg" alt="Raj Leela">
               <img src="images/RTF Hotel Partner logo/741d2767-04c4-4e7d-84a9-8160ead218e7.jpg" alt="Thar">
               <img src="images/RTF Hotel Partner logo/Aaramgah Jawaii Logo (1).png" alt="Hotel Partner">
               <img src="images/RTF Hotel Partner logo/Thar.png" alt="Hotel Partner">
-              <img src="images/RTF Hotel Partner logo/WhatsApp Image 2026-03-18 at 2.13.39 PM.jpg" alt="Zone Palace">
+              <img src="images/RTF Hotel Partner logo/WhatsApp Image 2026-03-18 at 2.13.39 PM.jpg" alt="Hotel Partner">
               <img src="images/RTF Hotel Partner logo/WhatsApp Image 2026-03-18 at 6.11.26 PM.jpg" alt="Hotel Partner">
-              <img src="images/RTF Hotel Partner logo/Zone Palace.png" alt="Shreeram">
+              <img src="images/RTF Hotel Partner logo/Zone Palace.png" alt="Zone Palace">
               <img src="images/RTF Hotel Partner logo/af30b8f4-95c5-4ef0-90f7-2087d238ea06.jpg" alt="Trulyy">
               <img src="images/RTF Hotel Partner logo/c0ba0989-fb26-4c12-9b0d-77f675ea0013.jpg" alt="Hotel Partner">
               <img src="images/RTF Hotel Partner logo/fc31c75b-2050-4676-afcb-9efd78690945.jpg" alt="Hotel Partner">
@@ -390,447 +384,167 @@ NB4 Holidays</p></div>
 Magical India Holiday</p></div>
               <div class="video-item"><video controls playsinline src="vedios/WhatsApp Video 2026-05-03 at 4.21.14 PM.mp4"></video><p>Enjoying the folk music of Jodhpur</p></div>
               <div class="video-item"><video controls playsinline src="vedios/WhatsApp Video 2026-05-03 at 4.22.03 PM.mp4"></video><p>Neetu Gola
-Om Sai Tours &Travel</p></div>
+Om Sai Tours &amp;Travel</p></div>
               <div class="video-item"><video controls playsinline src="vedios/WhatsApp Video 2026-05-03 at 4.23.10 PM.mp4"></video><p>Guneet Singh
 Your Nice Trip</p></div>
             </div>
           </div>
         </div>
-        <!-- WRITTEN FEEDBACK -->
-<div class="feedback-scroll-section">
-  <h3>✍️ Travel Agent Written Feedback</h3>
 
-  <div class="feedback-track-wrap">
-    <div class="feedback-track" id="feedbackTrack">
+        <!-- WRITTEN FEEDBACK (MARCH) -->
+        <div class="feedback-scroll-section">
+          <h3>✍️ Travel Agent Written Feedback</h3>
+          <div class="feedback-track-wrap">
+            <div class="feedback-track" id="feedbackTrack">
 
-      <div class="feedback-card-item">
-        <img class="feedback-person-img" src="images/RTF_FAM_Named_Images/Mr. Alankaran Verma Owner.png"/>
-        <h4>Mr. Alankaran Verma</h4>
-        <div class="org">Owner · Sai Tour & Travels · Una</div>
-        <div class="quote">"Work with great hard work. Many locations visited, all good properties, and very cooperative arrangements. The team was extremely supportive throughout the journey."</div>
-      </div>
+              <div class="feedback-card-item">
+                <img class="feedback-person-img" src="images/RTF_FAM_Named_Images/Mr. Alankaran Verma Owner.png"/>
+                <h4>Mr. Alankaran Verma</h4>
+                <div class="org">Owner · Sai Tour &amp; Travels · Una</div>
+                <div class="quote">"Work with great hard work. Many locations visited, all good properties, and very cooperative arrangements. The team was extremely supportive throughout the journey."</div>
+              </div>
 
-      <div class="feedback-card-item">
-        <img class="feedback-person-img" src="images/RTF_FAM_Named_Images/Mr. Sachin Sharma.jpeg"/>
-        <h4>Mr. Sachin Sharma</h4>
-        <div class="org">Managing Director · Travel By Passion · Delhi</div>
-        <div class="quote">"Special thanks to Vinny and Pooja for their continuous support and coordination. The trip was informative, smooth, and professionally managed."</div>
-      </div>
+              <div class="feedback-card-item">
+                <img class="feedback-person-img" src="images/RTF_FAM_Named_Images/Mr. Sachin Sharma.jpeg"/>
+                <h4>Mr. Sachin Sharma</h4>
+                <div class="org">Managing Director · Travel By Passion · Delhi</div>
+                <div class="quote">"Special thanks to Vinny and Pooja for their continuous support and coordination. The trip was informative, smooth, and professionally managed."</div>
+              </div>
 
-      <div class="feedback-card-item">
-        <img class="feedback-person-img" src="images/RTF_FAM_Named_Images/Mr. . Aman Saini .jpeg"/>
-        <h4>Mr. Aman Saini</h4>
-        <div class="org">Owner · Colors of India · Delhi</div>
-        <div class="quote">"Excellent organization and seamless coordination throughout the trip. Great networking opportunity with travel industry professionals."</div>
-      </div>
+              <div class="feedback-card-item">
+                <img class="feedback-person-img" src="images/RTF_FAM_Named_Images/Mr. . Aman Saini .jpeg"/>
+                <h4>Mr. Aman Saini</h4>
+                <div class="org">Owner · Colors of India · Delhi</div>
+                <div class="quote">"Excellent organization and seamless coordination throughout the trip. Great networking opportunity with travel industry professionals."</div>
+              </div>
 
-      <div class="feedback-card-item">
-        <img class="feedback-person-img" src="images/RTF_FAM_Named_Images/Ms. Pooja V Patil.jpeg"/>
-        <h4>Ms. Pooja V Patil</h4>
-        <div class="org">Owner · Plango Holidays · Mumbai</div>
-        <div class="quote">"The hospitality at every property was excellent. Vinny sir and the entire team did an outstanding job in planning and execution."</div>
-      </div>
+              <div class="feedback-card-item">
+                <img class="feedback-person-img" src="images/RTF_FAM_Named_Images/Ms. Pooja V Patil.jpeg"/>
+                <h4>Ms. Pooja V Patil</h4>
+                <div class="org">Owner · Plango Holidays · Mumbai</div>
+                <div class="quote">"The hospitality at every property was excellent. Vinny sir and the entire team did an outstanding job in planning and execution."</div>
+              </div>
 
-      <div class="feedback-card-item">
-        <img class="feedback-person-img" src="images/RTF_FAM_Named_Images/Ms. Chandani Sharma Director.png"/>
-        <h4>Ms. Chandani Sharma</h4>
-        <div class="org">Director · Ascel Group · Ghaziabad</div>
-        <div class="quote">"Vinny and Pooja were extremely helpful and supportive throughout the entire FAM trip."</div>
-      </div>
+              <div class="feedback-card-item">
+                <img class="feedback-person-img" src="images/RTF_FAM_Named_Images/Ms. Chandani Sharma Director.png"/>
+                <h4>Ms. Chandani Sharma</h4>
+                <div class="org">Director · Ascel Group · Ghaziabad</div>
+                <div class="quote">"Vinny and Pooja were extremely helpful and supportive throughout the entire FAM trip."</div>
+              </div>
 
-      <div class="feedback-card-item">
-        <img class="feedback-person-img" src="images/RTF_FAM_Named_Images/Mr. Niranjan D Kulkarni Director.png"/>
-        <h4>Mr. Niranjan D Kulkarni</h4>
-        <div class="org">Director · Holiday Kool · Pune</div>
-        <div class="quote">"Excellent management, communication, and coordination by the entire team. Every moment of the FAM trip was memorable."</div>
-      </div>
+              <div class="feedback-card-item">
+                <img class="feedback-person-img" src="images/RTF_FAM_Named_Images/Mr. Niranjan D Kulkarni Director.png"/>
+                <h4>Mr. Niranjan D Kulkarni</h4>
+                <div class="org">Director · Holiday Kool · Pune</div>
+                <div class="quote">"Excellent management, communication, and coordination by the entire team. Every moment of the FAM trip was memorable."</div>
+              </div>
 
-      <div class="feedback-card-item">
-        <img class="feedback-person-img" src="images/RTF_FAM_Named_Images/Mr. Ram Raj Singh Founder & MD.jpeg"/>
-        <h4>Mr. Ram Raj Singh</h4>
-        <div class="org">Founder & MD · Luxurious Heritage · Delhi</div>
-        <div class="quote">"Superb management, excellent hotel visits, and outstanding arrangements throughout the journey."</div>
-      </div>
+              <div class="feedback-card-item">
+                <img class="feedback-person-img" src="images/RTF_FAM_Named_Images/Mr. Ram Raj Singh Founder & MD.jpeg"/>
+                <h4>Mr. Ram Raj Singh</h4>
+                <div class="org">Founder &amp; MD · Luxurious Heritage · Delhi</div>
+                <div class="quote">"Superb management, excellent hotel visits, and outstanding arrangements throughout the journey."</div>
+              </div>
 
-      <div class="feedback-card-item">
-        <img class="feedback-person-img" src="images/RTF_FAM_Named_Images/Mr. Guneet Singh.png"/>
-        <h4>Mr. Guneet Singh</h4>
-        <div class="org">Founder · Your Nice Trip · Faridabad</div>
-        <div class="quote">"Excellent planning, quality property selection, and a fantastic experience overall. The team delivered a well-organized and memorable FAM trip."</div>
-      </div>
+              <div class="feedback-card-item">
+                <img class="feedback-person-img" src="images/RTF_FAM_Named_Images/Mr. Guneet Singh.png"/>
+                <h4>Mr. Guneet Singh</h4>
+                <div class="org">Founder · Your Nice Trip · Faridabad</div>
+                <div class="quote">"Excellent planning, quality property selection, and a fantastic experience overall. The team delivered a well-organized and memorable FAM trip."</div>
+              </div>
 
-      <div class="feedback-card-item">
-        <img class="feedback-person-img" src="images/RTF_FAM_Named_Images/Mr. Mukesh Kumar.png"/>
-        <h4>Mr. Mukesh Kumar</h4>
-        <div class="org">Founder · KaaSaa Events · Delhi</div>
-        <div class="quote">"Engaging and caring team. Vinny Williams was amazing, and the entire team worked passionately to make the trip successful."</div>
-      </div>
+              <div class="feedback-card-item">
+                <img class="feedback-person-img" src="images/RTF_FAM_Named_Images/Mr. Mukesh Kumar.png"/>
+                <h4>Mr. Mukesh Kumar</h4>
+                <div class="org">Founder · KaaSaa Events · Delhi</div>
+                <div class="quote">"Engaging and caring team. Vinny Williams was amazing, and the entire team worked passionately to make the trip successful."</div>
+              </div>
 
-      <div class="feedback-card-item">
-        <img class="feedback-person-img" src="images/RTF_FAM_Named_Images/Ms. Priyanka Mohidekar.png"/>
-        <h4>Ms. Priyanka Mohidekar</h4>
-        <div class="org">Director · Touring Toes LLP · Pune</div>
-        <div class="quote">"Vinny, Pooja, and Divya were highly interactive and efficient in handling the complete tour experience."</div>
-      </div>
+              <div class="feedback-card-item">
+                <img class="feedback-person-img" src="images/RTF_FAM_Named_Images/Ms. Priyanka Mohidekar.png"/>
+                <h4>Ms. Priyanka Mohidekar</h4>
+                <div class="org">Director · Touring Toes LLP · Pune</div>
+                <div class="quote">"Vinny, Pooja, and Divya were highly interactive and efficient in handling the complete tour experience."</div>
+              </div>
 
-      <div class="feedback-card-item">
-        <img class="feedback-person-img" src="images/RTF_FAM_Named_Images/Ms. Neetu Gola.png"/>
-        <h4>Ms. Neetu Gola</h4>
-        <div class="org">Founder · Om Sai Travels · Delhi</div>
-        <div class="quote">"Very thankful to the entire team for organizing such a wonderful and professionally managed trip."</div>
-      </div>
+              <div class="feedback-card-item">
+                <img class="feedback-person-img" src="images/RTF_FAM_Named_Images/Ms. Neetu Gola.png"/>
+                <h4>Ms. Neetu Gola</h4>
+                <div class="org">Founder · Om Sai Travels · Delhi</div>
+                <div class="quote">"Very thankful to the entire team for organizing such a wonderful and professionally managed trip."</div>
+              </div>
 
-      <div class="feedback-card-item">
-        <img class="feedback-person-img" src="images/RTF_FAM_Named_Images/Ms. Sarika Chopra.jpeg"/>
-        <h4>Ms. Dilpreet (Sheena) Sewal</h4>
-        <div class="org">Founder · India TajMahal Tour Operators · Delhi</div>
-        <div class="quote">"Transport, destinations, hospitality, and overall arrangements were excellent. Truly a perfectly managed FAM experience."</div>
-      </div>
+              <div class="feedback-card-item">
+                <img class="feedback-person-img" src="images/RTF_FAM_Named_Images/Ms. Dilpreet (Sheena) Sewal.jpeg"/>
+                <h4>Ms. Dilpreet (Sheena) Sewal</h4>
+                <div class="org">Founder · India TajMahal Tour Operators · Delhi</div>
+                <div class="quote">"Transport, destinations, hospitality, and overall arrangements were excellent. Truly a perfectly managed FAM experience."</div>
+              </div>
 
-      <div class="feedback-card-item">
-        <img class="feedback-person-img" src="images/RTF_FAM_Named_Images/Ms .Madhuri Wadangenkar.png"/>
-        <h4>Ms. Madhuri Wadangenkar</h4>
-        <div class="org">Founder · Skip The Line Tour · Mumbai</div>
-        <div class="quote">"Pooja handled everyone patiently and professionally. The effort and dedication of the team were clearly visible throughout the trip."</div>
-      </div>
+              <div class="feedback-card-item">
+                <img class="feedback-person-img" src="images/RTF_FAM_Named_Images/Ms .Madhuri Wadangenkar.png"/>
+                <h4>Ms. Madhuri Wadangenkar</h4>
+                <div class="org">Founder · Skip The Line Tour · Mumbai</div>
+                <div class="quote">"Pooja handled everyone patiently and professionally. The effort and dedication of the team were clearly visible throughout the trip."</div>
+              </div>
 
-      <div class="feedback-card-item">
-        <img class="feedback-person-img" src="images/RTF_FAM_Named_Images/Mr. Dilip Soni.jpeg"/>
-        <h4>Mr. Dilip Soni</h4>
-        <div class="org">Owner · Sonii Travels · Mumbai</div>
-        <div class="quote">"Excellent management and attention to every small detail. Rajasthan was beautifully showcased as a tourism destination."</div>
-      </div>
+              <div class="feedback-card-item">
+                <img class="feedback-person-img" src="images/RTF_FAM_Named_Images/Mr. Dilip Soni.jpeg"/>
+                <h4>Mr. Dilip Soni</h4>
+                <div class="org">Owner · Sonii Travels · Mumbai</div>
+                <div class="quote">"Excellent management and attention to every small detail. Rajasthan was beautifully showcased as a tourism destination."</div>
+              </div>
 
-      <div class="feedback-card-item">
-        <img class="feedback-person-img" src="images/RTF_FAM_Named_Images/Mr. Mahendra R Jain.jpeg"/>
-        <h4>Mr. Mahendra R Jain</h4>
-        <div class="org">Owner · Kering Holiday · Mumbai</div>
-        <div class="quote">"Service, destination experience, hospitality, and food arrangements were all excellent."</div>
-      </div>
+              <div class="feedback-card-item">
+                <img class="feedback-person-img" src="images/RTF_FAM_Named_Images/Mr. Mahendra R Jain.jpeg"/>
+                <h4>Mr. Mahendra R Jain</h4>
+                <div class="org">Owner · Kering Holiday · Mumbai</div>
+                <div class="quote">"Service, destination experience, hospitality, and food arrangements were all excellent."</div>
+              </div>
 
-      <div class="feedback-card-item">
-        <img class="feedback-person-img" src="images/RTF_FAM_Named_Images/Mr. Ganesh L Sakhara.png"/>
-        <h4>Mr. Ganesh L Sakhara</h4>
-        <div class="org">Owner · ShreeNath Travels · Pune</div>
-        <div class="quote">"Jawai, Phalodi, and Jaisalmer were amazing destinations. Wonderful experience overall."</div>
-      </div>
+              <div class="feedback-card-item">
+                <img class="feedback-person-img" src="images/RTF_FAM_Named_Images/Mr. Ganesh L Sakhara.png"/>
+                <h4>Mr. Ganesh L Sakhara</h4>
+                <div class="org">Owner · ShreeNath Travels · Pune</div>
+                <div class="quote">"Jawai, Phalodi, and Jaisalmer were amazing destinations. Wonderful experience overall."</div>
+              </div>
 
-      <div class="feedback-card-item">
-        <img class="feedback-person-img" src="images/RTF_FAM_Named_Images/Mr. Devendra P. Divekar.jpeg"/>
-        <h4>Mr. Devendra P. Divekar</h4>
-        <div class="org">Owner · Go Weekends · Thane, Mumbai</div>
-        <div class="quote">"All arrangements, sightseeing, hospitality, and welcomes were memorable. Missing the entire group already!"</div>
-      </div>
+              <div class="feedback-card-item">
+                <img class="feedback-person-img" src="images/RTF_FAM_Named_Images/Mr. Devendra P. Divekar.jpeg"/>
+                <h4>Mr. Devendra P. Divekar</h4>
+                <div class="org">Owner · Go Weekends · Thane, Mumbai</div>
+                <div class="quote">"All arrangements, sightseeing, hospitality, and welcomes were memorable. Missing the entire group already!"</div>
+              </div>
 
-      <div class="feedback-card-item">
-        <img class="feedback-person-img" src="images/RTF_FAM_Named_Images/Ms. Dilpreet (Sheena) Sewal.jpeg"/>
-        <h4>Ms. Sarika Chopra</h4>
-        <div class="org">Founder & CEO · Explorers-Den · Faridabad</div>
-        <div class="quote">"Vinny was extremely gracious and supportive. Pooja was thorough, helpful, and always carried a smile throughout the journey."</div>
-      </div>
+              <div class="feedback-card-item">
+                <img class="feedback-person-img" src="images/RTF_FAM_Named_Images/Ms. Sarika Chopra.jpeg"/>
+                <h4>Ms. Sarika Chopra</h4>
+                <div class="org">Founder &amp; CEO · Explorers-Den · Faridabad</div>
+                <div class="quote">"Vinny was extremely gracious and supportive. Pooja was thorough, helpful, and always carried a smile throughout the journey."</div>
+              </div>
 
-      <div class="feedback-card-item">
-        <img class="feedback-person-img" src="images/RTF_FAM_Named_Images/Mr.Santhosh Kumar.jpeg"/>
-        <h4>Mr. Santhosh Kumar</h4>
-        <div class="org">Owner · GodZone Holidays & Tours · Alibaug</div>
-        <div class="quote">"Jawai arrangements, Jodhpur forts, and the hospitality from the organizers were exceptional. Great effort by the entire team."</div>
-      </div>
+              <div class="feedback-card-item">
+                <img class="feedback-person-img" src="images/RTF_FAM_Named_Images/Mr.Santhosh Kumar.jpeg"/>
+                <h4>Mr. Santhosh Kumar</h4>
+                <div class="org">Owner · GodZone Holidays &amp; Tours · Alibaug</div>
+                <div class="quote">"Jawai arrangements, Jodhpur forts, and the hospitality from the organizers were exceptional. Great effort by the entire team."</div>
+              </div>
 
-      <div class="feedback-card-item">
-        <img class="feedback-person-img" src="images/RTF_FAM_Named_Images/Mr. Tejas Kale.png"/>
-        <h4>Mr. Tejas Kale</h4>
-        <div class="org">Director · My Travel World Travel · Pune</div>
-        <div class="quote">"Property selection, transport arrangements, and overall coordination were very good. A great team effort."</div>
-      </div>
+              <div class="feedback-card-item">
+                <img class="feedback-person-img" src="images/RTF_FAM_Named_Images/Mr. Tejas Kale.png"/>
+                <h4>Mr. Tejas Kale</h4>
+                <div class="org">Director · My Travel World Travel · Pune</div>
+                <div class="quote">"Property selection, transport arrangements, and overall coordination were very good. A great team effort."</div>
+              </div>
 
-    </div>
-  </div>
-</div>
-
-
-
-         <!-- ══ RTF FAM August 2026 ══ -->
-    <section id="rtffamaugust" class="page-section rtffam-section">
-      <!-- FIX: Single wrapping div — partners-inner wraps ALL content including gallery/feedback -->
-      <div class="partners-inner">
-
-        <div class="partners-page-title">
-          <h2>Rajasthan Travel Fair Familiarization Trip (RTF FAM August 2026)</h2>
-          <p>Season 1 — March 20–24, 2026 · Jodhpur · Jaisalmer · Jawai</p>
-        </div>
-
-        <!-- Hotel logos scroll -->
-        <div class="hotel-scroll-bar">
-          <h3>Hotel Partners</h3>
-          <div class="logo-slider">
-            <div class="logo-track logo-track-lg">
-              <!-- Original set -->
-              <img src="images/RTF Hotel Partner logo/0ed8c6e0-16d6-45d6-a275-3795b11f5c4c.jpg" alt="Aaramgah Jawai">
-              <img src="images/RTF Hotel Partner logo/38191765-6312-4036-917d-4184582d34b6.jpg" alt="KK Hotel">
-              <img src="images/RTF Hotel Partner logo/4c6f9b52-ae73-435e-9949-13913ef042ba.jpg" alt="Raj Leela">
-              <img src="images/RTF Hotel Partner logo/741d2767-04c4-4e7d-84a9-8160ead218e7.jpg" alt="Thar">
-              <img src="images/RTF Hotel Partner logo/Aaramgah Jawaii Logo (1).png" alt="Hotel Partner">
-              <img src="images/RTF Hotel Partner logo/Thar.png" alt="Hotel Partner">
-            <img src="images/RTF Hotel Partner logo/WhatsApp Image 2026-03-18 at 2.13.39 PM.jpg" alt="Zone Palace">
-              <img src="images/RTF Hotel Partner logo/WhatsApp Image 2026-03-18 at 6.11.26 PM.jpg" alt="Hotel Partner">
-              <img src="images/RTF Hotel Partner logo/Zone Palace.png" alt="Shreeram">
-              <img src="images/RTF Hotel Partner logo/af30b8f4-95c5-4ef0-90f7-2087d238ea06.jpg" alt="Trulyy">
-              <img src="images/RTF Hotel Partner logo/c0ba0989-fb26-4c12-9b0d-77f675ea0013.jpg" alt="Hotel Partner">
-              <img src="images/RTF Hotel Partner logo/fc31c75b-2050-4676-afcb-9efd78690945.jpg" alt="Hotel Partner">
-              <img src="images/RTF Hotel Partner logo/images (1).png" alt="Hotel Partner">
-              <!-- FIX: Duplicate set for seamless infinite loop (translateX -50% needs equal halves) -->
-               <img src="images/RTF Hotel Partner logo/0ed8c6e0-16d6-45d6-a275-3795b11f5c4c.jpg" alt="Aaramgah Jawai">
-              <img src="images/RTF Hotel Partner logo/38191765-6312-4036-917d-4184582d34b6.jpg" alt="KK Hotel">
-              <img src="images/RTF Hotel Partner logo/4c6f9b52-ae73-435e-9949-13913ef042ba.jpg" alt="Raj Leela">
-              <img src="images/RTF Hotel Partner logo/741d2767-04c4-4e7d-84a9-8160ead218e7.jpg" alt="Thar">
-              <img src="images/RTF Hotel Partner logo/Aaramgah Jawaii Logo (1).png" alt="Hotel Partner">
-              <img src="images/RTF Hotel Partner logo/Thar.png" alt="Hotel Partner">
-              <img src="images/RTF Hotel Partner logo/WhatsApp Image 2026-03-18 at 2.13.39 PM.jpg" alt="Zone Palace">
-              <img src="images/RTF Hotel Partner logo/WhatsApp Image 2026-03-18 at 6.11.26 PM.jpg" alt="Hotel Partner">
-              <img src="images/RTF Hotel Partner logo/Zone Palace.png" alt="Shreeram">
-              <img src="images/RTF Hotel Partner logo/af30b8f4-95c5-4ef0-90f7-2087d238ea06.jpg" alt="Trulyy">
-              <img src="images/RTF Hotel Partner logo/c0ba0989-fb26-4c12-9b0d-77f675ea0013.jpg" alt="Hotel Partner">
-              <img src="images/RTF Hotel Partner logo/fc31c75b-2050-4676-afcb-9efd78690945.jpg" alt="Hotel Partner">
-              <img src="images/RTF Hotel Partner logo/images (1).png" alt="Hotel Partner">
             </div>
           </div>
         </div>
 
-        <div class="fam-two-col">
-  <div class="fam-panel">
-    <h3>List of Confirmed Participants for RTF FAM Tour</h3>
-
-    <input
-      type="text"
-      class="participants-search"
-      id="participantSearchAugust"
-      placeholder="Search name, city, company..."
-    />
-
-    <div class="participants-table-wrap">
-      <table class="participants-table" id="participantsTableAugust">
-        <thead>
-          <tr>
-            <th>#</th>
-            <th>Name</th>
-            <th>Organization</th>
-            <th>City</th>
-          </tr>
-        </thead>
-
-        <tbody id="participantsTbodyAugust">
-          <tr><td>1</td><td>Anil Dhingra</td><td>Unique Air Services Pvt Ltd</td><td>Delhi</td></tr>
-          <tr><td>2</td><td>Ashif Shaikh</td><td>HiFi Holidays</td><td>Pune</td></tr>
-          <tr><td>3</td><td>Ashish Parekh</td><td>Satya Sai Tours &amp; Travels</td><td>Vadodara</td></tr>
-          <tr><td>4</td><td>Deepti Deorukhkar</td><td>Global Holidays</td><td>Mumbai</td></tr>
-          <tr><td>5</td><td>Gulab Sachdeva</td><td>Travel Router</td><td>Karnal</td></tr>
-          <tr><td>6</td><td>Mahendra Kering</td><td>Kering Holidays</td><td>Mumbai</td></tr>
-          <tr><td>7</td><td>Manish Asrani</td><td>Traveller Idea</td><td>Mumbai</td></tr>
-          <tr><td>8</td><td>Manisha Das</td><td>Solitude Travel Solutions Pvt Ltd</td><td>Guwahati</td></tr>
-          <tr><td>9</td><td>Milind Gawali</td><td>Shivaay Enterprises</td><td>Thane</td></tr>
-          <tr><td>10</td><td>Mohd Iran</td><td>Infinity Tourizm</td><td>Delhi</td></tr>
-          <tr><td>11</td><td>Monu Jagtap</td><td>Kusum travel</td><td>Kalyan</td></tr>
-          <tr><td>12</td><td>Mukesh Bhansali</td><td>Anandi holiday</td><td>Mumbai</td></tr>
-          <tr><td>13</td><td>Narender kumar</td><td>Perfection consulting India pvt ltd</td><td>Delhi</td></tr>
-          <tr><td>14</td><td>Niranjan D Kulkarni</td><td>HOLIDAYKOOL</td><td>Pune</td></tr>
-          <tr><td>15</td><td>Nivid Shah</td><td>Exotrip Holidays</td><td>Mumbai</td></tr>
-          <tr><td>16</td><td>Pooja Patil</td><td>Go Holiday Pvt Ltd</td><td>Mumbai</td></tr>
-          <tr><td>17</td><td>Pratik Jagtap</td><td>pratik tours and travels</td><td>Kalyan</td></tr>
-          <tr><td>18</td><td>Rahul Aggarwal</td><td>Bhavishya Holidays</td><td>Delhi</td></tr>
-          <tr><td>19</td><td>Reena D'Souza</td><td>Holiday Tickle Tours</td><td>Mumbai</td></tr>
-          <tr><td>20</td><td>Salina Chhetri</td><td>Nature Dream Holiday</td><td>Siliguri</td></tr>
-          <tr><td>21</td><td>Shahanawaj Tamboli</td><td>Lucky holidays</td><td>Pune</td></tr>
-          <tr><td>22</td><td>Shruti Kulkarni</td><td>Lets Take A Break</td><td>Mumbai</td></tr>
-          <tr><td>23</td><td>Shubham Gupta</td><td>ALUXURY HOLIDAY</td><td>Pune</td></tr>
-          <tr><td>24</td><td>Sunil Jaiswani</td><td>Atharva Travel</td><td>Kalyan</td></tr>
-          <tr><td>25</td><td>Tanmay agrawal</td><td>Tripguruindia</td><td>Gorakhpur</td></tr>
-          <tr><td>26</td><td>Vaibhav Dharmaji Patil</td><td>OM TRAVEL</td><td>Mumbai</td></tr>
-          <tr><td>27</td><td>Vaidehi P Kamble</td><td>Kanishka Tours &amp; Travels</td><td>Mumbai</td></tr>
-          <tr><td>28</td><td>Vankita Gandhi Nair</td><td>Fly Holidays Tours &amp; Travels</td><td>Mumbai</td></tr>
-          <tr><td>29</td><td>Vidhi</td><td>Vidhi Tours &amp; Travels</td><td>Rajkot</td></tr>
-          <tr><td>30</td><td>Vinita Chandiramani</td><td>Laxmi Travels</td><td>Mumbai</td></tr>
-          <tr><td>31</td><td>Yogesh Deshmukh</td><td>Phoenix Holidays</td><td>Mumbai</td></tr>
-          <tr><td>32</td><td>Vikas Kumar</td><td>Journey and more</td><td>Delhi</td></tr>
-          <tr><td>33</td><td>Rajnish Singh</td><td>R S Wildlife</td><td>Jabalpur</td></tr>
-          <tr><td>34</td><td>Nand Kishore Nadda</td><td>Royal india Experience</td><td>Bilaspur</td></tr>
-          <tr><td>35</td><td>Aman Saini</td><td>Colours of India</td><td>Delhi</td></tr>
-          <tr><td>36</td><td>Vinny K Williams</td><td>India Outtabox</td><td>Jodhpur</td></tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-
-          <div class="fam-panel">
-            <h3>Feedback Videos — Travel Agents</h3>
-            <div class="videos-grid">
-              <div class="video-item"><video controls playsinline src="vedios/WhatsApp Video 2026-05-03 at 4.15.29 PM.mp4"></video><p>Mr. Madhu Gopalan
-NB4 Holidays</p></div>
-              <div class="video-item"><video controls playsinline src="vedios/WhatsApp Video 2026-05-03 at 4.19.19 PM.mp4"></video><p>Karthik Pachigar
-Magical India Holiday</p></div>
-              <div class="video-item"><video controls playsinline src="vedios/WhatsApp Video 2026-05-03 at 4.21.14 PM.mp4"></video><p>Enjoying the folk music of Jodhpur</p></div>
-              <div class="video-item"><video controls playsinline src="vedios/WhatsApp Video 2026-05-03 at 4.22.03 PM.mp4"></video><p>Neetu Gola
-Om Sai Tours &Travel</p></div>
-              <div class="video-item"><video controls playsinline src="vedios/WhatsApp Video 2026-05-03 at 4.23.10 PM.mp4"></video><p>Guneet Singh
-Your Nice Trip</p></div>
-            </div>
-          </div>
-        </div>
-        <!-- WRITTEN FEEDBACK -->
-<div class="feedback-scroll-section">
-  <h3>✍️ Travel Agent Written Feedback</h3>
-
-  <div class="feedback-track-wrap">
-    <div class="feedback-track" id="feedbackTrackAugust">
-
-      <div class="feedback-card-item">
-        <img class="feedback-person-img" src="images/RTF_FAM_Named_Images/Mr. Alankaran Verma Owner.png"/>
-        <h4>Mr. Alankaran Verma</h4>
-        <div class="org">Owner · Sai Tour & Travels · Una</div>
-        <div class="quote">"Work with great hard work. Many locations visited, all good properties, and very cooperative arrangements. The team was extremely supportive throughout the journey."</div>
-      </div>
-
-      <div class="feedback-card-item">
-        <img class="feedback-person-img" src="images/RTF_FAM_Named_Images/Mr. Sachin Sharma.jpeg"/>
-        <h4>Mr. Sachin Sharma</h4>
-        <div class="org">Managing Director · Travel By Passion · Delhi</div>
-        <div class="quote">"Special thanks to Vinny and Pooja for their continuous support and coordination. The trip was informative, smooth, and professionally managed."</div>
-      </div>
-
-      <div class="feedback-card-item">
-        <img class="feedback-person-img" src="images/RTF_FAM_Named_Images/Mr. . Aman Saini .jpeg"/>
-        <h4>Mr. Aman Saini</h4>
-        <div class="org">Owner · Colors of India · Delhi</div>
-        <div class="quote">"Excellent organization and seamless coordination throughout the trip. Great networking opportunity with travel industry professionals."</div>
-      </div>
-
-      <div class="feedback-card-item">
-        <img class="feedback-person-img" src="images/RTF_FAM_Named_Images/Ms. Pooja V Patil.jpeg"/>
-        <h4>Ms. Pooja V Patil</h4>
-        <div class="org">Owner · Plango Holidays · Mumbai</div>
-        <div class="quote">"The hospitality at every property was excellent. Vinny sir and the entire team did an outstanding job in planning and execution."</div>
-      </div>
-
-      <div class="feedback-card-item">
-        <img class="feedback-person-img" src="images/RTF_FAM_Named_Images/Ms. Chandani Sharma Director.png"/>
-        <h4>Ms. Chandani Sharma</h4>
-        <div class="org">Director · Ascel Group · Ghaziabad</div>
-        <div class="quote">"Vinny and Pooja were extremely helpful and supportive throughout the entire FAM trip."</div>
-      </div>
-
-      <div class="feedback-card-item">
-        <img class="feedback-person-img" src="images/RTF_FAM_Named_Images/Mr. Niranjan D Kulkarni Director.png"/>
-        <h4>Mr. Niranjan D Kulkarni</h4>
-        <div class="org">Director · Holiday Kool · Pune</div>
-        <div class="quote">"Excellent management, communication, and coordination by the entire team. Every moment of the FAM trip was memorable."</div>
-      </div>
-
-      <div class="feedback-card-item">
-        <img class="feedback-person-img" src="images/RTF_FAM_Named_Images/Mr. Ram Raj Singh Founder & MD.jpeg"/>
-        <h4>Mr. Ram Raj Singh</h4>
-        <div class="org">Founder & MD · Luxurious Heritage · Delhi</div>
-        <div class="quote">"Superb management, excellent hotel visits, and outstanding arrangements throughout the journey."</div>
-      </div>
-
-      <div class="feedback-card-item">
-        <img class="feedback-person-img" src="images/RTF_FAM_Named_Images/Mr. Guneet Singh.png"/>
-        <h4>Mr. Guneet Singh</h4>
-        <div class="org">Founder · Your Nice Trip · Faridabad</div>
-        <div class="quote">"Excellent planning, quality property selection, and a fantastic experience overall. The team delivered a well-organized and memorable FAM trip."</div>
-      </div>
-
-      <div class="feedback-card-item">
-        <img class="feedback-person-img" src="images/RTF_FAM_Named_Images/Mr. Mukesh Kumar.png"/>
-        <h4>Mr. Mukesh Kumar</h4>
-        <div class="org">Founder · KaaSaa Events · Delhi</div>
-        <div class="quote">"Engaging and caring team. Vinny Williams was amazing, and the entire team worked passionately to make the trip successful."</div>
-      </div>
-
-      <div class="feedback-card-item">
-        <img class="feedback-person-img" src="images/RTF_FAM_Named_Images/Ms. Priyanka Mohidekar.png"/>
-        <h4>Ms. Priyanka Mohidekar</h4>
-        <div class="org">Director · Touring Toes LLP · Pune</div>
-        <div class="quote">"Vinny, Pooja, and Divya were highly interactive and efficient in handling the complete tour experience."</div>
-      </div>
-
-      <div class="feedback-card-item">
-        <img class="feedback-person-img" src="images/RTF_FAM_Named_Images/Ms. Neetu Gola.png"/>
-        <h4>Ms. Neetu Gola</h4>
-        <div class="org">Founder · Om Sai Travels · Delhi</div>
-        <div class="quote">"Very thankful to the entire team for organizing such a wonderful and professionally managed trip."</div>
-      </div>
-
-      <div class="feedback-card-item">
-        <img class="feedback-person-img" src="images/RTF_FAM_Named_Images/Ms. Sarika Chopra.jpeg"/>
-        <h4>Ms. Dilpreet (Sheena) Sewal</h4>
-        <div class="org">Founder · India TajMahal Tour Operators · Delhi</div>
-        <div class="quote">"Transport, destinations, hospitality, and overall arrangements were excellent. Truly a perfectly managed FAM experience."</div>
-      </div>
-
-      <div class="feedback-card-item">
-        <img class="feedback-person-img" src="images/RTF_FAM_Named_Images/Ms .Madhuri Wadangenkar.png"/>
-        <h4>Ms. Madhuri Wadangenkar</h4>
-        <div class="org">Founder · Skip The Line Tour · Mumbai</div>
-        <div class="quote">"Pooja handled everyone patiently and professionally. The effort and dedication of the team were clearly visible throughout the trip."</div>
-      </div>
-
-      <div class="feedback-card-item">
-        <img class="feedback-person-img" src="images/RTF_FAM_Named_Images/Mr. Dilip Soni.jpeg"/>
-        <h4>Mr. Dilip Soni</h4>
-        <div class="org">Owner · Sonii Travels · Mumbai</div>
-        <div class="quote">"Excellent management and attention to every small detail. Rajasthan was beautifully showcased as a tourism destination."</div>
-      </div>
-
-      <div class="feedback-card-item">
-        <img class="feedback-person-img" src="images/RTF_FAM_Named_Images/Mr. Mahendra R Jain.jpeg"/>
-        <h4>Mr. Mahendra R Jain</h4>
-        <div class="org">Owner · Kering Holiday · Mumbai</div>
-        <div class="quote">"Service, destination experience, hospitality, and food arrangements were all excellent."</div>
-      </div>
-
-      <div class="feedback-card-item">
-        <img class="feedback-person-img" src="images/RTF_FAM_Named_Images/Mr. Ganesh L Sakhara.png"/>
-        <h4>Mr. Ganesh L Sakhara</h4>
-        <div class="org">Owner · ShreeNath Travels · Pune</div>
-        <div class="quote">"Jawai, Phalodi, and Jaisalmer were amazing destinations. Wonderful experience overall."</div>
-      </div>
-
-      <div class="feedback-card-item">
-        <img class="feedback-person-img" src="images/RTF_FAM_Named_Images/Mr. Devendra P. Divekar.jpeg"/>
-        <h4>Mr. Devendra P. Divekar</h4>
-        <div class="org">Owner · Go Weekends · Thane, Mumbai</div>
-        <div class="quote">"All arrangements, sightseeing, hospitality, and welcomes were memorable. Missing the entire group already!"</div>
-      </div>
-
-      <div class="feedback-card-item">
-        <img class="feedback-person-img" src="images/RTF_FAM_Named_Images/Ms. Dilpreet (Sheena) Sewal.jpeg"/>
-        <h4>Ms. Sarika Chopra</h4>
-        <div class="org">Founder & CEO · Explorers-Den · Faridabad</div>
-        <div class="quote">"Vinny was extremely gracious and supportive. Pooja was thorough, helpful, and always carried a smile throughout the journey."</div>
-      </div>
-
-      <div class="feedback-card-item">
-        <img class="feedback-person-img" src="images/RTF_FAM_Named_Images/Mr.Santhosh Kumar.jpeg"/>
-        <h4>Mr. Santhosh Kumar</h4>
-        <div class="org">Owner · GodZone Holidays & Tours · Alibaug</div>
-        <div class="quote">"Jawai arrangements, Jodhpur forts, and the hospitality from the organizers were exceptional. Great effort by the entire team."</div>
-      </div>
-
-      <div class="feedback-card-item">
-        <img class="feedback-person-img" src="images/RTF_FAM_Named_Images/Mr. Tejas Kale.png"/>
-        <h4>Mr. Tejas Kale</h4>
-        <div class="org">Director · My Travel World Travel · Pune</div>
-        <div class="quote">"Property selection, transport arrangements, and overall coordination were very good. A great team effort."</div>
-      </div>
-
-    </div>
-  </div>
-</div>
-
-        <!-- Gallery -->
+        <!-- GALLERY (MARCH) -->
         <div class="gallery-section">
           <h3>RTF FAM Gallery</h3>
           <div class="gallery-scroll-wrap">
-            <!-- FIX: Videos removed from gallery scroll track (breaks -50% loop calc); only images -->
             <div class="gallery-scroll-track" id="galleryTrack">
               <img class="gallery-img-zoom" src="images/WhatsApp Image 2026-05-02 at 6.08.44 PM.jpeg" alt="RTF FAM Gallery">
               <img class="gallery-img-zoom" src="images/WhatsApp Image 2026-05-02 at 6.09.09 PM.jpeg" alt="RTF FAM Gallery">
@@ -877,29 +591,299 @@ Your Nice Trip</p></div>
               <img class="gallery-img-zoom" src="images/WhatsApp Image 2026-05-02 at 6.15.02 PM (1).jpeg" alt="RTF FAM Gallery">
             </div>
           </div>
-                </div>
+        </div>
 
-      </div><!-- end partners-inner -->
-    </section>
+      </div><!-- end partners-inner (MARCH) -->
+    </section><!-- end #rtffam -->
+
+
+    <!-- ══════════════════════════════════════════════ -->
+    <!-- ══ RTF FAM AUGUST 2026 ══                      -->
+    <!-- ══════════════════════════════════════════════ -->
+    <section id="rtffamaugust" class="page-section rtffam-section">
+      <div class="partners-inner">
+
+        <div class="partners-page-title">
+          <h2>Rajasthan Travel Fair Familiarization Trip (RTF FAM August 2026)</h2>
+          <!-- TODO: add August dates and destinations -->
+          <p>Season 2 — August 2026</p>
+        </div>
+
+        <!-- Hotel logos scroll -->
+        <div class="hotel-scroll-bar">
+          <h3>Hotel Partners</h3>
+          <div class="logo-slider">
+            <div class="logo-track logo-track-lg">
+              <!-- Original set -->
+              <img src="images/RTF Hotel Partner logo/0ed8c6e0-16d6-45d6-a275-3795b11f5c4c.jpg" alt="Aaramgah Jawai">
+              <img src="images/RTF Hotel Partner logo/38191765-6312-4036-917d-4184582d34b6.jpg" alt="KK Hotel">
+              <img src="images/RTF Hotel Partner logo/4c6f9b52-ae73-435e-9949-13913ef042ba.jpg" alt="Raj Leela">
+              <img src="images/RTF Hotel Partner logo/741d2767-04c4-4e7d-84a9-8160ead218e7.jpg" alt="Thar">
+              <img src="images/RTF Hotel Partner logo/Aaramgah Jawaii Logo (1).png" alt="Hotel Partner">
+              <img src="images/RTF Hotel Partner logo/Thar.png" alt="Hotel Partner">
+              <img src="images/RTF Hotel Partner logo/WhatsApp Image 2026-03-18 at 2.13.39 PM.jpg" alt="Hotel Partner">
+              <img src="images/RTF Hotel Partner logo/WhatsApp Image 2026-03-18 at 6.11.26 PM.jpg" alt="Hotel Partner">
+              <img src="images/RTF Hotel Partner logo/Zone Palace.png" alt="Zone Palace">
+              <img src="images/RTF Hotel Partner logo/af30b8f4-95c5-4ef0-90f7-2087d238ea06.jpg" alt="Trulyy">
+              <img src="images/RTF Hotel Partner logo/c0ba0989-fb26-4c12-9b0d-77f675ea0013.jpg" alt="Hotel Partner">
+              <img src="images/RTF Hotel Partner logo/fc31c75b-2050-4676-afcb-9efd78690945.jpg" alt="Hotel Partner">
+              <img src="images/RTF Hotel Partner logo/images (1).png" alt="Hotel Partner">
+              <!-- Duplicate set for seamless infinite loop -->
+              <img src="images/RTF Hotel Partner logo/0ed8c6e0-16d6-45d6-a275-3795b11f5c4c.jpg" alt="Aaramgah Jawai">
+              <img src="images/RTF Hotel Partner logo/38191765-6312-4036-917d-4184582d34b6.jpg" alt="KK Hotel">
+              <img src="images/RTF Hotel Partner logo/4c6f9b52-ae73-435e-9949-13913ef042ba.jpg" alt="Raj Leela">
+              <img src="images/RTF Hotel Partner logo/741d2767-04c4-4e7d-84a9-8160ead218e7.jpg" alt="Thar">
+              <img src="images/RTF Hotel Partner logo/Aaramgah Jawaii Logo (1).png" alt="Hotel Partner">
+              <img src="images/RTF Hotel Partner logo/Thar.png" alt="Hotel Partner">
+              <img src="images/RTF Hotel Partner logo/WhatsApp Image 2026-03-18 at 2.13.39 PM.jpg" alt="Hotel Partner">
+              <img src="images/RTF Hotel Partner logo/WhatsApp Image 2026-03-18 at 6.11.26 PM.jpg" alt="Hotel Partner">
+              <img src="images/RTF Hotel Partner logo/Zone Palace.png" alt="Zone Palace">
+              <img src="images/RTF Hotel Partner logo/af30b8f4-95c5-4ef0-90f7-2087d238ea06.jpg" alt="Trulyy">
+              <img src="images/RTF Hotel Partner logo/c0ba0989-fb26-4c12-9b0d-77f675ea0013.jpg" alt="Hotel Partner">
+              <img src="images/RTF Hotel Partner logo/fc31c75b-2050-4676-afcb-9efd78690945.jpg" alt="Hotel Partner">
+              <img src="images/RTF Hotel Partner logo/images (1).png" alt="Hotel Partner">
+            </div>
+          </div>
+        </div>
+
+        <!-- Two-col: participants + feedback videos -->
+        <div class="fam-two-col">
+          <div class="fam-panel">
+            <h3>List of Confirmed Participants for RTF FAM Tour</h3>
+            <input type="text" class="participants-search" id="participantSearchAugust" placeholder="Search name, city, company..."/>
+            <div class="participants-table-wrap">
+              <table class="participants-table" id="participantsTableAugust">
+                <thead>
+                  <tr><th>#</th><th>Name</th><th>Organization</th><th>City</th></tr>
+                </thead>
+                <tbody id="participantsTbodyAugust">
+                  <tr><td>1</td><td>Anil Dhingra</td><td>Unique Air Services Pvt Ltd</td><td>Delhi</td></tr>
+                  <tr><td>2</td><td>Ashif Shaikh</td><td>HiFi Holidays</td><td>Pune</td></tr>
+                  <tr><td>3</td><td>Ashish Parekh</td><td>Satya Sai Tours &amp; Travels</td><td>Vadodara</td></tr>
+                  <tr><td>4</td><td>Deepti Deorukhkar</td><td>Global Holidays</td><td>Mumbai</td></tr>
+                  <tr><td>5</td><td>Gulab Sachdeva</td><td>Travel Router</td><td>Karnal</td></tr>
+                  <tr><td>6</td><td>Mahendra Kering</td><td>Kering Holidays</td><td>Mumbai</td></tr>
+                  <tr><td>7</td><td>Manish Asrani</td><td>Traveller Idea</td><td>Mumbai</td></tr>
+                  <tr><td>8</td><td>Manisha Das</td><td>Solitude Travel Solutions Pvt Ltd</td><td>Guwahati</td></tr>
+                  <tr><td>9</td><td>Milind Gawali</td><td>Shivaay Enterprises</td><td>Thane</td></tr>
+                  <tr><td>10</td><td>Mohd Iran</td><td>Infinity Tourizm</td><td>Delhi</td></tr>
+                  <tr><td>11</td><td>Monu Jagtap</td><td>Kusum travel</td><td>Kalyan</td></tr>
+                  <tr><td>12</td><td>Mukesh Bhansali</td><td>Anandi holiday</td><td>Mumbai</td></tr>
+                  <tr><td>13</td><td>Narender kumar</td><td>Perfection consulting India pvt ltd</td><td>Delhi</td></tr>
+                  <tr><td>14</td><td>Niranjan D Kulkarni</td><td>HOLIDAYKOOL</td><td>Pune</td></tr>
+                  <tr><td>15</td><td>Nivid Shah</td><td>Exotrip Holidays</td><td>Mumbai</td></tr>
+                  <tr><td>16</td><td>Pooja Patil</td><td>Go Holiday Pvt Ltd</td><td>Mumbai</td></tr>
+                  <tr><td>17</td><td>Pratik Jagtap</td><td>pratik tours and travels</td><td>Kalyan</td></tr>
+                  <tr><td>18</td><td>Rahul Aggarwal</td><td>Bhavishya Holidays</td><td>Delhi</td></tr>
+                  <tr><td>19</td><td>Reena D'Souza</td><td>Holiday Tickle Tours</td><td>Mumbai</td></tr>
+                  <tr><td>20</td><td>Salina Chhetri</td><td>Nature Dream Holiday</td><td>Siliguri</td></tr>
+                  <tr><td>21</td><td>Shahanawaj Tamboli</td><td>Lucky holidays</td><td>Pune</td></tr>
+                  <tr><td>22</td><td>Shruti Kulkarni</td><td>Lets Take A Break</td><td>Mumbai</td></tr>
+                  <tr><td>23</td><td>Shubham Gupta</td><td>ALUXURY HOLIDAY</td><td>Pune</td></tr>
+                  <tr><td>24</td><td>Sunil Jaiswani</td><td>Atharva Travel</td><td>Kalyan</td></tr>
+                  <tr><td>25</td><td>Tanmay agrawal</td><td>Tripguruindia</td><td>Gorakhpur</td></tr>
+                  <tr><td>26</td><td>Vaibhav Dharmaji Patil</td><td>OM TRAVEL</td><td>Mumbai</td></tr>
+                  <tr><td>27</td><td>Vaidehi P Kamble</td><td>Kanishka Tours &amp; Travels</td><td>Mumbai</td></tr>
+                  <tr><td>28</td><td>Vankita Gandhi Nair</td><td>Fly Holidays Tours &amp; Travels</td><td>Mumbai</td></tr>
+                  <tr><td>29</td><td>Vidhi</td><td>Vidhi Tours &amp; Travels</td><td>Rajkot</td></tr>
+                  <tr><td>30</td><td>Vinita Chandiramani</td><td>Laxmi Travels</td><td>Mumbai</td></tr>
+                  <tr><td>31</td><td>Yogesh Deshmukh</td><td>Phoenix Holidays</td><td>Mumbai</td></tr>
+                  <tr><td>32</td><td>Vikas Kumar</td><td>Journey and more</td><td>Delhi</td></tr>
+                  <tr><td>33</td><td>Rajnish Singh</td><td>R S Wildlife</td><td>Jabalpur</td></tr>
+                  <tr><td>34</td><td>Nand Kishore Nadda</td><td>Royal india Experience</td><td>Bilaspur</td></tr>
+                  <tr><td>35</td><td>Aman Saini</td><td>Colours of India</td><td>Delhi</td></tr>
+                  <tr><td>36</td><td>Vinny K Williams</td><td>India Outtabox</td><td>Jodhpur</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- TODO: replace with August feedback videos (currently same as March) -->
+          <div class="fam-panel">
+            <h3>Feedback Videos — Travel Agents</h3>
+            <div class="videos-grid">
+              <div class="video-item"><video controls playsinline src="vedios/WhatsApp Video 2026-05-03 at 4.15.29 PM.mp4"></video><p>Mr. Madhu Gopalan
+NB4 Holidays</p></div>
+              <div class="video-item"><video controls playsinline src="vedios/WhatsApp Video 2026-05-03 at 4.19.19 PM.mp4"></video><p>Karthik Pachigar
+Magical India Holiday</p></div>
+              <div class="video-item"><video controls playsinline src="vedios/WhatsApp Video 2026-05-03 at 4.21.14 PM.mp4"></video><p>Enjoying the folk music of Jodhpur</p></div>
+              <div class="video-item"><video controls playsinline src="vedios/WhatsApp Video 2026-05-03 at 4.22.03 PM.mp4"></video><p>Neetu Gola
+Om Sai Tours &amp;Travel</p></div>
+              <div class="video-item"><video controls playsinline src="vedios/WhatsApp Video 2026-05-03 at 4.23.10 PM.mp4"></video><p>Guneet Singh
+Your Nice Trip</p></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- WRITTEN FEEDBACK (AUGUST) -->
+        <!-- TODO: replace with August feedback (currently same as March) -->
+        <div class="feedback-scroll-section">
+          <h3>✍️ Travel Agent Written Feedback</h3>
+          <div class="feedback-track-wrap">
+            <div class="feedback-track" id="feedbackTrackAugust">
+
+              <div class="feedback-card-item">
+                <img class="feedback-person-img" src="images/RTF_FAM_Named_Images/Mr. Alankaran Verma Owner.png"/>
+                <h4>Mr. Alankaran Verma</h4>
+                <div class="org">Owner · Sai Tour &amp; Travels · Una</div>
+                <div class="quote">"Work with great hard work. Many locations visited, all good properties, and very cooperative arrangements. The team was extremely supportive throughout the journey."</div>
+              </div>
+
+              <div class="feedback-card-item">
+                <img class="feedback-person-img" src="images/RTF_FAM_Named_Images/Mr. Sachin Sharma.jpeg"/>
+                <h4>Mr. Sachin Sharma</h4>
+                <div class="org">Managing Director · Travel By Passion · Delhi</div>
+                <div class="quote">"Special thanks to Vinny and Pooja for their continuous support and coordination. The trip was informative, smooth, and professionally managed."</div>
+              </div>
+
+              <div class="feedback-card-item">
+                <img class="feedback-person-img" src="images/RTF_FAM_Named_Images/Mr. . Aman Saini .jpeg"/>
+                <h4>Mr. Aman Saini</h4>
+                <div class="org">Owner · Colors of India · Delhi</div>
+                <div class="quote">"Excellent organization and seamless coordination throughout the trip. Great networking opportunity with travel industry professionals."</div>
+              </div>
+
+              <div class="feedback-card-item">
+                <img class="feedback-person-img" src="images/RTF_FAM_Named_Images/Ms. Pooja V Patil.jpeg"/>
+                <h4>Ms. Pooja V Patil</h4>
+                <div class="org">Owner · Plango Holidays · Mumbai</div>
+                <div class="quote">"The hospitality at every property was excellent. Vinny sir and the entire team did an outstanding job in planning and execution."</div>
+              </div>
+
+              <div class="feedback-card-item">
+                <img class="feedback-person-img" src="images/RTF_FAM_Named_Images/Ms. Chandani Sharma Director.png"/>
+                <h4>Ms. Chandani Sharma</h4>
+                <div class="org">Director · Ascel Group · Ghaziabad</div>
+                <div class="quote">"Vinny and Pooja were extremely helpful and supportive throughout the entire FAM trip."</div>
+              </div>
+
+              <div class="feedback-card-item">
+                <img class="feedback-person-img" src="images/RTF_FAM_Named_Images/Mr. Niranjan D Kulkarni Director.png"/>
+                <h4>Mr. Niranjan D Kulkarni</h4>
+                <div class="org">Director · Holiday Kool · Pune</div>
+                <div class="quote">"Excellent management, communication, and coordination by the entire team. Every moment of the FAM trip was memorable."</div>
+              </div>
+
+              <div class="feedback-card-item">
+                <img class="feedback-person-img" src="images/RTF_FAM_Named_Images/Mr. Ram Raj Singh Founder & MD.jpeg"/>
+                <h4>Mr. Ram Raj Singh</h4>
+                <div class="org">Founder &amp; MD · Luxurious Heritage · Delhi</div>
+                <div class="quote">"Superb management, excellent hotel visits, and outstanding arrangements throughout the journey."</div>
+              </div>
+
+              <div class="feedback-card-item">
+                <img class="feedback-person-img" src="images/RTF_FAM_Named_Images/Mr. Guneet Singh.png"/>
+                <h4>Mr. Guneet Singh</h4>
+                <div class="org">Founder · Your Nice Trip · Faridabad</div>
+                <div class="quote">"Excellent planning, quality property selection, and a fantastic experience overall. The team delivered a well-organized and memorable FAM trip."</div>
+              </div>
+
+              <div class="feedback-card-item">
+                <img class="feedback-person-img" src="images/RTF_FAM_Named_Images/Mr. Mukesh Kumar.png"/>
+                <h4>Mr. Mukesh Kumar</h4>
+                <div class="org">Founder · KaaSaa Events · Delhi</div>
+                <div class="quote">"Engaging and caring team. Vinny Williams was amazing, and the entire team worked passionately to make the trip successful."</div>
+              </div>
+
+              <div class="feedback-card-item">
+                <img class="feedback-person-img" src="images/RTF_FAM_Named_Images/Ms. Priyanka Mohidekar.png"/>
+                <h4>Ms. Priyanka Mohidekar</h4>
+                <div class="org">Director · Touring Toes LLP · Pune</div>
+                <div class="quote">"Vinny, Pooja, and Divya were highly interactive and efficient in handling the complete tour experience."</div>
+              </div>
+
+              <div class="feedback-card-item">
+                <img class="feedback-person-img" src="images/RTF_FAM_Named_Images/Ms. Neetu Gola.png"/>
+                <h4>Ms. Neetu Gola</h4>
+                <div class="org">Founder · Om Sai Travels · Delhi</div>
+                <div class="quote">"Very thankful to the entire team for organizing such a wonderful and professionally managed trip."</div>
+              </div>
+
+              <div class="feedback-card-item">
+                <img class="feedback-person-img" src="images/RTF_FAM_Named_Images/Ms. Dilpreet (Sheena) Sewal.jpeg"/>
+                <h4>Ms. Dilpreet (Sheena) Sewal</h4>
+                <div class="org">Founder · India TajMahal Tour Operators · Delhi</div>
+                <div class="quote">"Transport, destinations, hospitality, and overall arrangements were excellent. Truly a perfectly managed FAM experience."</div>
+              </div>
+
+              <div class="feedback-card-item">
+                <img class="feedback-person-img" src="images/RTF_FAM_Named_Images/Ms .Madhuri Wadangenkar.png"/>
+                <h4>Ms. Madhuri Wadangenkar</h4>
+                <div class="org">Founder · Skip The Line Tour · Mumbai</div>
+                <div class="quote">"Pooja handled everyone patiently and professionally. The effort and dedication of the team were clearly visible throughout the trip."</div>
+              </div>
+
+              <div class="feedback-card-item">
+                <img class="feedback-person-img" src="images/RTF_FAM_Named_Images/Mr. Dilip Soni.jpeg"/>
+                <h4>Mr. Dilip Soni</h4>
+                <div class="org">Owner · Sonii Travels · Mumbai</div>
+                <div class="quote">"Excellent management and attention to every small detail. Rajasthan was beautifully showcased as a tourism destination."</div>
+              </div>
+
+              <div class="feedback-card-item">
+                <img class="feedback-person-img" src="images/RTF_FAM_Named_Images/Mr. Mahendra R Jain.jpeg"/>
+                <h4>Mr. Mahendra R Jain</h4>
+                <div class="org">Owner · Kering Holiday · Mumbai</div>
+                <div class="quote">"Service, destination experience, hospitality, and food arrangements were all excellent."</div>
+              </div>
+
+              <div class="feedback-card-item">
+                <img class="feedback-person-img" src="images/RTF_FAM_Named_Images/Mr. Ganesh L Sakhara.png"/>
+                <h4>Mr. Ganesh L Sakhara</h4>
+                <div class="org">Owner · ShreeNath Travels · Pune</div>
+                <div class="quote">"Jawai, Phalodi, and Jaisalmer were amazing destinations. Wonderful experience overall."</div>
+              </div>
+
+              <div class="feedback-card-item">
+                <img class="feedback-person-img" src="images/RTF_FAM_Named_Images/Mr. Devendra P. Divekar.jpeg"/>
+                <h4>Mr. Devendra P. Divekar</h4>
+                <div class="org">Owner · Go Weekends · Thane, Mumbai</div>
+                <div class="quote">"All arrangements, sightseeing, hospitality, and welcomes were memorable. Missing the entire group already!"</div>
+              </div>
+
+              <div class="feedback-card-item">
+                <img class="feedback-person-img" src="images/RTF_FAM_Named_Images/Ms. Sarika Chopra.jpeg"/>
+                <h4>Ms. Sarika Chopra</h4>
+                <div class="org">Founder &amp; CEO · Explorers-Den · Faridabad</div>
+                <div class="quote">"Vinny was extremely gracious and supportive. Pooja was thorough, helpful, and always carried a smile throughout the journey."</div>
+              </div>
+
+              <div class="feedback-card-item">
+                <img class="feedback-person-img" src="images/RTF_FAM_Named_Images/Mr.Santhosh Kumar.jpeg"/>
+                <h4>Mr. Santhosh Kumar</h4>
+                <div class="org">Owner · GodZone Holidays &amp; Tours · Alibaug</div>
+                <div class="quote">"Jawai arrangements, Jodhpur forts, and the hospitality from the organizers were exceptional. Great effort by the entire team."</div>
+              </div>
+
+              <div class="feedback-card-item">
+                <img class="feedback-person-img" src="images/RTF_FAM_Named_Images/Mr. Tejas Kale.png"/>
+                <h4>Mr. Tejas Kale</h4>
+                <div class="org">Director · My Travel World Travel · Pune</div>
+                <div class="quote">"Property selection, transport arrangements, and overall coordination were very good. A great team effort."</div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+      </div><!-- end partners-inner (AUGUST) -->
+    </section><!-- end #rtffamaugust -->
+
 
     <!-- ══ RTF GLOBAL FAM ══ -->
-
-   <section id="rtfglobal" class="page-section">
+    <section id="rtfglobal" class="page-section">
       <div class="rtfglobal-inner">
 
         <div class="rtf-header-wrapper">
-  <!-- Logo on top, centered -->
-  <div class="rtf-logo">
-    <img src="images/RTF GLOBAL.jpeg" alt="RTF Logo">
-  </div>
-
-  <!-- Text below, centered -->
-  <div class="rtf-header-center">
-    <h2 class="rtf-title">RTF Global FAM 2026</h2>
-    <p class="rtf-subtitle">
-      16 Days · 14 Destinations · 30+ International Travel Agents · 60+ Hotels
-    </p>
-  </div>
+          <div class="rtf-logo">
+            <img src="images/RTF GLOBAL.jpeg" alt="RTF Logo">
+          </div>
+          <div class="rtf-header-center">
+            <h2 class="rtf-title">RTF Global FAM 2026</h2>
+            <p class="rtf-subtitle">
+              16 Days · 14 Destinations · 30+ International Travel Agents · 60+ Hotels
+            </p>
+          </div>
         </div>
 
         <div class="rfg-row1">
@@ -914,26 +898,23 @@ Your Nice Trip</p></div>
         </div>
 
         <div class="rfg-row2 rfg-row2-four">
-  <div class="rfg-cell" onclick="rfgOpenLightbox('images/ilovepdf_pages-to-jpg (1)/RTF (1)-images-0.jpg')">
-    <img src="images/ilovepdf_pages-to-jpg (1)/RTF (1)-images-0.jpg" alt="Itinerary Page 1" onerror="this.src='images/finallogo1.png'"/>
-    <div class="rfg-cell-label">Itinerary Page 1</div>
-  </div>
-
-  <div class="rfg-cell" onclick="rfgOpenLightbox('images/ilovepdf_pages-to-jpg (1)/RTF (1)-images-1.jpg')">
-    <img src="images/ilovepdf_pages-to-jpg (1)/RTF (1)-images-1.jpg" alt="Itinerary Page 2" onerror="this.src='images/finallogo1.png'"/>
-    <div class="rfg-cell-label">Itinerary Page 2</div>
-  </div>
-
-  <div class="rfg-cell" onclick="rfgOpenLightbox('images/ilovepdf_pages-to-jpg (1)/RTF (1)-images-2.jpg')">
-    <img src="images/ilovepdf_pages-to-jpg (1)/RTF (1)-images-2.jpg" alt="Itinerary Page 3" onerror="this.src='images/finallogo1.png'"/>
-    <div class="rfg-cell-label">Itinerary Page 3</div>
-  </div>
-
-  <div class="rfg-cell" onclick="rfgOpenLightbox('images/ilovepdf_pages-to-jpg (1)/RTF (1)-images-3.jpg')">
-    <img src="images/ilovepdf_pages-to-jpg (1)/RTF (1)-images-3.jpg" alt="Itinerary Page 4" onerror="this.src='images/finallogo1.png'"/>
-    <div class="rfg-cell-label">Itinerary Page 4</div>
-  </div>
-</div>
+          <div class="rfg-cell" onclick="rfgOpenLightbox('images/ilovepdf_pages-to-jpg (1)/RTF (1)-images-0.jpg')">
+            <img src="images/ilovepdf_pages-to-jpg (1)/RTF (1)-images-0.jpg" alt="Itinerary Page 1" onerror="this.src='images/finallogo1.png'"/>
+            <div class="rfg-cell-label">Itinerary Page 1</div>
+          </div>
+          <div class="rfg-cell" onclick="rfgOpenLightbox('images/ilovepdf_pages-to-jpg (1)/RTF (1)-images-1.jpg')">
+            <img src="images/ilovepdf_pages-to-jpg (1)/RTF (1)-images-1.jpg" alt="Itinerary Page 2" onerror="this.src='images/finallogo1.png'"/>
+            <div class="rfg-cell-label">Itinerary Page 2</div>
+          </div>
+          <div class="rfg-cell" onclick="rfgOpenLightbox('images/ilovepdf_pages-to-jpg (1)/RTF (1)-images-2.jpg')">
+            <img src="images/ilovepdf_pages-to-jpg (1)/RTF (1)-images-2.jpg" alt="Itinerary Page 3" onerror="this.src='images/finallogo1.png'"/>
+            <div class="rfg-cell-label">Itinerary Page 3</div>
+          </div>
+          <div class="rfg-cell" onclick="rfgOpenLightbox('images/ilovepdf_pages-to-jpg (1)/RTF (1)-images-3.jpg')">
+            <img src="images/ilovepdf_pages-to-jpg (1)/RTF (1)-images-3.jpg" alt="Itinerary Page 4" onerror="this.src='images/finallogo1.png'"/>
+            <div class="rfg-cell-label">Itinerary Page 4</div>
+          </div>
+        </div>
 
         <div class="rfg-row3">
           <div class="rfg-cell" onclick="rfgOpenLightbox('images/ilovepdf_pages-to-jpg (1)/WhatsApp Image 2026-05-03 at 3.44.46 PM.jpeg')">
@@ -982,11 +963,12 @@ Your Nice Trip</p></div>
         <div class="footer-links-col">
           <h4 class="footer-col-title">Quick Links</h4>
           <ul class="footer-link-list">
-            <li><a href="#home"        class="nav-link footer-link" data-target="home">🏠 Home</a></li>
-            <li><a href="#about"       class="nav-link footer-link" data-target="about">ℹ️ About RTF</a></li>
-            <li><a href="#attractions" class="nav-link footer-link" data-target="attractions">📍 Discover Jodhpur</a></li>
-            <li><a href="#rtffam"      class="nav-link footer-link" data-target="rtffam">🤝 RTF FAM March 2026</a></li>
-            <li><a href="#rtfglobal"   class="nav-link footer-link" data-target="rtfglobal">🌍 RTF Global FAM</a></li>
+            <li><a href="#home"         class="nav-link footer-link" data-target="home">🏠 Home</a></li>
+            <li><a href="#about"        class="nav-link footer-link" data-target="about">ℹ️ About RTF</a></li>
+            <li><a href="#attractions"  class="nav-link footer-link" data-target="attractions">📍 Discover Jodhpur</a></li>
+            <li><a href="#rtffam"       class="nav-link footer-link" data-target="rtffam">🤝 RTF FAM March 2026</a></li>
+            <li><a href="#rtffamaugust" class="nav-link footer-link" data-target="rtffamaugust">🤝 RTF FAM August 2026</a></li>
+            <li><a href="#rtfglobal"    class="nav-link footer-link" data-target="rtfglobal">🌍 RTF Global FAM</a></li>
             <li><a href="#" onclick="showLegalModal('privacy', event)" class="footer-link">🔒 Privacy Policy</a></li>
             <li><a href="#" onclick="showLegalModal('terms', event)" class="footer-link">📋 Terms &amp; Conditions</a></li>
           </ul>
@@ -1079,7 +1061,7 @@ Your Nice Trip</p></div>
 
   <script src="script.js"></script>
 
-  <!-- ===== FINAL FIX: GLOBAL FAM LIGHTBOX ZOOM + HTML SAFETY PATCH ===== -->
+  <!-- ===== GLOBAL FAM LIGHTBOX ZOOM (unchanged) ===== -->
   <style>
     .rfg-lightbox {
       position: fixed !important;
@@ -1093,11 +1075,7 @@ Your Nice Trip</p></div>
       overflow: auto !important;
       box-sizing: border-box !important;
     }
-
-    .rfg-lightbox.open {
-      display: flex !important;
-    }
-
+    .rfg-lightbox.open { display: flex !important; }
     #rfgLightboxImg {
       max-width: 94vw !important;
       max-height: 86vh !important;
@@ -1113,13 +1091,11 @@ Your Nice Trip</p></div>
       box-shadow: 0 25px 80px rgba(0,0,0,0.75) !important;
       user-select: none !important;
     }
-
     #rfgLightboxImg.zoomed {
       max-width: none !important;
       max-height: none !important;
       cursor: zoom-out !important;
     }
-
     .rfg-lightbox-close {
       position: fixed !important;
       top: 22px !important;
@@ -1136,12 +1112,10 @@ Your Nice Trip</p></div>
       text-align: center !important;
       cursor: pointer !important;
     }
-
     .rfg-lightbox-close:hover {
       background: #facc15 !important;
       color: #0f172a !important;
     }
-
     .rfg-lightbox-help {
       position: fixed !important;
       left: 50% !important;
@@ -1157,44 +1131,27 @@ Your Nice Trip</p></div>
       white-space: nowrap !important;
       pointer-events: none !important;
     }
-
     .rfg-cell,
-    .gallery-img-zoom {
-      cursor: zoom-in !important;
-    }
-
+    .gallery-img-zoom { cursor: zoom-in !important; }
     @media (max-width: 560px) {
-      .rfg-lightbox {
-        padding: 68px 10px 58px !important;
-      }
-
-      #rfgLightboxImg {
-        max-width: 96vw !important;
-        max-height: 82vh !important;
-      }
-
-      .rfg-lightbox-help {
-        font-size: 11px !important;
-        padding: 7px 12px !important;
-      }
+      .rfg-lightbox { padding: 68px 10px 58px !important; }
+      #rfgLightboxImg { max-width: 96vw !important; max-height: 82vh !important; }
+      .rfg-lightbox-help { font-size: 11px !important; padding: 7px 12px !important; }
     }
   </style>
 
   <script>
-    // ===== FINAL FIX: RTF GLOBAL FAM LIGHTBOX WITH CLICK ZOOM =====
     var rfgZoomLevel = 1;
 
     function rfgOpenLightbox(src) {
       var lb  = document.getElementById("rfgLightbox");
       var img = document.getElementById("rfgLightboxImg");
       if (!lb || !img || !src) return;
-
       rfgZoomLevel = 1;
       img.src = src;
       img.classList.remove("zoomed");
       img.style.transform = "scale(1)";
       img.style.transformOrigin = "center center";
-
       lb.classList.add("open");
       lb.setAttribute("aria-hidden", "false");
       document.body.style.overflow = "hidden";
@@ -1203,25 +1160,18 @@ Your Nice Trip</p></div>
     }
 
     function rfgCloseLightbox(e) {
-      if (e) {
-        e.preventDefault();
-        e.stopPropagation();
-      }
-
+      if (e) { e.preventDefault(); e.stopPropagation(); }
       var lb  = document.getElementById("rfgLightbox");
       var img = document.getElementById("rfgLightboxImg");
-
       if (lb) {
         lb.classList.remove("open");
         lb.setAttribute("aria-hidden", "true");
       }
-
       if (img) {
         img.src = "";
         img.classList.remove("zoomed");
         img.style.transform = "scale(1)";
       }
-
       rfgZoomLevel = 1;
       document.body.style.overflow = "";
     }
@@ -1230,16 +1180,10 @@ Your Nice Trip</p></div>
       var lb  = document.getElementById("rfgLightbox");
       var img = document.getElementById("rfgLightboxImg");
       if (!lb || !img || !lb.classList.contains("open")) return;
-
-      if (e.target === lb) {
-        rfgCloseLightbox(e);
-        return;
-      }
-
+      if (e.target === lb) { rfgCloseLightbox(e); return; }
       if (e.target === img) {
         e.preventDefault();
         e.stopPropagation();
-
         if (rfgZoomLevel === 1) {
           rfgZoomLevel = 2.25;
           img.classList.add("zoomed");
@@ -1254,7 +1198,8 @@ Your Nice Trip</p></div>
 
     document.addEventListener("keydown", function (e) {
       if (e.key === "Escape") {
-        rfgCloseLightbox(e);
+        var lb = document.getElementById("rfgLightbox");
+        if (lb && lb.classList.contains("open")) rfgCloseLightbox(e);
       }
     });
   </script>
