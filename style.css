@@ -1361,22 +1361,3 @@ a[href="#rtfglobal"], a[data-target="rtfglobal"] { display: none !important; }
 @keyframes augustMemoriesScroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 @media(max-width:600px){#rtffamaugust .august-memory-card{flex-basis:220px;width:220px;height:175px}#rtffamaugust .august-memories-track{gap:12px}}
 @media(prefers-reduced-motion:reduce){#rtffamaugust .august-memories-track{animation:none!important}}
-
-/* ===== RTF FAM AUGUST 2026 — WRITTEN FEEDBACK (scrolls like Hotel Partners) ===== */
-#rtffamaugust .aug-fb-section{overflow:hidden;}
-#rtffamaugust .aug-fb-intro{text-align:center;color:#cbd5e1;margin:-.4rem 0 1rem;font-size:.95rem;}
-#rtffamaugust .aug-fb-track{display:flex;gap:1.5rem;width:max-content;align-items:center;padding:6px 0 14px;will-change:transform;}
-#rtffamaugust .aug-fb-track.is-ready{animation:scrollLogos 45s linear infinite;}
-#rtffamaugust .aug-fb-track:hover{animation-play-state:paused;}
-#rtffamaugust .aug-fb-card{display:block;flex:0 0 auto;height:300px;padding:8px;background:#fff;border:1px solid rgba(253,224,71,.35);border-radius:14px;box-shadow:0 8px 22px rgba(0,0,0,.25);transition:transform .25s ease;}
-#rtffamaugust .aug-fb-card:hover{transform:scale(1.04);}
-#rtffamaugust .aug-fb-card img{display:block;height:100%;width:auto;max-width:320px;object-fit:contain;border-radius:8px;}
-#rtffamaugust .aug-fb-empty{text-align:center;color:#cbd5e1;padding:24px 12px;}
-#rtffamaugust .aug-fb-link{text-align:center;margin:10px 0 0;}
-#rtffamaugust .aug-fb-link a{color:#fde047;font-weight:700;text-decoration:none;}
-#rtffamaugust .aug-fb-link a:hover{text-decoration:underline;}
-/* Memories track now only animates after JS duplicates it (no jump at loop end) */
-#rtffamaugust .august-memories-track{animation:none;}
-#rtffamaugust .august-memories-track.is-ready{animation:augustMemoriesScroll 65s linear infinite;}
-@media(max-width:600px){#rtffamaugust .aug-fb-card{height:230px}#rtffamaugust .aug-fb-card img{max-width:240px}#rtffamaugust .aug-fb-track{gap:1rem}}
-@media(prefers-reduced-motion:reduce){#rtffamaugust .aug-fb-track{animation:none!important}}
