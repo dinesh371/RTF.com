@@ -1,304 +1,106 @@
-// ===== REGISTRATION MODAL =====
+// Rajasthan Travel Fair: navigation, feedback, search and modals
 function toggleModal() {
-  var modal = document.getElementById("modal");
+  const modal = document.getElementById('modal');
   if (!modal) return;
-
-  var isHidden = modal.style.display === "none" || modal.style.display === "";
-  modal.style.display = isHidden ? "flex" : "none";
-
-  var mobileMenu = document.getElementById("mobile-menu");
-  if (mobileMenu) {
-    mobileMenu.classList.add("hidden");
-    mobileMenu.classList.remove("flex");
-  }
+  modal.style.display = getComputedStyle(modal).display === 'none' ? 'flex' : 'none';
+  const menu = document.getElementById('mobile-menu');
+  if (menu) { menu.classList.add('hidden'); menu.classList.remove('flex'); }
 }
-
-
-// ===== LEGAL MODAL =====
-// Footer links call these; they were missing, which caused a JS error on click.
-// Replace the placeholder text with your real Privacy Policy / Terms content.
-var LEGAL_CONTENT = {
-  privacy: {
-    title: "Privacy Policy",
-    body: "<p>Privacy Policy content will be updated soon. For queries, contact info@rajasthantravelfair.com.</p>"
-  },
-  terms: {
-    title: "Terms & Conditions",
-    body: "<p>Terms &amp; Conditions content will be updated soon. For queries, contact info@rajasthantravelfair.com.</p>"
-  }
+const LEGAL_CONTENT = {
+  privacy: {title:'Privacy Policy',body:'<p>Privacy Policy content will be updated soon. For queries, contact info@rajasthantravelfair.com.</p>'},
+  terms: {title:'Terms & Conditions',body:'<p>Terms &amp; Conditions content will be updated soon. For queries, contact info@rajasthantravelfair.com.</p>'}
 };
-
-function showLegalModal(type, e) {
-  if (e) e.preventDefault();
-  var modal = document.getElementById("legalModal");
-  var title = document.getElementById("legalModalTitle");
-  var body  = document.getElementById("legalModalBody");
-  var data  = LEGAL_CONTENT[type];
-  if (!modal || !data) return;
-  if (title) title.textContent = data.title;
-  if (body)  body.innerHTML = data.body;
-  modal.style.display = "flex";
+function showLegalModal(type,e) {
+  if(e) e.preventDefault();
+  const modal=document.getElementById('legalModal'), data=LEGAL_CONTENT[type];
+  if(!modal||!data)return;
+  const title=document.getElementById('legalModalTitle'),body=document.getElementById('legalModalBody');
+  if(title)title.textContent=data.title;
+  if(body)body.innerHTML=data.body;
+  modal.style.display='flex';
 }
-
-function closeLegalModal() {
-  var modal = document.getElementById("legalModal");
-  if (modal) modal.style.display = "none";
-}
-
-
-// ======================================================
-// MAIN SCRIPT
-// ======================================================
-document.addEventListener("DOMContentLoaded", function () {
-
-  // ====================================================
-  // FEEDBACK LOOP — works independently for March + August
-  // ====================================================
-  document.querySelectorAll(".feedback-track").forEach(function (track) {
-    track.querySelectorAll(".feedback-clone").forEach(function (clone) {
-      clone.remove();
+function closeLegalModal(){const m=document.getElementById('legalModal');if(m)m.style.display='none';}
+document.addEventListener('DOMContentLoaded',function(){
+  // August photo carousel: use only images actually uploaded to GitHub.
+  (function(){
+    const track=document.getElementById('augustMemoriesTrack');
+    if(!track)return;
+    const cards=Array.from(track.querySelectorAll('.august-memory-card'));
+    let pending=cards.length;
+    cards.forEach(function(card){
+      const img=card.querySelector('img');
+      const finish=function(ok){
+        if(!ok)card.remove();
+        pending--;
+        if(pending===0){
+          const available=Array.from(track.querySelectorAll('.august-memory-card'));
+          const empty=document.getElementById('augustMemoriesEmpty');
+          if(!available.length){track.parentElement.style.display='none';if(empty)empty.hidden=false;return;}
+          available.forEach(function(item){const clone=item.cloneNode(true);clone.setAttribute('aria-hidden','true');clone.tabIndex=-1;track.appendChild(clone);});
+          if(available.length===1)track.style.animation='none';
+        }
+      };
+      if(img.complete)finish(img.naturalWidth>0);
+      else{img.addEventListener('load',()=>finish(true),{once:true});img.addEventListener('error',()=>finish(false),{once:true});}
     });
+  })();
 
-    var cards = Array.from(track.querySelectorAll(".feedback-card-item"));
-    cards.forEach(function (card) {
-      var clone = card.cloneNode(true);
-      clone.classList.add("feedback-clone");
-      track.appendChild(clone);
+  document.querySelectorAll('.feedback-track').forEach(function(track){
+    track.querySelectorAll('.feedback-clone').forEach(n=>n.remove());
+    Array.from(track.querySelectorAll('.feedback-card-item')).forEach(function(card){
+      const clone=card.cloneNode(true);clone.classList.add('feedback-clone');track.appendChild(clone);
     });
-
-    track.style.animation = "none";
-    void track.offsetHeight;
-    track.style.animation = "scrollFeedback 180s linear infinite";
+    track.style.animation='none';void track.offsetHeight;
+    track.style.animation='scrollFeedback 180s linear infinite';
   });
-
-
-  // ====================================================
-  // PAGE ORDER
-  // ====================================================
-  var sectionOrder = [
-    "home",
-    "about",
-    "attractions",
-    "rtffam",
-    "rtffamaugust",
-    "rtfglobal"
-  ];
-
-  var sections = sectionOrder
-    .map(function (id) { return document.getElementById(id); })
-    .filter(Boolean);
-
-  // SAFETY FIX: if any section is accidentally nested inside another
-  // (e.g. August inside March because of a missing </section>),
-  // move every section back to #page-container as a direct child.
-  // Otherwise hiding March also hides August -> black page.
-  var pageContainer = document.getElementById("page-container");
-  if (pageContainer) {
-    sections.forEach(function (section) {
-      pageContainer.appendChild(section);
+  const sectionOrder=['home','about','attractions','rtffam','rtffamaugust'];
+  const sections=sectionOrder.map(id=>document.getElementById(id)).filter(Boolean);
+  const container=document.getElementById('page-container');
+  if(container)sections.forEach(section=>container.appendChild(section));
+  const menuToggle=document.getElementById('menu-toggle'),mobileMenu=document.getElementById('mobile-menu');
+  const prev=document.getElementById('prev-page-button'),next=document.getElementById('next-page-button');
+  let currentIndex=0;
+  function showPage(index,updateUrl=true){
+    if(index<0||index>=sections.length)return;
+    sections.forEach(function(section){
+      section.classList.remove('active');section.style.display='none';section.style.opacity='0';section.style.visibility='hidden';
+      section.querySelectorAll('video').forEach(video=>{try{video.pause();}catch(e){}});
     });
+    currentIndex=index;const active=sections[index];
+    active.style.display='flex';active.style.opacity='1';active.style.visibility='visible';active.classList.add('active');
+    active.querySelectorAll('video[autoplay],video.bg-video,video.about-bg-video').forEach(video=>{video.muted=true;video.play().catch(()=>{});});
+    if(updateUrl)history.pushState(null,'','#'+active.id);
+    window.scrollTo({top:0,behavior:'smooth'});
+    if(prev)prev.classList.toggle('hidden',currentIndex===0);
+    if(next)next.classList.toggle('hidden',currentIndex===sections.length-1);
+    document.querySelectorAll('.nav-link').forEach(link=>link.classList.toggle('text-yellow-300',link.dataset.target===active.id));
   }
-
-  var menuToggle     = document.getElementById("menu-toggle");
-  var mobileMenu     = document.getElementById("mobile-menu");
-  var prevSectionBtn = document.getElementById("prev-page-button");
-  var nextSectionBtn = document.getElementById("next-page-button");
-
-  var currentIndex = 0;
-
-
-  // ====================================================
-  // SHOW SELECTED PAGE
-  // ====================================================
-  function showPage(index, updateUrl) {
-    if (index < 0 || index >= sections.length) return;
-    if (updateUrl === undefined) updateUrl = true;
-
-    // Hide every page
-    sections.forEach(function (section) {
-      section.classList.remove("active");
-      section.style.display = "none";
-      section.style.opacity = "0";
-      section.style.visibility = "hidden";
-
-      section.querySelectorAll("video").forEach(function (video) {
-        try { video.pause(); } catch (err) {}
-      });
-    });
-
-    // Show selected page
-    currentIndex = index;
-    var activeSection = sections[currentIndex];
-
-    activeSection.style.display = "flex";
-    activeSection.style.opacity = "1";
-    activeSection.style.visibility = "visible";
-    activeSection.classList.add("active");
-
-    // Restart autoplay background videos
-    activeSection
-      .querySelectorAll("video[autoplay], video.bg-video, video.about-bg-video")
-      .forEach(function (video) {
-        video.muted = true;
-        video.play().catch(function () {});
-      });
-
-    if (updateUrl) {
-      history.pushState(null, "", "#" + activeSection.id);
-    }
-
-    window.scrollTo({ top: 0, behavior: "smooth" });
-
-    updateSectionArrows();
-    updateActiveNav();
-  }
-
-
-  // ====================================================
-  // PREVIOUS / NEXT ARROWS
-  // ====================================================
-  function updateSectionArrows() {
-    if (prevSectionBtn) {
-      prevSectionBtn.classList.toggle("hidden", currentIndex === 0);
-    }
-    if (nextSectionBtn) {
-      nextSectionBtn.classList.toggle("hidden", currentIndex === sections.length - 1);
-    }
-  }
-
-
-  // ====================================================
-  // ACTIVE NAVIGATION HIGHLIGHT
-  // ====================================================
-  function updateActiveNav() {
-    var activeId = sections[currentIndex] ? sections[currentIndex].id : "";
-
-    document.querySelectorAll(".nav-link").forEach(function (link) {
-      link.classList.remove("text-yellow-300");
-      if (link.getAttribute("data-target") === activeId) {
-        link.classList.add("text-yellow-300");
-      }
-    });
-  }
-
-
-  // ====================================================
-  // MENU / LINK CLICK
-  // ====================================================
-  document.addEventListener("click", function (event) {
-    var link = event.target.closest(".nav-link");
-    if (!link) return;
-
-    var targetId = link.getAttribute("data-target");
-    if (!targetId) return;
-
-    var index = sections.findIndex(function (section) {
-      return section.id === targetId;
-    });
-    if (index === -1) return;
-
-    event.preventDefault();
-    showPage(index);
-
-    if (mobileMenu) {
-      mobileMenu.classList.add("hidden");
-      mobileMenu.classList.remove("flex");
-    }
+  document.addEventListener('click',function(e){
+    const link=e.target.closest('.nav-link');if(!link)return;
+    const id=link.dataset.target;if(!id)return;
+    const idx=sections.findIndex(s=>s.id===id);
+    if(idx===-1){if(id==='rtfglobal'){e.preventDefault();showPage(0);}return;}
+    e.preventDefault();showPage(idx);
+    if(mobileMenu){mobileMenu.classList.add('hidden');mobileMenu.classList.remove('flex');}
   });
-
-
-  // ====================================================
-  // PREVIOUS / NEXT CLICK
-  // ====================================================
-  if (prevSectionBtn) {
-    prevSectionBtn.addEventListener("click", function () {
-      if (currentIndex > 0) showPage(currentIndex - 1);
-    });
+  if(prev)prev.addEventListener('click',()=>showPage(currentIndex-1));
+  if(next)next.addEventListener('click',()=>showPage(currentIndex+1));
+  if(menuToggle&&mobileMenu)menuToggle.addEventListener('click',()=>{mobileMenu.classList.toggle('hidden');mobileMenu.classList.toggle('flex');});
+  document.querySelectorAll('.participants-search').forEach(box=>box.addEventListener('input',function(){
+    const panel=this.closest('.fam-panel'),tbody=panel&&panel.querySelector('.participants-table tbody');if(!tbody)return;
+    const value=this.value.toLowerCase().trim();tbody.querySelectorAll('tr').forEach(row=>row.style.display=row.textContent.toLowerCase().includes(value)?'':'none');
+  }));
+  const reg=document.getElementById('modal'),legal=document.getElementById('legalModal');
+  if(reg)reg.addEventListener('click',e=>{if(e.target===reg)reg.style.display='none';});
+  if(legal)legal.addEventListener('click',e=>{if(e.target===legal)closeLegalModal();});
+  document.addEventListener('keydown',e=>{if(e.key==='Escape'){if(reg)reg.style.display='none';closeLegalModal();}});
+  function handleLocation(){
+    let hash=location.hash.slice(1);if(hash==='partners')hash='rtffam';
+    const idx=sections.findIndex(s=>s.id===hash);
+    if(idx<0&&hash){history.replaceState(null,'','#home');}
+    showPage(idx>=0?idx:0,false);
   }
-
-  if (nextSectionBtn) {
-    nextSectionBtn.addEventListener("click", function () {
-      if (currentIndex < sections.length - 1) showPage(currentIndex + 1);
-    });
-  }
-
-
-  // ====================================================
-  // MOBILE MENU
-  // ====================================================
-  if (menuToggle && mobileMenu) {
-    menuToggle.addEventListener("click", function () {
-      mobileMenu.classList.toggle("hidden");
-      mobileMenu.classList.toggle("flex");
-    });
-  }
-
-
-  // ====================================================
-  // PARTICIPANT SEARCH — works for March + August
-  // ====================================================
-  document.querySelectorAll(".participants-search").forEach(function (searchBox) {
-    searchBox.addEventListener("input", function () {
-      var searchValue = this.value.toLowerCase().trim();
-      var panel = this.closest(".fam-panel");
-      if (!panel) return;
-
-      var tbody = panel.querySelector(".participants-table tbody");
-      if (!tbody) return;
-
-      tbody.querySelectorAll("tr").forEach(function (row) {
-        row.style.display = row.textContent.toLowerCase().includes(searchValue) ? "" : "none";
-      });
-    });
-  });
-
-
-  // ====================================================
-  // CLOSE MODALS ON BACKDROP CLICK / ESCAPE
-  // ====================================================
-  var regModal   = document.getElementById("modal");
-  var legalModal = document.getElementById("legalModal");
-
-  if (regModal) {
-    regModal.addEventListener("click", function (e) {
-      if (e.target === regModal) regModal.style.display = "none";
-    });
-  }
-  if (legalModal) {
-    legalModal.addEventListener("click", function (e) {
-      if (e.target === legalModal) closeLegalModal();
-    });
-  }
-  document.addEventListener("keydown", function (e) {
-    if (e.key !== "Escape") return;
-    if (regModal) regModal.style.display = "none";
-    closeLegalModal();
-  });
-
-
-  // ====================================================
-  // BROWSER BACK / FORWARD
-  // ====================================================
-  window.addEventListener("popstate", function () {
-    var hash = window.location.hash.replace("#", "");
-    var index = sections.findIndex(function (section) {
-      return section.id === hash;
-    });
-    if (index !== -1) showPage(index, false);
-  });
-
-
-  // ====================================================
-  // INITIAL URL
-  // ====================================================
-  var initialHash = window.location.hash.replace("#", "");
-
-  // Support old #partners links
-  if (initialHash === "partners") initialHash = "rtffam";
-
-  var initialIndex = sections.findIndex(function (section) {
-    return section.id === initialHash;
-  });
-
-  showPage(initialIndex !== -1 ? initialIndex : 0, false);
+  window.addEventListener('popstate',handleLocation);
+  window.addEventListener('hashchange',handleLocation);
+  handleLocation();
 });
