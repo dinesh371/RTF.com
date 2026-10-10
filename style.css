@@ -1344,3 +1344,20 @@ a[href="#rtfglobal"], a[data-target="rtfglobal"] { display: none !important; }
 @media(max-width:600px){#rtffamaugust .august-album-frame iframe{height:380px;}}
 /* HIDE GLOBAL FAM SECTION AND NAVIGATION */
 #rtfglobal,#rtfglobal.page-section.active,a[href="#rtfglobal"],a[data-target="rtfglobal"] {display:none !important;visibility:hidden !important;}
+
+/* AUGUST MEMORIES – SAME HORIZONTAL MARQUEE EXPERIENCE AS HOTEL LOGOS */
+#rtffamaugust .august-memories-section{overflow:hidden!important;}
+#rtffamaugust .august-memories-intro{text-align:center;color:#cbd5e1;margin:0 0 18px;font-size:.95rem;}
+#rtffamaugust .august-memories-window{width:100%;overflow:hidden;padding:12px 0 20px;}
+#rtffamaugust .august-memories-track{display:flex;gap:18px;width:max-content;align-items:center;animation:augustMemoriesScroll 65s linear infinite;will-change:transform;}
+#rtffamaugust .august-memories-window:hover .august-memories-track{animation-play-state:paused;}
+#rtffamaugust .august-memory-card{display:block;flex:0 0 280px;width:280px;height:210px;padding:7px;background:#fff;border:2px solid rgba(253,224,71,.4);border-radius:15px;overflow:hidden;box-shadow:0 8px 22px rgba(0,0,0,.25);transition:transform .25s ease;}
+#rtffamaugust .august-memory-card:hover{transform:scale(1.035);}
+#rtffamaugust .august-memory-card img{display:block;width:100%;height:100%;object-fit:contain;border-radius:9px;background:#fff;}
+#rtffamaugust .august-memories-empty{text-align:center;color:#cbd5e1;padding:28px 12px;}
+#rtffamaugust .august-memories-link{text-align:center;margin:12px 0 3px;}
+#rtffamaugust .august-memories-link a{color:#fde047;font-weight:700;text-decoration:none;}
+#rtffamaugust .august-memories-link a:hover{text-decoration:underline;}
+@keyframes augustMemoriesScroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@media(max-width:600px){#rtffamaugust .august-memory-card{flex-basis:220px;width:220px;height:175px}#rtffamaugust .august-memories-track{gap:12px}}
+@media(prefers-reduced-motion:reduce){#rtffamaugust .august-memories-track{animation:none!important}}
